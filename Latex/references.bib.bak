@@ -1,15 +1,15 @@
 
-%
-%@article{ambrosino2009new,
-%  title={A new three-step heuristic for the master bay plan problem},
-%  author={Ambrosino, Daniela and Anghinolfi, Davide and Paolucci, Massimo and Sciomachen, Anna},
-%  journal={Maritime Economics \& Logistics},
-%  volume={11},
-%  number={1},
-%  pages={98--120},
-%  year={2009},
-%  publisher={Springer}
-%}
+
+@article{ambrosino2009new,
+  title={A new three-step heuristic for the master bay plan problem},
+  author={Ambrosino, Daniela and Anghinolfi, Davide and Paolucci, Massimo and Sciomachen, Anna},
+  journal={Maritime Economics \& Logistics},
+  volume={11},
+  number={1},
+  pages={98--120},
+  year={2009},
+  publisher={Springer}
+}
 
 
 @article{avriel2000container,
@@ -45,18 +45,18 @@
 }
 
 @inproceedings{webster1970container,
-  title={Container loading. a container allocation model: I-introduction background, II-strategy, conclusions},
-  author={Webster, WC and Van Dyke, P},
+  title={Container loading: a container allocation model: I-introduction background, II-strategy, conclusions},
+  author={Webster, W.~C. and Van Dyke, P.},
   booktitle={Proceedings of Computer-Aided Ship Design Engineering Summer Conference. University of Michigan},
   year={1970}
 }
 
-%@book{webster1969automated,
-%  title={Automated procedures for the allocation of containers on shipboard},
-%  author={Webster, WC and Van Dyke, P and Cojeen, HP},
-%  year={1969},
-%  publisher={Hydronautics}
-%}
+@book{webster1969automated,
+  title={Automated procedures for the allocation of containers on shipboard},
+  author={Webster, WC and Van Dyke, P and Cojeen, HP},
+  year={1969},
+  publisher={Hydronautics}
+}
 
 
 @article{shields1984containership,

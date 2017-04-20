@@ -1,16 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.22)  18 APR 2017 15:39
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  20 APR 2017 22:38
 entering extended mode
-**SSMP-KR.tex
-("C:\Users\宁\Documents\Research\Stowage Planning\SSMP-KR\Latex\SSMP-KR.tex"
+**C:/Users/brightful/Desktop/123/Latex/SSMP-KR.tex
+(C:/Users/brightful/Desktop/123/Latex/SSMP-KR.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
-("C:\Users\宁\Documents\Research\Stowage Planning\SSMP-KR\Latex\elsarticle.cls
-"
+(C:\Users\brightful\Desktop\123\Latex\elsarticle.cls
 Document Class: elsarticle 2008/05/22, 1.0.1: Elsevier Science
 \@bls=\dimen102
-(C:\CTEX\MiKTeX\tex\latex\base\article.cls
+(D:\CTEX\MiKTeX\tex\latex\base\article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(C:\CTEX\MiKTeX\tex\latex\base\size12.clo
+(D:\CTEX\MiKTeX\tex\latex\base\size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -25,31 +24,31 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen103
 )
-(C:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
+(D:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
+(D:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(C:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
+(D:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
+(D:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(C:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
+(D:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(C:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
+(D:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+(D:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
 )
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+(D:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
 Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
@@ -57,16 +56,16 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-(C:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty
+(D:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
 
-(C:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd
+(D:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Try loading font information for U+psy on input line 64.
 
-(C:\CTEX\MiKTeX\tex\latex\psnfss\upsy.fd
+(D:\CTEX\MiKTeX\tex\latex\psnfss\upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
 \c@tnote=\count88
@@ -87,8 +86,8 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \@sep=\skip43
 \@@sep=\skip44
 
-("C:\Users\宁\Documents\Research\Stowage Planning\SSMP-KR\Latex\SSMP-KR.spl")
-(C:\CTEX\UserData\tex\latex\natbib\natbib.sty
+(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.spl)
+(D:\CTEX\MiKTeX\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip45
 \bibsep=\skip46
@@ -97,18 +96,18 @@ LaTeX Info: Redefining \cite on input line 694.
 )
 \splwrite=\write3
 
-(C:\CTEX\MiKTeX\tex\latex\geometry\geometry.sty
+(D:\CTEX\MiKTeX\tex\latex\geometry\geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\ifpdf.sty
+(D:\CTEX\MiKTeX\tex\generic\oberdiek\ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-(C:\CTEX\MiKTeX\tex\generic\oberdiek\ifvtex.sty
+(D:\CTEX\MiKTeX\tex\generic\oberdiek\ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(C:\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
+(D:\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count95
@@ -124,8 +123,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen116
 \Gm@dimlist=\toks17
 
-(C:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg)))
-(C:\CTEX\UserData\tex\latex\txfonts\txfonts.sty
+(D:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg)))
+(D:\CTEX\MiKTeX\tex\latex\txfonts\txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -201,24 +200,24 @@ LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
 (Font)                  U/txexa/m/n --> U/txexa/bx/n on input line 129.
 LaTeX Info: Redefining \not on input line 1043.
 )
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
+(D:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip47
 
 For additional information on amsmath, use the `?' option.
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
+(D:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
+(D:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks18
 \ex@=\dimen117
 ))
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
+(D:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen118
 )
-(C:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
+(D:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count98
@@ -259,7 +258,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(C:\CTEX\MiKTeX\tex\latex\ams\classes\amsthm.sty
+(D:\CTEX\MiKTeX\tex\latex\ams\classes\amsthm.sty
 Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks23
 \thm@bodyfont=\toks24
@@ -273,10 +272,10 @@ Package: amsthm 2004/08/06 v2.20
 LaTeX Info: Redefining \qed on input line 283.
 LaTeX Info: Redefining \textsquare on input line 431.
 )
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
+(D:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+(D:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 49.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
@@ -521,11 +520,11 @@ LaTeX Font Info:    Redeclaring math symbol \Bbbk on input line 256.
 LaTeX Font Info:    Redeclaring math symbol \hslash on input line 257.
 LaTeX Font Info:    Redeclaring math symbol \backepsilon on input line 260.
 )
-(C:\CTEX\UserData\tex\latex\algorithms\algorithm.sty
+(D:\CTEX\MiKTeX\tex\latex\algorithms\algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
-(C:\CTEX\MiKTeX\tex\latex\float\float.sty
+(D:\CTEX\MiKTeX\tex\latex\float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count110
 \float@exts=\toks29
@@ -533,13 +532,13 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box33
 )
-(C:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
+(D:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks31
 \c@algorithm=\count111
 )
-(C:\CTEX\UserData\tex\latex\algorithmicx\algorithmicx.sty
+(D:\CTEX\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
@@ -553,17 +552,17 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \c@ALG@storecount=\count117
 \c@ALG@tmpcounter=\count118
 \ALG@tmplength=\skip55
-) (C:\CTEX\MiKTeX\tex\latex\tools\enumerate.sty
+) (D:\CTEX\MiKTeX\tex\latex\tools\enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks32
 )
 \c@proposition=\count119
 
-("C:\Users\宁\Documents\Research\Stowage Planning\SSMP-KR\Latex\SSMP-KR.aux")
+(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.aux)
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 9.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 9.
 
-(C:\CTEX\UserData\tex\latex\txfonts\omltxmi.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    ... okay on input line 9.
@@ -574,30 +573,30 @@ LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 9.
 LaTeX Font Info:    Try loading font information for OMS+txsy on input line 9.
 
-(C:\CTEX\UserData\tex\latex\txfonts\omstxsy.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 9.
 LaTeX Font Info:    Try loading font information for OMX+txex on input line 9.
 
-(C:\CTEX\UserData\tex\latex\txfonts\omxtxex.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 9.
 LaTeX Font Info:    Try loading font information for U+txexa on input line 9.
 
-(C:\CTEX\UserData\tex\latex\txfonts\utxexa.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Try loading font information for OT1+txr on input line 9.
 
-(C:\CTEX\UserData\tex\latex\txfonts\ot1txr.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-(C:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
+(D:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count120
 \scratchdimen=\dimen126
@@ -648,110 +647,107 @@ File: ot1txr.fd 2000/12/15 v3.1
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Try loading font information for U+txmia on input line 41.
-(C:\CTEX\UserData\tex\latex\txfonts\utxmia.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
+(D:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 
-(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
+(D:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+txsyc on input line 41.
 
-(C:\CTEX\UserData\tex\latex\txfonts\utxsyc.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 ) [1
 
-{C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
+{D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}] [2]
 Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
- [2] [3] [4] [5] [6] [7
+ [3] [4] [5] [6] [7] [8] [9
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 255.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 265.
 
 
-(C:\CTEX\UserData\tex\latex\txfonts\omstxr.fd
+(D:\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 255.
- [8]
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 265.
+ [10]
 
-LaTeX Warning: Reference `def:1' on page 9 undefined on input line 313.
+LaTeX Warning: Reference `def:1' on page 11 undefined on input line 323.
 
 Missing character: There is no � in font txr!
-[9] [10] [11] <K-Stacks.png, id=43, 362.3136pt x 217.7736pt>
+[11] [12] [13] <K-Stacks.png, id=50, 362.3136pt x 217.7736pt>
 File: K-Stacks.png Graphic file (type png)
 
 <use K-Stacks.png>
-Package pdftex.def Info: K-Stacks.png used on input line 494.
+Package pdftex.def Info: K-Stacks.png used on input line 504.
 (pdftex.def)             Requested size: 289.07729pt x 216.81604pt.
- <K-containers.png, id=45, 404.712pt x 217.7736pt>
+ <K-containers.png, id=52, 404.712pt x 217.7736pt>
 File: K-containers.png Graphic file (type png)
 
 <use K-containers.png>
-Package pdftex.def Info: K-containers.png used on input line 502.
+Package pdftex.def Info: K-containers.png used on input line 512.
 (pdftex.def)             Requested size: 289.09517pt x 216.81604pt.
- [12] [13 <C:/Users/宁/Documents/Research/Stowage Planning/SSMP-KR/Latex/K-Sta
-cks.png> <C:/Users/宁/Documents/Research/Stowage Planning/SSMP-KR/Latex/K-cont
-ainers.png>]
-<K-ports.png, id=55, 404.2302pt x 217.7736pt>
+ [14] [15 <C:/Users/brightful/Desktop/123/Latex/K-Stacks.png> <C:/Users/brightf
+ul/Desktop/123/Latex/K-containers.png>]
+<K-ports.png, id=61, 404.2302pt x 217.7736pt>
 File: K-ports.png Graphic file (type png)
  <use K-ports.png>
-Package pdftex.def Info: K-ports.png used on input line 511.
+Package pdftex.def Info: K-ports.png used on input line 521.
 (pdftex.def)             Requested size: 289.08408pt x 216.81604pt.
 
 
-LaTeX Warning: File `K-limit height.png' not found on input line 519.
+LaTeX Warning: File `K-limit height.png' not found on input line 529.
 
-<K-limit height.png, id=56, 429.7656pt x 217.7736pt>
+<K-limit height.png, id=62, 429.7656pt x 217.7736pt>
 File: K-limit height.png Graphic file (type png)
  <use K-limit height.png>
-Package pdftex.def Info: K-limit height.png used on input line 519.
+Package pdftex.def Info: K-limit height.png used on input line 529.
 (pdftex.def)             Requested size: 289.08905pt x 216.81604pt.
 
-<K-comprehensive.png, id=57, 491.9178pt x 261.6174pt>
+<K-comprehensive.png, id=63, 491.9178pt x 261.6174pt>
 File: K-comprehensive.png Graphic file (type png)
 
 <use K-comprehensive.png>
-Package pdftex.def Info: K-comprehensive.png used on input line 528.
+Package pdftex.def Info: K-comprehensive.png used on input line 538.
 (pdftex.def)             Requested size: 289.08055pt x 216.81503pt.
- [14
+ [16
 
- <C:/Users/宁/Documents/Research/Stowage Planning/SSMP-KR/Latex/K-ports.png> <
-C:/Users/宁/Documents/Research/Stowage Planning/SSMP-KR/Latex/K-limit height.p
-ng>]
-("C:\Users\宁\Documents\Research\Stowage Planning\SSMP-KR\Latex\SSMP-KR.bbl"
-[15 <C:/Users/宁/Documents/Research/Stowage Planning/SSMP-KR/Latex/K-comprehen
-sive.png>]) [16]
-("C:\Users\宁\Documents\Research\Stowage Planning\SSMP-KR\Latex\SSMP-KR.aux")
+ <C:/Users/brightful/Desktop/123/Latex/K-ports.png> <C:/Users/brightful/Desktop
+/123/Latex/K-limit height.png>]
+(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.bbl [17 <C:/Users/brightful/Deskt
+op/123/Latex/K-comprehensive.png>]) [18]
+(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4195 strings out of 495354
- 52507 string characters out of 3183858
- 157998 words of memory out of 3000000
- 7250 multiletter control sequences out of 15000+200000
+ 4219 strings out of 495354
+ 52683 string characters out of 3183859
+ 158267 words of memory out of 3000000
+ 7274 multiletter control sequences out of 15000+200000
  40929 words of font info for 104 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,9n,34p,5607b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/CTEX/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmtt10.pfb><C:/CTEX/UserData/fonts/type1/public/txfonts/rtxmi
-.pfb><C:/CTEX/UserData/fonts/type1/public/txfonts/rtxr.pfb><C:/CTEX/UserData/fo
-nts/type1/public/txfonts/txsy.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.
-pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/CTEX/MiKTeX/fonts/type
-1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (16 pages, 180736 bytes).
+ 34i,9n,34p,2933b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<D:/CTEX/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmtt10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.p
+fb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxr.pfb><D:/CTEX/MiKTeX/fonts/ty
+pe1/public/txfonts/txsy.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D
+:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/
+times/utmri8a.pfb>
+Output written on SSMP-KR.pdf (18 pages, 188242 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
+ 100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

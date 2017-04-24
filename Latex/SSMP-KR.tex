@@ -30,7 +30,7 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 
 \begin{abstract}
 The container stowage problem concerns with suitable placements of containers on a container-ship in a multi-port voyage.
-Many scholars have conducted research with the objective of minimum rehandles. This paper investigates a variant which accommodates given containers with the minimum stacks subject to K rehandles; we call it stowage stack minimization problem with K-rehandle (SSM~-KR). The variant facilitates forwarders to evaluate the value of received individual shipping orders.
+Many scholars have conducted research with the objective of minimum rehandles. This paper investigates a variant which accommodates given containers with the minimum stacks subject to K rehandles; we call it stowage stack minimization problem with K-rehandle (SSMP-KR). The variant facilitates forwarders to evaluate the value of received individual shipping orders.
 In this paper, we analyze the structure of SSMP-KR and its relationship with the circle graph.
 A heuristic approach is proposed to construct near-optimal solutions in a very short computational time.
 Experimental results show the effect of instance parameters on solutions.
@@ -45,7 +45,9 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 \section{Introduction}
 \label{sec:i}
 TODO: add importance of global trade
-Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship. Over 60\% of general cargoes are transported by containership at present (TODO: cite source). This mode is deeply accepted by shipper and carrier, and is becoming the main trend of freightage in the world. It shows powerful vitality and promising prospects.
+International trade plays a important role in promoting the development of world economy, promoting national income increase and expanding employment around the world.
+Meanwhile, logistics is the main link in international trade. In view of the complexity of logistics in international trade, multimodal transport can bring a great convenience. Furthermore, the perfect fit between container transport and multimodal transport makes the international trade easier and more convenient.
+Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship. Over 60\% of general cargoes are transported by containership presented by \cite{zhang2008review} (TODO: cite source). This mode is deeply accepted by shipper and carrier, and is becoming the main trend of freightage in the world. It shows powerful vitality and promising prospects.
 
 The container stowage plan is a pivotal link to containers transportation,and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}. Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights. These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. With the development of container-shipping, more and more containers are transported by sail. Up to now, no satisfying solution has development of container transportation trade. Thus, it makes higher demand of the problem.
 
@@ -108,8 +110,8 @@ The presented hybrid GA for loading a single container in \cite{bortfeldt2001hyb
 
 A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $p$, 1, 2, 3, ... $p$, 1, ..., which forms a circular route.
 There are standard containers to be shipped along the journey.
-At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship. 
-Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$. 
+At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship.
+Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$.
 Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1. Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist. Moreover, the ship is never empty once sets out due to the circular feature.
 All the loading and discharging ports of $N$ containers are known in advance.
 
@@ -579,8 +581,10 @@ Figure \ref{fig5:graph} shows us that the comprehensive impact on the result we 
 
 \section{Conclusion}
 \label{sec:con}
-The stowage stack minimization problem with K-rehandle constraint (SSM-KR deals with accommodating give containers throughout a voyage by fewest stacks on a containership subject to K rehandles.
-In this paper, we analyze the structure of this combinatorial optimization problem and its relationship with the circle graph.
+The stowage stack minimization problem with K-rehandle constraint (SSMP-KR) deals with accommodating give containers throughout a voyage by fewest stacks on a containership subject to K rehandles.
+In this paper, we analyze the structure of this combinatorial optimization problem and its relationship with the zero rehandle problem proposed in \cite{wang2014stowage}.
+We can regard the stowage stack minimization problem with the zero rehandle as an exception  when we choose the value of K as zero.
+Hence, the problem proposed in this paper is a generalized and extended problem considering the existence of rehandle.
 A heuristic approach is proposed to construct near-optimal solutions in a very short computational time.
 The experimental results show that our heuristic approaches generate very promising solutions on a variety of instances. Comparing with the stowage stack minimum rehandle problem with zero constraint, our problem with K rehandle constraint acts as a buffer and offers great flexibility for the actual problem. The results shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility. We use greedy rules to find the best slot for each container, hence the results may be the near-optimal rather than global optimal. As we all know, it is difficult to get the global optimal for this kind of problem. Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. The novelty and practicality show the importance of this paper and it can give a reference to the future study.
 

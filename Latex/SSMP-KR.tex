@@ -2,8 +2,9 @@
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{algorithm}
 \usepackage{algorithmicx}
-\usepackage{graphicx}
+\usepackage{graphicx,subfigure}
 \usepackage{enumerate}
+\graphicspath{{figure/}}
 \newtheorem{proposition}{Proposition}
 
 \begin{document}
@@ -78,7 +79,7 @@ A multiobjective ship stowage planning problem(SSPP) was investigated by \cite{z
 To the best of our knowledge, apart from the SSMP-ZR, only \cite{avriel2000container} and \cite{jensen2010complexity} discussed the stowage stack minimization and its connection with the chromatic number of circle graphs when the stack height is unlimited. At present, the research tendency of the stowage planning problem is intelligent management system, which is a new stowage research direction. Intelligent containership stowage plan system is a technological innovation in contrast with traditional stowage method. It can improve the ability of decision-making management system of container shipping by means of artificial intelligence, information technology, communications and computer technology.
 
  In \cite{ambrosino2004stowing} the problem of stowing containers into a containership has been faced by evaluating an exact 0-1 Linear Programming model, that is not practically useful for large cases. This has been modified by an approach proposed by the authors, consisting of heuristic preprocessing and prestowing procedures that also allow the relaxation of some constraints of the exact model. The proposed approach exhibits very good performance in terms of both solution precision and computational time. Moreover, in the performance evaluation with real size cases, it also guarantees another very important maritime performance index, in term of handling operations/hour.
- 
+
 \cite{wilson2001container} outlined a computer system that generates good sub-optimal solutions to the stowage pre-planning problem. This is achieved through an intelligent analysis of the domain allowing the problem to be divided into sub-problems: a generalized placement strategy and a specialised placement procedure. This methodology progressively refines the arrangement of containers within the cargo-space of a container ship until each container is specifically allocated to a stowage location.
 
 Container ship stowage problem(CSSP ) is combinatorial optimization problem with multiobjects and multiconstraints. In order to reduce computational difficulty£¬CSSP is decomposed two subproblems in \cite{wei2005model}, and the first one is discussed detailed. CSSP is regarded as bin-packing problem. After being modeled£¬the algorithm of best fit for binpacking problem is used to solve the CSSP.  A case shows that the algorithm is feasible for container ship stowage problem.
@@ -86,13 +87,13 @@ Container ship stowage problem(CSSP ) is combinatorial optimization problem with
 The presented hybrid GA for loading a single container in \cite{bortfeldt2001hybrid}  is particularly suitable for strongly heterogeneous containers stowage problems.  The algorithm takes account of some constraints which are relevant in practice. Its good performance and superiority to comparative methods was verified in an extensive test. The use of a time limit kept the required computing times within acceptable limits. Then, \cite{bortfeldt2003parallel} presented a parallel tabu search algorithm for the container loading problem with a single container to be loaded. According to an extensive comparative test also including heuristics from other authors, high utilizations of the container volume are already obtained with the sequential TSA. A slight improvement of these results could be achieved by the parallelization.
 
 \cite{haghani2001model} proposed a MIP model for developing loading plans in order to minimize the time that a vessel spends at port, and the container handling cost which shifts caused by is highly influenced by the number of unproductive but necessary an unsatisfactory arrangement of containers.
- 
+
 \cite{avriel1998stowage} and \cite{avriel2000container} focused on stowage planning in order to minimize the number of unproductive shifts (temporary unloading and reloading of containers at a port before their destination ports in order to access containers below them for unloading). Aspects of ship's stability and other real-life constraints are not considered. A binary linear programming (LP) model is formulated. Due to the proven NP-hardness of the problem a so-called `Suspensory Heuristic£¬¡ª¡ªbased on earlier work by \cite{avriel1993exact} ¡ª¡ªis developed in order to solve even large problem instances. The heuristic assigns slots in a bay to containers dynamically with respect to the sequence of ports in a vessel's route.
 
 
- 
 
- 
+
+
 
 
 \section{Problem Description}

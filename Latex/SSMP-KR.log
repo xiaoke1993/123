@@ -1,15 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  20 APR 2017 22:38
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2015.1.19)  24 APR 2017 15:32
 entering extended mode
-**C:/Users/brightful/Desktop/123/Latex/SSMP-KR.tex
-(C:/Users/brightful/Desktop/123/Latex/SSMP-KR.tex
+**SSMP-KR.tex
+(E:\Github\123\Latex\SSMP-KR.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
-(C:\Users\brightful\Desktop\123\Latex\elsarticle.cls
+(E:\Github\123\Latex\elsarticle.cls
 Document Class: elsarticle 2008/05/22, 1.0.1: Elsevier Science
 \@bls=\dimen102
-(D:\CTEX\MiKTeX\tex\latex\base\article.cls
+(C:\CTEX\MiKTeX\tex\latex\base\article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(D:\CTEX\MiKTeX\tex\latex\base\size12.clo
+(C:\CTEX\MiKTeX\tex\latex\base\size12.clo
 File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -24,31 +24,31 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen103
 )
-(D:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
+(C:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(D:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
+(C:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(D:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
+(C:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(D:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
+(C:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(D:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
+(C:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(D:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
+(C:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(D:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+(C:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
 )
-(D:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+(C:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
 Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
@@ -56,16 +56,16 @@ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-(D:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty
+(C:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
 
-(D:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd
+(C:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Try loading font information for U+psy on input line 64.
 
-(D:\CTEX\MiKTeX\tex\latex\psnfss\upsy.fd
+(C:\CTEX\MiKTeX\tex\latex\psnfss\upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
 \c@tnote=\count88
@@ -86,8 +86,7 @@ File: upsy.fd 2001/06/04 font definitions for U/psy.
 \@sep=\skip43
 \@@sep=\skip44
 
-(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.spl)
-(D:\CTEX\MiKTeX\tex\latex\natbib\natbib.sty
+(C:\CTEX\UserData\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip45
 \bibsep=\skip46
@@ -96,18 +95,18 @@ LaTeX Info: Redefining \cite on input line 694.
 )
 \splwrite=\write3
 
-(D:\CTEX\MiKTeX\tex\latex\geometry\geometry.sty
+(C:\CTEX\MiKTeX\tex\latex\geometry\geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(D:\CTEX\MiKTeX\tex\generic\oberdiek\ifpdf.sty
+(C:\CTEX\MiKTeX\tex\generic\oberdiek\ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-(D:\CTEX\MiKTeX\tex\generic\oberdiek\ifvtex.sty
+(C:\CTEX\MiKTeX\tex\generic\oberdiek\ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
 )
-(D:\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
+(C:\CTEX\MiKTeX\tex\generic\ifxetex\ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count95
@@ -123,8 +122,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen116
 \Gm@dimlist=\toks17
 
-(D:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg)))
-(D:\CTEX\MiKTeX\tex\latex\txfonts\txfonts.sty
+(C:\CTEX\MiKTeX\tex\latex\geometry\geometry.cfg)))
+(C:\CTEX\UserData\tex\latex\txfonts\txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -200,24 +199,24 @@ LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `bold'
 (Font)                  U/txexa/m/n --> U/txexa/bx/n on input line 129.
 LaTeX Info: Redefining \not on input line 1043.
 )
-(D:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
+(C:\CTEX\MiKTeX\tex\latex\ams\math\amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip47
 
 For additional information on amsmath, use the `?' option.
-(D:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
+(C:\CTEX\MiKTeX\tex\latex\ams\math\amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(D:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
+(C:\CTEX\MiKTeX\tex\latex\ams\math\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks18
 \ex@=\dimen117
 ))
-(D:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
+(C:\CTEX\MiKTeX\tex\latex\ams\math\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen118
 )
-(D:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
+(C:\CTEX\MiKTeX\tex\latex\ams\math\amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count98
@@ -258,7 +257,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(D:\CTEX\MiKTeX\tex\latex\ams\classes\amsthm.sty
+(C:\CTEX\MiKTeX\tex\latex\ams\classes\amsthm.sty
 Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks23
 \thm@bodyfont=\toks24
@@ -272,10 +271,10 @@ Package: amsthm 2004/08/06 v2.20
 LaTeX Info: Redefining \qed on input line 283.
 LaTeX Info: Redefining \textsquare on input line 431.
 )
-(D:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
+(C:\CTEX\MiKTeX\tex\latex\amsfonts\amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 
-(D:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
+(C:\CTEX\MiKTeX\tex\latex\amsfonts\amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring symbol font `AMSa' on input line 49.
 LaTeX Font Info:    Overwriting symbol font `AMSa' in version `normal'
@@ -520,95 +519,109 @@ LaTeX Font Info:    Redeclaring math symbol \Bbbk on input line 256.
 LaTeX Font Info:    Redeclaring math symbol \hslash on input line 257.
 LaTeX Font Info:    Redeclaring math symbol \backepsilon on input line 260.
 )
-(D:\CTEX\MiKTeX\tex\latex\algorithms\algorithm.sty
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
 
-(D:\CTEX\MiKTeX\tex\latex\float\float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count110
-\float@exts=\toks29
-\float@box=\box32
-\@float@everytoks=\toks30
-\@floatcapt=\box33
-)
-(D:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\@float@every@algorithm=\toks31
-\c@algorithm=\count111
-)
-(D:\CTEX\MiKTeX\tex\latex\algorithmicx\algorithmicx.sty
+! LaTeX Error: File `algorithm.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+(C:\CTEX\UserData\tex\latex\algorithmicx\algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
+(C:\CTEX\MiKTeX\tex\latex\base\ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count112
-\c@ALG@rem=\count113
-\c@ALG@nested=\count114
+\c@ALG@line=\count110
+\c@ALG@rem=\count111
+\c@ALG@nested=\count112
 \ALG@tlm=\skip53
 \ALG@thistlm=\skip54
-\c@ALG@Lnr=\count115
-\c@ALG@blocknr=\count116
-\c@ALG@storecount=\count117
-\c@ALG@tmpcounter=\count118
+\c@ALG@Lnr=\count113
+\c@ALG@blocknr=\count114
+\c@ALG@storecount=\count115
+\c@ALG@tmpcounter=\count116
 \ALG@tmplength=\skip55
-) (D:\CTEX\MiKTeX\tex\latex\tools\enumerate.sty
-Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
-\@enLab=\toks32
+) (C:\CTEX\UserData\tex\latex\subfigure\subfigure.sty
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip56
+\subfigcapskip=\skip57
+\subfigcaptopadj=\dimen126
+\subfigbottomskip=\skip58
+\subfigcapmargin=\dimen127
+\subfiglabelskip=\skip59
+\c@subfigure=\count117
+\c@lofdepth=\count118
+\c@subtable=\count119
+\c@lotdepth=\count120
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(C:\CTEX\UserData\tex\latex\subfigure\subfigure.cfg)
+\subfig@top=\skip60
+\subfig@bottom=\skip61
 )
-\c@proposition=\count119
+(C:\CTEX\MiKTeX\tex\latex\tools\enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks29
+)
+\c@proposition=\count121
 
-(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.aux)
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 9.
-LaTeX Font Info:    Try loading font information for OML+txmi on input line 9.
+No file SSMP-KR.aux.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 10.
+LaTeX Font Info:    Try loading font information for OML+txmi on input line 10.
 
-(D:\CTEX\MiKTeX\tex\latex\txfonts\omltxmi.fd
+(C:\CTEX\UserData\tex\latex\txfonts\omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 9.
-LaTeX Font Info:    Try loading font information for OMS+txsy on input line 9.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 10.
+LaTeX Font Info:    Try loading font information for OMS+txsy on input line 10.
 
-(D:\CTEX\MiKTeX\tex\latex\txfonts\omstxsy.fd
+
+(C:\CTEX\UserData\tex\latex\txfonts\omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 9.
-LaTeX Font Info:    Try loading font information for OMX+txex on input line 9.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 10.
+LaTeX Font Info:    Try loading font information for OMX+txex on input line 10.
 
-(D:\CTEX\MiKTeX\tex\latex\txfonts\omxtxex.fd
+
+(C:\CTEX\UserData\tex\latex\txfonts\omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 9.
-LaTeX Font Info:    Try loading font information for U+txexa on input line 9.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 10.
+LaTeX Font Info:    Try loading font information for U+txexa on input line 10.
 
-(D:\CTEX\MiKTeX\tex\latex\txfonts\utxexa.fd
+(C:\CTEX\UserData\tex\latex\txfonts\utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Try loading font information for OT1+txr on input line 9.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Try loading font information for OT1+txr on input line 10.
 
-(D:\CTEX\MiKTeX\tex\latex\txfonts\ot1txr.fd
+(C:\CTEX\UserData\tex\latex\txfonts\ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-(D:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
+(C:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen126
-\scratchbox=\box34
-\nofMPsegments=\count121
-\nofMParguments=\count122
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen127
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
-\everyMPtoPDFconversion=\toks34
+\scratchcounter=\count122
+\scratchdimen=\dimen128
+\scratchbox=\box32
+\nofMPsegments=\count123
+\nofMParguments=\count124
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen129
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
+\everyMPtoPDFconversion=\toks31
 )
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -646,108 +659,293 @@ File: ot1txr.fd 2000/12/15 v3.1
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+txmia on input line 41.
-(D:\CTEX\MiKTeX\tex\latex\txfonts\utxmia.fd
+LaTeX Font Info:    Try loading font information for U+txmia on input line 42.
+(C:\CTEX\UserData\tex\latex\txfonts\utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 42.
 
-(D:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
+(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 41.
+LaTeX Font Info:    Try loading font information for U+msb on input line 42.
 
-(D:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
+(C:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 41.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 42.
 
-(D:\CTEX\MiKTeX\tex\latex\txfonts\utxsyc.fd
+(C:\CTEX\UserData\tex\latex\txfonts\utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-) [1
+)
 
-{D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}] [2]
+Package natbib Warning: Citation `zhang2008review' on page 1 undefined on input
+ line 47.
+
+[1
+
+{C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
+
+Package natbib Warning: Citation `webster1970container' on page 2 undefined on 
+input line 59.
+
+
+Package natbib Warning: Citation `shields1984containership' on page 2 undefined
+ on input line 59.
+
+
+Package natbib Warning: Citation `dillingham1986application' on page 2 undefine
+d on input line 59.
+
+[2]
+
+Package natbib Warning: Citation `scott1978loading' on page 3 undefined on inpu
+t line 61.
+
+
+Package natbib Warning: Citation `avriel1998stowage' on page 3 undefined on inp
+ut line 61.
+
+
+Package natbib Warning: Citation `botter1991stowage' on page 3 undefined on inp
+ut line 61.
+
+
+Package natbib Warning: Citation `wilson2001container' on page 3 undefined on i
+nput line 63.
+
+
+Package natbib Warning: Citation `Monaco2014256' on page 3 undefined on input l
+ine 63.
+
+
+Package natbib Warning: Citation `ding2015stowage' on page 3 undefined on input
+ line 65.
+
+
+Package natbib Warning: Citation `tierney2014complexity' on page 3 undefined on
+ input line 66.
+
+
+Package natbib Warning: Citation `malucelli2008stack' on page 3 undefined on in
+put line 66.
+
+
+Package natbib Warning: Citation `ambrosino2015mip' on page 3 undefined on inpu
+t line 66.
+
+[3]
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ¯ in font txr!
- [3] [4] [5] [6] [7] [8] [9
+
+
+Package natbib Warning: Citation `dubrovsky2002genetic' on page 4 undefined on 
+input line 69.
+
+
+Package natbib Warning: Citation `kammarti2013evolutionary' on page 4 undefined
+ on input line 69.
+
+
+Package natbib Warning: Citation `cohen2017container' on page 4 undefined on in
+put line 69.
+
+
+Package natbib Warning: Citation `Delgado2012251' on page 4 undefined on input 
+line 72.
+
+
+Package natbib Warning: Citation `Lehnfeld2014297' on page 4 undefined on input
+ line 75.
+
+
+Package natbib Warning: Citation `Araujo201650' on page 4 undefined on input li
+ne 75.
+
+[4]
+
+Package natbib Warning: Citation `zhang2016multiobjective' on page 5 undefined 
+on input line 77.
+
+
+Package natbib Warning: Citation `avriel2000container' on page 5 undefined on i
+nput line 79.
+
+
+Package natbib Warning: Citation `jensen2010complexity' on page 5 undefined on 
+input line 79.
+
+
+Package natbib Warning: Citation `ambrosino2004stowing' on page 5 undefined on 
+input line 81.
+
+[5]
+
+Package natbib Warning: Citation `wilson2001container' on page 6 undefined on i
+nput line 83.
+
+Missing character: There is no ¬ in font txr!
+
+Package natbib Warning: Citation `wei2005model' on page 6 undefined on input li
+ne 85.
+
+Missing character: There is no ¬ in font txr!
+
+Package natbib Warning: Citation `bortfeldt2001hybrid' on page 6 undefined on i
+nput line 87.
+
+
+Package natbib Warning: Citation `bortfeldt2003parallel' on page 6 undefined on
+ input line 87.
+
+
+Package natbib Warning: Citation `haghani2001model' on page 6 undefined on inpu
+t line 89.
+
+
+Package natbib Warning: Citation `avriel1998stowage' on page 6 undefined on inp
+ut line 91.
+
+
+Package natbib Warning: Citation `avriel2000container' on page 6 undefined on i
+nput line 91.
+
+Missing character: There is no ¬ in font txr!
+Missing character: There is no ¡ in font txr!
+Missing character: There is no ¡ in font txr!
+
+Package natbib Warning: Citation `avriel1993exact' on page 6 undefined on input
+ line 91.
+
+Missing character: There is no ¡ in font txr!
+Missing character: There is no ¡ in font txr!
+[6] [7] [8] [9] [10
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 265.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 290.
 
-
-(D:\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
+ (C:\CTEX\UserData\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 265.
- [10]
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 290.
+ [11]
 
-LaTeX Warning: Reference `def:1' on page 11 undefined on input line 323.
+LaTeX Warning: Reference `def:1' on page 12 undefined on input line 348.
+
+
+LaTeX Warning: Reference `pro:a2' on page 12 undefined on input line 348.
+
+
+LaTeX Warning: Reference `pro:a3' on page 12 undefined on input line 350.
 
 Missing character: There is no ¬ in font txr!
-[11] [12] [13] <K-Stacks.png, id=50, 362.3136pt x 217.7736pt>
+[12]
+
+LaTeX Warning: Reference `tab:1' on page 13 undefined on input line 370.
+
+
+LaTeX Warning: Reference `tab:2' on page 13 undefined on input line 370.
+
+[13]
+
+LaTeX Warning: Reference `tab:1' on page 14 undefined on input line 479.
+
+
+LaTeX Warning: Reference `tab:2' on page 14 undefined on input line 481.
+
+
+LaTeX Warning: Reference `tab:3' on page 14 undefined on input line 497.
+
+[14]
+
+LaTeX Warning: Reference `tab:4' on page 15 undefined on input line 523.
+
+<K-Stacks.png, id=52, 362.3136pt x 217.7736pt>
 File: K-Stacks.png Graphic file (type png)
-
-<use K-Stacks.png>
-Package pdftex.def Info: K-Stacks.png used on input line 504.
+ <use K-Stacks.png>
+Package pdftex.def Info: K-Stacks.png used on input line 529.
 (pdftex.def)             Requested size: 289.07729pt x 216.81604pt.
- <K-containers.png, id=52, 404.712pt x 217.7736pt>
-File: K-containers.png Graphic file (type png)
 
-<use K-containers.png>
-Package pdftex.def Info: K-containers.png used on input line 512.
+
+LaTeX Warning: Reference `tab:3' on page 15 undefined on input line 533.
+
+
+LaTeX Warning: Reference `fig1:graph' on page 15 undefined on input line 533.
+
+<K-containers.png, id=54, 404.712pt x 217.7736pt>
+File: K-containers.png Graphic file (type png)
+ <use K-containers.png>
+Package pdftex.def Info: K-containers.png used on input line 537.
 (pdftex.def)             Requested size: 289.09517pt x 216.81604pt.
- [14] [15 <C:/Users/brightful/Desktop/123/Latex/K-Stacks.png> <C:/Users/brightf
-ul/Desktop/123/Latex/K-containers.png>]
-<K-ports.png, id=61, 404.2302pt x 217.7736pt>
+
+
+LaTeX Warning: Reference `fig2:graph' on page 15 undefined on input line 541.
+
+[15] [16 <E:/Github/123/Latex/K-Stacks.png> <E:/Github/123/Latex/K-containers.p
+ng>] <K-ports.png, id=63, 404.2302pt x 217.7736pt>
 File: K-ports.png Graphic file (type png)
  <use K-ports.png>
-Package pdftex.def Info: K-ports.png used on input line 521.
+Package pdftex.def Info: K-ports.png used on input line 546.
 (pdftex.def)             Requested size: 289.08408pt x 216.81604pt.
 
 
-LaTeX Warning: File `K-limit height.png' not found on input line 529.
+LaTeX Warning: Reference `fig3:graph' on page 17 undefined on input line 550.
 
-<K-limit height.png, id=62, 429.7656pt x 217.7736pt>
+
+LaTeX Warning: File `K-limit height.png' not found on input line 554.
+
+<K-limit height.png, id=64, 429.7656pt x 217.7736pt>
 File: K-limit height.png Graphic file (type png)
  <use K-limit height.png>
-Package pdftex.def Info: K-limit height.png used on input line 529.
+Package pdftex.def Info: K-limit height.png used on input line 554.
 (pdftex.def)             Requested size: 289.08905pt x 216.81604pt.
 
-<K-comprehensive.png, id=63, 491.9178pt x 261.6174pt>
+
+LaTeX Warning: Reference `fig4:graph' on page 17 undefined on input line 558.
+
+<K-comprehensive.png, id=65, 491.9178pt x 261.6174pt>
 File: K-comprehensive.png Graphic file (type png)
 
 <use K-comprehensive.png>
-Package pdftex.def Info: K-comprehensive.png used on input line 538.
+Package pdftex.def Info: K-comprehensive.png used on input line 563.
 (pdftex.def)             Requested size: 289.08055pt x 216.81503pt.
- [16
 
- <C:/Users/brightful/Desktop/123/Latex/K-ports.png> <C:/Users/brightful/Desktop
-/123/Latex/K-limit height.png>]
-(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.bbl [17 <C:/Users/brightful/Deskt
-op/123/Latex/K-comprehensive.png>]) [18]
-(C:\Users\brightful\Desktop\123\Latex\SSMP-KR.aux)
+
+LaTeX Warning: Reference `fig5:graph' on page 17 undefined on input line 567.
+
+[17
+
+ <E:/Github/123/Latex/K-ports.png> <E:/Github/123/Latex/K-limit height.png>]
+No file SSMP-KR.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[18 <E:/Github/123/Latex/K-comprehensive.png>] (E:\Github\123\Latex\SSMP-KR.aux
+)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4219 strings out of 495354
- 52683 string characters out of 3183859
- 158267 words of memory out of 3000000
- 7274 multiletter control sequences out of 15000+200000
- 40929 words of font info for 104 fonts, out of 3000000 for 9000
+ 4233 strings out of 495354
+ 51920 string characters out of 3183859
+ 157057 words of memory out of 3000000
+ 7295 multiletter control sequences out of 15000+200000
+ 40761 words of font info for 103 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,9n,34p,2933b,252s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<D:/CTEX/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmtt10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.p
-fb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxr.pfb><D:/CTEX/MiKTeX/fonts/ty
-pe1/public/txfonts/txsy.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D
-:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/
-times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (18 pages, 188242 bytes).
+ 34i,9n,34p,1778b,230s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/CTEX/UserData/fonts/type1
+/public/txfonts/rtxmi.pfb><C:/CTEX/UserData/fonts/type1/public/txfonts/rtxr.pfb
+><C:/CTEX/UserData/fonts/type1/public/txfonts/txsy.pfb><C:/CTEX/MiKTeX/fonts/ty
+pe1/urw/times/utmb8a.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/C
+TEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on SSMP-KR.pdf (18 pages, 173114 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

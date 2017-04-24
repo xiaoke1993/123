@@ -44,16 +44,23 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 
 \section{Introduction}
 \label{sec:i}
-Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship. Over 60\% of general cargoes are transported by containership at present. This mode is deeply accepted by shipper and carrier, and is becoming the main trend of freightage in the world. It shows powerful vitality and promising prospects. The container stowage plan is a pivotal link to containers transportation,and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}. Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights. These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. With the development of container-shipping, more and more containers are transported by sail. Up to now, no satisfying solution has development of container transportation trade. Thus, it makes higher demand of the problem.
+TODO: add importance of global trade
+Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship. Over 60\% of general cargoes are transported by containership at present (TODO: cite source). This mode is deeply accepted by shipper and carrier, and is becoming the main trend of freightage in the world. It shows powerful vitality and promising prospects.
+
+The container stowage plan is a pivotal link to containers transportation,and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}. Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights. These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. With the development of container-shipping, more and more containers are transported by sail. Up to now, no satisfying solution has development of container transportation trade. Thus, it makes higher demand of the problem.
+
+TODO: introduce the ship's structure, and why rehandles exist.
 
 The previous research ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on. Sometimes we need think about the importance of capacity as well. For example, if we can use each stack sufficiently, the required number of ships will be reduced and thus the cost decreases. The problem mentioned in this paper give a priority on how to reduce the use of stack with K rehandle as much as possible. Through the research on this problem, another aspect of container stowage planning is exhibited and a lot of shipping cost can be saved by using what we propose in this paper. On the other hand, it represents a novel thinking perspective to make a research about this kind of problem and it will promote the development of academic shipping optimal problem.
 
 We put forward the stowage stack minimization problem with K rehandle constraint problem (SSMP-KR) in this paper. Literally speaking, it is a container stowage planning problem whose objection is to find out minimization stack with K rehandle constraint on a given condition. The heuristic algorithm in this paper uses the greedy rule to finish the loading and unloading operation for every container to be loaded and unloaded in each port along the voyage. Therefore, the solution we get may be the approximately optimal rather than the global optimal.
 
-In the remainder of this paper we provide a brief description of previous research and the current research trend (section 2) and the problem description is in section 3. In section 4 we give our heuristic algorithm for the problem and give specific explanation about the algorithm. Experiments and analysis as well as the comparison  are shown in section 5. Concluding remarks will be discussed in section 6.
+TODO: The contribution of our paper lies in three aspects. First, Second, Third.
+
+The remainder of this paper is organized as follows: we review extant research works in Section~\ref{sec:lr} and the formal definition of our problem is provided in Section~\ref{sec:pd}. In Section~\ref{sec:algo} we present our heuristic algorithm for the problem, as well as explain the ideas behind and specific details about the algorithm. Experiments and associated analysis are illustrated in Section~\ref{sec:ea}. Concluding remarks close the paper in Section~\ref{sec:con}.
 
 \section{Literature Review}
-\label{sec:l}
+\label{sec:lr}
 The container stowage problem can be divided into two classes: one is management and programming at the container terminal, the other is stowage plan for containership. This paper mainly focuses on the latter. And sorted by research method, this problem will be divided into six categories: simulation based on  probability, heuristic procedures, mathematical programming approach, decision support system, expert system and evolutionary computation. The following are some description about these categories of containership stowage plan.
 
 Since 1970s, the stowage plan problem has been studied by shipping organization for commercial demand. They tried to find a good solution  which would satisfy fewer shifting and higher efficiency when loading and discharging containers. \cite{webster1970container} first tried to solve the problem by using computer. They put forward a heuristic algorithm that could create a random stowage plan. \cite{shields1984containership} introduced a computer preplanning system(CAPS) which had been used by American President Lines. The CAPS produced stowage plan by using Monte Carlo theory. Expert system is a most active research and practical field of Artificial Intelligent (AI).  \cite{dillingham1986application} introduced their researches on expert system of stowage based on rules. Each of the suggested container movements was displayed graphically as the decisions were made. Database in the system could not only accomplish the stowage plan, but also track the location of the container. It was highly interactive, the user could interrupt the system at any time when the planning proceeded and overrode or revoked suggestions that the system had made.
@@ -97,21 +104,24 @@ The presented hybrid GA for loading a single container in \cite{bortfeldt2001hyb
 
 
 \section{Problem Description}
-\label{sec:p}
+\label{sec:pd}
 
-The basic description of problem is not of significant difference from the stowage stack minimization problem with zero rehandle constraint and the specific context is in the followings.
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $p$, 1, 2, 3, ... $p$, 1, ..., which forms a circular route.
+There are standard containers to be shipped along the journey.
+At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship. 
+Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$. 
+Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1. Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist. Moreover, the ship is never empty once sets out due to the circular feature.
+All the loading and discharging ports of $N$ containers are known in advance.
 
-A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$ (port $P$ could be the same as port 1 in a circular route). There are $N$ standard containers to be shipped along the journey. At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship. Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$. All the loading and discharging ports of $N$ containers are known in advance.
-
-We assume that the ship is empty initially and it has enough capacity to accommodate all the containers along the journey. The ship spaces are divided into several stacks. Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$. When $H$ is bounded, we call the SSMP-KR as the capacitated SSMP-KR (CSSMP-KR); when $H$ is sufficiently large (e.g., $H\geq N$) or unbounded, we refer to it as the uncapacitated SSMP-KR (USSMP-KR). For the CSSMP-KR, if the number of containers in a non-empty stack is less than $H$, the stack is termed as a \textit{partial} stack; otherwise it is a \textit{full} stack. The objective of the SSMP-KR is to transport all the containers using the fewest number of stacks with K rehandles allowed. The USSMP-KR is far from the real situation in the stowage planning, since stack heights of ships are restricted by operation cranes. Hence, this paper give emphasis on the CSSMP-KR and for the convenience of description, we use SSMP-KR for short in this paper.
+We assume that the ship has enough capacity to accommodate all the containers along the journey. The ship spaces are divided into several stacks. Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$. When $H$ is bounded, we call the SSMP-KR as the capacitated SSMP-KR (CSSMP-KR); when $H$ is sufficiently large (e.g., $H\geq N$) or unbounded, we refer to it as the uncapacitated SSMP-KR (USSMP-KR). For the CSSMP-KR, if the number of containers in a non-empty stack is less than $H$, the stack is termed as a \textit{partial} stack; otherwise it is a \textit{full} stack. The objective of the SSMP-KR is to transport all the containers using the fewest number of stacks with K rehandles allowed. The USSMP-KR is far from the real situation in the stowage planning, since stack heights of ships are restricted by operation cranes. Hence, this paper give emphasis on the CSSMP-KR and for the convenience of description, we use SSMP-KR for short in this paper.
 
 A feasible solution to the SSMP-KR is represented by a operation set, from which we can clearly know the slot changing of each container, even when there is an overstowage. The detailed introduction will be given in the below.
 
 We also denote the dynamic $Layout$ as the layout of the ship after one operation for one container. We can output the layout after the operation of one container is done or the layout after all the operations at one specific port.
 
 \section{Methodology}
-\label{sec:m}
-In this section, we talk about the heuristic algorithms to the SSMP-KR, as well as the basic performance guarantee of the algorithms.
+\label{sec:algo}
+In this section, we will talk about the heuristic algorithms to the SSMP-KR, as well as the basic performance guarantee of the algorithms.
 
 \subsection{Heuristic Algorithms for the SSMP-KR}
 \label{sec:h1}
@@ -361,7 +371,7 @@ the effectiveness of SSMP-KR.
 
 
 \section{Experiments and Analysis}
-\label{sec:e}
+\label{sec:ea}
 
 This paper uses the test data from the existing literature and we add an extra parameters $K$ into the primary instance in order to meet the demands of research. $K$ means the number of allowed rehandles and it is selected from \{0,10,20,50,100\}. Particular£¬$K=0$ represents the benchmark and comparison object. There are 80 sets of instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20,30\};  the number of containers $N$, which is selected from \{50,100,200,500,1000,5000\}, and the result isn't shown in the table when $N=5000$; the height limit $H$ selected from \{4,7, 8, 12\}. Each set consists of 5 instances generated by different random seeds. In each instance, the origin $O(i)$ and the destination $D(i)$ of a container $i$ are generated from a uniform distribution on the integers $1,2,\ldots,P$ satisfying that $O(i)<D(i)$. For the convenience of comparison, we only show the average "Numofstack"  when  $K=0$, $K=10$, $K=20$, $K=50$, $K=100$, respectively. And this is applicable to the heuristic algorithm as well as the deuterogenic $P\&H$ algorithm, the simple introduced will be introduced in the next content.
 
@@ -568,13 +578,12 @@ Figure \ref{fig5:graph} shows us that the comprehensive impact on the result we 
 
 
 \section{Conclusion}
-\label{sec:c}
+\label{sec:con}
 The stowage stack minimization problem with K-rehandle constraint (SSM-KR deals with accommodating give containers throughout a voyage by fewest stacks on a containership subject to K rehandles.
 In this paper, we analyze the structure of this combinatorial optimization problem and its relationship with the circle graph.
 A heuristic approach is proposed to construct near-optimal solutions in a very short computational time.
 The experimental results show that our heuristic approaches generate very promising solutions on a variety of instances. Comparing with the stowage stack minimum rehandle problem with zero constraint, our problem with K rehandle constraint acts as a buffer and offers great flexibility for the actual problem. The results shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility. We use greedy rules to find the best slot for each container, hence the results may be the near-optimal rather than global optimal. As we all know, it is difficult to get the global optimal for this kind of problem. Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. The novelty and practicality show the importance of this paper and it can give a reference to the future study.
 
-\section*{References}
 \bibliographystyle{apalike2}
 \bibliography{references}
 \end{document}

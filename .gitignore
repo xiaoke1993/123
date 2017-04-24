@@ -50,3 +50,5 @@ Temporary Items
 *.sav
 *.bbl
 *.gz
+*.blg
+*.log

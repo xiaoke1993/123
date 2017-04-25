@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  25 APR 2017 11:18
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  25 APR 2017 15:05
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -792,7 +792,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  4413 strings out of 495354
  55480 string characters out of 3183859
- 160017 words of memory out of 3000000
+ 160016 words of memory out of 3000000
  7459 multiletter control sequences out of 15000+200000
  40929 words of font info for 104 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -803,7 +803,7 @@ b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><D:/CTEX/MiKTeX/fonts/ty
 pe1/public/txfonts/rtxr.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsy.pfb
 ><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (22 pages, 274342 bytes).
+Output written on SSMP-KR.pdf (22 pages, 274216 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

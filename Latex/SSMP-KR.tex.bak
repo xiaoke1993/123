@@ -600,7 +600,7 @@ Figure \ref{fig3:graph} provides us the relationship between ports and used stac
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{K-limit height.png}
+\includegraphics[width=4.00in,height=3.00in]{K-limit_height.png}
 \caption{Relationship between limit height and used stacks}
 \label{fig4:graph}
 \end{figure}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  25 APR 2017 15:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  25 APR 2017 18:40
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -687,37 +687,27 @@ File: utxsyc.fd 2000/12/15 v3.1
 ) [1
 
 {D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
+<Arrangement_of_cargo_space.png, id=11, 1080.035pt x 304.13625pt>
+File: Arrangement_of_cargo_space.png Graphic file (type png)
 
-LaTeX Warning: File `arrangement of cargo space.png' not found on input line 66
-.
-
-<arrangement of cargo space.png, id=11, 1080.035pt x 304.13625pt>
-File: arrangement of cargo space.png Graphic file (type png)
-
-<use arrangement of cargo space.png>
-Package pdftex.def Info: arrangement of cargo space.png used on input line 66.
+<use Arrangement_of_cargo_space.png>
+Package pdftex.def Info: Arrangement_of_cargo_space.png used on input line 66.
 (pdftex.def)             Requested size: 433.6049pt x 216.81534pt.
 
-
-LaTeX Warning: File `a vessel bay.png' not found on input line 73.
-
-<a vessel bay.png, id=13, 565.11125pt x 478.78876pt>
-File: a vessel bay.png Graphic file (type png)
- <use a vessel bay.png>
-Package pdftex.def Info: a vessel bay.png used on input line 73.
+<A_vessel_bay.png, id=13, 565.11125pt x 478.78876pt>
+File: A_vessel_bay.png Graphic file (type png)
+ <use A_vessel_bay.png>
+Package pdftex.def Info: A_vessel_bay.png used on input line 73.
 (pdftex.def)             Requested size: 289.08246pt x 216.81181pt.
 
+<A_partially_loaded_stack.png, id=14, 402.50375pt x 464.73625pt>
+File: A_partially_loaded_stack.png Graphic file (type png)
 
-LaTeX Warning: File `a partially loaded stack.png' not found on input line 81.
-
-<a partially loaded stack.png, id=14, 402.50375pt x 464.73625pt>
-File: a partially loaded stack.png Graphic file (type png)
-
-<use a partially loaded stack.png>
-Package pdftex.def Info: a partially loaded stack.png used on input line 81.
+<use A_partially_loaded_stack.png>
+Package pdftex.def Info: A_partially_loaded_stack.png used on input line 81.
 (pdftex.def)             Requested size: 289.07774pt x 216.80925pt.
- [2 <E:/Github/123/Latex/arrangement of cargo space.png>] [3 <E:/Github/123/Lat
-ex/a vessel bay.png> <E:/Github/123/Latex/a partially loaded stack.png>] [4] [5
+ [2 <E:/Github/123/Latex/Arrangement_of_cargo_space.png>] [3 <E:/Github/123/Lat
+ex/A_vessel_bay.png> <E:/Github/123/Latex/A_partially_loaded_stack.png>] [4] [5
 ]
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ¯ in font txr!
@@ -764,17 +754,13 @@ File: K-ports.png Graphic file (type png)
 <use K-ports.png>
 Package pdftex.def Info: K-ports.png used on input line 595.
 (pdftex.def)             Requested size: 289.08408pt x 216.81604pt.
+ <K-limit_height.png, id=77, 429.7656pt x 217.7736pt>
+File: K-limit_height.png Graphic file (type png)
 
-
-LaTeX Warning: File `K-limit height.png' not found on input line 603.
-
-<K-limit height.png, id=77, 429.7656pt x 217.7736pt>
-File: K-limit height.png Graphic file (type png)
- <use K-limit height.png>
-Package pdftex.def Info: K-limit height.png used on input line 603.
+<use K-limit_height.png>
+Package pdftex.def Info: K-limit_height.png used on input line 603.
 (pdftex.def)             Requested size: 289.08905pt x 216.81604pt.
-
-<K-comprehensive.png, id=78, 491.9178pt x 261.6174pt>
+ <K-comprehensive.png, id=78, 491.9178pt x 261.6174pt>
 File: K-comprehensive.png Graphic file (type png)
 
 <use K-comprehensive.png>
@@ -782,7 +768,7 @@ Package pdftex.def Info: K-comprehensive.png used on input line 612.
 (pdftex.def)             Requested size: 289.08055pt x 216.81503pt.
  [19
 
- <E:/Github/123/Latex/K-ports.png> <E:/Github/123/Latex/K-limit height.png>] (E
+ <E:/Github/123/Latex/K-ports.png> <E:/Github/123/Latex/K-limit_height.png>] (E
 :\Github\123\Latex\SSMP-KR.bbl [20 <E:/Github/123/Latex/K-comprehensive.png>] [
 21]) [22] (E:\Github\123\Latex\SSMP-KR.aux)
 
@@ -791,7 +777,7 @@ LaTeX Warning: There were undefined references.
  ) 
 Here is how much of TeX's memory you used:
  4413 strings out of 495354
- 55480 string characters out of 3183859
+ 55530 string characters out of 3183859
  160016 words of memory out of 3000000
  7459 multiletter control sequences out of 15000+200000
  40929 words of font info for 104 fonts, out of 3000000 for 9000
@@ -803,7 +789,7 @@ b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><D:/CTEX/MiKTeX/fonts/ty
 pe1/public/txfonts/rtxr.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsy.pfb
 ><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (22 pages, 274216 bytes).
+Output written on SSMP-KR.pdf (22 pages, 274231 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

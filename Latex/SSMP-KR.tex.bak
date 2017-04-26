@@ -63,14 +63,14 @@ On the under deck, the parts of a bay are divided into stacks/slots that are one
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=6.00in,height=3.00in]{arrangement of cargo space.png}
+\includegraphics[width=6.00in,height=3.00in]{Arrangement_of_cargo_space.png}
 \caption{The arrangement of cargo space in a container vessel.}
 \label{fig one:graph}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{a vessel bay.png}
+\includegraphics[width=4.00in,height=3.00in]{A_vessel_bay.png}
 \caption{a front view of a vessel bay.}
 \label{fig two:graph}
 \end{figure}
@@ -78,7 +78,7 @@ Some slots that have power plugs are known as reefer slots. A standard ISO conta
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{a partially loaded stack.png}
+\includegraphics[width=4.00in,height=3.00in]{A_partially_loaded_stack.png}
 \caption{a side view of a partially loaded stack.}
 \label{fig three:graph}
 \end{figure}
@@ -95,6 +95,14 @@ The previous research ignores the importance of the capacity of ship and give mu
 We put forward the stowage stack minimization problem with K rehandle constraint problem (SSMP-KR) in this paper. Literally speaking, it is a container stowage planning problem whose objection is to find out minimization stack with K rehandle constraint on a given condition. The heuristic algorithm in this paper uses the greedy rule to finish the loading and unloading operation for every container to be loaded and unloaded in each port along the voyage. Therefore, the solution we get may be the approximately optimal rather than the global optimal.
 
 TODO: The contribution of our paper lies in three aspects. First, Second, Third.
+The contribution of our paper lies in three aspects. 
+First, the previous research usually focused on how to reduce the rehandles or shifts , out paper initially considers how to get the optimal container stowage plan when giving the allowed number of rehandles.
+Second, the problem can also be regarded as a extended problem of the stowage stack minimization problem with zero rehandle, which is a combinatorial optimization problem. 
+Therefore, we can get the different results when the value of K is different, and zero rehandle can be a benchmark for others to compare with.
+By comparing different results, we eventually choose a appropriate value of K to balance the complexity of quay operations and the space utilization of the cabin.
+Third, we put forward a heuristic algorithm to solve the problem proposed in this paper and the result shows the good performance of our algorithm.
+The result can help us know the stowage plan visibly and make a analysis about what the appropriate K is. Therefore, the problem and the algorithm presented in our paper are both novel and worthy of further study.
+
 
 The remainder of this paper is organized as follows: we review extant research works in Section~\ref{sec:lr} and the formal definition of our problem is provided in Section~\ref{sec:pd}. In Section~\ref{sec:algo} we present our heuristic algorithm for the problem, as well as explain the ideas behind and specific details about the algorithm. Experiments and associated analysis are illustrated in Section~\ref{sec:ea}. Concluding remarks close the paper in Section~\ref{sec:con}.
 

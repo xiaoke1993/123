@@ -46,20 +46,30 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 \label{sec:i}
 TODO: add importance of global trade
 International trade plays a important role in promoting the development of world economy, promoting national income increase and expanding employment around the world.
-Meanwhile, logistics is the main link in international trade. In view of the complexity of logistics in international trade, multimodal transport can bring a great convenience. Furthermore, the perfect fit between container transport and multimodal transport makes the international trade easier and more convenient.
+Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
+In 2015 ¨C for the first time in UNCTAD£¨United Nations Conference on Trade and Development£© records ¨C world seaborne trade volumes1 were estimated to have exceeded 10 billion tons. Shipments expanded by 2.1 per cent, a pace notably slower than the historical.
+Containerization is an important driver of the global economy, and the container has become a mainstay of worldwide trade. Other than a short period of decline in 2009, the number of containers shipped by the world's shipping lines on container vessels has been steadily increasing for the past several decades.
+As we all know, logistics is the main link in international trade. In view of the complexity of logistics in international trade, multimodal transport can bring a great convenience. Furthermore, the perfect fit between container transport and multimodal transport makes the international trade easier and more convenient.
 Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship.
-Containerization has revolutionized cargo shipping. According to World Shipping Council, around 52 percent of the value of world international seaborne trade today is being moved in containers. (TODO: cite source).
+Containerization has revolutionized cargo shipping. 
+containerization is one of the catalysts of global trade. It has resulted in a tremendous growth of the maritime freight industry.
+Nowadays, over 80\% of world trade is carried by the maritime freight industry, which operates the container transportation business \cite{zhang2016multiobjective}.
+In addition, according to World Shipping Council, around 52 percent of the value of world international seaborne trade today is being moved in containers. (TODO: cite source).
 This mode is deeply accepted by shipper and carrier, and is becoming the main trend of freightage in the world. It shows powerful vitality and promising prospects.
 
-The container stowage plan is a pivotal link to containers transportation,and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}. Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights. These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. With the development of container-shipping, more and more containers are transported by sail. Up to now, no satisfying solution has development of container transportation trade. Thus, it makes higher demand of the problem.
+The container stowage plan is a pivotal link to containers transportation,and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}. Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights. These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. With the development of container-shipping, more and more containers are transported by sail. 
+Over the past two decades there has been a continuous increase in demand for cost efficient containerized transportation. Up to now, no satisfying solution has development of container transportation trade. Thus, it makes higher demand of the problem.
 
 TODO: introduce the ship's structure, and why rehandles exist.
 A container ship transports cargo in containers, and the ship layout varies from vessel to vessel.
-The space on a vessel is divided into bays.
+The cargo space of a container ship is split into several 20-ft-long areas. These areas are termed 20-ft bays. 
+In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
 Each bay consists of container stacks placed along the length of ship(see Figure \ref{fig one:graph}).
 All bays are divided into an over deck and an deck area, separated by structures called hatches.
 In order to gain access to the containers stored under deck, we must remove all the containers on the deck, including the hatch over.
+The container position in the ship is uniquely indexed by (bay, row, tier). Such three-tuple is called a slot.
 On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit(TEU) stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig two:graph}).
+
 
 \begin{figure}[htbp]
 \centering
@@ -95,9 +105,9 @@ The previous research ignores the importance of the capacity of ship and give mu
 We put forward the stowage stack minimization problem with K rehandle constraint problem (SSMP-KR) in this paper. Literally speaking, it is a container stowage planning problem whose objection is to find out minimization stack with K rehandle constraint on a given condition. The heuristic algorithm in this paper uses the greedy rule to finish the loading and unloading operation for every container to be loaded and unloaded in each port along the voyage. Therefore, the solution we get may be the approximately optimal rather than the global optimal.
 
 TODO: The contribution of our paper lies in three aspects. First, Second, Third.
-The contribution of our paper lies in three aspects. 
+The contribution of our paper lies in three aspects.
 First, the previous research usually focused on how to reduce the rehandles or shifts , out paper initially considers how to get the optimal container stowage plan when giving the allowed number of rehandles.
-Second, the problem can also be regarded as a extended problem of the stowage stack minimization problem with zero rehandle, which is a combinatorial optimization problem. 
+Second, the problem can also be regarded as a extended problem of the stowage stack minimization problem with zero rehandle, which is a combinatorial optimization problem.
 Therefore, we can get the different results when the value of K is different, and zero rehandle can be a benchmark for others to compare with.
 By comparing different results, we eventually choose a appropriate value of K to balance the complexity of quay operations and the space utilization of the cabin.
 Third, we put forward a heuristic algorithm to solve the problem proposed in this paper and the result shows the good performance of our algorithm.

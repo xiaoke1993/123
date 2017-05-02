@@ -546,16 +546,22 @@ The experimental results are shown in Table \ref{tab:1} and Table \ref{tab:2}.
   \label{tab:2}
 \end{table}
 
-Table \ref{tab:1} summarizes the results of those easy instance with small number of ports, i.e. $P \in \{5,10\}$. For each given $P$, $N$ and  $H$, we work out the value of $UB$, the average numbers of $Numofstack$ in different instances when $K$ selects different values. 
+Table \ref{tab:1} summarizes the results of those easy instance with small number of ports, i.e. $P \in \{5,10\}$. For each given $P$, $N$ and  $H$, we work out the value of $UB$, the average numbers of $Numofstack$ in different instances when $K$ selects different values.
 The $UB$ is used to test the rationality and  the $Numofstack$ is used to compare with the result when $K=0$, respectively.
-Table \ref{tab:2} summarizes that the results of those difficult instances with large number of ports, i.e. $P \in \{20,30\}$. The columns in this table are similarly defined as those of Table 1 and so is the conclusion we can get from Table 1. 
+Table \ref{tab:2} summarizes that the results of those difficult instances with large number of ports, i.e. $P \in \{20,30\}$. The columns in this table are similarly defined as those of Table 1 and so is the conclusion we can get from Table 1.
 
 Most of instances provide the evidence that it works well when $K$ isn't equal to zero comparing the condition where $K$ is equal to zero. However, the results between the easy instances and difficult instances have some difference. Comparing with the significant influence of different $K$ in the difficult instances, the influence of different $K$ in the easy instances isn't obvious. The same conclusion can be drawn if we focus on one specific variable(or factor) while keeping other variables unchanged.
-As far as we are concerned, we think it is the density and sparseness that causes this consequence. 
+As far as we are concerned, we think it is the density and sparseness that causes this consequence.
 In other words, the smaller value of each variable is, the same kind of containers that have the identical origin port and destination port have more chance to be placed in the same stack and less rehandles will arise. We call this stack with high density, and the high sparseness in contrast.
 
 There are few exceptions when we analyze the result  through a large amount of experiments, the number of needed stack is even larger when the allowed rehandle $K$ isn't equal to zero, though the deviation is not great.
+For the instance with the same $P$, $N$ and $H$, we call it benchmark instance when $K$ is equal to zero and exceptional instance if the number of used stack is larger than the benchmark instance when $K$ isn't equal to zero.
 We then find out those instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we think it's the distribution status of previous containers to be blamed. The allowed rehandles delay the production of new stack but not reduce it, that's why this problem happens.
+We eventually output the layout of the exceptional instances and the corresponding benchmark instances. 
+By comparing the exceptional instances with the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm are the reason for this kind of abnormal condition.
+In our heuristic algorithm, we reset the blocking containers' origin port as the current port, and it enlarges the number of containers to be loaded. Meanwhile, the allowed rehandles run out and thus a new stack is needed to stow those containers.
+
+However, it doesn't mean that our algorithm isn't universal because the probability of exceptional instance is very low and it hardly happens in our practical operations. Therefore, our algorithm is feasible for most of the instances and has a good performance as well.
 
 \begin{table}[htbp]
   \centering
@@ -573,9 +579,9 @@ We then find out those instances and compare the stowage planning with the same 
 Table \ref{tab:3} gives the average results when the $K$ has different values. It isn't difficult to conclude that the value of $Numofstack$ becomes smaller if several rehandle is allowed and the more rehandle, the less stacks used. That's to say, our problem based on zero rehandle is meaningful and our algorithm is practical.
 
 
-In fact, we have give another related algorithm named $P\&H$ algorithm to get the stowage planning. 
+In fact, we have give another related algorithm named $P\&H$ algorithm to get the stowage planning.
 This method is actually a process of parameter tuning, our original intention is attempting to find out better solution to stow containers.
-Nevertheless, the result through this method isn't as good as the heuristic algorithm and it doesn't work well as we expected. 
+Nevertheless, the result through this method isn't as good as the heuristic algorithm and it doesn't work well as we expected.
 From another point of view, it just shows the good performance of our heuristic algorithm.
 We give some restrictions on the height and nearport of alternative stacks when choosing one stack for each container. The concrete content of "P\&H" method isn't described in this paper but the computational results will be listed in the following tables. The parameters in $P\&H$ values between 0 and 1. The former parameter represents the dispersion degree between the loading container's destination port and  alternative stack's nearport and their values are equal if the value of parameter is 1. The latter parameter means the  ratio of stack's height and the limited height $H$.
 

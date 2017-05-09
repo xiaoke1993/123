@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  29 APR 2017 08:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  7 MAY 2017 19:25
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -725,58 +725,59 @@ Missing character: There is no ¯ in font txr!
  [7]
 Missing character: There is no ¬ in font txr!
 Missing character: There is no ¬ in font txr!
- [8] [9] [10] [11] [12
+ [8] [9] [10] [11] [12] [13
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 352.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 360.
 
 
 (D:\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 352.
- [13]
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 360.
+ [14]
 
-LaTeX Warning: Reference `def:1' on page 14 undefined on input line 410.
+LaTeX Warning: Reference `def:1' on page 15 undefined on input line 418.
 
 Missing character: There is no ¬ in font txr!
-[14] [15] [16] <K-Stacks.png, id=66, 362.3136pt x 217.7736pt>
+[15] [16] [17] [18] <K-Stacks.png, id=72, 362.3136pt x 217.7736pt>
 File: K-Stacks.png Graphic file (type png)
 
 <use K-Stacks.png>
-Package pdftex.def Info: K-Stacks.png used on input line 591.
+Package pdftex.def Info: K-Stacks.png used on input line 613.
 (pdftex.def)             Requested size: 289.07729pt x 216.81604pt.
- <K-containers.png, id=67, 404.712pt x 217.7736pt>
+ [19 <E:/Github/123/Latex/K-Stacks.png>]
+<K-containers.png, id=78, 404.712pt x 217.7736pt>
 File: K-containers.png Graphic file (type png)
-
-<use K-containers.png>
-Package pdftex.def Info: K-containers.png used on input line 599.
+ <use K-containers.png>
+Package pdftex.def Info: K-containers.png used on input line 621.
 (pdftex.def)             Requested size: 289.09517pt x 216.81604pt.
- [17] [18 <E:/Github/123/Latex/K-Stacks.png> <E:/Github/123/Latex/K-containers.
-png>] <K-ports.png, id=76, 404.2302pt x 217.7736pt>
+
+[20 <E:/Github/123/Latex/K-containers.png>]
+<K-ports.png, id=83, 404.2302pt x 217.7736pt>
 File: K-ports.png Graphic file (type png)
-
-<use K-ports.png>
-Package pdftex.def Info: K-ports.png used on input line 608.
+ <use K-ports.png>
+Package pdftex.def Info: K-ports.png used on input line 630.
 (pdftex.def)             Requested size: 289.08408pt x 216.81604pt.
- <K-limit_height.png, id=77, 429.7656pt x 217.7736pt>
-File: K-limit_height.png Graphic file (type png)
 
-<use K-limit_height.png>
-Package pdftex.def Info: K-limit_height.png used on input line 616.
+<K-limit_height.png, id=84, 429.7656pt x 217.7736pt>
+File: K-limit_height.png Graphic file (type png)
+ <use K-limit_height.png>
+Package pdftex.def Info: K-limit_height.png used on input line 638.
 (pdftex.def)             Requested size: 289.08905pt x 216.81604pt.
- <K-comprehensive.png, id=78, 491.9178pt x 261.6174pt>
+
+<K-comprehensive.png, id=85, 491.9178pt x 261.6174pt>
 File: K-comprehensive.png Graphic file (type png)
 
 <use K-comprehensive.png>
-Package pdftex.def Info: K-comprehensive.png used on input line 625.
+Package pdftex.def Info: K-comprehensive.png used on input line 647.
 (pdftex.def)             Requested size: 289.08055pt x 216.81503pt.
- [19
+ [21
 
  <E:/Github/123/Latex/K-ports.png> <E:/Github/123/Latex/K-limit_height.png>] (E
-:\Github\123\Latex\SSMP-KR.bbl [20 <E:/Github/123/Latex/K-comprehensive.png>] [
-21]) [22] (E:\Github\123\Latex\SSMP-KR.aux)
+:\Github\123\Latex\SSMP-KR.bbl [22 <E:/Github/123/Latex/K-comprehensive.png>] [
+23]) [24] (E:\Github\123\Latex\SSMP-KR.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -795,9 +796,9 @@ b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><D:/CTEX/MiKTeX/fonts/ty
 pe1/public/txfonts/rtxr.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsy.pfb
 ><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (22 pages, 275862 bytes).
+Output written on SSMP-KR.pdf (24 pages, 280492 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
+ 129 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

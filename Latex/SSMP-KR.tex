@@ -354,47 +354,48 @@ Our algorithm can give the detailed location changes of each container and outpu
 \subsection{Performance Guarantee of the Algorithms}
 \label{sec:p2}
 
-In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee if the value of K is zero and we regard the port number $P$ as a fixed number. That's to say, the SSMP-KR becomes SSMP-ZR under this condition.
+In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number. 
+%That's to say, the SSMP-KR becomes SSMP-ZR under this condition.
 For ease of exposition, we first give some related notations.
 \begin{itemize}
-\item $\mathcal{U}^*$ \& $\mathcal{C}^*$: the optimal solution to the USSMP-ZR and the SSMP-ZR instances, respectively.
+\item $\mathcal{U}^*_k$ \& $\mathcal{C}^*_k$: the optimal solution to the USSMP-KR and the SSMP-KR instances, respectively.
 %\item $\mathcal{U}^*_p$ \& $\mathcal{C}^*_p$: the number of stacks actually used at port $p$ by the optimal plan.
-\item $\mathcal{U}$ \& $\mathcal{C}$: the solution to the USSMP-ZR and the SSMP-ZR instances by the algorithm, respectively.
+\item $\mathcal{U}_k$ \& $\mathcal{C}_k$: the solution to the USSMP-KR and the SSMP-KR instances by the algorithm, respectively.
 \item $\mathcal{U}_p$ \& $\mathcal{C}_p$: the number of stacks used at port $p$ by the algorithm.
 %\item $\mathcal{Z}$ \& $\mathcal{Z}_p$: a general notation to denote any solution to the USSM-ZR instances or to the CSSM-ZR instances; $\mathcal{Z}_p$ is the number of stacks in port $p$ in solution $\mathcal{Z}$
 \item $N_p$: the number of containers on the ship before its departure from port $p$.
-\item $v_p$: the number of loading ports that the ship has visited before it departs from port $p$. A port is called a loading port if there exists at least one container to be loaded. Clearly, $v_p \le p$, $\forall p=1,\ldots,P$.
+\item $V_p$: the number of loading ports that the ship has visited before it departs from port $p$. A port is called a loading port if there exists at least one container to be loaded. Clearly, $V_p \le p$, $\forall p=1,\ldots,P$.
 
 \end{itemize}
 
 
 
 \begin{proposition}
-For the USSMP-ZR instance, the heuristic approach generates a solution in which at most $v_p$ stacks are used before the ship departs from port $p$, i.e. $\mathcal{U}_p\le v_p, \forall p=1,\ldots,P$.
+For the USSMP-KR instance, the heuristic approach generates a solution in which at most $V_p$ stacks are used before the ship departs from port $p$, i.e. $\mathcal{U}_p\le V_p, \forall p=1,\ldots,P$.
 \label{pro:a2}
 \end{proposition}
 
 \begin{proof}
 We use an inductive proof.
 
-\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port. The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers. We have $\mathcal{U}_1=v_1=1$, and therefore $\mathcal{U}_1\le v_1$ holds.
+\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port. The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers. We have $\mathcal{U}_1=V_1=1$, and therefore $\mathcal{U}_1\le V_1$ holds.
 
-\textit{Inductive step}: Suppose that before the ship departs from port $p$, there are at most $v_p$ stacks used, i.e., $\mathcal{U}_p \le v_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $v_{p+1}=v_p+1$, otherwise $v_{p+1}=v_p$.
+\textit{Inductive step}: Suppose that before the ship departs from port $p$, there are at most $V_p$ stacks used, i.e., $\mathcal{U}_p \le V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, otherwise $V_{p+1}=V_p$.
 
-(1) If there exist some containers to be loaded, according to our heuristic, they are placed on either the extant stacks or a new blank stack (with the containers of later destinations placed lower). Hence, $\mathcal{U}_{p+1} \le \mathcal{U}_p+1 \le v_p+1=v_{p+1}$.
+(1) If there exist some containers to be loaded, according to our heuristic, they are placed on either the extant stacks or a new blank stack (with the containers of later destinations placed lower). Hence, $\mathcal{U}_{p+1} \le \mathcal{U}_p+1 \le V_p+1=V_{p+1}$.
 
-(2) If no container is loaded, $\mathcal{U}_{p+1} \le \mathcal{U}_p \le v_p=v_{p+1}$.
+(2) If no container is loaded, $\mathcal{U}_{p+1} \le \mathcal{U}_p \le V_p=V_{p+1}$.
 
-Based on the above two steps, we have $\mathcal{U}_p\le v_p, \forall p=1,\ldots,P$. Furthermore, we have
+Based on the above two steps, we have $\mathcal{U}_p\le V_p, \forall p=1,\ldots,P$. Furthermore, we have
 \begin{equation*}
-\mathcal{U}=\max_{p=1,\ldots,P}\mathcal{U}_p\le \max_{p=1,\ldots,P} v_p=v_P\le P
+\mathcal{U}_k=\max_{p=1,\ldots,P}\mathcal{U}_p\le \max_{p=1,\ldots,P} V_p=V_P\le P
 \end{equation*}
 \end{proof}
 
 \begin{proposition}
-The CSSMP-ZR instance has a lower bound:
+The CSSMP-KR instance has a lower bound:
 \begin{equation*}
-\max\limits_{p=1,\ldots,P}(\lceil\frac{N_p}{H}\rceil) \le \mathcal C^*
+\max\limits_{p=1,\ldots,P}(\lceil\frac{N_p}{H}\rceil) \le \mathcal C^*_k
 \end{equation*}
 \label{pro:a3}
 \end{proposition}
@@ -403,10 +404,13 @@ The CSSMP-ZR instance has a lower bound:
 $\lceil\frac{N_p}{H}\rceil$ is the least number of stacks to accommodate all the containers at port $p$, and thus, $\max\limits_p(\lceil\frac{N_p}{H}\rceil)$ is the least number of stacks needed throughout the journey.
 \end{proof}
 
+The lower bound can help to check the optimality of solutions obtained by our heuristic. If the solution is equal to the lower bound, we can conclude that the solution is optimal.
+
+
 \begin{proposition}
-For the heuristic solution to the CSSMP-ZR instance, it holds
+For the heuristic solution to the CSSMP-KR instance, it holds
 \begin{equation*}
-\mathcal{C}^* \le \mathcal{C} \le \max_{p=1,\ldots,P}(\lfloor\frac{N_p}{H}\rfloor+v_p) \le \mathcal{C}^*+v_P
+\mathcal{C}^*_k \le \mathcal{C}_k \le \max_{p=1,\ldots,P}(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \mathcal{C}^*_k+V_P
 \end{equation*}
 \label{pro:a4}
 \end{proposition}
@@ -414,18 +418,40 @@ For the heuristic solution to the CSSMP-ZR instance, it holds
 \begin{proof}
 The first inequality obviously holds.
 
-For the second inequality, $\mathcal{C}=\max\limits_p \mathcal{C}_p$. Remind that $\mathcal{C}_p$ is the number of stacks in the layout $L^C_{p,T_p}$ resulted from our algorithm. %If we understand $\mathcal C_p$ from the perspective of the two-phrase algorithm, we know that
-The number of partial stacks in the layout $L^C_{p,T_p}$ is no greater than the number of stacks in the associated layout $L^U_{p,T_p}$ (c.f., Definition \ref{def:1}). The number of stacks of $L^U_{p,T_p}$, from Proposition \ref{pro:a2}, is at most $v_p$, so the number of partial stacks in $L^C_{p,T_p}$ is no greater than $v_p$. In addition, the number of full stacks in $L^C_{p,T_p}$ is no greater than $\lfloor\frac{N_p}{H}\rfloor$. Therefore, $\mathcal{C}_p\le \lfloor\frac{N_p}{H}\rfloor+v_p$ and $\mathcal{C} \le \max\limits_p(\lfloor\frac{N_p}{H}\rfloor+v_p)$ hold.
+For the second inequality, $\mathcal{C}_k=\max\limits_p \mathcal{C}_p$. 
+Remind that $\mathcal{C}_p$ is the number of stacks in port $p$ result from our algorithm. We divide the stack used in the port into two parts: full stacks and partial stacks.
+For the full stacks, the number of full stacks in port $p$ is no greater than $\lfloor\frac{N_p}{H}\rfloor$.
+For the partial stacks, we define the number of partial stacks in port $p$ as $Ps(p)$.
+\begin{proposition}
+The partial stacks in port $p$ is no greater than V_p:
+\begin{equation*}
+ $Ps(p)$ \le V_p
+\end{equation*}
+\label{pro:a4}
+\end{proposition}
 
-For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$. It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+v_p) \le \max\limits_p(\mathcal{C}_p^*+v_p) \le \max\limits_p(\mathcal{C}_p^*+v_P) = \mathcal{C}^*+v_P$.
+\begin{proof}
+We use an inductive proof.
+\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore V_$(p=1)$ =1.
+In addition, $Ps(1)$=0 or 1. Hence,  $Ps(p)$ \le V_p holds.
+\textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than V_p. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. 
+(1)If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, $Ps(p+1)$ \le $Ps(p)+1$ whether we allow the rehandle or not in port $p+1$. Hence,  $Ps(p+1)$ \le $Ps(p)+1$ \LE $V_{p+1}$ = $V_p+1$.
+(2)If there is no containers to be loaded at port $p+1$,  $V_{p+1}=V_p$, $Ps(p+1)$ =$Ps(p)$. Hence, $Ps(p+1)$ \le $V_{p+1}$.
+Based on the above two steps, we have $Ps(p)$ \le V_p \forall p=1,\ldots,P$.
+\end{proof}
+Therefore, the second inequality holds.
+%Remind that $\mathcal{C}_p$ is the number of stacks in the layout $L^C_{p,T_p}$ resulted from our algorithm.
+%%If we understand $\mathcal C_p$ from the perspective of the two-phrase algorithm, we know that
+%The number of partial stacks in the layout $L^C_{p,T_p}$ is no greater than the number of stacks in the associated layout $L^U_{p,T_p}$ (c.f., Definition \ref{def:1}). The number of stacks of $L^U_{p,T_p}$, from Proposition \ref{pro:a2}, is at most $v_p$, so the number of partial stacks in $L^C_{p,T_p}$ is no greater than $v_p$. In addition, the number of full stacks in $L^C_{p,T_p}$ is no greater than $\lfloor\frac{N_p}{H}\rfloor$. Therefore, $\mathcal{C}_p\le \lfloor\frac{N_p}{H}\rfloor+v_p$ and $\mathcal{C} \le \max\limits_p(\lfloor\frac{N_p}{H}\rfloor+v_p)$ hold.
+
+For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$. It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}_p^*+V_p) \le \max\limits_p(\mathcal{C}_p^*_k+V_P) = \mathcal{C}^*+v_P$.
 
 \end{proof}
 
 
 The above proposition indicates that our approximation algorithm has a constant performance guarantee if we regard the number of ports as fixed under the condition that the number of allowed rehandle is zero. In practice, the number of ports is generally much smaller than the number of stacks used along the journey. Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
 
-In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test
-the effectiveness of SSMP-KR.
+% In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test the effectiveness of SSMP-KR.
 
 
 
@@ -557,7 +583,7 @@ In other words, the smaller value of each variable is, the same kind of containe
 There are few exceptions when we analyze the result  through a large amount of experiments, the number of needed stack is even larger when the allowed rehandle $K$ isn't equal to zero, though the deviation is not great.
 For the instance with the same $P$, $N$ and $H$, we call it benchmark instance when $K$ is equal to zero and exceptional instance if the number of used stack is larger than the benchmark instance when $K$ isn't equal to zero.
 We then find out those instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we think it's the distribution status of previous containers to be blamed. The allowed rehandles delay the production of new stack but not reduce it, that's why this problem happens.
-We eventually output the layout of the exceptional instances and the corresponding benchmark instances. 
+We eventually output the layout of the exceptional instances and the corresponding benchmark instances.
 By comparing the exceptional instances with the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm are the reason for this kind of abnormal condition.
 In our heuristic algorithm, we reset the blocking containers' origin port as the current port, and it enlarges the number of containers to be loaded. Meanwhile, the allowed rehandles run out and thus a new stack is needed to stow those containers.
 

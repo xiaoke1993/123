@@ -354,7 +354,7 @@ Our algorithm can give the detailed location changes of each container and outpu
 \subsection{Performance Guarantee of the Algorithms}
 \label{sec:p2}
 
-In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number. 
+In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number.
 %That's to say, the SSMP-KR becomes SSMP-ZR under this condition.
 For ease of exposition, we first give some related notations.
 \begin{itemize}
@@ -418,33 +418,30 @@ For the heuristic solution to the CSSMP-KR instance, it holds
 \begin{proof}
 The first inequality obviously holds.
 
-For the second inequality, $\mathcal{C}_k=\max\limits_p \mathcal{C}_p$. 
+For the second inequality, $\mathcal{C}_k=\max\limits_p \mathcal{C}_p$.
 Remind that $\mathcal{C}_p$ is the number of stacks in port $p$ result from our algorithm. We divide the stack used in the port into two parts: full stacks and partial stacks.
 For the full stacks, the number of full stacks in port $p$ is no greater than $\lfloor\frac{N_p}{H}\rfloor$.
-For the partial stacks, we define the number of partial stacks in port $p$ as $Ps(p)$.
+For the partial stacks, we define the number of partial stacks in port $p$ as $P(p)$.
 \begin{proposition}
-The partial stacks in port $p$ is no greater than V_p:
+The partial stacks in port $p$ is no greater than $V_p$:
 \begin{equation*}
- $Ps(p)$ \le V_p
+ P(p) \le  V_p
 \end{equation*}
 \label{pro:a4}
 \end{proposition}
 
 \begin{proof}
 We use an inductive proof.
-\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore V_$(p=1)$ =1.
-In addition, $Ps(1)$=0 or 1. Hence,  $Ps(p)$ \le V_p holds.
-\textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than V_p. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. 
-(1)If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, $Ps(p+1)$ \le $Ps(p)+1$ whether we allow the rehandle or not in port $p+1$. Hence,  $Ps(p+1)$ \le $Ps(p)+1$ \LE $V_{p+1}$ = $V_p+1$.
-(2)If there is no containers to be loaded at port $p+1$,  $V_{p+1}=V_p$, $Ps(p+1)$ =$Ps(p)$. Hence, $Ps(p+1)$ \le $V_{p+1}$.
-Based on the above two steps, we have $Ps(p)$ \le V_p \forall p=1,\ldots,P$.
+\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
+In addition, P(1)=0 or 1. Hence, $P(p) \le V_p $ holds.
+\textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than $V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized.
+(1)If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$,  $P($p+1$) \le P(p)+1$ whether we allow the rehandle or not in port $p+1$. %Hence, $P($p+1$) \le P(p)+1 \LE V_{p+1}= V_p+1$.
+(2)If there is no containers to be loaded at port $p+1$,  $V_{p+1}=V_p$, $P($p+1$) =P(p)$. Hence, $P($p+1$) \le V_{p+1}$.
+Based on the above two steps, we have $P(p) \le V_p \forall p=1,\ldots,P$.
 \end{proof}
 Therefore, the second inequality holds.
-%Remind that $\mathcal{C}_p$ is the number of stacks in the layout $L^C_{p,T_p}$ resulted from our algorithm.
-%%If we understand $\mathcal C_p$ from the perspective of the two-phrase algorithm, we know that
-%The number of partial stacks in the layout $L^C_{p,T_p}$ is no greater than the number of stacks in the associated layout $L^U_{p,T_p}$ (c.f., Definition \ref{def:1}). The number of stacks of $L^U_{p,T_p}$, from Proposition \ref{pro:a2}, is at most $v_p$, so the number of partial stacks in $L^C_{p,T_p}$ is no greater than $v_p$. In addition, the number of full stacks in $L^C_{p,T_p}$ is no greater than $\lfloor\frac{N_p}{H}\rfloor$. Therefore, $\mathcal{C}_p\le \lfloor\frac{N_p}{H}\rfloor+v_p$ and $\mathcal{C} \le \max\limits_p(\lfloor\frac{N_p}{H}\rfloor+v_p)$ hold.
 
-For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$. It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}_p^*+V_p) \le \max\limits_p(\mathcal{C}_p^*_k+V_P) = \mathcal{C}^*+v_P$.
+For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$. It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) = \mathcal{C}^*+V_P$.
 
 \end{proof}
 

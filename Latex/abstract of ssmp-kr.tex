@@ -1,0 +1,23 @@
+\documentclass[a4paper]{article}
+\begin{document}
+
+\begin{abstract}
+The container ship stowage planning problems(CSSP) has been studied all the time and many approaches have been applied to find out a optimal or near-optimal solution to this problem.
+In addition, many relative problems have been proposed and researched from different optimization aspects. 
+The stowage stack minimization problem(SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship.
+The relevant research about SSMP can been seen in \cite{avriel2000container}, \cite{jensen2010complexity}, and \cite{wang2014stowage}, and they focused on the condition that there is no rehandle or shift.
+In this paper, we first propose the stowage stack minimization problem with K rehanlds(SSMP-KR) and give the description about it. Next, heuristic algorithm are proposed to construct solutions to the SSMP-KR.
+We eventually get the optimal parameters combination for our algorithm through multiple parameter adjustment procedures.
+Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the knowledge of inequation and mathematical induction, which proves the feasibility of the algorithm theoretically.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size by Java and compare the results with different values of K , and of course zero is included.
+The results demonstrate that our heuristic approaches can generate promising solutions if we allowed some rehandle operations compared with the zero rehandle solutions and random loading solutions.
+It is worth mentioning that our problem with K rehandle constraint acts as a buffer and offers great flexibility for the actual problem. 
+The results shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility. 
+Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. 
+What's more, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
+
+\bibliographystyle{apalike2}
+\bibliography{references}
+
+\end{abstract} 
+\end{document} 

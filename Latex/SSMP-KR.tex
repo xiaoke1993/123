@@ -29,11 +29,30 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 \cortext[corl]{Corresponding author. Fax: +852 ********, Phone: +852 ********}
 
 \begin{abstract}
-The container stowage problem concerns with suitable placements of containers on a container-ship in a multi-port voyage.
-Many scholars have conducted research with the objective of minimum rehandles. This paper investigates a variant which accommodates given containers with the minimum stacks subject to K rehandles; we call it stowage stack minimization problem with K-rehandle (SSMP-KR). The variant facilitates forwarders to evaluate the value of received individual shipping orders.
-In this paper, we analyze the structure of SSMP-KR and its relationship with the circle graph.
-A heuristic approach is proposed to construct near-optimal solutions in a very short computational time.
-Experimental results show the effect of instance parameters on solutions.
+The container ship stowage planning problem (CSSP) has been studied all the time and many approaches have been applied to find out optimal or near-optimal solutions to this problem.
+In addition, many variant problems have been proposed and researched from different optimization aspects since there are many constraints in the course of actual shipping.
+The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship.
+The related research about SSMP can been seen in \cite{avriel2000container}, \cite{jensen2010complexity}, and \cite{wang2014stowage}, and they focused on the condition that there is no rehandle or shift, i.e., the problem they studied is the stowage stack minimization problem with zero rehandle (SSMP-ZR).
+
+In this paper, we first propose the stowage stack minimization problem with K rehanlds (SSMP-KR) based on the stowage stack minimization problem with zero rehandle and give the detail description about it.
+Like most of the literature, we highlight the constraints we study while put less emphasis on other constraints.
+
+Next, heuristic algorithms are put forward to construct solutions to the SSMP-KR.  It is worth mentioning that, our algorithms are suitable for the circular route.
+We use Java compilation software ¡°Ecplise¡± to execute the code for our algorithms. For the loading strategies, two different processing methods are used to cope with two different situations whether the predetermined K meets or not, respectively.
+When the allowed rehandles run out, the problem becomes simpler because there is no rehandling operations that we need to take into consideration.
+In other words, we are just dealing with the SSMP-ZR problem under this circumstance.
+When there are rehandling operations allowed, we have to make decisions about how to place each single container loaded in each port to make the full use of each stack and minimize the total stacks used during the shipping.
+On this occasion, we need to consider the following factors: what the current port is, which port is the loading container transported to, what are the current heights of all stacks, etc.
+Since there are many factors to be taken into consideration, we have to go on the processing of parameters tuning and we eventually get the optimal parameters combination for this difficult situation through multiple parameter adjustment procedures.
+As for the unloading strategies, there are still two conditions and it depends on whether the unloading container is a blocking one or not.
+If it is not a blocking container, we just discharge it; If it is a blocking one, we have to unload it, reset the origin port of the unloading container and load it again.
+Our output for each instance using this algorithm in Ecplise includes the number of used stacks, the lower and upper bound number of used stacks, the number of used rehandles and the allowed rehandles, and the layout of ship after one loading or unloading operation.
+
+Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction. We find out the lower bound and upper bound to make sure the solutions we get are reasonable and effective, which proves the feasibility of the algorithm theoretically. In actual, we use a tip in the process of proof, we divide the stacks used into two parts: the full stacks and the partial stacks. By doing so, we can deduce the lower and upper bound faster and simpler.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results with different values of K, and of course zero is included. We have selected a set of values of K to find out the relationship between K and the stacks we used. Through this process, we may get the approximate value of K for one particular shipping to balance the flexibility and space utilization of the ship. What¡¯s more, instances with different number of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
+
+The results demonstrate that our heuristic approaches can generate promising solutions if we allow some rehandling operations compared with the zero rehandle solutions and random loading solutions. That is to say, the results we get use less stacks in average and it shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
+It is worth mentioning that our problem with K rehandles constraint acts as a buffer and offers great flexibility for the actual problem as a result of the existence of rehandling operations. Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. What's more, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
 \end{abstract}
 
 \begin{keyword}
@@ -145,12 +164,11 @@ Algorithm of evolutionary computation came from Darwin¡¯s biologic theory of evo
 The presented hybrid GA for loading a single container in \cite{bortfeldt2001hybrid}  is particularly suitable for strongly heterogeneous containers stowage problems.  The algorithm takes account of some constraints which are relevant in practice. Its good performance and superiority to comparative methods was verified in an extensive test. The use of a time limit kept the required computing times within acceptable limits.
 \cite{dubrovsky2002genetic}  used a GA for solving the stowage planning problem of minimizing the number of container movements. Search space is significantly reduced by a compact and efficient encoding scheme. Ship stability criteria are reflected by appropriate constraints. Simulation runs demonstrate the efficiency and flexibility of the GA-based approach.  \cite{kammarti2013evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes(parent) from an initially constructed population using a roulette wheel technique. Then, the two parents are combined using a one point crossover operator. Finally, a mutation operator is performed. The variant tackled in \cite{cohen2017container} involved several constraints, inspired by real-life problems and application found in the literature. Given the complexity of the problem, which belongs to the class of NP-hard problems, a novel evolutionary metaheuristic algorithm is developed and designed. Considering the ability and flexibility of Genetic Algorithm (GA). The approach is based on a two-phase procedure, one for master planning and the other for allocation of the containers into slots. GA parameters are analyzed to achieve practical and best results. The system offers stowage allocation solutions for both phases, thus offering flexibility for a wide variety of vessels and route combinations.
 
-Container ship stowage problem(CSSP ) is combinatorial optimization problem with multiobjects and multiconstraints. In order to reduce computational difficulty£¬CSSP is decomposed two subproblems in \cite{wei2005model}, and the first one is discussed detailed. CSSP is regarded as bin-packing problem. After being modeled£¬the algorithm of best fit for binpacking problem is used to solve the CSSP. A case shows that the algorithm is feasible for container ship stowage problem.
+Container ship stowage problem(CSSP) is combinatorial optimization problem with multiobjects and multiconstraints. In order to reduce computational difficulty£¬CSSP is decomposed two subproblems in \cite{wei2005model}, and the first one is discussed detailed. CSSP is regarded as bin-packing problem. After being modeled£¬the algorithm of best fit for binpacking problem is used to solve the CSSP. A case shows that the algorithm is feasible for container ship stowage problem.
 A multiobjective ship stowage planning problem(SSPP) was investigated by \cite{zhang2016multiobjective}, which aims to optimize the ship stability and the number of rehandles simultaneously. They use metacentric height, list value, and trim value to measure the ship stability. Meanwhile, the number of rehandles is the sum of rehandles by yard cranes and quay cranes and all necessary rehandles at future ports. The algorithm can produce a set of nondominated solutions. Decision makers can then choose the most promising solution for practical implementation based on their experience and preferences. Extensive experiments are carried out on two groups of instances. The computational results demonstrate the effectiveness of the proposed algorithm compared to the NSGA-II and random weighted genetic algorithms, especially when it is applied in solving the six-objective SSPP.
 
 \cite{tierney2014complexity} investigated the complexity of stowage planning problem and showed that the capacitated k-shift problem is solvable in polynomial time for any choice of stacks and stack capacities. And some scholars paid special attention to the process of loading and unloading, \cite{malucelli2008stack} investigated stack reordering strategies aiming at minimizing the number of pop and push operations and  focused on three versions of the problem in which reordering can take place in different phases: when unloading the stack, when loading it or in both phases.
 There are some extended problems in this field. Different problems arising in practice in the context of storage areas organized in stacks have been surveyed by \cite{Lehnfeld2014297}. Different problem classes have been identified, namely loading, unloading, premarshalling and combined problems. To be able to categorize all these problems in a more abstract way, they developed a classification scheme which has been used to summarize complexity results and solution methods for all problem classes.  In conclusion, many problems have already been solved by exact or heuristic methods in all four considered problem classes. Nevertheless, due to the diversity of the problems, various other versions exist. For further research, a major challenge is the development of more efficient solution algorithms integrating additional constraints coming from practical applications. As we all known, the 3D Container ship Loading Plan Problem (CLPP) is an important problem that appears in seaport container terminal operations and is well known to be NP-hard. This problem consists of determining how to organize the containers in a ship in order to minimize the number of movements necessary to load and unload the container ship and the instability of the ship in each port. In \cite{Araujo201650},  the hybrid method Pareto Clustering Search (PCS) is proposed to solve the CLPP and obtain a good approximation to the Pareto Front. The PCS aims to combine metaheuristics and local search heuristics, and the intensification is performed only in promising regions. Computational results considering instances available in the literature are presented to show that PCS provides better solutions for the CLPP than a mono-objective Simulated Annealing.
-
 
 To the best of our knowledge, apart from the SSMP-ZR, only \cite{avriel2000container} and \cite{jensen2010complexity} discussed the stowage stack minimization and its connection with the chromatic number of circle graphs when the stack height is unlimited. At present, the research tendency of the stowage planning problem is intelligent management system, which is a new stowage research direction. Intelligent containership stowage plan system is a technological innovation in contrast with traditional stowage method. It can improve the ability of decision-making management system of container shipping by means of artificial intelligence, information technology, communications and computer technology.
 
@@ -161,23 +179,38 @@ To the best of our knowledge, apart from the SSMP-ZR, only \cite{avriel2000conta
 A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $p$, 1, 2, 3, ... $p$, 1, ..., which forms a circular route.
 There are standard containers to be shipped along the journey.
 
-
 At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship.
-Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$. The containers remain unmoved when the ship voyages among the ports.
+Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$. 
+The containers remain unmoved when the ship voyages among the ports.
 
 Shifts may occur in these ports, either necessary or voluntary or both.
-A container is called a j-container if it is destined for port j. 0bviously all j-containers are loaded before the ship visits port j and should be unloaded at port j. A j-container is called a i, j-container if it is originated from port i. A j-container in slot (r, c) is said to be blocked if there exists a j'-container in slot (r', c) with j' > j and r'<r, and the j'-container is called a blocking container with respect to the j-container. Occurrence of container blocking at any time means that shifts are no longer avoidable.
+A container is called a j-container if it is destined for port j. 
+0bviously all j-containers are loaded before the ship visits port j and should be unloaded at port j. 
+A j-container is called a i, j-container if it is originated from port i. 
+A j-container in slot (r, c) is said to be blocked if there exists a j'-container in slot (r', c) with j' > j and r'<r, and the j'-container is called a blocking container with respect to the j-container. 
+Occurrence of container blocking at any time means that shifts are no longer avoidable.
 
-Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1. Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist. Moreover, the ship is never empty once sets out due to the circular feature.
-However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design. It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 or in a circular route.
+Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1. 
+Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist. 
+Moreover, the ship is never empty once sets out due to the circular feature.
+However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design. 
+It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 or in a circular route.
+In addition, all the loading and discharging ports of $N$ containers are known in advance.
 
-All the loading and discharging ports of $N$ containers are known in advance.
+We assume that the ship has enough capacity to accommodate all the containers along the journey. 
+The ship spaces are divided into several stacks. Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$. 
+When $H$ is bounded, we call the SSMP-KR as the capacitated SSMP-KR (CSSMP-KR); 
+when $H$ is sufficiently large (e.g., $H\geq N$) or unbounded, we refer to it as the uncapacitated SSMP-KR (USSMP-KR). 
+For the CSSMP-KR, if the number of containers in a non-empty stack is less than $H$, the stack is termed as a \textit{partial} stack; 
+otherwise it is a \textit{full} stack. 
+The objective of the SSMP-KR is to transport all the containers using the fewest number of stacks with K rehandles allowed. 
+The USSMP-KR is far from the real situation in the stowage planning, since stack heights of ships are restricted by operation cranes. 
+Hence, this paper give emphasis on the CSSMP-KR and for the convenience of description, we use SSMP-KR for short in this paper.
 
-We assume that the ship has enough capacity to accommodate all the containers along the journey. The ship spaces are divided into several stacks. Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$. When $H$ is bounded, we call the SSMP-KR as the capacitated SSMP-KR (CSSMP-KR); when $H$ is sufficiently large (e.g., $H\geq N$) or unbounded, we refer to it as the uncapacitated SSMP-KR (USSMP-KR). For the CSSMP-KR, if the number of containers in a non-empty stack is less than $H$, the stack is termed as a \textit{partial} stack; otherwise it is a \textit{full} stack. The objective of the SSMP-KR is to transport all the containers using the fewest number of stacks with K rehandles allowed. The USSMP-KR is far from the real situation in the stowage planning, since stack heights of ships are restricted by operation cranes. Hence, this paper give emphasis on the CSSMP-KR and for the convenience of description, we use SSMP-KR for short in this paper.
-
-A feasible solution to the SSMP-KR is represented by a operation set, from which we can clearly know the slot changing of each container, even when there is an overstowage. The detailed introduction will be given in the below.
-
-We also denote the dynamic $Layout$ as the layout of the ship after one operation for one container. We can output the layout after the operation of one container is done or the layout after all the operations at one specific port.
+A feasible solution to the SSMP-KR is represented by a operation set, from which we can clearly know the slot changing of each container, even when there is an overstowage. 
+The detailed introduction will be given in the below.
+We also denote the dynamic $Layout$ as the layout of the ship after different operations for containers. 
+We even can output the layout after the operations for one container or after all the operations at one specific port through the algorithm proposed in this paper.
 
 \section{Methodology}
 \label{sec:algo}
@@ -186,15 +219,101 @@ In this section, we will talk about the heuristic algorithms to the SSMP-KR, as 
 \subsection{Heuristic Algorithms for the SSMP-KR}
 \label{sec:h1}
 
-In our algorithm, two classes are introduced in order to describe the containers' characteristic and record the operation for containers. They are Container class and OPeration class, respectively. For each container, we use arraylist "ac" to store its sequence number, origin port and destination port. No matter what the operation is , we add all of operations into the arraylist "Solution" to record every container's slot changing from the shore or previous stack to the chosen stack or shore. Other important global variables are Count\_rehandle and Numofstack. The former is no greater than the given K, and the latter no longer change until the end of the shipping. What methods aren't exhibited in the below algorithm are read() and bound(). The method read() is used to read the parameters and the detailed containership information from each instance. As for the method bound(), we use it to give a upper bound for our algorithm and the rationality proved. Another important method "GetstackNum", which is used in both loading\_rehandle\_lessK and loading\_rehandle\_equalK method, is used to get the sequence number of chosen stack.
+In our algorithm, two classes (collections of objects with the same characteristics and behavior in Java) are introduced in order to describe the containers' characteristic and record the operation for containers. 
+They are "Container" class and "Operation" class, respectively. 
+For each container, we use arraylist (a type of data structure) "ac" to store its sequence number, origin port and destination port.
+For each operation, we use arraylist "Solution" to store its change. 
+No matter what the operation is , we add all of operations into the arraylist "Solution" to record every container's slot changing from the shore to the chosen stack or from the previous stack to the shore. 
 
-If there is an overstowage, we use arraylist $S_1$ to store partial stacks without rehandle happening, arraylist $S_2$ to store partial stacks with rehandle happening, arraylist $S_3$ to store empty stacks whether there is a rehandle or not. The priority order of them is $S_1$, $S_2$, $S_3$. If there isn't an overstowage, we use $S_0$ to store the feasible stacks. For ease of illustration, we need to define a one dimensional array called nearport to store the nearest port for every stack. For example, three containers are stored in the same stack, and their destination port are 4,5,6, respectively, then the value of nearport of this stack is 4. If a stack is empty, its value will be set to $P+1$, P is the total number of the ports along the voyage. We firstly talk about the simple condition that the allowed rehandles is full. When traversing all stacks to choose the optimal according to our rules for each container, we add non-full stacks whose nearest port is greater than or equal to the current loading container into arraylist $S_0$. For the stacks in $S_0$, we choose the one with the nearest port. Next we talk about the complex condition that a rehandle is allowed and it is a little different from the simple condition. Under this condition, $S_1$ have the highest priority. If $S_1$ is null, we choose the stack from arraylist $S_2$ which is used to store partial stacks whose nearest port is smaller than the current loading container. Both in $S_1$ and $S_2$, we choose the stack whose nearest port is smallest. If $S_2$ is null, we choose the first stack we traverse in the $S_3$ which is used to store empty stacks. So it is the loading rules above and the following is the discharging rules.
+Other important global variables are Count\_rehandle and Numofstack. 
+The former is no greater than the given K, and the latter no longer change until the end of the shipping. 
+Methods used in our algorithm aren't exhibited in the below are read() and bound(). 
+The method read() is used to read the parameters and the detailed containership information from each instance. 
+As for the method bound(), we use it to give a upper bound for our algorithm and the rationality proved. 
+Another important method "GetstackNum", which is used in both loading\_rehandle\_lessK method and loading\_rehandle\_equalK method, is used to get the sequence number of chosen stack.
 
-When discharging containers, we just need to unload containers from top to bottom one by one when the container's destination port is the current port if there isn't an overstowage in the stack. when an overstowage happens, we have to unload the blocking container(s), then we can unload those right ones. As for blocking containers, we reset their origin ports as current port and their destination ports remain unchanged. That's to say, the outbound containers at the current port increases.
+If the allowed K doesn't reach, we use arraylist $S_1$ to store partial stacks without rehandles occuring, arraylist $S_2$ to store partial stacks with rehandles occuring, arraylist $S_3$ to store empty stacks whether there is a rehandle or not. 
+The priority order of them is $S_1$, $S_2$, $S_3$. 
+If there isn't an overstowage allowed, we use $S_0$ to store the feasible stacks. 
+For ease of illustration, we need to define a one dimensional array called nearport to store the nearest port for every stack. 
+For example, three containers are stored in the same stack, and their destination port are 4,5,6, respectively, then the value of nearport of this stack is 4. 
+If a stack is empty, its value will be set to $P+1$, P is the total number of the ports along the voyage. 
+
+We firstly talk about the simple condition that the allowed rehandles run out. 
+When traversing all stacks to choose the optimal according to our rules for each container, we add non-full stacks whose nearest port is greater than or equal to the current loading container into arraylist $S_0$. 
+For the stacks in $S_0$, we choose the one with the nearest port. 
+Next we talk about the complex condition that a rehandle is allowed and it is a little different from the simple condition. 
+Under this condition, $S_1$ have the highest priority. 
+If $S_1$ is null, we choose the stack from arraylist $S_2$ which is used to store partial stacks whose nearest port is smaller than the current loading container. 
+Both in $S_1$ and $S_2$, we choose the stack whose nearest port is smallest. 
+If $S_2$ is null, we choose the first stack we traverse in the $S_3$ which is used to store empty stacks. 
+So it is the loading rules in the above and the following is the discharging rules.
+
+When discharging containers, we just need to unload containers from top to bottom one by one when the container's destination port is the current port if there isn't an overstowage in the stack. 
+when an overstowage happens, we have to unload the blocking container(s), then we can unload those right ones. 
+As for blocking containers, we reset their origin ports as current port and their destination ports remain unchanged. 
+That's to say, the outbound containers at the current port increases.
 
 We give out some parts of algorithms as followings:
+For all the ports along the voyage, we adopt the heuristic method to dispose containers for the given input. 
+And we can transfer the input into the output by applying the heuristic method. 
+So the below is the main process of our algorithm.
 
-For all the ports along the voyage, we adopt the heuristic method to dispose containers for the given input. And we can transfer the input into the output by applying the heuristic method. So the below is the main process of our algorithm.
+The simple condition when there isn't rehandle allowed.
+
+\begin{algorithm}[htbp]
+    \caption{A heuristic procedure for the SSMP-KR in the simple condition}
+    \label{alg:1}
+    \begin{codebox}
+    \Procname{\proc{Heuristic for the simple condition (\id{I})}}
+        \li \For each port $p=1,2,\ldots,P$
+        \li \Do
+                Unload containers destined at port $p$.
+        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
+        \li     \For each container $c$ at port $p$
+        \li     \Do
+                    $S_0$=currently stacks whose nearport is greater than or equal to the loading container's destination port.
+        \li         $c(s_i)$= the container of stack $s_i\in S$ with the nearport.
+        \li         $S'=\{s_i|s_i\in S~\text{and}~D(c(s_i))\geq D(c)\}$.
+        \li         \If $S'\neq \emptyset$
+        \li         \Then
+                        $s_{min}=\arg\min \limits_{s\in S'} D(c(s))$.
+        \li             Load container $c$ to stack $s_{min}$.
+        \li         \Else
+        \li             Load $c$ to an empty stack. \label{heu:2a}
+                    \End
+                \End
+            \End
+    \end{codebox}
+\end{algorithm}
+
+The complex condition when there is allowed rehandles.
+
+\begin{algorithm}[htbp]
+    \caption{A heuristic procedure for the SSMP-KR in the complex condition}
+    \label{alg:2}
+    \begin{codebox}
+    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
+        \li \For each port $p=1,2,\ldots,P$
+        \li \Do
+                Unload containers destined at port $p$.
+        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
+        \li     \For each container $c$ at port $p$
+        \li     \Do
+                    $S_1$=currently stacks used to store partial stacks without rehandles occuring.
+                    $S_2$=currently stacks used to store partial stacks with rehandles occuring.
+                    $S_3$=current stacks used store empty stacks whether there is a rehandle or not
+        \li         \If $S'\neq \emptyset$
+        \li         \Then
+                        $s_{min}=\arg\min \limits_{s\in S'} D(c(s))$.
+        \li             Load container $c$ to stack $s_{min}$.
+        \li         \Else
+        \li             Load $c$ to an empty stack. \label{heu:2a}
+                    \End
+                \End
+            \End
+    \end{codebox}
+\end{algorithm}
 
 %\floatname{algorithm}{Main procedure}
 %\renewcommand{\algorithmicrequire}{\textbf{Input:}}
@@ -346,9 +465,15 @@ The below pseudo code of $unloading\_for\_container()$ method shows us how to un
 %\end{algorithm}
 
 
-In a word, a lot of variables and methods of the concrete Unloading and Loading plan have been involved,  we don't give the correspondent pseudo here for the sake of context length. What is identical for the two procedures is that they find the optimal  strategy for each  container during the unloading and loading process according to the greedy rule made by our algorithm. As is explained in the heading of this section, we divide the loading method into two parts on the basis of the number of reached rehandles. And similarly, the unloading method are divided into two conditions whether there is overstowage. Hence, specific steps are a little different from each other between the two circumstances.
+In a word, a lot of variables and methods of the concrete Unloading and Loading plan have been involved, we don't give the correspondent pseudo here for the sake of context length. 
+What is identical for the two procedures is that they find the optimal  strategy for each  container during the unloading and loading process according to the greedy rule made by our algorithm. 
+As is explained in the heading of this section, we divide the loading method into two parts on the basis of the number of reached rehandles. 
+And similarly, the unloading method are divided into two conditions whether there is overstowage. 
+Hence, specific steps are a little different from each other between the two circumstances.
 
-Our algorithm can give the detailed location changes of each container and output the container status at arbitrary time. That's to say, we can grasp the container stowage process before the voyage as long as we know some information in advance. Therefore, our algorithm makes a little difference and make some sense in the reality application.
+Our algorithm can give the detailed location changes of each container and output the container status at arbitrary time. 
+That's to say, we can grasp the container stowage process before the voyage as long as we know some information in advance. 
+Therefore, our algorithm makes a little difference and make some sense in the reality application.
 
 
 \subsection{Performance Guarantee of the Algorithms}

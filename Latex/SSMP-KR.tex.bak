@@ -470,10 +470,10 @@ The below pseudo code of $unloading\_for\_container()$ method shows us how to un
 %\end{algorithm}
 
 
-In a word, a lot of variables and methods of the concrete Unloading and Loading plan have been involved, we don't give the correspondent pseudo here for the sake of context length.
-What is identical for the two procedures is that they find the optimal  strategy for each  container during the unloading and loading process according to the greedy rule made by our algorithm.
-As is explained in the heading of this section, we divide the loading method into two parts on the basis of the number of reached rehandles.
-And similarly, the unloading method are divided into two conditions whether there is overstowage.
+In a word, a lot of variables and methods of the concrete Unloading and Loading strategies have been involved, we don't give the correspondent pseudo here for the sake of context length.
+What is identical for the two procedures is that they choose the optimal operation for each container during the unloading and loading process according to the greedy rule made by our algorithm.
+As is explained in the heading of this section, we divide the loading method into two parts on the basis of the number of allowed rehandles.
+And similarly, the unloading method are divided into two conditions whether there are rehandles.
 Hence, specific steps are a little different from each other between the two circumstances.
 
 Our algorithm can give the detailed location changes of each container and output the container status at arbitrary time.
@@ -485,16 +485,17 @@ Therefore, our algorithm makes a little difference and make some sense in the re
 \label{sec:p2}
 
 In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number.
-%That's to say, the SSMP-KR becomes SSMP-ZR under this condition.
 For ease of exposition, we first give some related notations.
+
 \begin{itemize}
 \item $\mathcal{U}^*_k$ \& $\mathcal{C}^*_k$: the optimal solution to the USSMP-KR and the SSMP-KR instances, respectively.
-%\item $\mathcal{U}^*_p$ \& $\mathcal{C}^*_p$: the number of stacks actually used at port $p$ by the optimal plan.
+
 \item $\mathcal{U}_k$ \& $\mathcal{C}_k$: the solution to the USSMP-KR and the SSMP-KR instances by the algorithm, respectively.
 \item $\mathcal{U}_p$ \& $\mathcal{C}_p$: the number of stacks used at port $p$ by the algorithm.
-%\item $\mathcal{Z}$ \& $\mathcal{Z}_p$: a general notation to denote any solution to the USSM-ZR instances or to the CSSM-ZR instances; $\mathcal{Z}_p$ is the number of stacks in port $p$ in solution $\mathcal{Z}$
+
 \item $N_p$: the number of containers on the ship before its departure from port $p$.
-\item $V_p$: the number of loading ports that the ship has visited before it departs from port $p$. A port is called a loading port if there exists at least one container to be loaded. Clearly, $V_p \le p$, $\forall p=1,\ldots,P$.
+\item $V_p$: the number of loading ports that the ship has visited before it departs from port $p$.
+A port is called a loading port if there exists at least one container to be loaded. Clearly, $V_p \le p$, $\forall p=1,\ldots,P$.
 
 \end{itemize}
 
@@ -523,7 +524,7 @@ Based on the above two steps, we have $\mathcal{U}_p\le V_p, \forall p=1,\ldots,
 \end{proof}
 
 \begin{proposition}
-The CSSMP-KR instance has a lower bound:
+The SSMP-KR instance has a lower bound:
 \begin{equation*}
 \max\limits_{p=1,\ldots,P}(\lceil\frac{N_p}{H}\rceil) \le \mathcal C^*_k
 \end{equation*}
@@ -538,7 +539,7 @@ The lower bound can help to check the optimality of solutions obtained by our he
 
 
 \begin{proposition}
-For the heuristic solution to the CSSMP-KR instance, it holds
+For the heuristic solution to the SSMP-KR instance, it holds
 \begin{equation*}
 \mathcal{C}^*_k \le \mathcal{C}_k \le \max_{p=1,\ldots,P}(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \mathcal{C}^*_k+V_P
 \end{equation*}
@@ -576,7 +577,8 @@ For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\r
 \end{proof}
 
 
-The above proposition indicates that our approximation algorithm has a constant performance guarantee if we regard the number of ports as fixed under the condition that the number of allowed rehandle is zero. In practice, the number of ports is generally much smaller than the number of stacks used along the journey. Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
+The above proposition indicates that our approximation algorithm has a constant performance guarantee if we regard the number of ports as fixed under the condition that the number of allowed rehandle is zero.
+In practice, the number of ports is generally much smaller than the number of stacks used along the journey. Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
 
 % In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test the effectiveness of SSMP-KR.
 
@@ -586,7 +588,11 @@ The above proposition indicates that our approximation algorithm has a constant 
 \section{Experiments and Analysis}
 \label{sec:ea}
 
-This paper uses the test data from the existing literature and we add an extra parameters $K$ into the primary instance in order to meet the demands of research. $K$ means the number of allowed rehandles and it is selected from \{0,10,20,50,100\}. Particular£¬$K=0$ represents the benchmark and comparison object. There are 80 sets of instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20,30\};  the number of containers $N$, which is selected from \{50,100,200,500,1000,5000\}, and the result isn't shown in the table when $N=5000$; the height limit $H$ selected from \{4,7, 8, 12\}. Each set consists of 5 instances generated by different random seeds. In each instance, the origin $O(i)$ and the destination $D(i)$ of a container $i$ are generated from a uniform distribution on the integers $1,2,\ldots,P$ satisfying that $O(i)<D(i)$. For the convenience of comparison, we only show the average "Numofstack"  when  $K=0$, $K=10$, $K=20$, $K=50$, $K=100$, respectively. And this is applicable to the heuristic algorithm as well as the deuterogenic $P\&H$ algorithm, the simple introduced will be introduced in the next content.
+This paper uses the test data from the existing literature and we add an extra parameters $K$ into the primary instance in order to meet the demands of research.
+$K$ means the number of allowed rehandles and it is selected from \{0,10,20,50,100\}.
+Particular£¬$K=0$ represents the benchmark and comparable condition. In fact, the problem becomes SSMP-ZR if $K=0$.
+There are 2400 sets of instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20,30\};  the number of containers $N$, which is selected from \{50,100,200,500,1000,5000\}, and the result isn't shown in the table when $N=5000$; the height limit $H$ selected from \{4,7, 8, 12\}. Each set consists of 5 instances generated by different random seeds.
+In each instance, the origin $O(i)$ and the destination $D(i)$ of a container $i$ are generated from a uniform distribution on the integers $1,2,\ldots,P$ satisfying that $O(i)<D(i)$. For the convenience of comparison, we only show the average "Numofstack"  when  $K=0$, $K=10$, $K=20$, $K=50$, $K=100$, respectively. And this is applicable to the heuristic algorithm as well as the deuterogenic $P\&H$ algorithm, the simple introduced will be introduced in the next content.
 
 In this section, we will showcase the performance of our heuristic algorithms on a number of test instances. The heuristic was implemented in Java 8 and the experiments were conducted on a computer with Intel Core processor clocked at 2.30 GHz and 8 GB RAM. The operating system of the computer is Windows 10.
 
@@ -699,18 +705,30 @@ The experimental results are shown in Table \ref{tab:1} and Table \ref{tab:2}.
   \label{tab:2}
 \end{table}
 
-Table \ref{tab:1} summarizes the results of those easy instance with small number of ports, i.e. $P \in \{5,10\}$. For each given $P$, $N$ and  $H$, we work out the value of $UB$, the average numbers of $Numofstack$ in different instances when $K$ selects different values.
+Table \ref{tab:1} summarizes the results of those easy instances with small number of ports, i.e. $P \in \{5,10\}$.
+For each given $P$, $N$ and  $H$, we work out the value of $UB$, the average numbers of $Numofstack$ in different instances when $K$ selects different values.
 The $UB$ is used to test the rationality and  the $Numofstack$ is used to compare with the result when $K=0$, respectively.
-Table \ref{tab:2} summarizes that the results of those difficult instances with large number of ports, i.e. $P \in \{20,30\}$. The columns in this table are similarly defined as those of Table 1 and so is the conclusion we can get from Table 1.
+Table \ref{tab:2} summarizes that the results of those difficult instances with large number of ports, i.e. $P \in \{20,30\}$.
+The columns in this table are similarly defined as those of Table 1 and so is the conclusion we can get from Table 1.
 
-Most of instances provide the evidence that it works well when $K$ isn't equal to zero comparing the condition where $K$ is equal to zero. However, the results between the easy instances and difficult instances have some difference. Comparing with the significant influence of different $K$ in the difficult instances, the influence of different $K$ in the easy instances isn't obvious. The same conclusion can be drawn if we focus on one specific variable(or factor) while keeping other variables unchanged.
+Most of instances provide the evidence that it works well when $K$ isn't equal to zero comparing the condition where $K$ is equal to zero.
+However, the results between the easy instances and difficult instances have some differences.
+Comparing with the significant influence of different $K$ in the difficult instances, the influence of different $K$ in the easy instances isn't obvious.
+The same conclusion can be drawn if we focus on one specific variable (or factor) while keeping other variables unchanged.
 As far as we are concerned, we think it is the density and sparseness that causes this consequence.
-In other words, the smaller value of each variable is, the same kind of containers that have the identical origin port and destination port have more chance to be placed in the same stack and less rehandles will arise. We call this stack with high density, and the high sparseness in contrast.
+In other words, the smaller value of each variable is, the same kind of containers that have the identical origin port and destination port have more chance to be placed in the same stack and less rehandles will arise.
+We call this stack with high density, and the high sparseness in contrast.
 
-There are few exceptions when we analyze the result  through a large amount of experiments, the number of needed stack is even larger when the allowed rehandle $K$ isn't equal to zero, though the deviation is not great.
-For the instance with the same $P$, $N$ and $H$, we call it benchmark instance when $K$ is equal to zero and exceptional instance if the number of used stack is larger than the benchmark instance when $K$ isn't equal to zero.
-We then find out those instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we think it's the distribution status of previous containers to be blamed. The allowed rehandles delay the production of new stack but not reduce it, that's why this problem happens.
-We eventually output the layout of the exceptional instances and the corresponding benchmark instances.
+There are few exceptions when we analyze the result through a large amount of experiments.
+The number of needed stack is even larger when the allowed rehandle $K$ isn't equal to zero, though the deviation is not great.
+For the instance with the same $P$, $N$ and $H$, we call it benchmark instance when $K$ is equal to zero.
+If the number of used stack is larger than the benchmark instance when $K$ isn't equal to zero, we call it exceptional instance.
+We then find out those instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we think it's the distribution status of previous containers to be blamed.
+The allowed rehandles delay the production of new stack but not to reduce it, that's why this problem happens.
+Actually, it's the unloading strategy for blocking containers that causes this exceptional condition.
+Because we reset the origin port of blocking containers, the loading containers in current port increases and meanwhile the allowed rehandles run out.
+In the end, the new stack is needed under the coincidence.
+In order to prove it, we output the layout of the exceptional instances and the corresponding benchmark instances.
 By comparing the exceptional instances with the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm are the reason for this kind of abnormal condition.
 In our heuristic algorithm, we reset the blocking containers' origin port as the current port, and it enlarges the number of containers to be loaded. Meanwhile, the allowed rehandles run out and thus a new stack is needed to stow those containers.
 
@@ -729,14 +747,21 @@ However, it doesn't mean that our algorithm isn't universal because the probabil
   \label{tab:3}
 \end{table}
 
-Table \ref{tab:3} gives the average results when the $K$ has different values. It isn't difficult to conclude that the value of $Numofstack$ becomes smaller if several rehandle is allowed and the more rehandle, the less stacks used. That's to say, our problem based on zero rehandle is meaningful and our algorithm is practical.
+Table \ref{tab:3} gives the average results when the $K$ has different values. 
+It isn't difficult to conclude that the value of $Numofstack$ becomes smaller if several rehandle is allowed and the more rehandle, the less stacks used. 
+That's to say, our problem based on zero rehandle is meaningful and our algorithm is practical.
 
 
-In fact, we have give another related algorithm named $P\&H$ algorithm to get the stowage planning.
+In fact, we give another related algorithm named $P\&H$ algorithm based on our basic algorithm to get the stowage planning.
 This method is actually a process of parameter tuning, our original intention is attempting to find out better solution to stow containers.
 Nevertheless, the result through this method isn't as good as the heuristic algorithm and it doesn't work well as we expected.
 From another point of view, it just shows the good performance of our heuristic algorithm.
-We give some restrictions on the height and nearport of alternative stacks when choosing one stack for each container. The concrete content of "P\&H" method isn't described in this paper but the computational results will be listed in the following tables. The parameters in $P\&H$ values between 0 and 1. The former parameter represents the dispersion degree between the loading container's destination port and  alternative stack's nearport and their values are equal if the value of parameter is 1. The latter parameter means the  ratio of stack's height and the limited height $H$.
+We give some restrictions on the height and nearport of alternative stacks when choosing one stack for each container. 
+The parameters in $P\&H$ values between 0 and 1. 
+The former parameter represents the dispersion degree between the loading container's destination port and  alternative stack's nearport.
+If their values are equal, the value of parameter is 1. 
+The latter parameter means the  ratio of stack's height and the limited height $H$.
+The concrete content of "P\&H" method isn't described in this paper but the computational results will be listed in the following tables. 
 
 \begin{table}[htbp]
   \centering
@@ -806,12 +831,22 @@ Figure \ref{fig5:graph} shows us that the comprehensive impact on the result we 
 
 \section{Conclusion}
 \label{sec:con}
-The stowage stack minimization problem with K-rehandle constraint (SSMP-KR) deals with accommodating give containers throughout a voyage by fewest stacks on a containership subject to K rehandles.
-In this paper, we analyze the structure of this combinatorial optimization problem and its relationship with the zero rehandle problem proposed in \cite{wang2014stowage}.
-We can regard the stowage stack minimization problem with the zero rehandle as an exception  when we choose the value of K as zero.
-Hence, the problem proposed in this paper is a generalized and extended problem considering the existence of rehandle.
-A heuristic approach is proposed to construct near-optimal solutions in a very short computational time.
-The experimental results show that our heuristic approaches generate very promising solutions on a variety of instances. Comparing with the stowage stack minimum rehandle problem with zero constraint, our problem with K rehandle constraint acts as a buffer and offers great flexibility for the actual problem. The results shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility. We use greedy rules to find the best slot for each container, hence the results may be the near-optimal rather than global optimal. As we all know, it is difficult to get the global optimal for this kind of problem. Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. The novelty and practicality show the importance of this paper and it can give a reference to the future study.
+The stowage stack minimization problem with K-rehandle constraint (SSMP-KR) is aimed to find out a stowage plan that fewest stacks on a containership are required to accommodate given containers throughout a voyage by subject to K-rehandles.
+
+In this paper, we analyze the structure of this two-dimensional bin-packing optimization problem and its relationship with the SSMP-ZR problem proposed in \cite{wang2014stowage}.
+
+We can regard the stowage stack minimization problem with zero rehandle as an particular case when we choose the value of K as zero.
+Hence, the problem proposed in this paper is a generalized and extended problem considering the existence of K-rehandle.
+
+A heuristic approach is proposed to construct near-optimal solutions to the SSMP-KR problem in a very short computational time. 
+Since there are different status in the process of handling containers, different methods in our algorithm are thought to cope with the corresponding conditions.
+
+The experimental results show that our heuristic approaches generate very promising solutions on a variety of instances. Comparing with the stowage stack minimum problem with zero constraint, our problem with K rehandle constraint acts as a buffer and offers great flexibility for the actual problem.
+The results shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
+Our algorithm uses greedy rules to find the best slot for each container, hence the results may be the near-optimal rather than global optimal.
+As we all know, it is difficult to get the global optimal for this kind of problem.
+Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints.
+The novelty and practicality show the importance of this paper and it can give a reference to the future study.
 
 \bibliographystyle{apalike2}
 \bibliography{references}

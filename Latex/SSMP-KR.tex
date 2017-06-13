@@ -261,64 +261,64 @@ So the below is the main process of our algorithm.
 
 The simple condition when there isn't rehandle allowed.
 
-\begin{algorithm}[htbp]
-    \caption{A heuristic procedure for the SSMP-KR in the simple condition}
-    \label{alg:1}
-    \begin{codebox}
-    \Procname{\proc{Heuristic for the simple condition (\id{I})}}
-        \li \For each port $p=1,2,\ldots,P$
-        \li \Do
-                Unload containers destined at port $p$.
-        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
-        \li     \For each container $c$ at port $p$
-        \li     \Do
-                    $S_0$=currently stacks whose nearport is greater than or equal to the loading container's destination port.
-        \li         $c(s_i)$= the container of stack $s_i\in S_0$ with the nearport.
-        \li         $S'=\{s_i|s_i\in S~\text{and}~D(c(s_i))\geq D(c)\}$.
-        \li         \If $S'\neq \emptyset$
-        \li         \Then
-                        $s_{min}=\arg\min \limits_{s\in S'} D(c(s))$.
-        \li             Load container $c$ to stack $s_{min}$.
-        \li         \Else
-        \li             Load $c$ to an empty stack. \label{heu:2a}
-                    \End
-                \End
-            \End
-    \end{codebox}
-\end{algorithm}
+%\begin{algorithm}[htbp]
+%    \caption{A heuristic procedure for the SSMP-KR in the simple condition}
+%    \label{alg:1}
+%    \begin{codebox}
+%    \Procname{\proc{Heuristic for the simple condition (\id{I})}}
+%        \li \For each port $p=1,2,\ldots,P$
+%        \li \Do
+%                Unload containers destined at port $p$.
+%        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
+%        \li     \For each container $c$ at port $p$
+%        \li     \Do
+%                    $S_0$=currently stacks whose nearport is greater than or equal to the loading container's destination port.
+%        \li         $c(s_i)$= the container of stack $s_i\in S_0$ with the nearport.
+%        \li         $S'=\{s_i|s_i\in S~\text{and}~D(c(s_i))\geq D(c)\}$.
+%        \li         \If $S'\neq \emptyset$
+%        \li         \Then
+%                        $s_{min}=\arg\min \limits_{s\in S'} D(c(s))$.
+%        \li             Load container $c$ to stack $s_{min}$.
+%        \li         \Else
+%        \li             Load $c$ to an empty stack. \label{heu:2a}
+%                    \End
+%                \End
+%            \End
+%    \end{codebox}
+%\end{algorithm}
 
 The complex condition when there is allowed rehandles.
 
-\begin{algorithm}[htbp]
-    \caption{A heuristic procedure for the SSMP-KR in the complex condition}
-    \label{alg:2}
-    \begin{codebox}
-    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
-        \li \For each port $p=1,2,\ldots,P$
-        \li \Do
-                Unload containers destined at port $p$.
-        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
-        \li     \For each container $c$ at port $p$
-        \li     \Do
-                    $S_1$=currently stacks used to store partial stacks without rehandles occuring.
-                    $S_2$=currently stacks used to store partial stacks with rehandles occuring.
-                    $S_3$=current stacks used store empty stacks whether there is a rehandle or not
-        \li         \If $S_1\neq \emptyset$
-        \li         \Then
-                        $s_{min}=\arg\min \limits_{s\in S_1} D(c(s))$.
-        \li             Load container $c$ to stack $s_{min}$.
-        \li         \Else If $S_2\neq \emptyset$
-                        \Then
-                        $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
-        \li             Load container $c$ to stack $s_{min}$.
-        \li         \Else
-        \li             Load $c$ to an empty stack in $S_3$. \label{heu:2a}
-                    \End
-                \End
-            \End
-        \end
-    \end{codebox}
-\end{algorithm}
+%\begin{algorithm}[htbp]
+%    \caption{A heuristic procedure for the SSMP-KR in the complex condition}
+%    \label{alg:2}
+%    \begin{codebox}
+%    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
+%        \li \For each port $p=1,2,\ldots,P$
+%        \li \Do
+%                Unload containers destined at port $p$.
+%        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
+%        \li     \For each container $c$ at port $p$
+%        \li     \Do
+%                    $S_1$=currently stacks used to store partial stacks without rehandles occuring.
+%                    $S_2$=currently stacks used to store partial stacks with rehandles occuring.
+%                    $S_3$=current stacks used store empty stacks whether there is a rehandle or not
+%        \li         \If $S_1\neq \emptyset$
+%        \li         \Then
+%                        $s_{min}=\arg\min \limits_{s\in S_1} D(c(s))$.
+%        \li             Load container $c$ to stack $s_{min}$.
+%        \li         \Else If $S_2\neq \emptyset$
+%                        \Then
+%                        $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
+%        \li             Load container $c$ to stack $s_{min}$.
+%        \li         \Else
+%        \li             Load $c$ to an empty stack in $S_3$. \label{heu:2a}
+%                    \End
+%                \End
+%            \End
+%        \end
+%    \end{codebox}
+%\end{algorithm}
 
 %\floatname{algorithm}{Main procedure}
 %\renewcommand{\algorithmicrequire}{\textbf{Input:}}
@@ -747,8 +747,8 @@ However, it doesn't mean that our algorithm isn't universal because the probabil
   \label{tab:3}
 \end{table}
 
-Table \ref{tab:3} gives the average results when the $K$ has different values. 
-It isn't difficult to conclude that the value of $Numofstack$ becomes smaller if several rehandle is allowed and the more rehandle, the less stacks used. 
+Table \ref{tab:3} gives the average results when the $K$ has different values.
+It isn't difficult to conclude that the value of $Numofstack$ becomes smaller if several rehandle is allowed and the more rehandle, the less stacks used.
 That's to say, our problem based on zero rehandle is meaningful and our algorithm is practical.
 
 
@@ -756,12 +756,12 @@ In fact, we give another related algorithm named $P\&H$ algorithm based on our b
 This method is actually a process of parameter tuning, our original intention is attempting to find out better solution to stow containers.
 Nevertheless, the result through this method isn't as good as the heuristic algorithm and it doesn't work well as we expected.
 From another point of view, it just shows the good performance of our heuristic algorithm.
-We give some restrictions on the height and nearport of alternative stacks when choosing one stack for each container. 
-The parameters in $P\&H$ values between 0 and 1. 
+We give some restrictions on the height and nearport of alternative stacks when choosing one stack for each container.
+The parameters in $P\&H$ values between 0 and 1.
 The former parameter represents the dispersion degree between the loading container's destination port and  alternative stack's nearport.
-If their values are equal, the value of parameter is 1. 
+If their values are equal, the value of parameter is 1.
 The latter parameter means the  ratio of stack's height and the limited height $H$.
-The concrete content of "P\&H" method isn't described in this paper but the computational results will be listed in the following tables. 
+The concrete content of "P\&H" method isn't described in this paper but the computational results will be listed in the following tables.
 
 \begin{table}[htbp]
   \centering
@@ -782,11 +782,11 @@ The concrete content of "P\&H" method isn't described in this paper but the comp
   \label{tab:4}
 \end{table}
 
-Table \ref{tab:4} shows the result with "P\&H" method, which is firstly designed to improve the original algorithm and eventually it is used to prove the good performance our original algorithm. 
-Both the two parameters of the method are selected form \{0.75,0.8\}. 
-We can draw a conclusion that the first parameter has a significant influence on the result while the second parameter makes no difference. 
-I suppose that the it happens as a result of the value set of $H$.  
-Comparing with the results shown in Table 3, we could find that original algorithm we propose works better when the value of $K$ is small while the $P\&H$ method works better when the value of $K$ is large. 
+Table \ref{tab:4} shows the result with "P\&H" method, which is firstly designed to improve the original algorithm and eventually it is used to prove the good performance our original algorithm.
+Both the two parameters of the method are selected form \{0.75,0.8\}.
+We can draw a conclusion that the first parameter has a significant influence on the result while the second parameter makes no difference.
+I suppose that the it happens as a result of the value set of $H$.
+Comparing with the results shown in Table 3, we could find that original algorithm we propose works better when the value of $K$ is small while the $P\&H$ method works better when the value of $K$ is large.
 So maybe we can use the better one after working out the result when $K$ is certain.
 
 We also use some pictures to make our result more visual and the pictures are made by Excel.
@@ -843,7 +843,7 @@ In this paper, we analyze the structure of this two-dimensional bin-packing opti
 We can regard the stowage stack minimization problem with zero rehandle as an particular case when we choose the value of K as zero.
 Hence, the problem proposed in this paper is a generalized and extended problem considering the existence of K-rehandle.
 
-A heuristic approach is proposed to construct near-optimal solutions to the SSMP-KR problem in a very short computational time. 
+A heuristic approach is proposed to construct near-optimal solutions to the SSMP-KR problem in a very short computational time.
 Since there are different status in the process of handling containers, different methods in our algorithm are thought to cope with the corresponding conditions.
 
 The experimental results show that our heuristic approaches generate very promising solutions on a variety of instances. Comparing with the stowage stack minimum problem with zero constraint, our problem with K rehandle constraint acts as a buffer and offers great flexibility for the actual problem.

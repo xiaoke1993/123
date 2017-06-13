@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  18 MAY 2017 16:54
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  13 JUN 2017 11:51
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -670,115 +670,120 @@ File: ot1txr.fd 2000/12/15 v3.1
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+txmia on input line 42.
+Missing character: There is no ¡ in font txr!
+Missing character: There is no ° in font txr!
+Missing character: There is no ¡ in font txr!
+Missing character: There is no ± in font txr!
+Missing character: There is no ¡ in font txr!
+Missing character: There is no ¯ in font txr!
+LaTeX Font Info:    Try loading font information for U+txmia on input line 61.
 (D:\CTEX\MiKTeX\tex\latex\txfonts\utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 42.
+LaTeX Font Info:    Try loading font information for U+msa on input line 61.
 
 (D:\CTEX\MiKTeX\tex\latex\amsfonts\umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 42.
+LaTeX Font Info:    Try loading font information for U+msb on input line 61.
 
 (D:\CTEX\MiKTeX\tex\latex\amsfonts\umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+txsyc on input line 42.
+LaTeX Font Info:    Try loading font information for U+txsyc on input line 61.
 
 (D:\CTEX\MiKTeX\tex\latex\txfonts\utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-)
+) [1
+
+{D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
 Missing character: There is no ¨ in font txr!
 Missing character: There is no ¨ in font txr!
 Missing character: There is no © in font txr!
 Missing character: There is no ¨ in font txr!
- [1
-
-{D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
-<Arrangement_of_cargo_space.png, id=11, 1080.035pt x 304.13625pt>
+ [2] [3]
+<Arrangement_of_cargo_space.png, id=17, 1080.035pt x 304.13625pt>
 File: Arrangement_of_cargo_space.png Graphic file (type png)
 
 <use Arrangement_of_cargo_space.png>
-Package pdftex.def Info: Arrangement_of_cargo_space.png used on input line 76.
+Package pdftex.def Info: Arrangement_of_cargo_space.png used on input line 95.
 (pdftex.def)             Requested size: 433.6049pt x 216.81534pt.
 
-<A_vessel_bay.png, id=13, 565.11125pt x 478.78876pt>
+<A_vessel_bay.png, id=19, 565.11125pt x 478.78876pt>
 File: A_vessel_bay.png Graphic file (type png)
  <use A_vessel_bay.png>
-Package pdftex.def Info: A_vessel_bay.png used on input line 83.
+Package pdftex.def Info: A_vessel_bay.png used on input line 102.
 (pdftex.def)             Requested size: 289.08246pt x 216.81181pt.
 
-<A_partially_loaded_stack.png, id=14, 402.50375pt x 464.73625pt>
+<A_partially_loaded_stack.png, id=20, 402.50375pt x 464.73625pt>
 File: A_partially_loaded_stack.png Graphic file (type png)
 
 <use A_partially_loaded_stack.png>
-Package pdftex.def Info: A_partially_loaded_stack.png used on input line 91.
+Package pdftex.def Info: A_partially_loaded_stack.png used on input line 110.
 (pdftex.def)             Requested size: 289.07774pt x 216.80925pt.
- [2] [3 <E:/Github/123/Latex/Arrangement_of_cargo_space.png> <E:/Github/123/Lat
-ex/A_vessel_bay.png>] [4 <E:/Github/123/Latex/A_partially_loaded_stack.png>] [5
-]
+ [4 <E:/Github/123/Latex/Arrangement_of_cargo_space.png> <E:/Github/123/Latex/A
+_vessel_bay.png>] [5 <E:/Github/123/Latex/A_partially_loaded_stack.png>] [6]
 Missing character: There is no ¬ in font txr!
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ¡ in font txr!
- [6]
+ [7]
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ¯ in font txr!
- [7]
+ [8]
 Missing character: There is no ¬ in font txr!
 Missing character: There is no ¬ in font txr!
- [8] [9] [10] [11] [12] [13
+ [9] [10] [11] [12] [13] [14
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 361.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 491.
 
 
 (D:\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 361.
- [14] [15]
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 491.
+ [15] [16]
 Missing character: There is no ¬ in font txr!
- [16] [17] [18] [19]
-<K-Stacks.png, id=76, 362.3136pt x 217.7736pt>
+ [17] [18] [19] [20]
+<K-Stacks.png, id=79, 362.3136pt x 217.7736pt>
 File: K-Stacks.png Graphic file (type png)
  <use K-Stacks.png>
-Package pdftex.def Info: K-Stacks.png used on input line 636.
+Package pdftex.def Info: K-Stacks.png used on input line 796.
 (pdftex.def)             Requested size: 289.07729pt x 216.81604pt.
- [20 <E:/Github/123/Latex/K-Stacks.png>] <K-containers.png, id=81, 404.712pt x 
-217.7736pt>
-File: K-containers.png Graphic file (type png)
 
-<use K-containers.png>
-Package pdftex.def Info: K-containers.png used on input line 644.
+<K-containers.png, id=80, 404.712pt x 217.7736pt>
+File: K-containers.png Graphic file (type png)
+ <use K-containers.png>
+Package pdftex.def Info: K-containers.png used on input line 804.
 (pdftex.def)             Requested size: 289.09517pt x 216.81604pt.
- [21 <E:/Github/123/Latex/K-containers.png>]
-<K-ports.png, id=86, 404.2302pt x 217.7736pt>
+
+[21] [22 <E:/Github/123/Latex/K-Stacks.png> <E:/Github/123/Latex/K-containers.p
+ng>] <K-ports.png, id=89, 404.2302pt x 217.7736pt>
 File: K-ports.png Graphic file (type png)
  <use K-ports.png>
-Package pdftex.def Info: K-ports.png used on input line 653.
+Package pdftex.def Info: K-ports.png used on input line 813.
 (pdftex.def)             Requested size: 289.08408pt x 216.81604pt.
 
-<K-limit_height.png, id=87, 429.7656pt x 217.7736pt>
+<K-limit_height.png, id=90, 429.7656pt x 217.7736pt>
 File: K-limit_height.png Graphic file (type png)
  <use K-limit_height.png>
-Package pdftex.def Info: K-limit_height.png used on input line 661.
+Package pdftex.def Info: K-limit_height.png used on input line 821.
 (pdftex.def)             Requested size: 289.08905pt x 216.81604pt.
 
-<K-comprehensive.png, id=88, 491.9178pt x 261.6174pt>
+<K-comprehensive.png, id=91, 491.9178pt x 261.6174pt>
 File: K-comprehensive.png Graphic file (type png)
 
 <use K-comprehensive.png>
-Package pdftex.def Info: K-comprehensive.png used on input line 670.
+Package pdftex.def Info: K-comprehensive.png used on input line 830.
 (pdftex.def)             Requested size: 289.08055pt x 216.81503pt.
- [22
+ [23
 
  <E:/Github/123/Latex/K-ports.png> <E:/Github/123/Latex/K-limit_height.png>] (E
-:\Github\123\Latex\SSMP-KR.bbl [23 <E:/Github/123/Latex/K-comprehensive.png>] [
-24]) [25] (E:\Github\123\Latex\SSMP-KR.aux)
+:\Github\123\Latex\SSMP-KR.bbl [24 <E:/Github/123/Latex/K-comprehensive.png>] [
+25]) [26] (E:\Github\123\Latex\SSMP-KR.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -786,20 +791,20 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  4412 strings out of 495354
  55523 string characters out of 3183859
- 163056 words of memory out of 3000000
+ 163057 words of memory out of 3000000
  7458 multiletter control sequences out of 15000+200000
  40929 words of font info for 104 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,9n,34p,1798b,288s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,9n,34p,1798b,284s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<D:/CTEX/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmtt10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxi.pf
 b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><D:/CTEX/MiKTeX/fonts/ty
 pe1/public/txfonts/rtxr.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsy.pfb
 ><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (25 pages, 280957 bytes).
+Output written on SSMP-KR.pdf (26 pages, 285265 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
+ 136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

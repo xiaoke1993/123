@@ -31,14 +31,17 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 \begin{abstract}
 The container ship stowage planning problem (CSSP) has been studied all the time and many approaches have been applied to find out optimal or near-optimal solutions to this problem.
 In addition, many variant problems have been proposed and researched from different optimization aspects since there are many constraints in the course of actual shipping.
-The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship.
-The related research about SSMP can been seen in \cite{avriel2000container}, \cite{jensen2010complexity}, and \cite{wang2014stowage}, and they focused on the condition that there is no rehandle or shift, i.e., the problem they studied is the stowage stack minimization problem with zero rehandle (SSMP-ZR).
+The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the 
+objective to utilize the fewest number of stacks on the ship.
+The related research about SSMP can been seen in \cite{avriel2000container}, \cite{jensen2010complexity}, and \cite{wang2014stowage}, and they focused on the condition that there is 
+no rehandle or shift, i.e., the problem they studied is the stowage stack minimization problem with zero rehandle (SSMP-ZR).
 
 In this paper, we first propose the stowage stack minimization problem with K rehanlds (SSMP-KR) based on the stowage stack minimization problem with zero rehandle and give the detail description about it.
 Like most of the literature, we highlight the constraints we study while put less emphasis on other constraints.
 
 Next, heuristic algorithms are put forward to construct solutions to the SSMP-KR.  It is worth mentioning that, our algorithms are suitable for the circular route.
-We use Java compilation software ¡°Ecplise¡± to execute the code for our algorithms. For the loading strategies, two different processing methods are used to cope with two different situations whether the predetermined K meets or not, respectively.
+We use Java compilation software ¡°Ecplise¡± to execute the code for our algorithms. For the loading strategies, two different processing methods are used to cope with two different situations whether the 
+predetermined K meets or not, respectively.
 When the allowed rehandles run out, the problem becomes simpler because there is no rehandling operations that we need to take into consideration.
 In other words, we are just dealing with the SSMP-ZR problem under this circumstance.
 When there are rehandling operations allowed, we have to make decisions about how to place each single container loaded in each port to make the full use of each stack and minimize the total stacks used during the shipping.
@@ -48,11 +51,17 @@ As for the unloading strategies, there are still two conditions and it depends o
 If it is not a blocking container, we just discharge it; If it is a blocking one, we have to unload it, reset the origin port of the unloading container and load it again.
 Our output for each instance using this algorithm in Ecplise includes the number of used stacks, the lower and upper bound number of used stacks, the number of used rehandles and the allowed rehandles, and the layout of ship after one loading or unloading operation.
 
-Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction. We find out the lower bound and upper bound to make sure the solutions we get are reasonable and effective, which proves the feasibility of the algorithm theoretically. In actual, we use a tip in the process of proof, we divide the stacks used into two parts: the full stacks and the partial stacks. By doing so, we can deduce the lower and upper bound faster and simpler.
-To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results with different values of K, and of course zero is included. We have selected a set of values of K to find out the relationship between K and the stacks we used. Through this process, we may get the approximate value of K for one particular shipping to balance the flexibility and space utilization of the ship. What¡¯s more, instances with different number of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
+Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction. 
+We find out the lower bound and upper bound to make sure the solutions we get are reasonable and effective, which proves the feasibility of the algorithm theoretically. 
+In actual, we use a tip in the process of proof, we divide the stacks used into two parts: the full stacks and the partial stacks. By doing so, we can deduce the lower and upper bound faster and simpler.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results with different values of K, and of course zero is included. We have selected a set of values of K to find out the relationship between K and the stacks we used. 
+Through this process, we may get the approximate value of K for one particular shipping to balance the flexibility and space utilization of the ship. What¡¯s more, instances with different number of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
 
-The results demonstrate that our heuristic approaches can generate promising solutions if we allow some rehandling operations compared with the zero rehandle solutions and random loading solutions. That is to say, the results we get use less stacks in average and it shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
-It is worth mentioning that our problem with K rehandles constraint acts as a buffer and offers great flexibility for the actual problem as a result of the existence of rehandling operations. Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. What's more, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
+The results demonstrate that our heuristic approaches can generate promising solutions if we allow some rehandling operations compared with the zero rehandle solutions and random loading solutions. 
+That is to say, the results we get use less stacks in average and it shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
+It is worth mentioning that our problem with K rehandles constraint acts as a buffer and offers great flexibility for the actual problem as a result of the existence of rehandling operations. 
+Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. 
+What's more, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
 \end{abstract}
 
 \begin{keyword}
@@ -63,7 +72,7 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 
 \section{Introduction}
 \label{sec:i}
-TODO: add importance of global trade
+% TODO: add importance of global trade
 International trade plays a important role in promoting the development of world economy, promoting national income increase and expanding employment around the world.
 Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
 In 2015 ¨C for the first time in UNCTAD£¨United Nations Conference on Trade and Development£© records ¨C world seaborne trade volumes1 were estimated to have exceeded 10 billion tons. Shipments expanded by 2.1 per cent, a pace notably slower than the historical.
@@ -73,13 +82,16 @@ Container-shipping is a kind of modern transportation tool which has a lot of ad
 Containerization has revolutionized cargo shipping.
 containerization is one of the catalysts of global trade. It has resulted in a tremendous growth of the maritime freight industry.
 Nowadays, over 80\% of world trade is carried by the maritime freight industry, which operates the container transportation business \cite{zhang2016multiobjective}.
-In addition, according to World Shipping Council, around 52 percent of the value of world international seaborne trade today is being moved in containers. (TODO: cite source).
+In addition, according to World Shipping Council, around 52 percent of the value of world international seaborne trade today is being moved in containers. %(TODO: cite source).
 This mode is deeply accepted by shipper and carrier, and is becoming the main trend of freightage in the world. It shows powerful vitality and promising prospects.
 
-The container stowage plan is a pivotal link to containers transportation,and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}. Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights. These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. With the development of container-shipping, more and more containers are transported by sail.
-Over the past two decades there has been a continuous increase in demand for cost efficient containerized transportation. Up to now, no satisfying solution has development of container transportation trade. Thus, it makes higher demand of the problem.
+The container stowage plan is a pivotal link to containers transportation,and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}. 
+Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights. 
+These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. With the development of container-shipping, more and more containers are transported by sail.
+Over the past two decades there has been a continuous increase in demand for cost efficient containerized transportation. Up to now, no satisfying solution has development of container transportation trade. 
+Thus, it makes higher demand of the problem.
 
-TODO: introduce the ship's structure, and why rehandles exist.
+%TODO: introduce the ship's structure, and why rehandles exist.
 A container ship transports cargo in containers, and the ship layout varies from vessel to vessel.
 The cargo space of a container ship is split into several 20-ft-long areas. These areas are termed 20-ft bays.
 In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
@@ -87,7 +99,8 @@ Each bay consists of container stacks placed along the length of ship(see Figure
 All bays are divided into an over deck and an deck area, separated by structures called hatches.
 In order to gain access to the containers stored under deck, we must remove all the containers on the deck, including the hatch over.
 The container position in the ship is uniquely indexed by (bay, row, tier). Such three-tuple is called a slot.
-On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit(TEU) stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig two:graph}).
+On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit(TEU) 
+stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig two:graph}).
 
 
 \begin{figure}[htbp]
@@ -119,58 +132,136 @@ Usually it is called necessary shifts in the former case and voluntary shifts in
 
 
 
-The previous research ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on. Sometimes we need think about the importance of capacity as well. For example, if we can use each stack sufficiently, the required number of ships will be reduced and thus the cost decreases. The problem mentioned in this paper give a priority on how to reduce the use of stack with K rehandle as much as possible. Through the research on this problem, another aspect of container stowage planning is exhibited and a lot of shipping cost can be saved by using what we propose in this paper. On the other hand, it represents a novel thinking perspective to make a research about this kind of problem and it will promote the development of academic shipping optimal problem.
+The previous research ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on. 
+Sometimes we need think about the importance of capacity as well. For example, if we can use each stack sufficiently, the required number of ships will be reduced and thus the cost decreases. 
+The problem mentioned in this paper give a priority on how to reduce the use of stack with K rehandle as much as possible. 
+Through the research on this problem, another aspect of container stowage planning is exhibited and a lot of shipping cost can be saved by using what we propose in this paper. 
+On the other hand, it represents a novel thinking perspective to make a research about this kind of problem and it will promote the development of academic shipping optimal problem.
 
-We put forward the stowage stack minimization problem with K rehandle constraint problem (SSMP-KR) in this paper. Literally speaking, it is a container stowage planning problem whose objection is to find out minimization stack with K rehandle constraint on a given condition. The heuristic algorithm in this paper uses the greedy rule to finish the loading and unloading operation for every container to be loaded and unloaded in each port along the voyage. Therefore, the solution we get may be the approximately optimal rather than the global optimal.
+We put forward the stowage stack minimization problem with K rehandle constraint problem (SSMP-KR) in this paper. Literally speaking, it is a container stowage planning problem whose objection is to find out minimization stack with K rehandle 
+constraint on a given condition. The heuristic algorithm in this paper uses the greedy rule to finish the loading and unloading operation for every container to be loaded and unloaded in each port along the voyage. 
+Therefore, the solution we get may be the approximately optimal rather than the global optimal.
 
-TODO: The contribution of our paper lies in three aspects. First, Second, Third.
+%TODO: The contribution of our paper lies in three aspects. First, Second, Third.
 The contribution of our paper lies in three aspects.
 First, the previous research usually focused on how to reduce the rehandles or shifts , our paper initially considers how to get the optimal container stowage plan when giving the allowed number of rehandles.
 Second, the problem can also be regarded as a extended problem of the stowage stack minimization problem with zero rehandle, which is a combinatorial optimization problem.
 Furthermore, we can get the different results when the value of K is different, and zero rehandle can be a benchmark for others to compare with.
 By comparing different results, we eventually choose a appropriate value of K to balance the complexity of quay operations and the space utilization of the cabin.
 Third, we put forward a heuristic algorithm to solve the problem proposed in this paper and the result shows the good performance of our algorithm.
-The result can help us know the stowage plan visibly and make a analysis about what the appropriate K is. Therefore, the problem and the algorithm presented in our paper are both novel and worthy of further study.
+The result can help us know the stowage plan visibly and make a analysis about what the appropriate K is. 
+Therefore, the problem and the algorithm presented in our paper are both novel and worthy of further study.
 
 
-The remainder of this paper is organized as follows: we review extant research works in Section~\ref{sec:lr} and the formal definition of our problem is provided in Section~\ref{sec:pd}. In Section~\ref{sec:algo} we present our heuristic algorithm for the problem, as well as explain the ideas behind and specific details about the algorithm. Experiments and associated analysis are illustrated in Section~\ref{sec:ea}. Concluding remarks close the paper in Section~\ref{sec:con}.
+The remainder of this paper is organized as follows: we review extant research works in Section~\ref{sec:lr} and the formal definition of our problem is provided in Section~\ref{sec:pd}. 
+In Section~\ref{sec:algo} we present our heuristic algorithm for the problem, as well as explain the ideas behind and specific details about the algorithm. 
+Experiments and associated analysis are illustrated in Section~\ref{sec:ea}. Concluding remarks close the paper in Section~\ref{sec:con}.
 
 \section{Literature Review}
 \label{sec:lr}
-The container stowage problem can be divided into two classes: one is management and programming at the container terminal, the other is stowage plan for containership. This paper mainly focuses on the latter. And sorted by research method, this problem will be divided into six categories: simulation based on  probability, heuristic procedures, mathematical programming approach, decision support system, expert system and evolutionary computation. The following are some description about these categories of containership stowage plan.
+The container stowage problem can be divided into two classes: one is management and programming at the container terminal, the other is stowage plan for containership. 
+This paper mainly focuses on the latter. 
+And sorted by research method, this problem will be divided into six categories: simulation based on  probability, heuristic procedures, mathematical programming approach, decision support system, expert system and evolutionary computation. The following are some description about these categories of containership stowage plan.
 
-Since 1970s, the stowage plan problem has been studied by shipping organization for commercial demand. They tried to find a good solution  which would satisfy fewer shifting and higher efficiency when loading and discharging containers.
+Since 1970s, the stowage plan problem has been studied by shipping organization for commercial demand. 
+They tried to find a good solution  which would satisfy fewer shifting and higher efficiency when loading and discharging containers.
 
-\cite{shields1984containership} introduced a computer preplanning system(CAPS) which had been used by American President Lines. The CAPS produced stowage plan by using Monte Carlo theory. Expert system is a most active research and practical field of Artificial Intelligent (AI).  \cite{dillingham1986application} introduced their researches on expert system of stowage based on rules. Each of the suggested container movements was displayed graphically as the decisions were made. Database in the system could not only accomplish the stowage plan, but also track the location of the container. It was highly interactive, the user could interrupt the system at any time when the planning proceeded and overrode or revoked suggestions that the system had made.
-\cite{wilson2001container} outlined a computer system that generates good sub-optimal solutions to the stowage pre-planning problem. This is achieved through an intelligent analysis of the domain allowing the problem to be divided into sub-problems: a generalized placement strategy and a specialised placement procedure. This methodology progressively refines the arrangement of containers within the cargo-space of a container ship until each container is specifically allocated to a stowage location.
+\cite{shields1984containership} introduced a computer preplanning system(CAPS) which had been used by American President Lines. 
+The CAPS produced stowage plan by using Monte Carlo theory. 
+Expert system is a most active research and practical field of Artificial Intelligent (AI).  
+\cite{dillingham1986application} introduced their researches on expert system of stowage based on rules. 
+Each of the suggested container movements was displayed graphically as the decisions were made. 
+Database in the system could not only accomplish the stowage plan, but also track the location of the container. 
+It was highly interactive, the user could interrupt the system at any time when the planning proceeded and overrode or revoked suggestions that the system had made.
+\cite{wilson2001container} outlined a computer system that generates good sub-optimal solutions to the stowage pre-planning problem. 
+This is achieved through an intelligent analysis of the domain allowing the problem to be divided into sub-problems: a generalized placement strategy and a specialised placement procedure. 
+This methodology progressively refines the arrangement of containers within the cargo-space of a container ship until each container is specifically allocated to a stowage location.
 
-\cite{scott1978loading} constructed a model, in which containers were sorted into ten classes based on some characteristics and then three heuristic rules were used to assign gradually each type of containers to slots of the ship by four steps, while the shifting problem had not been considered in their model. \cite{avriel1998stowage} presented a 0-1 binary linear programming formulation based on minimizing the number shifting in a single bay of a ship calling at a given number of ports. Further, they showed that finding the minimum number of columns for which there was a zero shifts stowage plan is equivalent to finding the coloring number of circle graphs. \cite{botter1991stowage} created a model called complete mathematical model for the stowage plan problem, which used binary decision variables to determine the containers unloading and loading sequence for each port. The objective function of this model for the stowage plan involved two important factors: the number of re-stowing along the route and the longitudinal crane movement along the quay during the container loading and unloading operation. The advantages were that the model considered every port the ship calling at as a different stage of the whole system, which made the model much more correspond to the actual cases. But too many factors were considered in the model, the dimension of formulization was too large to solve because of large number of binary variables and constraints arising in the model. Literatures have shown that binary linear programming formulation for such problems is impracticable for real life problems due to the large number of binary variables and constraints.
+\cite{scott1978loading} constructed a model, in which containers were sorted into ten classes based on some characteristics and then three heuristic rules were used to assign gradually each type of containers to slots of the ship by four steps, while the shifting problem had not been considered in their model. 
+\cite{avriel1998stowage} presented a 0-1 binary linear programming formulation based on minimizing the number shifting in a single bay of a ship calling at a given number of ports. 
+Further, they showed that finding the minimum number of columns for which there was a zero shifts stowage plan is equivalent to finding the coloring number of circle graphs. 
+\cite{botter1991stowage} created a model called complete mathematical model for the stowage plan problem, which used binary decision variables to determine the containers unloading and loading sequence for each port. 
+The objective function of this model for the stowage plan involved two important factors: the number of re-stowing along the route and the longitudinal crane movement along the quay during the container loading and unloading operation. 
+The advantages were that the model considered every port the ship calling at as a different stage of the whole system, which made the model much more correspond to the actual cases. 
+But too many factors were considered in the model, the dimension of formulization was too large to solve because of large number of binary variables and constraints arising in the model. 
+Literatures have shown that binary linear programming formulation for such problems is impracticable for real life problems due to the large number of binary variables and constraints.
 
-\cite{avriel1998stowage} and \cite{avriel2000container} focused on stowage planning in order to minimize the number of unproductive shifts (temporary unloading and reloading of containers at a port before their destination ports in order to access containers below them for unloading). Aspects of ship's stability and other real-life constraints are not considered. A binary linear programming (LP) model is formulated. Due to the proven NP-hardness of the problem a so-called `Suspensory Heuristic£¬¡ª¡ªbased on earlier work by \cite{avriel1993exact} ¡ª¡ªis developed in order to solve even large problem instances. The heuristic assigns slots in a bay to containers dynamically with respect to the sequence of ports in a vessel's route.
+\cite{avriel1998stowage} and \cite{avriel2000container} focused on stowage planning in order to minimize the number of unproductive shifts (temporary unloading and reloading of containers at a port before their destination ports in order to access containers below them for unloading). 
+Aspects of ship's stability and other real-life constraints are not considered. 
+A binary linear programming (LP) model is formulated. 
+Due to the proven NP-hardness of the problem, a so-called ¡°Suspensory Heuristic¡± $¡ª¡ª$ based on earlier work by \cite{avriel1993exact} ¡ª¡ªis developed in order to solve even large problem instances. 
+The heuristic assigns slots in a bay to containers dynamically with respect to the sequence of ports in a vessel's route.
 \cite{haghani2001model} proposed a MIP model for developing loading plans in order to minimize the time that a vessel spends at port, and the container handling cost which shifts caused by is highly influenced by the number of unproductive but necessary an unsatisfactory arrangement of containers.
-In \cite{ambrosino2004stowing} the problem of stowing containers into a containership has been faced by evaluating an exact 0-1 Linear Programming model, that is not practically useful for large cases. This has been modified by an approach proposed by the authors, consisting of heuristic preprocessing and prestowing procedures that also allow the relaxation of some constraints of the exact model. The proposed approach exhibits very good performance in terms of both solution precision and computational time. Moreover, in the performance evaluation with real size cases, it also guarantees another very important maritime performance index, in term of handling operations/hour.
-In \cite{Delgado2012251}, they focus on the slot planning phase of this approach and present a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section. This so-called slot planning problem is NP-hard and often involves stowing several hundred containers. Using state-of-the-art constraint solvers and modeling techniques, however, we were able to solve 90\% of 236 real instances from our industrial collaborator to optimality within 1 second. Thus, somewhat to our surprise, it is possible to solve most of these problems optimally within the time required for practical application. \cite{ambrosino2015mip}  proposed a Mixed  Integer  Programming (MIP) heuristic aimed at determining stowage plans in circular routes for container ships so as to give support for the ship coordinator and the terminal planner.
+In \cite{ambrosino2004stowing} the problem of stowing containers into a containership has been faced by evaluating an exact 0-1 Linear Programming model, that is not practically useful for large cases. 
+This has been modified by an approach proposed by the authors, consisting of heuristic preprocessing and prestowing procedures that also allow the relaxation of some constraints of the exact model. 
+The proposed approach exhibits very good performance in terms of both solution precision and computational time. Moreover, in the performance evaluation with real size cases, it also guarantees another very important maritime performance index, in term of handling operations/hour.
+In \cite{Delgado2012251}, they focus on the slot planning phase of this approach and present a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section. 
+This so-called slot planning problem is NP-hard and often involves stowing several hundred containers. Using state-of-the-art constraint solvers and modeling techniques, however, we were able to solve 90\% of 236 real instances from our industrial collaborator to optimality within 1 second. 
+Thus, somewhat to our surprise, it is possible to solve most of these problems optimally within the time required for practical application. 
+\cite{ambrosino2015mip}  proposed a Mixed  Integer  Programming (MIP) heuristic aimed at determining stowage plans in circular routes for container ships so as to give support for the ship coordinator and the terminal planner.
 
 
 
-\cite{webster1970container} first tried to solve the problem by using computer. They put forward a heuristic algorithm that could create a random stowage plan. What's more, \cite{ding2015stowage} developed a heuristic algorithm which can generate stowage plans with a reasonable number of shifts for such problems. The algorithm, verified by extensive computational experimentations, performs better than the Suspensory Heuristic Procedure (SH algorithm) in \cite{avriel1998stowage}, which is a dynamic slot-assignment scheme that terminated with a stowage plan, and to the best of our knowledge, is one of the leading heuristic algorithms for such stowage planning problem when there are many binary variables and constraints in the formulation.
+\cite{webster1970container} first tried to solve the problem by using computer. They put forward a heuristic algorithm that could create a random stowage plan. 
+What's more, \cite{ding2015stowage} developed a heuristic algorithm which can generate stowage plans with a reasonable number of shifts for such problems. 
+The algorithm, verified by extensive computational experimentations, performs better than the Suspensory Heuristic Procedure (SH algorithm) in \cite{avriel1998stowage}, which is a dynamic slot-assignment scheme that terminated with a stowage plan, and to the best of our knowledge, is one of the leading heuristic algorithms for such stowage planning problem when there are many binary variables and constraints in the formulation.
 
 Tabu search was employed to obtain an optimal solution in \cite{wilson2001container} and his model was feasible for it can change configuration step by step until each container was assigned to specific slot.
-Then, \cite{bortfeldt2003parallel} presented a parallel tabu search algorithm for the container loading problem with a single container to be loaded. According to an extensive comparative test also including heuristics from other authors, high utilizations of the container volume are already obtained with the sequential TSA. A slight improvement of these results could be achieved by the parallelization.
-The Ship Stowage Planning Problem have been addressed in \cite{Monaco2014256}. They have first provided a detailed description of the two phases in which the decision problem is usually decomposed, along with a classification scheme and a review of the most relevant related papers. They have  proposed a Binary Integer Model for the minimization of the transportation times of the containers and the yard-shifts and they have developed a Tabu Search Algorithm for finding sub-optimal solutions to the problem and have solved the model by CPLEX.
+Then, \cite{bortfeldt2003parallel} presented a parallel tabu search algorithm for the container loading problem with a single container to be loaded. 
+According to an extensive comparative test also including heuristics from other authors, high utilizations of the container volume are already obtained with the sequential TSA. 
+A slight improvement of these results could be achieved by the parallelization.
+The Ship Stowage Planning Problem have been addressed in \cite{Monaco2014256}. 
+They have first provided a detailed description of the two phases in which the decision problem is usually decomposed, along with a classification scheme and a review of the most relevant related papers. 
+They have  proposed a Binary Integer Model for the minimization of the transportation times of the containers and the yard-shifts and they have developed a Tabu Search Algorithm for finding sub-optimal solutions to the problem and have solved the model by CPLEX.
 
 
 Algorithm of evolutionary computation came from Darwin¡¯s biologic theory of evolution. There are two or three branches at present, among which genetic algorithm is used widely.
-The presented hybrid GA for loading a single container in \cite{bortfeldt2001hybrid}  is particularly suitable for strongly heterogeneous containers stowage problems.  The algorithm takes account of some constraints which are relevant in practice. Its good performance and superiority to comparative methods was verified in an extensive test. The use of a time limit kept the required computing times within acceptable limits.
-\cite{dubrovsky2002genetic}  used a GA for solving the stowage planning problem of minimizing the number of container movements. Search space is significantly reduced by a compact and efficient encoding scheme. Ship stability criteria are reflected by appropriate constraints. Simulation runs demonstrate the efficiency and flexibility of the GA-based approach.  \cite{kammarti2013evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes(parent) from an initially constructed population using a roulette wheel technique. Then, the two parents are combined using a one point crossover operator. Finally, a mutation operator is performed. The variant tackled in \cite{cohen2017container} involved several constraints, inspired by real-life problems and application found in the literature. Given the complexity of the problem, which belongs to the class of NP-hard problems, a novel evolutionary metaheuristic algorithm is developed and designed. Considering the ability and flexibility of Genetic Algorithm (GA). The approach is based on a two-phase procedure, one for master planning and the other for allocation of the containers into slots. GA parameters are analyzed to achieve practical and best results. The system offers stowage allocation solutions for both phases, thus offering flexibility for a wide variety of vessels and route combinations.
+The presented hybrid GA for loading a single container in \cite{bortfeldt2001hybrid}  is particularly suitable for strongly heterogeneous containers stowage problems.  
+The algorithm takes account of some constraints which are relevant in practice. 
+Its good performance and superiority to comparative methods was verified in an extensive test. 
+The use of a time limit kept the required computing times within acceptable limits.
+\cite{dubrovsky2002genetic}  used a GA for solving the stowage planning problem of minimizing the number of container movements. 
+Search space is significantly reduced by a compact and efficient encoding scheme. 
+Ship stability criteria are reflected by appropriate constraints. 
+Simulation runs demonstrate the efficiency and flexibility of the GA-based approach.  
+\cite{kammarti2013evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes(parent) from an initially constructed population using a roulette wheel technique. 
+Then, the two parents are combined using a one point crossover operator. Finally, a mutation operator is performed. 
+The variant tackled in \cite{cohen2017container} involved several constraints, inspired by real-life problems and application found in the literature. 
+Given the complexity of the problem, which belongs to the class of NP-hard problems, a novel evolutionary metaheuristic algorithm is developed and designed. 
+Considering the ability and flexibility of Genetic Algorithm (GA). 
+The approach is based on a two-phase procedure, one for master planning and the other for allocation of the containers into slots. 
+GA parameters are analyzed to achieve practical and best results. 
+The system offers stowage allocation solutions for both phases, thus offering flexibility for a wide variety of vessels and route combinations.
 
-Container ship stowage problem(CSSP) is combinatorial optimization problem with multiobjects and multiconstraints. In order to reduce computational difficulty£¬CSSP is decomposed two subproblems in \cite{wei2005model}, and the first one is discussed detailed. CSSP is regarded as bin-packing problem. After being modeled£¬the algorithm of best fit for binpacking problem is used to solve the CSSP. A case shows that the algorithm is feasible for container ship stowage problem.
-A multiobjective ship stowage planning problem(SSPP) was investigated by \cite{zhang2016multiobjective}, which aims to optimize the ship stability and the number of rehandles simultaneously. They use metacentric height, list value, and trim value to measure the ship stability. Meanwhile, the number of rehandles is the sum of rehandles by yard cranes and quay cranes and all necessary rehandles at future ports. The algorithm can produce a set of nondominated solutions. Decision makers can then choose the most promising solution for practical implementation based on their experience and preferences. Extensive experiments are carried out on two groups of instances. The computational results demonstrate the effectiveness of the proposed algorithm compared to the NSGA-II and random weighted genetic algorithms, especially when it is applied in solving the six-objective SSPP.
+Container ship stowage problem(CSSP) is combinatorial optimization problem with multiobjects and multiconstraints. 
+In order to reduce computational difficulty£¬CSSP is decomposed two subproblems in \cite{wei2005model}, and the first one is discussed detailed. 
+CSSP is regarded as bin-packing problem. After being modeled£¬the algorithm of best fit for binpacking problem is used to solve the CSSP. 
+A case shows that the algorithm is feasible for container ship stowage problem.
+A multiobjective ship stowage planning problem(SSPP) was investigated by \cite{zhang2016multiobjective}, which aims to optimize the ship stability and the number of rehandles simultaneously. 
+They use metacentric height, list value, and trim value to measure the ship stability. 
+Meanwhile, the number of rehandles is the sum of rehandles by yard cranes and quay cranes and all necessary rehandles at future ports. 
+The algorithm can produce a set of nondominated solutions. 
+Decision makers can then choose the most promising solution for practical implementation based on their experience and preferences. 
+Extensive experiments are carried out on two groups of instances. 
+The computational results demonstrate the effectiveness of the proposed algorithm compared to the NSGA-II and random weighted genetic algorithms, especially when it is applied in solving the six-objective SSPP.
 
-\cite{tierney2014complexity} investigated the complexity of stowage planning problem and showed that the capacitated k-shift problem is solvable in polynomial time for any choice of stacks and stack capacities. And some scholars paid special attention to the process of loading and unloading, \cite{malucelli2008stack} investigated stack reordering strategies aiming at minimizing the number of pop and push operations and  focused on three versions of the problem in which reordering can take place in different phases: when unloading the stack, when loading it or in both phases.
-There are some extended problems in this field. Different problems arising in practice in the context of storage areas organized in stacks have been surveyed by \cite{Lehnfeld2014297}. Different problem classes have been identified, namely loading, unloading, premarshalling and combined problems. To be able to categorize all these problems in a more abstract way, they developed a classification scheme which has been used to summarize complexity results and solution methods for all problem classes.  In conclusion, many problems have already been solved by exact or heuristic methods in all four considered problem classes. Nevertheless, due to the diversity of the problems, various other versions exist. For further research, a major challenge is the development of more efficient solution algorithms integrating additional constraints coming from practical applications. As we all known, the 3D Container ship Loading Plan Problem (CLPP) is an important problem that appears in seaport container terminal operations and is well known to be NP-hard. This problem consists of determining how to organize the containers in a ship in order to minimize the number of movements necessary to load and unload the container ship and the instability of the ship in each port. In \cite{Araujo201650},  the hybrid method Pareto Clustering Search (PCS) is proposed to solve the CLPP and obtain a good approximation to the Pareto Front. The PCS aims to combine metaheuristics and local search heuristics, and the intensification is performed only in promising regions. Computational results considering instances available in the literature are presented to show that PCS provides better solutions for the CLPP than a mono-objective Simulated Annealing.
+\cite{tierney2014complexity} investigated the complexity of stowage planning problem and showed that the capacitated k-shift problem is solvable in polynomial time for any choice of stacks and stack capacities. 
+And some scholars paid special attention to the process of loading and unloading, \cite{malucelli2008stack} investigated stack reordering strategies aiming at minimizing the number of pop and push operations and  focused on three versions of the problem in which reordering can take place in different phases: when unloading the stack, when loading it or in both phases.
+There are some extended problems in this field. Different problems arising in practice in the context of storage areas organized in stacks have been surveyed by \cite{Lehnfeld2014297}. 
+Different problem classes have been identified, namely loading, unloading, premarshalling and combined problems. To be able to categorize all these problems in a more abstract way, they developed a classification scheme which has been used to summarize complexity results and solution methods for all problem classes.  
+In conclusion, many problems have already been solved by exact or heuristic methods in all four considered problem classes. 
+Nevertheless, due to the diversity of the problems, various other versions exist. 
+For further research, a major challenge is the development of more efficient solution algorithms integrating additional constraints coming from practical applications. 
+As we all known, the 3D Container ship Loading Plan Problem (CLPP) is an important problem that appears in seaport container terminal operations and is well known to be NP-hard. 
+This problem consists of determining how to organize the containers in a ship in order to minimize the number of movements necessary to load and unload the container ship and the instability of the ship in each port. 
+In \cite{Araujo201650},  the hybrid method Pareto Clustering Search (PCS) is proposed to solve the CLPP and obtain a good approximation to the Pareto Front. 
+The PCS aims to combine metaheuristics and local search heuristics, and the intensification is performed only in promising regions. 
+Computational results considering instances available in the literature are presented to show that PCS provides better solutions for the CLPP than a mono-objective Simulated Annealing.
 
-To the best of our knowledge, apart from the SSMP-ZR, only \cite{avriel2000container} and \cite{jensen2010complexity} discussed the stowage stack minimization and its connection with the chromatic number of circle graphs when the stack height is unlimited. At present, the research tendency of the stowage planning problem is intelligent management system, which is a new stowage research direction. Intelligent containership stowage plan system is a technological innovation in contrast with traditional stowage method. It can improve the ability of decision-making management system of container shipping by means of artificial intelligence, information technology, communications and computer technology.
+To the best of our knowledge, apart from the SSMP-ZR, only \cite{avriel2000container} and \cite{jensen2010complexity} discussed the stowage stack minimization and its connection with the chromatic number of circle graphs when the stack height is unlimited. 
+At present, the research tendency of the stowage planning problem is intelligent management system, which is a new stowage research direction. 
+Intelligent containership stowage plan system is a technological innovation in contrast with traditional stowage method. 
+It can improve the ability of decision-making management system of container shipping by means of artificial intelligence, information technology, communications and computer technology.
 
 
 \section{Problem Description}
@@ -187,7 +278,7 @@ Shifts may occur in these ports, either necessary or voluntary or both.
 A container is called a j-container if it is destined for port j.
 0bviously all j-containers are loaded before the ship visits port j and should be unloaded at port j.
 A j-container is called a i, j-container if it is originated from port i.
-A j-container in slot (r, c) is said to be blocked if there exists a j'-container in slot (r', c) with j' > j and r'<r, and the j'-container is called a blocking container with respect to the j-container.
+A j-container in slot (r, c) is said to be blocked if there exists a j'-container in slot (r', c) with j' $>$ j and r'$<$r, and the j'-container is called a blocking container with respect to the j-container.
 Occurrence of container blocking at any time means that shifts are no longer avoidable.
 
 Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
@@ -289,36 +380,36 @@ The simple condition when there isn't rehandle allowed.
 
 The complex condition when there is allowed rehandles.
 
-\begin{algorithm}[htbp]
-    \caption{A heuristic procedure for the SSMP-KR in the complex condition}
-    \label{alg:2}
-    \begin{codebox}
-    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
-        \li \For each port $p=1,2,\ldots,P$
-        \li \Do
-                Unload containers destined at port $p$.
-        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
-        \li     \For each container $c$ at port $p$
-        \li     \Do
-                    $S_1$=currently stacks used to store partial stacks without rehandles occuring.
-                    $S_2$=currently stacks used to store partial stacks with rehandles occuring.
-                    $S_3$=current stacks used store empty stacks whether there is a rehandle or not
-        \li         \If $S_1\neq \emptyset$
-        \li         \Then
-                        $s_{min}=\arg\min \limits_{s\in S_1} D(c(s))$.
-        \li             Load container $c$ to stack $s_{min}$.
-        \li         \Else If $S_2\neq \emptyset$
-                        \Then
-                        $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
-        \li             Load container $c$ to stack $s_{min}$.
-        \li         \Else
-        \li             Load $c$ to an empty stack in $S_3$. \label{heu:2a}
-                    \End
-                \End
-            \End
-        \end
-    \end{codebox}
-\end{algorithm}
+%\begin{algorithm}[htbp]
+%    \caption{A heuristic procedure for the SSMP-KR in the complex condition}
+%    \label{alg:2}
+%    \begin{codebox}
+%    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
+%        \li \For each port $p=1,2,\ldots,P$
+%        \li \Do
+%                Unload containers destined at port $p$.
+%        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
+%        \li     \For each container $c$ at port $p$
+%        \li     \Do
+%                    $S_1$=currently stacks used to store partial stacks without rehandles occuring.
+%                    $S_2$=currently stacks used to store partial stacks with rehandles occuring.
+%                    $S_3$=current stacks used store empty stacks whether there is a rehandle or not
+%        \li         \If $S_1\neq \emptyset$
+%        \li         \Then
+%                        $s_{min}=\arg\min \limits_{s\in S_1} D(c(s))$.
+%        \li             Load container $c$ to stack $s_{min}$.
+%        \li         \Else If $S_2\neq \emptyset$
+%                        \Then
+%                        $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
+%        \li             Load container $c$ to stack $s_{min}$.
+%        \li         \Else
+%        \li             Load $c$ to an empty stack in $S_3$. \label{heu:2a}
+%                    \End
+%                \End
+%            \End
+%        \end
+%    \end{codebox}
+%\end{algorithm}
 
 %\floatname{algorithm}{Main procedure}
 %\renewcommand{\algorithmicrequire}{\textbf{Input:}}
@@ -852,6 +943,13 @@ Our algorithm uses greedy rules to find the best slot for each container, hence 
 As we all know, it is difficult to get the global optimal for this kind of problem.
 Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints.
 The novelty and practicality show the importance of this paper and it can give a reference to the future study.
+
+There is a simple example to elaborate why our algorithm can improve the utilization of containership.
+Assuming that there are thirteen containers to be transported along the voyage with six ports.
+We let C(i,j) denote index container whose origin port is i and destination port j.
+The following is the way to express those containers: four C(1,3), one C(2,4), one C(2,6), four C(3,5), one C(4,6), two C(5,6).
+If there are loaded without any rehandle, the loading sequence and layout will be the following figure.
+
 
 \bibliographystyle{apalike2}
 \bibliography{references}

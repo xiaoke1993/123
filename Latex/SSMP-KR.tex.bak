@@ -948,7 +948,28 @@ There is a simple example to elaborate why our algorithm can improve the utiliza
 Assuming that there are thirteen containers to be transported along the voyage with six ports.
 We let C(i,j) denote index container whose origin port is i and destination port j.
 The following is the way to express those containers: four C(1,3), one C(2,4), one C(2,6), four C(3,5), one C(4,6), two C(5,6).
-If there are loaded without any rehandle, the loading sequence and layout will be the following figure.
+If they are loaded without any rehandle, the loading sequence and layout will be the following figure:
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.00in,height=3.00in]{without rehandle.png}
+\caption{a side view of a partially loaded stack.}
+\label{fig three:graph}
+\end{figure}
+
+If they are loaded with rehandles, the loading sequence and layout will be the following figure:
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4.00in,height=3.00in]{with rehandle.png}
+\caption{a side view of a partially loaded stack.}
+\label{fig three:graph}
+\end{figure}
+
+From the above figures, we can draw the conclusion that allowing a certain number of rehandles will reduce the number 
+of stacks used to store containers in a vessel compared with zero rehandle.
+
+Furthermore, the rehandles are unavoidable in the actual port operation, which means the problem we propose in this paper does make some 
+sense and the solution we work out using our heuristic algorithm can provide a preliminary assessment for forwarders to arrange
+linear shipping company for transportation.
 
 
 \bibliographystyle{apalike2}

@@ -104,24 +104,24 @@ stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig t
 
 
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=6.00in,height=3.00in]{Arrangement_of_cargo_space.png}
+\center
 \caption{The arrangement of cargo space in a container vessel.}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/Arrangement_of_cargo_space.png}}
 \label{fig one:graph}
 \end{figure}
 
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=4.00in,height=3.00in]{A_vessel_bay.png}
+\center
 \caption{a front view of a vessel bay.}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/A_vessel_bay.png}}
 \label{fig two:graph}
 \end{figure}
 Some slots that have power plugs are known as reefer slots. A standard ISO container is usually 20 or 40 ft long, 8 ft wide and 8.6 ft high. 40 foot containers can be 8.6 ft high, or 9.6 ft high for high-cube containers(see Figure \ref{fig three:graph}).
 
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=4.00in,height=3.00in]{A_partially_loaded_stack.png}
+\center
 \caption{a side view of a partially loaded stack.}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/A_partially_loaded_stack.png}}
 \label{fig three:graph}
 \end{figure}
 
@@ -318,7 +318,7 @@ The SSMP-KR can be mathematically formulated by the following integer programmin
 In the above model, $H$ is the limit height of each stack, $N$ is the number of containers, $P$ is the number of ports and $S$ is the number of stacks on the ship.
 $x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise.
 $y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
-$L_i$,$U_i$,$R_i$ are the number of loading containers, discharging containers and rehandling containers, respectively. 
+$L_i$,$U_i$,$R_i$ are the number of loading containers, discharging containers and rehandling containers, respectively.
 The objective (\ref{eqn:obj}) minimizes the number of stacks used.
 Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
 Constraints (\ref{eqn:2}) guarantee that the total number of rehandles is no greater than than $K$, the value of allowed rehandles.
@@ -941,17 +941,17 @@ So maybe we can use the better one after working out the result when $K$ is cert
 We also use some pictures to make our result more visual and the pictures are made by Excel.
 
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=4.00in,height=3.00in]{K-Stacks.png}
+\center
 \caption{Relationship between allowed rehandle and used stacks}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-Stacks.png}}
 \label{fig1:graph}
 \end{figure}
 As what is shown in Table \ref{tab:3}, Figure \ref{fig1:graph} indicates visually the relationship between used stacks and allowed rehandle. It's not hard to draw the conclusion that the more allowed rehandle, the less used stacks. So it intuitively reflect the meaning of this research topic and it show the feasibility of our algorithm. Comparing with zero rehandle, some rehandle are allowed to reduce the partial stacks and improve the utilization of space.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{K-containers.png}
 \caption{Relationship between containers and used stacks}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-containers.png}}
 \label{fig2:graph}
 \end{figure}
 Figure \ref{fig2:graph} shows us the relationship between containers and used stacks. We can conclude that the more containers are, the more stacks will be used, which is undoubted in practice.
@@ -959,16 +959,16 @@ Figure \ref{fig2:graph} shows us the relationship between containers and used st
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{K-ports.png}
 \caption{Relationship between ports and used stacks}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-ports.png}}
 \label{fig3:graph}
 \end{figure}
 Figure \ref{fig3:graph} provides us the relationship between ports and used stack. In general, the more ports are among the shipping, the more stacks will be used. Another related factor to be  taken into consideration is the sparse distribution situation of containers in each port.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{K-limit_height.png}
 \caption{Relationship between limit height and used stacks}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-limit_height.png}}
 \label{fig4:graph}
 \end{figure}
 Figure \ref{fig4:graph} shows us that the greater the number of limit height is, the less stacks will be used, which is definitely right.
@@ -976,8 +976,8 @@ Figure \ref{fig4:graph} shows us that the greater the number of limit height is,
 
 \begin{figure}
 \centering
-\includegraphics[width=4.00in,height=3.00in]{K-comprehensive.png}
 \caption{Relationship between comprehensive factors and used stacks}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-comprehensive.png}}
 \label{fig5:graph}
 \end{figure}
 Figure \ref{fig5:graph} shows us that the comprehensive impact on the result we work out for all the basic factors considered in this paper. And we can choose the factor we want to analyze and it is convenient for us to work out how different factor influences our  final result. For the convenience of observation, we only give the result with filtered numbers of each factor.
@@ -1009,17 +1009,17 @@ The following is the way to express those containers: four C(1,3), one C(2,4), o
 If they are loaded without any rehandle, the loading sequence and layout will be the following figure:
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{without rehandle.jpg}
 \caption{a side view of a partially loaded stack.}
-\label{fig three:graph}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/without rehandle.jpg}}
+\label{fig eight:graph}
 \end{figure}
 
 If they are loaded with rehandles, the loading sequence and layout will be the following figure:
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{with rehandle.jpg}
 \caption{a side view of a partially loaded stack.}
-\label{fig three:graph}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/with rehandle.jpg}}
+\label{fig nine:graph}
 \end{figure}
 
 From the above figures, we can draw the conclusion that allowing a certain number of rehandles will reduce the number

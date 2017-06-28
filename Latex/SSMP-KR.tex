@@ -303,33 +303,36 @@ The detailed introduction will be given in the below.
 We also denote the dynamic $Layout$ as the layout of the ship after different operations for containers.
 We even can output the layout after the operations for one container or after all the operations at one specific port through the algorithm proposed in this paper.
 
-The SSMP-KR can be mathematically formulated by the following integer programming (IP) model. 
+The SSMP-KR can be mathematically formulated by the following integer programming (IP) model.
 
 \begin{small}
 \begin{align}
-& (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj} \\
-& \mathrm{s.t.}\hspace{11pt}\sum_{i=1}^{P} \le K \label{eqn:1}\\
-%\mbox{s.t.~}& \sum_{c=1}^{C} x_{ic}=1, ~\forall 1\le i \le m \label{eqn:1}\\
-&\hspace{24pt}\sum_{i=1}^{N} x_{is}\le M y_s, ~\forall 1\le s \le S	\label{eqn:2}\\
-& \sum_{i:O(i)\le p\le D(i)-1} x_{is}\le H, ~\forall 1\le s\le S, 1\le p\le P		\label{eqn:3}\\
-& x_{is}+x_{js}\le 1, ~\forall 1\le s\le S, 1\le i,j\le N, O(j)<O(i)<D(j)<D(i)	\label{eqn:4}\\
-& x_{is}, y_s \in \{0,1\}, ~\forall 1\le s\le S,1\le i,j\le N
+            &             (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj} \\
+\mbox{s.t.~}& \sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:1}\\
+            & \hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:2}\\
+            &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:3}\\
+            & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:4}\\
 \end{align}
 \end{small}
 
-In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship. 
-$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise. 
-$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise. 
-$O(i)$ and $D(i)$ indicate the shipping leg of container $i$. The objective (\ref{eqn:obj}) minimizes the number of stacks used. 
-Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack. 
-Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks. 
-Constraints (\ref{eqn:3}) assure that at each port $p$, the number of containers in stack $s$ does not exceed $H$. 
-Constraints (\ref{eqn:4}) avoid overstowage requiring that container $i$ is prohibited to block container $j$ in the same stack when container $j$ is retrieved.
+In the above model, $H$ is the limit height of each stack, $N$ is the number of containers, $P$ is the number of ports and $S$ is the number of stacks on the ship.
+$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise.
+$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
+$L_i$,$U_i$,$R_i$ are the number of loading containers, discharging containers and rehandling containers, respectively. 
+The objective (\ref{eqn:obj}) minimizes the number of stacks used.
+Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
+Constraints (\ref{eqn:2}) guarantee that the total number of rehandles is no greater than than $K$, the value of allowed rehandles.
+Constraints (\ref{eqn:3}) ensure that the total number of containers in each stack is no greater than than $H$.
+Constraints (\ref{eqn:4}) assure that at each port $p$, the number of containers in vessel does not exceed $S*H$.
 
-Note that the solution to the IP model only reflects the assignment of containers to stacks. 
-It can be converted to a complete loading plan as follows. 
-At each port $p$, load containers to their corresponding stacks (given by $x_{is}$) by the decreasing order of their destinations. 
-It is straightforward that the resultant layout from such a loading order does not include overstowage.
+Note that the solution to the IP model only reflects the assignment of containers to stacks.
+It can be converted to a complete loading plan as follows.
+At each port $p$, load containers to their corresponding stacks (given by $x_{is}$) by the decreasing order of their destinations.
+It is straightforward that the resultant layout from such a loading constraints will be more flexible to design our algorithm and closer to the actual situation.
+
+
+
+
 
 \section{Methodology}
 \label{sec:algo}
@@ -337,6 +340,33 @@ In this section, we will talk about the heuristic algorithms to the SSMP-KR, as 
 
 \subsection{Heuristic Algorithms for the SSMP-KR}
 \label{sec:h1}
+
+Before the introduction of our algorithm, we give the related notations as followings in the table:
+\begin{table}[htbp]
+\tiny
+  \centering
+  \caption{constants, sets, variables and methods in the algorithm}
+    \begin{tabular}{r|r|}
+    \hline
+     $K$, $P$ ,$N$ , $H$ & the meanings of these constants are the same as what described in the above\\
+     $LB$ & the lower bound for each given instance\\
+     $UB$ & the upper bound for each given instance\\
+     $S_0$ & stack index set to store feasible stacks when there isn't an rehandle allowed\\
+     $S_1$ & stack index set to store partial stacks without rehandles when $K$ doesn't reach\\
+     $S_2$ & stack index set to store partial stacks with rehandles when $K$ doesn't reach\\
+     $S_3$ & stack index set to store empty stacks when $K$ doesn't reach\\
+     $height$ & a one-dimension array, represents the current height of each stack\\
+     $Layout$ & a two-dimension array, represents the layout of containers in vessel after each operation\\
+     $Numofstack$ & the cumulative number of used stacks\\
+     $lb$ & a one-dimension array, represents the lower bound of used stacks in each port\\
+     $ub$ & a one-dimension array, represents the upper bound of used stacks in each port\\
+     $ac$ & an arraylist to ordinally store the information of each container including the origin port and the destination port\\
+     $Solution$ & an arraylist to ordinally store the operation of each container\\
+     $Container$ & a Class to record the information of each container\\
+     $Operation$ & a Class to record the information of each operation, including loading, unloading and rehandling.\\
+   \end{tabular}
+   \label{tab:4}
+\end{table}
 
 In our algorithm, two classes (collections of objects with the same characteristics and behavior in Java) are introduced in order to describe the containers' characteristic and record the operation for containers.
 They are "Container" class and "Operation" class, respectively.
@@ -979,7 +1009,7 @@ The following is the way to express those containers: four C(1,3), one C(2,4), o
 If they are loaded without any rehandle, the loading sequence and layout will be the following figure:
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{without rehandle.png}
+\includegraphics[width=4.00in,height=3.00in]{without rehandle.jpg}
 \caption{a side view of a partially loaded stack.}
 \label{fig three:graph}
 \end{figure}
@@ -987,7 +1017,7 @@ If they are loaded without any rehandle, the loading sequence and layout will be
 If they are loaded with rehandles, the loading sequence and layout will be the following figure:
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=4.00in,height=3.00in]{with rehandle.png}
+\includegraphics[width=4.00in,height=3.00in]{with rehandle.jpg}
 \caption{a side view of a partially loaded stack.}
 \label{fig three:graph}
 \end{figure}

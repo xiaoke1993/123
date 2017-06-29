@@ -276,8 +276,8 @@ Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are ship
 Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist.
 Moreover, the ship is never empty once sets out due to the circular feature.
 
-Supposing that the voyage terminates in the second circle, we can break the loop into a straight line. 
-A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$. 
+Supposing that the voyage terminates in the second circle, we can break the loop into a straight line.
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$.
 There will be $P$ kinds of different containers according to their origin ports.
 Containers at port 1 can be transported into port 2, 3, ..., $P-1$, $P$.
 Containers at port 2 can be transported into port 3, 4, ..., $P$, 1.
@@ -290,7 +290,7 @@ Actually it is not difficult, we can regard the port 1 in the second circle as p
 Eventually we only need work out the container stowage planning for the line voyage from port 1 to port $2P$ and it is equivalent to cope with the problem with a two-circle voyage.
 Similarly, we can use this method to deal with the circular route container stowage problem no matter how many circle they are.
 There is another approach we can think about to solve the circular route problem.
-After going across port 1 in each circle, we reset the origin port of containers remained in vessel as port 1. 
+After going across port 1 in each circle, we reset the origin port of containers remained in vessel as port 1.
 For example, containers from port 3 to the port 2 in the next circle will be containers from 1 to port 2 after going across port 1 in the next circle.
 Thus, it only exists the port from port 1 to port $P$.
 In addition, all the loading and discharging ports of $N$ containers are known in advance.
@@ -342,13 +342,13 @@ The capacitated SSMP-ZR can be mathematically formulated by the following intege
 \end{align}
 \end{small}
 
-In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship. 
-$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise. 
-$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise. 
-$O(i)$ and $D(i)$ indicate the shipping leg of container $i$. The objective (\ref{eqn:obj}) minimizes the number of stacks used. 
-Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack. 
-Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks. 
-Constraints (\ref{eqn:3}) assure that at each port $p$, the number of containers in stack $s$ does not exceed $H$. 
+In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship.
+$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise.
+$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
+$O(i)$ and $D(i)$ indicate the shipping leg of container $i$. The objective (\ref{eqn:obj}) minimizes the number of stacks used.
+Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
+Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks.
+Constraints (\ref{eqn:3}) assure that at each port $p$, the number of containers in stack $s$ does not exceed $H$.
 Constraints (\ref{eqn:4}) avoid overstowage requiring that container $i$ is prohibited to block container $j$ in the same stack when container $j$ is retrieved.
 
 It is straightforward that the resultant layout from such a loading order does not include overstowage.
@@ -804,50 +804,50 @@ The experimental results are shown in Table \ref{tab:1} and Table \ref{tab:2}.
 \tiny
   \centering
   \caption{Results of the instances with $P\in\{5,10\}$}
-    \begin{tabular}{r|r|r|r|r|r|r|r|r}
+    \begin{tabular}{r|r|r|r|r|r|r|r|r|r}
     \hline
-    $P$     & $N$     & $H$     & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
+    $P$     & $N$     & $H$    &LB   & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
     \hline
-    5   & 50    & 4    & 9.6    & 8   & 8     & 8     & 8   & 8     \\
-    5   & 50    & 7    & 6.8    & 5   & 5     & 5     & 5   & 5     \\
-    5   & 50    & 8    & 6      & 4.6 & 4     & 4     & 4   & 4     \\
-    5   & 50    & 12   & 5      & 3.2 & 3     & 3     & 3   & 3     \\
-    5   & 100   & 4    & 16.8   & 15  & 15    & 15    & 15  & 15    \\
-    5   & 100   & 7    & 10.4   & 9   & 8.8   & 8.8   & 8.8 & 8.8   \\
-    5   & 100   & 8    & 9.6    & 7.6 & 7.6   & 7.6   & 7.6 & 7.6   \\
-    5   & 100   & 12   & 7.6    & 5.4 & 5.6   & 5.4   & 5.4 & 5.4   \\
-    5   & 200   & 4    & 32.2   & 30.6& 30.6  & 30.6  & 30.6& 30.6  \\
-    5   & 200   & 7    & 19.4   & 17.6& 17.6  & 17.6  & 17.6& 17.6  \\
-    5   & 200   & 8    & 17.4   & 15.6& 15.6  & 15.6  & 15.6& 15.6  \\
-    5   & 200   & 12   & 12.4   & 10.4& 10.4  & 10.4  & 10.4& 10.4  \\
-    5   & 500   & 4    & 78     &76.6 & 76.6  & 76.6  & 76.6& 76.6  \\
-    5   & 500   & 7    & 45.6   &44.2 & 44.2  & 44.2  & 44.2& 44.2  \\
-    5   & 500   & 8    & 40     &38.6 & 38.6  & 38.6  & 38.6& 38.6  \\
-    5   & 500   & 12   & 40     &27.4 & 26    & 26    & 26  & 26    \\
-    5   & 1000  & 4    & 153.8  &152.2& 152.2 & 152.2 & 152.2& 152.2\\
-    5   & 1000  & 7    & 89     &87.2 & 87.2  & 87.2  & 87.2& 87.2  \\
-    5   & 1000  & 8    & 78.2   &76.6 & 76.6  & 76.6  & 76.6& 76.6 \\
-    5   & 1000  & 12   & 52.8   &51   & 51    & 51    & 51  & 51    \\
-    10   & 50    & 4    & 12.6   & 9   & 8   & 7.8    & 7.8  &7.8\\
-    10   & 50    & 7    & 10     & 6.4 & 6.2 & 5.6    & 5.6  &5.6\\
-    10   & 50    & 8    & 10     & 6   & 6   & 5      & 5    &5\\
-    10   & 50    & 12   & 9.4    & 5.6 & 4.6 & 4.4    & 4.4  &4.4\\
-    10   & 100   & 4    & 19.6   & 15.8& 15.6& 15     & 14.8 &14.8\\
-    10   & 100   & 7    & 13.6   & 10.2& 10.4& 10.2   & 8.8  &8.6\\
-    10   & 100   & 8    & 12.6   & 9.2 & 9.8 & 9.6    & 7.8  &7.6\\
-    10   & 100   & 12   & 10.4   & 7   & 7   & 7.2    & 6.4  &5.2\\
-    10   & 200   & 4    & 33.2   & 29.6& 29.6& 28.6   & 28.6 &28.6\\
-    10   & 200   & 7    & 21.2   & 17.6& 17.8& 18     & 16.4 &16.4\\
-    10   & 200   & 8    & 19.2   & 16.4& 16.6& 16.2   & 14.8 &14.4\\
-    10   & 200   & 12   & 15     & 12  & 12  & 11.8   & 11.4 &9.8\\
-    10   & 500   & 4    & 74.2   & 69.8& 69.8& 69.8   & 69.8 &69.8\\
-    10   & 500   & 7    & 44.4   & 40.6& 40.4& 40.2   & 40   &40\\
-    10   & 500   & 8    & 39.4   & 35.6& 35  & 35.2   & 35   &35\\
-    10   & 500   & 12   & 28     & 25.2& 24.8& 24.8   & 24   &23.6\\
-    10   & 1000  & 4    & 141.8  & 137.6& 137.6& 137.6 & 137.6&137.6\\
-    10   & 1000  & 7    & 83.2   & 79   & 79  & 79     & 79   &79\\
-    10   & 1000  & 8    & 73.2   & 69   & 69  & 69     & 69   &69\\
-    10   & 1000  & 12   & 50.4   & 46.8 & 46.8& 46.6   &46.2  &46.6\\
+    5   & 50    & 4  &8  & 9.6    & 8   & 8     & 8     & 8   & 8     \\
+    5   & 50    & 7  &5  & 6.8    & 5   & 5     & 5     & 5   & 5     \\
+    5   & 50    & 8  &4  & 6      & 4.6 & 4     & 4     & 4   & 4     \\
+    5   & 50    & 12 &3  & 5      & 3.2 & 3     & 3     & 3   & 3     \\
+    5   & 100   & 4  &15  & 16.8   & 15  & 15    & 15    & 15  & 15    \\
+    5   & 100   & 7  &8.8  & 10.4   & 9   & 8.8   & 8.8   & 8.8 & 8.8   \\
+    5   & 100   & 8  &7.6  & 9.6    & 7.6 & 7.6   & 7.6   & 7.6 & 7.6   \\
+    5   & 100   & 12 &5.4  & 7.6    & 5.4 & 5.6   & 5.4   & 5.4 & 5.4   \\
+    5   & 200   & 4  &30.6  & 32.2   & 30.6& 30.6  & 30.6  & 30.6& 30.6  \\
+    5   & 200   & 7  &17.6  & 19.4   & 17.6& 17.6  & 17.6  & 17.6& 17.6  \\
+    5   & 200   & 8  &15.6  & 17.4   & 15.6& 15.6  & 15.6  & 15.6& 15.6  \\
+    5   & 200   & 12 &10.4  & 12.4   & 10.4& 10.4  & 10.4  & 10.4& 10.4  \\
+    5   & 500   & 4  &76.6  & 78     &76.6 & 76.6  & 76.6  & 76.6& 76.6  \\
+    5   & 500   & 7  &44.2  & 45.6   &44.2 & 44.2  & 44.2  & 44.2& 44.2  \\
+    5   & 500   & 8  &38.6  & 40     &38.6 & 38.6  & 38.6  & 38.6& 38.6  \\
+    5   & 500   & 12 &26   & 40     &27.4 & 26    & 26    & 26  & 26    \\
+    5   & 1000  & 4  &152.2  & 153.8  &152.2& 152.2 & 152.2 & 152.2& 152.2\\
+    5   & 1000  & 7  &87.2  & 89     &87.2 & 87.2  & 87.2  & 87.2& 87.2  \\
+    5   & 1000  & 8  &76.6  & 78.2   &76.6 & 76.6  & 76.6  & 76.6& 76.6 \\
+    5   & 1000  & 12 &51  & 52.8   &51   & 51    & 51    & 51  & 51    \\
+    10   & 50    & 4 &7.8  & 12.6   & 9   & 8   & 7.8    & 7.8  &7.8\\
+    10   & 50    & 7 &4.8  & 10     & 6.4 & 6.2 & 5.6    & 5.6  &5.6\\
+    10   & 50    & 8 &4   & 10     & 6   & 6   & 5      & 5    &5\\
+    10   & 50    & 12 &3  & 9.4    & 5.6 & 4.6 & 4.4    & 4.4  &4.4\\
+    10   & 100   & 4  &14.8  & 19.6   & 15.8& 15.6& 15     & 14.8 &14.8\\
+    10   & 100   & 7  &8.6  & 13.6   & 10.2& 10.4& 10.2   & 8.8  &8.6\\
+    10   & 100   & 8  &7.6  & 12.6   & 9.2 & 9.8 & 9.6    & 7.8  &7.6\\
+    10   & 100   & 12 &5.2  & 10.4   & 7   & 7   & 7.2    & 6.4  &5.2\\
+    10   & 200   & 4  &28.6  & 33.2   & 29.6& 29.6& 28.6   & 28.6 &28.6\\
+    10   & 200   & 7  &16.4  & 21.2   & 17.6& 17.8& 18     & 16.4 &16.4\\
+    10   & 200   & 8  &14.4  & 19.2   & 16.4& 16.6& 16.2   & 14.8 &14.4\\
+    10   & 200   & 12 &9.8  & 15     & 12  & 12  & 11.8   & 11.4 &9.8\\
+    10   & 500   & 4  &69.8  & 74.2   & 69.8& 69.8& 69.8   & 69.8 &69.8\\
+    10   & 500   & 7  &40  & 44.4   & 40.6& 40.4& 40.2   & 40   &40\\
+    10   & 500   & 8  &35  & 39.4   & 35.6& 35  & 35.2   & 35   &35\\
+    10   & 500   & 12 &23.6  & 28     & 25.2& 24.8& 24.8   & 24   &23.6\\
+    10   & 1000  & 4  &137.6  & 141.8  & 137.6& 137.6& 137.6 & 137.6&137.6\\
+    10   & 1000  & 7  &79  & 83.2   & 79   & 79  & 79     & 79   &79\\
+    10   & 1000  & 8  &69  & 73.2   & 69   & 69  & 69     & 69   &69\\
+    10   & 1000  & 12 &46.2  & 50.4   & 46.8 & 46.8& 46.6   &46.2  &46.6\\
     \hline
     \end{tabular}
   \label{tab:1}
@@ -858,50 +858,50 @@ The experimental results are shown in Table \ref{tab:1} and Table \ref{tab:2}.
 \tiny
   \centering
   \caption{Results of the instances with $P\in\{20,30\}$}
-    \begin{tabular}{r|r|r|r|r|r|r|r|r}
+    \begin{tabular}{r|r|r|r|r|r|r|r|r|r}
     \hline
-    $P$     & $N$     & $H$     & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
+    $P$     & $N$     & $H$  &LB   & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
     \hline
-    20   & 50    & 4    & 19.6    & 9   & 9     & 8     & 7,2   & 7.2     \\
-    20   & 50    & 7    & 19.2    & 7.8   & 7     & 6.6     & 5.2   &4.4     \\
-    20   & 50    & 8    & 19      & 7.8 & 7     & 6.6     & 5.4   & 3.8     \\
-    20   & 50    & 12   & 19      & 7.8 & 6.6     &5.6     & 4   & 2.8     \\
-    20   & 100   & 4    & 25   & 16  & 16    & 16    & 14.2  & 14.2    \\
-    20   & 100   & 7    & 20.4   & 11.6   & 11.4   & 11.2   & 10.6 & 8.4   \\
-    20   & 100   & 8    & 19.6    & 10.8 & 11   & 10.8   & 10.2 & 7.6   \\
-    20  & 100   & 12   & 19.2    & 10.2 & 9.8   & 9   & 9 & 7.6   \\
-    20   & 200   & 4    & 37.6   & 29.8& 30.2  & 29.8  & 28.8& 27.6  \\
-    20   & 200   & 7    & 26.8   & 19.2& 20  & 19.4  & 18.8& 18.2  \\
-    20   & 200   & 8    & 25.2   & 17.6& 18  & 18  & 17.4& 17.4  \\
-    20  & 200   & 12   & 21.6   & 13.8& 13  & 13.8  & 13.2& 13.4  \\
-    20   & 500   & 4    & 77.2     &70.2 & 70.4  & 70  & 70.4& 67.6  \\
-    20   & 500   & 7    & 48.6   &41.8 & 42.4  & 42.2  & 42.2& 41.8  \\
-    20  & 500   & 8    & 43.6     &38 & 37.6  & 37.8  & 38 & 38  \\
-    20  & 500   & 12   & 33.2     &27  & 27.2    & 27.2    & 27.2  & 27.2    \\
-    20   & 1000  & 4    & 143.6  &135.8 & 135.8 & 136.2 & 136& 134.4\\
-    20  & 1000  & 7    & 86.4     &80.4 & 80.6  & 80.6  & 80.6 & 80.4  \\
-    20  & 1000  & 8    & 76.8   &70.6 & 71  & 70.4  & 70.4& 70.6 \\
-    20  & 1000  & 12   & 54.4   &48.8   & 49.8    & 49.2    & 49.2  & 48.8    \\
-    30   & 50    & 4    & 29.8   & 10   & 9.8   & 9.4    & 8  &8\\
-    30   & 50    & 7    & 29     & 8.4 & 7.4 & 7.8    & 5.8  &4.8\\
-    30    & 50    & 8    & 29     & 8.2   & 7.8   & 7.6      & 5.2   &4.2\\
-    30    & 50    & 12   & 29    & 8 & 7.4 & 6.8    & 5.2  &3.4\\
-    30    & 100   & 4    & 33.4   & 16.8& 16.6& 16.2    & 15.6 &13.8\\
-    30    & 100   & 7    & 29.8   & 12.2& 12& 11.6   & 11.6  &9.4\\
-    30   & 100   & 8    & 29.6   & 12 & 11.4 & 11.8    & 10.8  &9.8\\
-    30   & 100   & 12   & 29   & 10.8   & 10.4   & 10.2    & 9.8  &8.2\\
-    30    & 200   & 4    & 43.8   & 30.4& 31& 31.6   & 31.2 &28\\
-    30    & 200   & 7    & 33.8   &20& 19.8& 19.4     & 20.2 &20\\
-    30    & 200   & 8    & 32.2   & 18.6& 18.8& 19   & 19.4 &19.8\\
-    30   & 200   & 12   & 29.8     & 17  & 16.6  & 16.2  & 16.2 &16.2\\
-    30    & 500   & 4    & 80.4   & 69.6& 69.6& 69.6   & 69.4 &69.2\\
-    30    & 500   & 7    & 53.4   & 42.4& 42& 42.8   & 42.6   &42.8\\
-    30    & 500   & 8    & 49   & 38.4& 38.6  & 38.6   & 38.2   &37.8\\
-    30    & 500   & 12   & 39.2     & 29 & 28.6 & 28.6   & 28.6   &28.8\\
-    30    & 1000  & 4    & 144  & 133.6& 133.6& 133.6 & 133.8 &133.6\\
-    30    & 1000  & 7    & 89.6   & 79.8   & 79.8  & 79.8     & 80   &79.4\\
-    30    & 1000  & 8    & 80.4   & 71.4   & 70.6  & 71     & 70.6   &70.6\\
-    30   & 1000  & 12   & 59.4   & 50.8 & 50.6& 50.8   &50.8  &50.8\\
+    20   & 50    & 4  &7.2  & 19.6    & 9   & 9     & 8     & 7,2   & 7.2     \\
+    20   & 50    & 7  &4.4  & 19.2    & 7.8   & 7     & 6.6     & 5.2   &4.4     \\
+    20   & 50    & 8  &3.8  & 19      & 7.8 & 7     & 6.6     & 5.4   & 3.8     \\
+    20   & 50    & 12 &2.8  & 19      & 7.8 & 6.6     &5.6     & 4   & 2.8     \\
+    20   & 100   & 4  &14.2  & 25   & 16  & 16    & 16    & 14.2  & 14.2    \\
+    20   & 100   & 7  &8.4  & 20.4   & 11.6   & 11.4   & 11.2   & 10.6 & 8.4   \\
+    20   & 100   & 8  &7.4  & 19.6    & 10.8 & 11   & 10.8   & 10.2 & 7.6   \\
+    20  & 100   & 12  &5 & 19.2    & 10.2 & 9.8   & 9   & 9 & 7.6   \\
+    20   & 200   & 4  &27.6  & 37.6   & 29.8& 30.2  & 29.8  & 28.8& 27.6  \\
+    20   & 200   & 7  &16.2  & 26.8   & 19.2& 20  & 19.4  & 18.8& 18.2  \\
+    20   & 200   & 8  &14.2  & 25.2   & 17.6& 18  & 18  & 17.4& 17.4  \\
+    20  & 200   & 12  &9.4 & 21.6   & 13.8& 13  & 13.8  & 13.2& 13.4  \\
+    20   & 500   & 4  &67.6  & 77.2     &70.2 & 70.4  & 70  & 70.4& 67.6  \\
+    20   & 500   & 7  &39  & 48.6   &41.8 & 42.4  & 42.2  & 42.2& 41.8  \\
+    20  & 500   & 8   &34 & 43.6     &38 & 37.6  & 37.8  & 38 & 38  \\
+    20  & 500   & 12  &22.8  & 33.2     &27  & 27.2    & 27.2    & 27.2  & 27.2    \\
+    20   & 1000  & 4  &134.4  & 143.6  &135.8 & 135.8 & 136.2 & 136& 134.4\\
+    20  & 1000  & 7   &77.2 & 86.4     &80.4 & 80.6  & 80.6  & 80.6 & 80.4  \\
+    20  & 1000  & 8   &67.6 & 76.8   &70.6 & 71  & 70.4  & 70.4& 70.6 \\
+    20  & 1000  & 12  &45.2 & 54.4   &48.8   & 49.8    & 49.2    & 49.2  & 48.8    \\
+    30   & 50    & 4  &8  & 29.8   & 10   & 9.8   & 9.4    & 8  &8\\
+    30   & 50    & 7  &4.8  & 29     & 8.4 & 7.4 & 7.8    & 5.8  &4.8\\
+    30    & 50    & 8 &4.2   & 29     & 8.2   & 7.8   & 7.6      & 5.2   &4.2\\
+    30    & 50    & 12 &3  & 29    & 8 & 7.4 & 6.8    & 5.2  &3.4\\
+    30    & 100   & 4  &13.8  & 33.4   & 16.8& 16.6& 16.2    & 15.6 &13.8\\
+    30    & 100   & 7  &8.2  & 29.8   & 12.2& 12& 11.6   & 11.6  &9.4\\
+    30   & 100   & 8   &7.2 & 29.6   & 12 & 11.4 & 11.8    & 10.8  &9.8\\
+    30   & 100   & 12  &5 & 29   & 10.8   & 10.4   & 10.2    & 9.8  &8.2\\
+    30    & 200   & 4  &27.6  & 43.8   & 30.4& 31& 31.6   & 31.2 &28\\
+    30    & 200   & 7  &16  & 33.8   &20& 19.8& 19.4     & 20.2 &20\\
+    30    & 200   & 8  &14  & 32.2   & 18.6& 18.8& 19   & 19.4 &19.8\\
+    30   & 200   & 12  &9.6 & 29.8     & 17  & 16.6  & 16.2  & 16.2 &16.2\\
+    30    & 500   & 4  &64.8  & 80.4   & 69.6& 69.6& 69.6   & 69.4 &69.2\\
+    30    & 500   & 7  &37.6  & 53.4   & 42.4& 42& 42.8   & 42.6   &42.8\\
+    30    & 500   & 8  &32.6  & 49   & 38.4& 38.6  & 38.6   & 38.2   &37.8\\
+    30    & 500   & 12 &22.2  & 39.2     & 29 & 28.6 & 28.6   & 28.6   &28.8\\
+    30    & 1000  & 4  &128.8  & 144  & 133.6& 133.6& 133.6 & 133.8 &133.6\\
+    30    & 1000  & 7  &74  & 89.6   & 79.8   & 79.8  & 79.8     & 80   &79.4\\
+    30    & 1000  & 8  &64.8  & 80.4   & 71.4   & 70.6  & 71     & 70.6   &70.6\\
+    30   & 1000  & 12  &43.2 & 59.4   & 50.8 & 50.6& 50.8   &50.8  &50.8\\
     \hline
     \end{tabular}
   \label{tab:2}

@@ -327,15 +327,43 @@ The detailed introduction will be given in the below.
 We also denote the dynamic $Layout$ as the layout of the ship after different operations for containers.
 We even can output the layout after the operations for one container or after all the operations at one specific port through the algorithm proposed in this paper.
 
+Considering that the complexity of working out the integer model for the SSMP-KR problem, we give the IP model for the SSMP-ZR problem.
+The capacitated SSMP-ZR can be mathematically formulated by the following integer programming (IP) model.
+
+\begin{small}
+\begin{align}
+& (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj} \\
+& \mathrm{s.t.}\hspace{11pt}\sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:1}\\
+%\mbox{s.t.~}& \sum_{c=1}^{C} x_{ic}=1, ~\forall 1\le i \le m \label{eqn:1}\\
+&\hspace{24pt}\sum_{i=1}^{N} x_{is}\le M y_s, ~\forall 1\le s \le S	\label{eqn:2}\\
+& \sum_{i:O(i)\le p\le D(i)-1} x_{is}\le H, ~\forall 1\le s\le S, 1\le p\le P		\label{eqn:3}\\
+& x_{is}+x_{js}\le 1, ~\forall 1\le s\le S, 1\le i,j\le N, O(j)<O(i)<D(j)<D(i)	\label{eqn:4}\\
+& x_{is}, y_s \in \{0,1\}, ~\forall 1\le s\le S,1\le i,j\le N
+\end{align}
+\end{small}
+
+In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship. 
+$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise. 
+$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise. 
+$O(i)$ and $D(i)$ indicate the shipping leg of container $i$. The objective (\ref{eqn:obj}) minimizes the number of stacks used. 
+Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack. 
+Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks. 
+Constraints (\ref{eqn:3}) assure that at each port $p$, the number of containers in stack $s$ does not exceed $H$. 
+Constraints (\ref{eqn:4}) avoid overstowage requiring that container $i$ is prohibited to block container $j$ in the same stack when container $j$ is retrieved.
+
+It is straightforward that the resultant layout from such a loading order does not include overstowage.
+
+We have also presented the simple IP model for the SSMP-KR to make our problem clear.
+
 The SSMP-KR can be mathematically formulated by the following integer programming (IP) model.
 
 \begin{small}
 \begin{align}
             &             (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj} \\
-\mbox{s.t.~}& \sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:1}\\
-            & \hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:2}\\
-            &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:3}\\
-            & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:4}\\
+\mbox{s.t.~}& \sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:5}\\
+            & \hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:6}\\
+            &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:7}\\
+            & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:8}\\
 \end{align}
 \end{small}
 
@@ -344,15 +372,15 @@ $x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is l
 $y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
 $L_i$,$U_i$,$R_i$ are the number of loading containers, discharging containers and rehandling containers, respectively.
 The objective (\ref{eqn:obj}) minimizes the number of stacks used.
-Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
-Constraints (\ref{eqn:2}) guarantee that the total number of rehandles is no greater than than $K$, the value of allowed rehandles.
-Constraints (\ref{eqn:3}) ensure that the total number of containers in each stack is no greater than than $H$.
-Constraints (\ref{eqn:4}) assure that at each port $p$, the number of containers in vessel does not exceed $S*H$.
+Constraints (\ref{eqn:5}) ensure that each container $i$ is loaded to only one stack.
+Constraints (\ref{eqn:6}) guarantee that the total number of rehandles is no greater than than $K$, the value of allowed rehandles.
+Constraints (\ref{eqn:7}) ensure that the total number of containers in each stack is no greater than than $H$.
+Constraints (\ref{eqn:8}) assure that at each port $p$, the number of containers in vessel does not exceed $S*H$.
 
 Note that the solution to the IP model only reflects the assignment of containers to stacks.
 It can be converted to a complete loading plan as follows.
 At each port $p$, load containers to their corresponding stacks (given by $x_{is}$) by the decreasing order of their destinations.
-It is straightforward that the resultant layout from such a loading constraints will be more flexible to design our algorithm and closer to the actual situation.
+Compared with the IP model for the capacitated SSMP-ZR, we can find that the resultant layout from such a loading constraints will be more flexible to design our algorithm and closer to the actual situation.
 
 
 
@@ -1016,6 +1044,11 @@ In this paper, we analyze the structure of this two-dimensional bin-packing opti
 
 We can regard the stowage stack minimization problem with zero rehandle as an particular case when we choose the value of K as zero.
 Hence, the problem proposed in this paper is a generalized and extended problem considering the existence of K-rehandle.
+
+On the one hand, the stowage planning problems in cyclic navigation path is converted into linear navigation path using the specific method.
+On the other hand, the result is equivalent to each other whether we convert or not.
+
+In this paper, we presented the integer programming model for the SSMP-ZR and presented a simple IP model for the SSMP-KR.
 
 A heuristic approach is proposed to construct near-optimal solutions to the SSMP-KR problem in a very short computational time.
 Since there are different status in the process of handling containers, different methods in our algorithm are thought to cope with the corresponding conditions.

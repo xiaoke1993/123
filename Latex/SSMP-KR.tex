@@ -75,7 +75,7 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 % TODO: add importance of global trade
 International trade plays a important role in promoting the development of world economy, promoting national income increase and expanding employment around the world.
 Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
-In 2015 每 for the first time in UNCTADㄗUnited Nations Conference on Trade and Developmentㄘ records 每 world seaborne trade volumes1 were estimated to have exceeded 10 billion tons. Shipments expanded by 2.1 per cent, a pace notably slower than the historical.
+In 2015 每 for the first time in UNCTAD (United Nations Conference on Trade and Development) records 每 world seaborne trade volumes1 were estimated to have exceeded 10 billion tons. Shipments expanded by 2.1 per cent, a pace notably slower than the historical.
 Containerization is an important driver of the global economy, and the container has become a mainstay of worldwide trade. Other than a short period of decline in 2009, the number of containers shipped by the world's shipping lines on container vessels has been steadily increasing for the past several decades.
 As we all know, logistics is the main link in international trade. In view of the complexity of logistics in international trade, multimodal transport can bring a great convenience. Furthermore, the perfect fit between container transport and multimodal transport makes the international trade easier and more convenient.
 Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship.
@@ -96,13 +96,13 @@ A container ship transports cargo in containers, and the ship layout varies from
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas. These areas are termed 20-ft bays.
 In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
-Each bay consists of container stacks placed along the length of ship(see Figure \ref{fig one:graph}).
+Each bay consists of container stacks placed along the length of ship (see Figure \ref{fig one:graph}).
 All bays are divided into an over deck and an deck area, separated by structures called hatches.
 In order to gain access to the containers stored under deck, we must remove all the containers on the deck, including the hatch over.
 The container position in the ship is uniquely indexed by (bay, row, tier). Such three-tuple is called a slot.
-On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit(TEU)
-stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig two:graph}).
-In our paper, we assume that all the containers are of the same size,(e.g. 20 TEUs) and each slot can be fully occupied by one container.
+On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit (TEU)
+stacks and a single Forty-foot Equivalent Unit (FEU) stack (see Figure \ref{fig two:graph}).
+In our paper, we assume that all the containers are of the same size, (e.g. 20 TEUs) and each slot can be fully occupied by one container.
 
 
 
@@ -119,7 +119,8 @@ In our paper, we assume that all the containers are of the same size,(e.g. 20 TE
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/A_vessel_bay.png}}
 \label{fig two:graph}
 \end{figure}
-Some slots that have power plugs are known as reefer slots. A standard ISO container is usually 20 or 40 ft long, 8 ft wide and 8.6 ft high. 40 foot containers can be 8.6 ft high, or 9.6 ft high for high-cube containers(see Figure \ref{fig three:graph}).
+Some slots that have power plugs are known as reefer slots. A standard ISO container is usually 20 or 40 ft long, 8 ft wide and 8.6 ft high. 
+40 foot containers can be 8.6 ft high, or 9.6 ft high for high-cube containers (see Figure \ref{fig three:graph}).
 
 \begin{figure}[htbp]
 \center
@@ -169,7 +170,7 @@ And sorted by research method, this problem will be divided into six categories:
 Since 1970s, the stowage plan problem has been studied by shipping organization for commercial demand.
 They tried to find a good solution  which would satisfy fewer shifting and higher efficiency when loading and discharging containers.
 
-\cite{shields1984containership} introduced a computer preplanning system(CAPS) which had been used by American President Lines.
+\cite{shields1984containership} introduced a computer preplanning system (CAPS) which had been used by American President Lines.
 The CAPS produced stowage plan by using Monte Carlo theory.
 Expert system is a most active research and practical field of Artificial Intelligent (AI).
 \cite{dillingham1986application} introduced their researches on expert system of stowage based on rules.
@@ -192,14 +193,16 @@ Literatures have shown that binary linear programming formulation for such probl
 \cite{avriel1998stowage} and \cite{avriel2000container} focused on stowage planning in order to minimize the number of unproductive shifts (temporary unloading and reloading of containers at a port before their destination ports in order to access containers below them for unloading).
 Aspects of ship's stability and other real-life constraints are not considered.
 A binary linear programming (LP) model is formulated.
-Due to the proven NP-hardness of the problem, a so-called ※Suspensory Heuristic§ $〞〞$ based on earlier work by \cite{avriel1993exact} 〞〞is developed in order to solve even large problem instances.
+Due to the proven NP-hardness of the problem, a so-called "Suspensory Heuristic" --- based on earlier work by \cite{avriel1993exact} --- is developed in order to solve even large problem instances.
 The heuristic assigns slots in a bay to containers dynamically with respect to the sequence of ports in a vessel's route.
 \cite{haghani2001model} proposed a MIP model for developing loading plans in order to minimize the time that a vessel spends at port, and the container handling cost which shifts caused by is highly influenced by the number of unproductive but necessary an unsatisfactory arrangement of containers.
 In \cite{ambrosino2004stowing} the problem of stowing containers into a containership has been faced by evaluating an exact 0-1 Linear Programming model, that is not practically useful for large cases.
 This has been modified by an approach proposed by the authors, consisting of heuristic preprocessing and prestowing procedures that also allow the relaxation of some constraints of the exact model.
-The proposed approach exhibits very good performance in terms of both solution precision and computational time. Moreover, in the performance evaluation with real size cases, it also guarantees another very important maritime performance index, in term of handling operations/hour.
+The proposed approach exhibits very good performance in terms of both solution precision and computational time. 
+Moreover, in the performance evaluation with real size cases, it also guarantees another very important maritime performance index, in term of handling operations/hour.
 In \cite{Delgado2012251}, they focus on the slot planning phase of this approach and present a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section.
-This so-called slot planning problem is NP-hard and often involves stowing several hundred containers. Using state-of-the-art constraint solvers and modeling techniques, however, we were able to solve 90\% of 236 real instances from our industrial collaborator to optimality within 1 second.
+This so-called slot planning problem is NP-hard and often involves stowing several hundred containers. 
+Using state-of-the-art constraint solvers and modeling techniques, however, we were able to solve 90\% of 236 real instances from our industrial collaborator to optimality within 1 second.
 Thus, somewhat to our surprise, it is possible to solve most of these problems optimally within the time required for practical application.
 \cite{ambrosino2015mip}  proposed a Mixed  Integer  Programming (MIP) heuristic aimed at determining stowage plans in circular routes for container ships so as to give support for the ship coordinator and the terminal planner.
 
@@ -227,7 +230,7 @@ The use of a time limit kept the required computing times within acceptable limi
 Search space is significantly reduced by a compact and efficient encoding scheme.
 Ship stability criteria are reflected by appropriate constraints.
 Simulation runs demonstrate the efficiency and flexibility of the GA-based approach.
-\cite{kammarti2013evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes(parent) from an initially constructed population using a roulette wheel technique.
+\cite{kammarti2013evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes (parent) from an initially constructed population using a roulette wheel technique.
 Then, the two parents are combined using a one point crossover operator. Finally, a mutation operator is performed.
 The variant tackled in \cite{cohen2017container} involved several constraints, inspired by real-life problems and application found in the literature.
 Given the complexity of the problem, which belongs to the class of NP-hard problems, a novel evolutionary metaheuristic algorithm is developed and designed.
@@ -237,7 +240,7 @@ GA parameters are analyzed to achieve practical and best results.
 The system offers stowage allocation solutions for both phases, thus offering flexibility for a wide variety of vessels and route combinations.
 
 Container ship stowage problem(CSSP) is combinatorial optimization problem with multiobjects and multiconstraints.
-In order to reduce computational difficultyㄛCSSP is decomposed two subproblems in \cite{wei2005model}, and the first one is discussed detailed.
+In order to reduce computational difficulty, CSSP is decomposed two subproblems in \cite{wei2005model}, and the first one is discussed detailed.
 CSSP is regarded as bin-packing problem. After being modeledㄛthe algorithm of best fit for binpacking problem is used to solve the CSSP.
 A case shows that the algorithm is feasible for container ship stowage problem.
 A multiobjective ship stowage planning problem(SSPP) was investigated by \cite{zhang2016multiobjective}, which aims to optimize the ship stability and the number of rehandles simultaneously.
@@ -284,11 +287,11 @@ Containers at port 2 can be transported into port 3, 4, ..., $P$, 1.
 The last kind of containers originates from port $P$.
 Containers at port $P$ can be transported into port 1, 2, ..., $P-1$.
 However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design.
-Consequently, we need break the loop voyage into the straight line voyage.
+Consequently, we need break the loop voyage into the line voyage.
 Actually it is not difficult, we can regard the port 1 in the second circle as port $P+1$, the next port in the second circle will be port $P+2$ and so on.
 %It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 in the special circular route.
 Eventually we only need work out the container stowage planning for the line voyage from port 1 to port $2P$ and it is equivalent to cope with the problem with a two-circle voyage.
-Similarly, we can use this method to deal with the circular route container stowage problem no matter how many circle they are.
+Similarly, we can use this method to deal with the circular route container stowage problem no matter how many circles they are.
 There is another approach we can think about to solve the circular route problem.
 After going across port 1 in each circle, we reset the origin port of containers remained in vessel as port 1.
 For example, containers from port 3 to the port 2 in the next circle will be containers from 1 to port 2 after going across port 1 in the next circle.
@@ -324,8 +327,7 @@ Hence, this paper give emphasis on the CSSMP-KR and for the convenience of descr
 
 A feasible solution to the SSMP-KR is represented by a operation set, from which we can clearly know the slot changing of each container, even when there is an overstowage.
 The detailed introduction will be given in the below.
-We also denote the dynamic $Layout$ as the layout of the ship after different operations for containers.
-We even can output the layout after the operations for one container or after all the operations at one specific port through the algorithm proposed in this paper.
+
 
 Considering that the complexity of working out the integer model for the SSMP-KR problem, we give the IP model for the SSMP-ZR problem.
 The capacitated SSMP-ZR can be mathematically formulated by the following integer programming (IP) model.
@@ -359,19 +361,19 @@ The SSMP-KR can be mathematically formulated by the following integer programmin
 
 \begin{small}
 \begin{align}
-            &             (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj} \\
+            &             (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj2} \\
 \mbox{s.t.~}& \sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:5}\\
             & \hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:6}\\
             &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:7}\\
-            & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:8}\\
+            & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:8}
 \end{align}
 \end{small}
 
 In the above model, $H$ is the limit height of each stack, $N$ is the number of containers, $P$ is the number of ports and $S$ is the number of stacks on the ship.
 $x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise.
 $y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
-$L_i$,$U_i$,$R_i$ are the number of loading containers, discharging containers and rehandling containers, respectively.
-The objective (\ref{eqn:obj}) minimizes the number of stacks used.
+$L_i$, $U_i$, $R_i$ are the number of loading containers, discharging containers and rehandling containers, respectively.
+The objective (\ref{eqn:obj2}) minimizes the number of stacks used.
 Constraints (\ref{eqn:5}) ensure that each container $i$ is loaded to only one stack.
 Constraints (\ref{eqn:6}) guarantee that the total number of rehandles is no greater than than $K$, the value of allowed rehandles.
 Constraints (\ref{eqn:7}) ensure that the total number of containers in each stack is no greater than than $H$.
@@ -398,7 +400,7 @@ Before the introduction of our algorithm, we give the related notations as follo
 \tiny
   \centering
   \caption{constants, sets, variables and methods in the algorithm}
-    \begin{tabular}{r|r|}
+    \begin{tabular}{r|l}
     \hline
      $K$, $P$ ,$N$ , $H$ & the meanings of these constants are the same as what described in the above\\
      $LB$ & the lower bound for each given instance\\
@@ -425,7 +427,8 @@ They are "Container" class and "Operation" class, respectively.
 For each container, we use arraylist (a type of data structure) "ac" to store its sequence number, origin port and destination port.
 For each operation, we use arraylist "Solution" to store its change.
 No matter what the operation is , we add all of operations into the arraylist "Solution" to record every container's slot changing from the shore to the chosen stack or from the previous stack to the shore.
-
+We also denote the dynamic $Layout$ as the layout of the ship after different operations for containers.
+We even can output the layout after the operations for one container or after all the operations at one specific port through the algorithm proposed in this paper.
 Other important global variables are Count\_rehandle and Numofstack.
 The former is no greater than the given K, and the latter no longer change until the end of the shipping.
 Methods used in our algorithm aren't exhibited in the below are read() and bound().
@@ -451,7 +454,7 @@ If $S_2$ is null, we choose the first stack we traverse in the $S_3$ which is us
 So it is the loading rules in the above and the following is the discharging rules.
 
 When discharging containers, we just need to unload containers from top to bottom one by one when the container's destination port is the current port if there isn't an overstowage in the stack.
-when an overstowage happens, we have to unload the blocking container(s), then we can unload those right ones.
+when an overstowage happens, we have to unload the blocking containers, then we can unload those right ones.
 As for blocking containers, we reset their origin ports as current port and their destination ports remain unchanged.
 That's to say, the outbound containers at the current port increases.
 
@@ -767,9 +770,11 @@ We use an inductive proof.
 \textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
 In addition, P(1)=0 or 1. Hence, $P(p) \le V_p $ holds.
 \textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than $V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized.
+
 (1)If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$,  $P($p+1$) \le P(p)+1$ whether we allow the rehandle or not in port $p+1$. %Hence, $P($p+1$) \le P(p)+1 \LE V_{p+1}= V_p+1$.
+
 (2)If there is no containers to be loaded at port $p+1$,  $V_{p+1}=V_p$, $P($p+1$) =P(p)$. Hence, $P($p+1$) \le V_{p+1}$.
-Based on the above two steps, we have $P(p) \le V_p \forall p=1,\ldots,P$.
+Based on the above two steps, we have $P(p) \le V_p,   \forall p=1,\ldots,P$.
 \end{proof}
 Therefore, the second inequality holds.
 
@@ -793,8 +798,13 @@ Due to page limit, we omit the deatils here. Interested readers are welcome to c
 This paper uses the test data from the existing literature and we add an extra parameters $K$ into the primary instance in order to meet the demands of research.
 $K$ means the number of allowed rehandles and it is selected from \{0,10,20,50,100\}.
 Particularㄛ$K=0$ represents the benchmark and comparable condition. In fact, the problem becomes SSMP-ZR if $K=0$.
-There are 2400 sets of instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20,30\};  the number of containers $N$, which is selected from \{50,100,200,500,1000,5000\}, and the result isn't shown in the table when $N=5000$; the height limit $H$ selected from \{4,7, 8, 12\}. Each set consists of 5 instances generated by different random seeds.
-In each instance, the origin $O(i)$ and the destination $D(i)$ of a container $i$ are generated from a uniform distribution on the integers $1,2,\ldots,P$ satisfying that $O(i)<D(i)$. For the convenience of comparison, we only show the average "Numofstack"  when  $K=0$, $K=10$, $K=20$, $K=50$, $K=100$, respectively. And this is applicable to the heuristic algorithm as well as the deuterogenic $P\&H$ algorithm, the simple introduced will be introduced in the next content.
+There are 2400 sets of instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20,30\};  
+the number of containers $N$, which is selected from \{50,100,200,500,1000,5000\}, and the result isn't shown in the table when $N=5000$; 
+the height limit $H$ selected from \{4,7, 8, 12\}. 
+Each set consists of 5 instances generated by different random seeds.
+In each instance, the origin $O(i)$ and the destination $D(i)$ of a container $i$ are generated from a uniform distribution on the integers $1,2,\ldots,P$ satisfying that $O(i)<D(i)$. 
+For the convenience of comparison, we only show the average "Numofstack"  when  $K=0$, $K=10$, $K=20$, $K=50$, $K=100$, respectively. 
+What's more, this is applicable to the heuristic algorithm as well as the deuterogenic $P\&H$ algorithm, the simple introduced will be introduced in the next content.
 
 In this section, we will showcase the performance of our heuristic algorithms on a number of test instances. The heuristic was implemented in Java 8 and the experiments were conducted on a computer with Intel Core processor clocked at 2.30 GHz and 8 GB RAM. The operating system of the computer is Windows 10.
 

@@ -93,6 +93,7 @@ Thus, it makes higher demand of the problem.
 
 %TODO: introduce the ship's structure, and why rehandles exist.
 A container ship transports cargo in containers, and the ship layout varies from vessel to vessel.
+The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas. These areas are termed 20-ft bays.
 In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
 Each bay consists of container stacks placed along the length of ship(see Figure \ref{fig one:graph}).
@@ -101,6 +102,8 @@ In order to gain access to the containers stored under deck, we must remove all 
 The container position in the ship is uniquely indexed by (bay, row, tier). Such three-tuple is called a slot.
 On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit(TEU)
 stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig two:graph}).
+In our paper, we assume that all the containers are of the same size,(e.g. 20 TEUs) and each slot can be fully occupied by one container.
+
 
 
 \begin{figure}[htbp]
@@ -113,7 +116,7 @@ stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig t
 \begin{figure}[htbp]
 \center
 \caption{a front view of a vessel bay.}
-\includegraphics[width=4.00in,height=3.00in]{figure/A_vessel_bay.png}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/A_vessel_bay.png}}
 \label{fig two:graph}
 \end{figure}
 Some slots that have power plugs are known as reefer slots. A standard ISO container is usually 20 or 40 ft long, 8 ft wide and 8.6 ft high. 40 foot containers can be 8.6 ft high, or 9.6 ft high for high-cube containers(see Figure \ref{fig three:graph}).
@@ -121,7 +124,7 @@ Some slots that have power plugs are known as reefer slots. A standard ISO conta
 \begin{figure}[htbp]
 \center
 \caption{a side view of a partially loaded stack.}
-\includegraphics[width=4.00in,height=3.00in]{figure/A_partially_loaded_stack.png}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/A_partially_loaded_stack.png}}
 \label{fig three:graph}
 \end{figure}
 
@@ -267,8 +270,35 @@ It can improve the ability of decision-making management system of container shi
 \section{Problem Description}
 \label{sec:pd}
 
-A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $p$, 1, 2, 3, ... $p$, 1, ..., which forms a circular route.
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route.
 There are standard containers to be shipped along the journey.
+Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
+Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist.
+Moreover, the ship is never empty once sets out due to the circular feature.
+
+Supposing that the voyage terminates in the second circle, we can break the loop into a straight line. 
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$. 
+There will be $P$ kinds of different containers according to their origin ports.
+Containers at port 1 can be transported into port 2, 3, ..., $P-1$, $P$.
+Containers at port 2 can be transported into port 3, 4, ..., $P$, 1.
+The last kind of containers originates from port $P$.
+Containers at port $P$ can be transported into port 1, 2, ..., $P-1$.
+However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design.
+Consequently, we need break the loop voyage into the straight line voyage.
+Actually it is not difficult, we can regard the port 1 in the second circle as port $P+1$, the next port in the second circle will be port $P+2$ and so on.
+%It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 in the special circular route.
+Eventually we only need work out the container stowage planning for the line voyage from port 1 to port $2P$ and it is equivalent to cope with the problem with a two-circle voyage.
+Similarly, we can use this method to deal with the circular route container stowage problem no matter how many circle they are.
+There is another approach we can think about to solve the circular route problem.
+After going across port 1 in each circle, we reset the origin port of containers remained in vessel as port 1. 
+For example, containers from port 3 to the port 2 in the next circle will be containers from 1 to port 2 after going across port 1 in the next circle.
+Thus, it only exists the port from port 1 to port $P$.
+In addition, all the loading and discharging ports of $N$ containers are known in advance.
+The "look ahead"  mechanism, which can make use of all loading information available£¬is helpful for us to make detailed stowage plan.
+
+
+
+
 
 At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship.
 Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$.
@@ -281,12 +311,6 @@ A j-container is called a i, j-container if it is originated from port i.
 A j-container in slot (r, c) is said to be blocked if there exists a j'-container in slot (r', c) with j' $>$ j and r'$<$r, and the j'-container is called a blocking container with respect to the j-container.
 Occurrence of container blocking at any time means that shifts are no longer avoidable.
 
-Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
-Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist.
-Moreover, the ship is never empty once sets out due to the circular feature.
-However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design.
-It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 or in a circular route.
-In addition, all the loading and discharging ports of $N$ containers are known in advance.
 
 We assume that the ship has enough capacity to accommodate all the containers along the journey.
 The ship spaces are divided into several stacks. Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$.
@@ -729,6 +753,7 @@ For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\r
 The above proposition indicates that our approximation algorithm has a constant performance guarantee if we regard the number of ports as fixed under the condition that the number of allowed rehandle is zero.
 In practice, the number of ports is generally much smaller than the number of stacks used along the journey. Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
 
+Due to page limit, we omit the deatils here. Interested readers are welcome to contact the authors for details.
 % In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test the effectiveness of SSMP-KR.
 
 
@@ -943,7 +968,7 @@ We also use some pictures to make our result more visual and the pictures are ma
 \begin{figure}[htbp]
 \center
 \caption{Relationship between allowed rehandle and used stacks}
-\includegraphics[width=4.00in,height=3.00in]{figure/K-Stacks.png}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-Stacks.png}}
 \label{fig1:graph}
 \end{figure}
 As what is shown in Table \ref{tab:3}, Figure \ref{fig1:graph} indicates visually the relationship between used stacks and allowed rehandle. It's not hard to draw the conclusion that the more allowed rehandle, the less used stacks. So it intuitively reflect the meaning of this research topic and it show the feasibility of our algorithm. Comparing with zero rehandle, some rehandle are allowed to reduce the partial stacks and improve the utilization of space.
@@ -951,7 +976,7 @@ As what is shown in Table \ref{tab:3}, Figure \ref{fig1:graph} indicates visuall
 \begin{figure}[htbp]
 \centering
 \caption{Relationship between containers and used stacks}
-\includegraphics[width=4.00in,height=3.00in]{figure/K-containers.png}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-containers.png}}
 \label{fig2:graph}
 \end{figure}
 Figure \ref{fig2:graph} shows us the relationship between containers and used stacks. We can conclude that the more containers are, the more stacks will be used, which is undoubted in practice.
@@ -960,7 +985,7 @@ Figure \ref{fig2:graph} shows us the relationship between containers and used st
 \begin{figure}[htbp]
 \centering
 \caption{Relationship between ports and used stacks}
-\includegraphics[width=4.00in,height=3.00in]{figure/K-ports.png}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-ports.png}}
 \label{fig3:graph}
 \end{figure}
 Figure \ref{fig3:graph} provides us the relationship between ports and used stack. In general, the more ports are among the shipping, the more stacks will be used. Another related factor to be  taken into consideration is the sparse distribution situation of containers in each port.
@@ -968,7 +993,7 @@ Figure \ref{fig3:graph} provides us the relationship between ports and used stac
 \begin{figure}[htbp]
 \centering
 \caption{Relationship between limit height and used stacks}
-\includegraphics[width=4.00in,height=3.00in]{figure/K-limit_height.png}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-limit_height.png}}
 \label{fig4:graph}
 \end{figure}
 Figure \ref{fig4:graph} shows us that the greater the number of limit height is, the less stacks will be used, which is definitely right.
@@ -977,7 +1002,7 @@ Figure \ref{fig4:graph} shows us that the greater the number of limit height is,
 \begin{figure}
 \centering
 \caption{Relationship between comprehensive factors and used stacks}
-\includegraphics[width=4.00in,height=3.00in]{figure/K-comprehensive.png}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-comprehensive.png}}
 \label{fig5:graph}
 \end{figure}
 Figure \ref{fig5:graph} shows us that the comprehensive impact on the result we work out for all the basic factors considered in this paper. And we can choose the factor we want to analyze and it is convenient for us to work out how different factor influences our  final result. For the convenience of observation, we only give the result with filtered numbers of each factor.
@@ -1010,7 +1035,7 @@ If they are loaded without any rehandle, the loading sequence and layout will be
 \begin{figure}[htbp]
 \centering
 \caption{a side view of a partially loaded stack.}
-\includegraphics[width=4.00in,height=3.00in]{figure/without rehandle.jpg}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/without rehandle.jpg}}
 \label{fig eight:graph}
 \end{figure}
 

@@ -93,6 +93,7 @@ Thus, it makes higher demand of the problem.
 
 %TODO: introduce the ship's structure, and why rehandles exist.
 A container ship transports cargo in containers, and the ship layout varies from vessel to vessel.
+The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas. These areas are termed 20-ft bays.
 In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
 Each bay consists of container stacks placed along the length of ship(see Figure \ref{fig one:graph}).
@@ -101,6 +102,8 @@ In order to gain access to the containers stored under deck, we must remove all 
 The container position in the ship is uniquely indexed by (bay, row, tier). Such three-tuple is called a slot.
 On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit(TEU)
 stacks and a single Forty-foot Equivalent Unit (FEU) stack(see Figure \ref{fig two:graph}).
+In our paper, we assume that all the containers are of the same size,(e.g. 20 TEUs) and each slot can be fully occupied by one container.
+
 
 
 \begin{figure}[htbp]
@@ -267,8 +270,35 @@ It can improve the ability of decision-making management system of container shi
 \section{Problem Description}
 \label{sec:pd}
 
-A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $p$, 1, 2, 3, ... $p$, 1, ..., which forms a circular route.
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route.
 There are standard containers to be shipped along the journey.
+Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
+Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist.
+Moreover, the ship is never empty once sets out due to the circular feature.
+
+Supposing that the voyage terminates in the second circle, we can break the loop into a straight line. 
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$. 
+There will be $P$ kinds of different containers according to their origin ports.
+Containers at port 1 can be transported into port 2, 3, ..., $P-1$, $P$.
+Containers at port 2 can be transported into port 3, 4, ..., $P$, 1.
+The last kind of containers originates from port $P$.
+Containers at port $P$ can be transported into port 1, 2, ..., $P-1$.
+However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design.
+Consequently, we need break the loop voyage into the straight line voyage.
+Actually it is not difficult, we can regard the port 1 in the second circle as port $P+1$, the next port in the second circle will be port $P+2$ and so on.
+%It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 in the special circular route.
+Eventually we only need work out the container stowage planning for the line voyage from port 1 to port $2P$ and it is equivalent to cope with the problem with a two-circle voyage.
+Similarly, we can use this method to deal with the circular route container stowage problem no matter how many circle they are.
+There is another approach we can think about to solve the circular route problem.
+After going across port 1 in each circle, we reset the origin port of containers remained in vessel as port 1. 
+For example, containers from port 3 to the port 2 in the next circle will be containers from 1 to port 2 after going across port 1 in the next circle.
+Thus, it only exists the port from port 1 to port $P$.
+In addition, all the loading and discharging ports of $N$ containers are known in advance.
+The "look ahead"  mechanism, which can make use of all loading information available£¬is helpful for us to make detailed stowage plan.
+
+
+
+
 
 At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship.
 Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$.
@@ -281,12 +311,6 @@ A j-container is called a i, j-container if it is originated from port i.
 A j-container in slot (r, c) is said to be blocked if there exists a j'-container in slot (r', c) with j' $>$ j and r'$<$r, and the j'-container is called a blocking container with respect to the j-container.
 Occurrence of container blocking at any time means that shifts are no longer avoidable.
 
-Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
-Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist.
-Moreover, the ship is never empty once sets out due to the circular feature.
-However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design.
-It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 or in a circular route.
-In addition, all the loading and discharging ports of $N$ containers are known in advance.
 
 We assume that the ship has enough capacity to accommodate all the containers along the journey.
 The ship spaces are divided into several stacks. Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$.
@@ -303,15 +327,43 @@ The detailed introduction will be given in the below.
 We also denote the dynamic $Layout$ as the layout of the ship after different operations for containers.
 We even can output the layout after the operations for one container or after all the operations at one specific port through the algorithm proposed in this paper.
 
+Considering that the complexity of working out the integer model for the SSMP-KR problem, we give the IP model for the SSMP-ZR problem.
+The capacitated SSMP-ZR can be mathematically formulated by the following integer programming (IP) model.
+
+\begin{small}
+\begin{align}
+& (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj} \\
+& \mathrm{s.t.}\hspace{11pt}\sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:1}\\
+%\mbox{s.t.~}& \sum_{c=1}^{C} x_{ic}=1, ~\forall 1\le i \le m \label{eqn:1}\\
+&\hspace{24pt}\sum_{i=1}^{N} x_{is}\le M y_s, ~\forall 1\le s \le S	\label{eqn:2}\\
+& \sum_{i:O(i)\le p\le D(i)-1} x_{is}\le H, ~\forall 1\le s\le S, 1\le p\le P		\label{eqn:3}\\
+& x_{is}+x_{js}\le 1, ~\forall 1\le s\le S, 1\le i,j\le N, O(j)<O(i)<D(j)<D(i)	\label{eqn:4}\\
+& x_{is}, y_s \in \{0,1\}, ~\forall 1\le s\le S,1\le i,j\le N
+\end{align}
+\end{small}
+
+In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship. 
+$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise. 
+$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise. 
+$O(i)$ and $D(i)$ indicate the shipping leg of container $i$. The objective (\ref{eqn:obj}) minimizes the number of stacks used. 
+Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack. 
+Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks. 
+Constraints (\ref{eqn:3}) assure that at each port $p$, the number of containers in stack $s$ does not exceed $H$. 
+Constraints (\ref{eqn:4}) avoid overstowage requiring that container $i$ is prohibited to block container $j$ in the same stack when container $j$ is retrieved.
+
+It is straightforward that the resultant layout from such a loading order does not include overstowage.
+
+We have also presented the simple IP model for the SSMP-KR to make our problem clear.
+
 The SSMP-KR can be mathematically formulated by the following integer programming (IP) model.
 
 \begin{small}
 \begin{align}
             &             (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj} \\
-\mbox{s.t.~}& \sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:1}\\
-            & \hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:2}\\
-            &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:3}\\
-            & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:4}\\
+\mbox{s.t.~}& \sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:5}\\
+            & \hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:6}\\
+            &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:7}\\
+            & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:8}\\
 \end{align}
 \end{small}
 
@@ -320,15 +372,15 @@ $x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is l
 $y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
 $L_i$,$U_i$,$R_i$ are the number of loading containers, discharging containers and rehandling containers, respectively.
 The objective (\ref{eqn:obj}) minimizes the number of stacks used.
-Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
-Constraints (\ref{eqn:2}) guarantee that the total number of rehandles is no greater than than $K$, the value of allowed rehandles.
-Constraints (\ref{eqn:3}) ensure that the total number of containers in each stack is no greater than than $H$.
-Constraints (\ref{eqn:4}) assure that at each port $p$, the number of containers in vessel does not exceed $S*H$.
+Constraints (\ref{eqn:5}) ensure that each container $i$ is loaded to only one stack.
+Constraints (\ref{eqn:6}) guarantee that the total number of rehandles is no greater than than $K$, the value of allowed rehandles.
+Constraints (\ref{eqn:7}) ensure that the total number of containers in each stack is no greater than than $H$.
+Constraints (\ref{eqn:8}) assure that at each port $p$, the number of containers in vessel does not exceed $S*H$.
 
 Note that the solution to the IP model only reflects the assignment of containers to stacks.
 It can be converted to a complete loading plan as follows.
 At each port $p$, load containers to their corresponding stacks (given by $x_{is}$) by the decreasing order of their destinations.
-It is straightforward that the resultant layout from such a loading constraints will be more flexible to design our algorithm and closer to the actual situation.
+Compared with the IP model for the capacitated SSMP-ZR, we can find that the resultant layout from such a loading constraints will be more flexible to design our algorithm and closer to the actual situation.
 
 
 
@@ -729,6 +781,7 @@ For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\r
 The above proposition indicates that our approximation algorithm has a constant performance guarantee if we regard the number of ports as fixed under the condition that the number of allowed rehandle is zero.
 In practice, the number of ports is generally much smaller than the number of stacks used along the journey. Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
 
+Due to page limit, we omit the deatils here. Interested readers are welcome to contact the authors for details.
 % In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test the effectiveness of SSMP-KR.
 
 
@@ -991,6 +1044,11 @@ In this paper, we analyze the structure of this two-dimensional bin-packing opti
 
 We can regard the stowage stack minimization problem with zero rehandle as an particular case when we choose the value of K as zero.
 Hence, the problem proposed in this paper is a generalized and extended problem considering the existence of K-rehandle.
+
+On the one hand, the stowage planning problems in cyclic navigation path is converted into linear navigation path using the specific method.
+On the other hand, the result is equivalent to each other whether we convert or not.
+
+In this paper, we presented the integer programming model for the SSMP-ZR and presented a simple IP model for the SSMP-KR.
 
 A heuristic approach is proposed to construct near-optimal solutions to the SSMP-KR problem in a very short computational time.
 Since there are different status in the process of handling containers, different methods in our algorithm are thought to cope with the corresponding conditions.

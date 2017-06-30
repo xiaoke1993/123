@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  29 JUN 2017 23:19
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  30 JUN 2017 15:58
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -576,14 +576,7 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks32
 )
 \c@proposition=\count123
- (E:\Github\123\Latex\SSMP-KR.aux
-
-LaTeX Warning: Label `pro:a4' multiply defined.
-
-
-LaTeX Warning: Label `tab:4' multiply defined.
-
-)
+ (E:\Github\123\Latex\SSMP-KR.aux)
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 10.
 LaTeX Font Info:    Try loading font information for OML+txmi on input line 10.
 
@@ -673,6 +666,18 @@ File: ot1txr.fd 2000/12/15 v3.1
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+
+Package natbib Warning: Citation `avriel2000container' on page 1 undefined on i
+nput line 36.
+
+
+Package natbib Warning: Citation `jensen2010complexity' on page 1 undefined on 
+input line 36.
+
+
+Package natbib Warning: Citation `wang2014stowage' on page 1 undefined on input
+ line 36.
+
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ° in font txr!
 Missing character: There is no ¡ in font txr!
@@ -702,136 +707,196 @@ File: utxsyc.fd 2000/12/15 v3.1
 {D:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}]
 Missing character: There is no ¨ in font txr!
 Missing character: There is no ¨ in font txr!
- [2] [3]
-<figure/Arrangement_of_cargo_space.png, id=17, 1080.035pt x 304.13625pt>
+
+
+Package natbib Warning: Citation `zhang2016multiobjective' on page 2 undefined 
+on input line 84.
+
+[2]
+
+Package natbib Warning: Citation `zhang2008review' on page 3 undefined on input
+ line 88.
+
+<figure/Arrangement_of_cargo_space.png, id=14, 1080.035pt x 304.13625pt>
 File: figure/Arrangement_of_cargo_space.png Graphic file (type png)
 
 <use figure/Arrangement_of_cargo_space.png>
 Package pdftex.def Info: figure/Arrangement_of_cargo_space.png used on input li
-ne 112.
+ne 111.
 (pdftex.def)             Requested size: 1080.03238pt x 304.1355pt.
 
-<figure/A_vessel_bay.png, id=19, 565.11125pt x 478.78876pt>
+<figure/A_vessel_bay.png, id=16, 565.11125pt x 478.78876pt>
 File: figure/A_vessel_bay.png Graphic file (type png)
 
 <use figure/A_vessel_bay.png>
-Package pdftex.def Info: figure/A_vessel_bay.png used on input line 119.
+Package pdftex.def Info: figure/A_vessel_bay.png used on input line 118.
 (pdftex.def)             Requested size: 565.10986pt x 478.78758pt.
+ [3] [4 <E:/Github/123/Latex/figure/Arrangement_of_cargo_space.png> <E:/Github/
+123/Latex/figure/A_vessel_bay.png>]
 
-<figure/A_partially_loaded_stack.png, id=20, 402.50375pt x 464.73625pt>
-File: figure/A_partially_loaded_stack.png Graphic file (type png)
+LaTeX Warning: Reference `sec:ea' on page 5 undefined on input line 152.
 
-<use figure/A_partially_loaded_stack.png>
-Package pdftex.def Info: figure/A_partially_loaded_stack.png used on input line
- 128.
-(pdftex.def)             Requested size: 402.50276pt x 464.7351pt.
- [4 <E:/Github/123/Latex/figure/Arrangement_of_cargo_space.png> <E:/Github/123/
-Latex/figure/A_vessel_bay.png>]
-[5 <E:/Github/123/Latex/figure/A_partially_loaded_stack.png>] [6] [7]
+
+LaTeX Warning: Reference `sec:con' on page 5 undefined on input line 152.
+
+
+Package natbib Warning: Citation `shields1984containership' on page 5 undefined
+ on input line 163.
+
+
+Package natbib Warning: Citation `dillingham1986application' on page 5 undefine
+d on input line 166.
+
+
+Package natbib Warning: Citation `wilson2001container' on page 5 undefined on i
+nput line 170.
+
+[5]
+
+Package natbib Warning: Citation `scott1978loading' on page 6 undefined on inpu
+t line 174.
+
+
+Package natbib Warning: Citation `avriel1998stowage' on page 6 undefined on inp
+ut line 175.
+
+
+Package natbib Warning: Citation `botter1991stowage' on page 6 undefined on inp
+ut line 177.
+
+
+Package natbib Warning: Citation `avriel1998stowage' on page 6 undefined on inp
+ut line 183.
+
+
+Package natbib Warning: Citation `avriel2000container' on page 6 undefined on i
+nput line 183.
+
+
+Package natbib Warning: Citation `avriel1993exact' on page 6 undefined on input
+ line 186.
+
+
+Package natbib Warning: Citation `haghani2001model' on page 6 undefined on inpu
+t line 188.
+
+
+Package natbib Warning: Citation `ambrosino2004stowing' on page 6 undefined on 
+input line 189.
+
+
+Package natbib Warning: Citation `Delgado2012251' on page 6 undefined on input 
+line 193.
+
+
+Package natbib Warning: Citation `ambrosino2015mip' on page 6 undefined on inpu
+t line 197.
+
+[6]
+
+Package natbib Warning: Citation `webster1970container' on page 7 undefined on 
+input line 201.
+
+
+Package natbib Warning: Citation `ding2015stowage' on page 7 undefined on input
+ line 202.
+
+
+Package natbib Warning: Citation `avriel1998stowage' on page 7 undefined on inp
+ut line 203.
+
+
+Package natbib Warning: Citation `wilson2001container' on page 7 undefined on i
+nput line 205.
+
+
+Package natbib Warning: Citation `bortfeldt2003parallel' on page 7 undefined on
+ input line 206.
+
+
+Package natbib Warning: Citation `Monaco2014256' on page 7 undefined on input l
+ine 209.
+
 Missing character: There is no ¡ in font txr!
 Missing character: There is no ¯ in font txr!
- [8]
+
+Package natbib Warning: Citation `bortfeldt2001hybrid' on page 7 undefined on i
+nput line 215.
+
+
+Package natbib Warning: Citation `dubrovsky2002genetic' on page 7 undefined on 
+input line 219.
+
+
+Package natbib Warning: Citation `kammarti2013evolutionary' on page 7 undefined
+ on input line 223.
+
+
+Package natbib Warning: Citation `cohen2017container' on page 7 undefined on in
+put line 225.
+
+[7]
+
+Package natbib Warning: Citation `wei2005model' on page 8 undefined on input li
+ne 233.
+
 Missing character: There is no ¬ in font txr!
 
-[9]
-Missing character: There is no ¬ in font txr!
- [10] [11] [12] [13] [14] [15] [16
-
-]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 695.
+Package natbib Warning: Citation `zhang2016multiobjective' on page 8 undefined 
+on input line 236.
 
 
-(D:\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
-File: omstxr.fd 2000/12/15 v3.1
-)
-LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 695.
- [17] [18]
-Missing character: There is no ¬ in font txr!
- [19] [20] [21] [22]
-<figure/K-Stacks.png, id=86, 362.3136pt x 217.7736pt>
-File: figure/K-Stacks.png Graphic file (type png)
-
-<use figure/K-Stacks.png>
-Package pdftex.def Info: figure/K-Stacks.png used on input line 1011.
-(pdftex.def)             Requested size: 362.31271pt x 217.77306pt.
-
-<figure/K-containers.png, id=87, 404.712pt x 217.7736pt>
-File: figure/K-containers.png Graphic file (type png)
-
-<use figure/K-containers.png>
-Package pdftex.def Info: figure/K-containers.png used on input line 1019.
-(pdftex.def)             Requested size: 404.71101pt x 217.77306pt.
- [23] [24 <E:/Github/123/Latex/figure/K-Stacks.png> <E:/Github/123/Latex/figure
-/K-containers.png>]
-<figure/K-ports.png, id=96, 404.2302pt x 217.7736pt>
-File: figure/K-ports.png Graphic file (type png)
- <use figure/K-ports.png>
-Package pdftex.def Info: figure/K-ports.png used on input line 1028.
-(pdftex.def)             Requested size: 404.2292pt x 217.77306pt.
-
-<figure/K-limit_height.png, id=97, 429.7656pt x 217.7736pt>
-File: figure/K-limit_height.png Graphic file (type png)
-
-<use figure/K-limit_height.png>
-Package pdftex.def Info: figure/K-limit_height.png used on input line 1036.
-(pdftex.def)             Requested size: 429.76454pt x 217.77306pt.
-
-<figure/K-comprehensive.png, id=98, 491.9178pt x 261.6174pt>
-File: figure/K-comprehensive.png Graphic file (type png)
-
-<use figure/K-comprehensive.png>
-Package pdftex.def Info: figure/K-comprehensive.png used on input line 1045.
-(pdftex.def)             Requested size: 491.9166pt x 261.61674pt.
- [25
-
- <E:/Github/123/Latex/figure/K-ports.png> <E:/Github/123/Latex/figure/K-limit_h
-eight.png> <E:/Github/123/Latex/figure/K-comprehensive.png>]
-
-LaTeX Warning: File `figure/without rehandle.jpg' not found on input line 1083.
+Package natbib Warning: Citation `tierney2014complexity' on page 8 undefined on
+ input line 244.
 
 
-<figure/without rehandle.jpg, id=106, 712.16063pt x 100.87688pt>
-File: figure/without rehandle.jpg Graphic file (type jpg)
-
-<use figure/without rehandle.jpg>
-Package pdftex.def Info: figure/without rehandle.jpg used on input line 1083.
-(pdftex.def)             Requested size: 712.15889pt x 100.87662pt.
+Package natbib Warning: Citation `malucelli2008stack' on page 8 undefined on in
+put line 245.
 
 
-LaTeX Warning: File `figure/with rehandle.jpg' not found on input line 1091.
+Package natbib Warning: Citation `Lehnfeld2014297' on page 8 undefined on input
+ line 246.
 
-<figure/with rehandle.jpg, id=107, 654.94687pt x 103.13531pt>
-File: figure/with rehandle.jpg Graphic file (type jpg)
 
-<use figure/with rehandle.jpg>
-Package pdftex.def Info: figure/with rehandle.jpg used on input line 1091.
-(pdftex.def)             Requested size: 654.94528pt x 103.13504pt.
- [26] (E:\Github\123\Latex\SSMP-KR.bbl [27 <E:/Github/123/Latex/figure/without 
-rehandle.jpg> <E:/Github/123/Latex/figure/with rehandle.jpg>]) [28] (E:\Github\
-123\Latex\SSMP-KR.aux)
+Package natbib Warning: Citation `Araujo201650' on page 8 undefined on input li
+ne 253.
 
-LaTeX Warning: There were multiply-defined labels.
+[8]
 
- ) 
+Package natbib Warning: Citation `avriel2000container' on page 9 undefined on i
+nput line 257.
+
+
+Package natbib Warning: Citation `jensen2010complexity' on page 9 undefined on 
+input line 257.
+
+[9] [10] [11] [12]
+
+! LaTeX Error: Environment codebox undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.445     \begin{codebox}
+                         
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.445     \begin{codebox}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+ 
 Here is how much of TeX's memory you used:
- 4453 strings out of 495354
- 56352 string characters out of 3183859
- 169168 words of memory out of 3000000
- 7489 multiletter control sequences out of 15000+200000
- 48212 words of font info for 120 fonts, out of 3000000 for 9000
+ 4302 strings out of 495354
+ 53035 string characters out of 3183859
+ 119990 words of memory out of 3000000
+ 7361 multiletter control sequences out of 15000+200000
+ 43964 words of font info for 113 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,9n,34p,764b,268s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<D:/CTEX/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmtt10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxi.pf
-b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><D:/CTEX/MiKTeX/fonts/ty
-pe1/public/txfonts/rtxr.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txex.pfb
-><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsy.pfb><D:/CTEX/MiKTeX/fonts/type
-1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><D:/CTE
-X/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (28 pages, 332419 bytes).
-PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 34i,9n,34p,485b,265s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

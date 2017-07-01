@@ -1,8 +1,8 @@
 \documentclass[review,3p,times,authoryear,12pt]{elsarticle}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{algorithm}
-\usepackage{algorithmicx}
 \usepackage{graphicx,subfigure}
+\usepackage{clrscode3e}
 \usepackage{enumerate}
 \graphicspath{{figure/}}
 \newtheorem{proposition}{Proposition}
@@ -125,14 +125,14 @@ Rehandles arise either when we want to unload containers destined for current po
 Usually it is called necessary shifts in the former case and voluntary shifts in the latter.
 
 The previous research ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on.
-However, we need think about the importance of capacity as well. 
+However, we need think about the importance of capacity as well.
 For example, if we can use every stack sufficiently, the required number of ships will be reduced and thus the cost decreases.
 The problem mentioned in this paper give a priority on how to reduce the use of stack with $K$ rehandle as much as possible.
 Through the research on this problem, another aspect of container stowage planning is exhibited and a lot of shipping cost can be saved by using what we propose in this paper.
 On the other hand, it represents a novel thinking perspective to make a research about this kind of problem and it will promote the development of academic shipping optimal problem.
 
-We put forward the stowage stack minimization problem with $K$ rehandle constraint problem (SSMP-KR) in this paper. 
-Literally speaking, it is a container stowage planning problem whose objection is to find out minimization stack with $K$ rehandle constraint on a given condition. 
+We put forward the stowage stack minimization problem with $K$ rehandle constraint problem (SSMP-KR) in this paper.
+Literally speaking, it is a container stowage planning problem whose objection is to find out minimization stack with $K$ rehandle constraint on a given condition.
 The heuristic algorithm in this paper uses the greedy rule to finish the loading and unloading operation for every container to be loaded and unloaded in each port along the voyage.
 Therefore, the solution we get may be the approximately optimal rather than the global optimal.
 
@@ -293,7 +293,7 @@ It is helpful for us to make detailed container stowage plan.
 At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship.
 Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$.
 The containers remain unmoved when the ship voyages among the ports.
-Rehandles may occur in these ports, either necessary or voluntary or both. 
+Rehandles may occur in these ports, either necessary or voluntary or both.
 A container is called a j-container if it is destined for port j.
 0bviously all j-containers are loaded before the ship visits port j and should be unloaded at port j.
 A j-container is called a i, j-container if it is originated from port i.
@@ -301,7 +301,7 @@ A j-container in slot (r, c) is said to be blocked if there exists a j'-containe
 Occurrence of container blocking at any time means that shifts are no longer avoidable.
 
 We assume that the ship has enough capacity to accommodate all the containers along the journey.
-The ship spaces are divided into several stacks. 
+The ship spaces are divided into several stacks.
 Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$.
 When $H$ is bounded, we call the SSMP-KR as the capacitated SSMP-KR (CSSMP-KR);
 when $H$ is sufficiently large (e.g., $H\geq N$) or unbounded, we refer to it as the uncapacitated SSMP-KR (USSMP-KR).
@@ -393,13 +393,14 @@ Before the introduction of our algorithm, we give the related notations as follo
      $height$ & a one-dimension array, represents the current height of each stack\\
      $Layout$ & a two-dimension array, represents the layout of containers in vessel after each operation\\
      $Numofstack$ & the cumulative number of used stacks\\
-     $nearport$ & a one-dimension array to store the nearest port in all containers for each stack
-     $lb$ & a one-dimension array, represents the lower bound of used stacks in each port\\
+     $nearport$ & a one-dimension array to store the nearest port in all containers for each stack\\
+     $lb$  & a one-dimension array, represents the lower bound of used stacks in each port\\
      $ub$ & a one-dimension array, represents the upper bound of used stacks in each port\\
      $ac$ & an arraylist to ordinally store the information of each container including the origin port and the destination port\\
      $Solution$ & an arraylist to ordinally store the operation of each container\\
      $Container$ & a Class to record the information of each container\\
      $Operation$ & a Class to record the information of each operation, including loading, unloading and rehandling\\
+     $heuristic()$ & the main method to complete the container stowage planning along the voyage\\
      $read()$ &  a method to read the parameters and the detailed containership information from each instance\\
      $bound()$ & a method to provide a lower bound and upper bound and can be used to prove our algorithm's rationality\\
      $GetstackNum$ & a method to get the sequence number of chosen stack\\
@@ -419,7 +420,7 @@ If a stack is empty, its value will be set to $P+1$, P is the total number of th
 We firstly talk about the simple condition that the allowed rehandles run out.
 When traversing all stacks to choose the optimal one according to our rules for each container, we add non-full stacks whose nearest port is no smaller thanthe current loading container into arraylist $S_0$.
 For the stacks in $S_0$, we choose the one with the nearest port.
-Next we talk about the complex condition that rehandles are allowed. 
+Next we talk about the complex condition that rehandles are allowed.
 Even though, it is a little different from the simple condition.
 Under this condition, $S_1$ have the highest priority.
 If $S_1$ is null, we choose the stack from arraylist $S_2$ which is used to store partial stacks whose nearest port is smaller than the current loading container.
@@ -437,11 +438,32 @@ For all the ports along the voyage, we adopt the heuristic method to dispose con
 And we can transfer the input into the output by applying the heuristic method.
 So the below is the main process of our algorithm.
 
-The simple condition when there isn't rehandle allowed.
+The following pseudo gives a simplistic explanation of heuristic method, which is our main method.
+
+\begin{algorithm}
+  \caption{The  procedure of the heuristic() method}
+  \label{alg:1}
+  \begin{codebox}
+  \Procname{\proc{Heuristic() method for the SSMP-KR (\id{I})}}
+
+    \li \For each port $p=1, 2 , \ldots,P $.
+     \li \Do
+                Unload containers destined at port $p$.
+                
+                Load containers originated from port $p$.
+    \li   \For each stack $i=1, 2, \ldots, UB$.
+    \li \Do
+              work out the value of Numofstack through counting the number of non-empty stacks.
+          \End
+       \End
+\end{codebox}
+\end{algorithm}
+
+The simple condition there isn't rehandle allowed.
 
 \begin{algorithm}[htbp]
     \caption{A heuristic procedure for the SSMP-KR in the simple condition}
-    \label{alg:1}
+    \label{alg:2}
     \begin{codebox}
     \Procname{\proc{Heuristic for the simple condition (\id{I})}}
         \li \For each port $p=1,2,\ldots,P$
@@ -461,193 +483,44 @@ The simple condition when there isn't rehandle allowed.
         \li             Load $c$ to an empty stack. \label{heu:2a}
                     \End
                 \End
-            \End
-    \end{codebox}
+       \end{codebox}
 \end{algorithm}
 
 The complex condition when there is allowed rehandles.
 
-%\begin{algorithm}[htbp]
-%    \caption{A heuristic procedure for the SSMP-KR in the complex condition}
-%    \label{alg:2}
-%    \begin{codebox}
-%    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
-%        \li \For each port $p=1,2,\ldots,P$
-%        \li \Do
-%                Unload containers destined at port $p$.
-%        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
-%        \li     \For each container $c$ at port $p$
-%        \li     \Do
-%                    $S_1$=currently stacks used to store partial stacks without rehandles occuring.
-%                    $S_2$=currently stacks used to store partial stacks with rehandles occuring.
-%                    $S_3$=current stacks used store empty stacks whether there is a rehandle or not
-%        \li         \If $S_1\neq \emptyset$
-%        \li         \Then
-%                        $s_{min}=\arg\min \limits_{s\in S_1} D(c(s))$.
-%        \li             Load container $c$ to stack $s_{min}$.
-%        \li         \Else If $S_2\neq \emptyset$
-%                        \Then
-%                        $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
-%        \li             Load container $c$ to stack $s_{min}$.
-%        \li         \Else
-%        \li             Load $c$ to an empty stack in $S_3$. \label{heu:2a}
-%                    \End
-%                \End
-%            \End
-%        \end
-%    \end{codebox}
-%\end{algorithm}
-
-%\floatname{algorithm}{Main procedure}
-%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%\begin{algorithm}
-%\caption{The main procedure of the algorithm}
-%\begin{algorithmic}[1]
-%\Require the number of ports $P$, the number of containers $N$, the height limit $H$, and the number of allowed rehandles $K$.
-%\Ensure The operation solution of each container and the number of stacks used in the shipping.
-%\For {$p=1 \to P$}
-%\State $heuristic()$
-%\EndFor
-%\end{algorithmic}
-%\end{algorithm}
-%
-
-The following pseudo gives a simplistic explanation of heuristic method. The variables "height", "Layout" and "Numofstack" are one dimensional array, two-dimensional array and the number of accumulative used stack in the pseudo, respectively. $Unloading\_at\_port(p)$ and $Loading\_at\_port(p)$ methods provide the way how to unload the right containers and load the right containers at each port. Given a specific instance, we can get the correspondent value of "Numofstack".
+\begin{algorithm}[htbp]
+    \caption{A heuristic procedure for the SSMP-KR in the complex condition}
+    \label{alg:3}
+    \begin{codebox}
+    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
+        \li \For each port $p=1,2,\ldots,P$
+        \li \Do
+                Unload containers destined at port $p$.
+        \li     Sort containers at $p$ by the decreasing order of their destinations. \label{heu:2}
+        \li     \For each container $c$ at port $p$
+        \li     \Do
+                    $S_1$=currently stacks used to store partial stacks without rehandles occuring.
+                    $S_2$=currently stacks used to store partial stacks with rehandles occuring.
+                    $S_3$=current stacks used store empty stacks whether there is a rehandle or not
+        \li         \If $S_1\neq \emptyset$
+        \li         \Then
+                        $s_{min}=\arg\min \limits_{s\in S_1} D(c(s))$.
+        \li             Load container $c$ to stack $s_{min}$.
+        \li         \Else If $S_2\neq \emptyset$
+                        \Then
+                        $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
+        \li             Load container $c$ to stack $s_{min}$.
+        \li         \Else
+        \li             Load $c$ to an empty stack in $S_3$. \label{heu:2a}
+                    \End
+                \End
+            \End
+        
+\end{codebox}
+\end{algorithm}
 
 
-%\floatname{algorithm}{heuristic() method}
-%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%\begin{algorithm}
-%\caption{The  procedure of the heuristic() method}
-%\begin{algorithmic}[1]
-%\Require each instance
-%\Ensure  the minimum number of stacks used in each instance
-%\State $height \gets \  new int[UB+1]$
-%\State $Layout \gets \  new Container[UB+1][H+1]$
-%\State $Numofstack \gets 0$
-%\For {$p=1 \to P$}
-%\State $Unloading\_at\_port(p)$
-%\State $Loading\_at\_port(p)$
-%\State $t \gets 0$
-%\For {$i=1 \to UB$}
-%\If {$height[i]!=0$}
-%\State $t \gets t+1$
-%\EndIf
-%\EndFor
-%\If {$t> Numofstack$}
-%\State $Numofstack \gets t$
-%\EndIf
-%\EndFor
-%\end{algorithmic}
-%\end{algorithm}
-
-The following unloading\_at\_port() method is used to decide which container should be discharged at port p. Then we need substitute the related information of chosen container into the Unloading\_for\_container(s,t,p) method.
-
-%\floatname{algorithm}{Unloading\_at\_port() method}
-%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%\begin{algorithm}
-%\caption{The  procedure of the Unloading\_at\_port() method}
-%\begin{algorithmic}[1]
-%\Require the current port $p$,
-%\Ensure the sequence number of stack $s$ where the loading container is
-%\For {$s=1 \to UB$}
-%\For {$ t=height[s] \to 1$}
-%\If {$Layout[s][t].d==p$}
-%\State $Unloading\_for\_container(s,t,p)$
-%\EndIf
-%\EndFor
-%\EndFor
-%\end{algorithmic}
-%\end{algorithm}
-\clearpage
-
-Considering the length of pseudo code, some details are omitted. We will give a explanatory about the following pseudo code.
-We first define a one-dimensional array nearport which consists of "UB+1" integer number and it is used to store the nearest destination among all containers located in each stack. If the stack is empty, then the value will be set as "P+1". The ac is an arraylist to store all containers to store all the containers before the shipping. If one container is to be unloaded and there isn't overstowage, then it will be removed from the arraylist. For each blocking container, its origin port will be reset as current port after it is removed from its location, then it will be added into ac again.
-
-As a result of the existence of rehandle, we need sort ac before we start loading containers at port p. The sorting rules are shown as followings. We compare origin port of containers in the first place, the number smaller, the location ahead. If the origin port is identical, compare the destination port, the number larger, the location ahead. If ac is not empty, we just need to choose the first element $cn$ to load. We use loading\_for\_container method to choose the optimal stack. After loading it into the stack $st$. $st$'s height and nearport will be updated. At last, record this operation and add the operation into the arraylist Solution. Hence, we can eventually get all the operation information.
-
-%\floatname{algorithm}{Loading\_at\_port() method}
-%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%\begin{algorithm}
-%\caption{The procedure of Loading\_at\_port() method}
-%\begin{algorithmic}[1]
-%\Require $the current port $p$ $
-%\Ensure $containers to be loaded at port p$
-%\For {$s=1 \to UB$}
-%\State $ nearport[s] \gets P+1$
-%\For {$j=1 \to H$}
-%\If {$Layout[s][j]!=null$}
-%\If {$Layout[s][j].d<nearport[s]$}
-%\State $nearport[s] \gets Layout[s][j].d$
-%\EndIf
-%\Else
-%\State $break$
-%\EndIf
-%\EndFor
-%\EndFor
-%\State $Collections.sort(ac)$
-%\While {$ac.size()!=0$ \textbf {and} $ac.get(0)==port$}
-%\State $Container cn \gets  ac.get(0)$
-%\State $ac.remove(0)$
-%\State $st \gets Loading\_for\_container(cn,Layout,nearport)$
-%\State $Layout[st][height[st]+1] \gets cn$
-%\If {$cn.d < nearport[st]$}
-%\State $nearport[st] \gets cn.d$
-%\State $height[st] \gets height[st]+1$
-%\State $OPeration ope \gets new Operation(cn.Seqnum,0,st)$
-%\State $Solution.add(ope)$
-%\EndIf
-%\EndWhile
-%\end{algorithmic}
-%\end{algorithm}
-%\clearpage
-
-The following Loading\_for\_container() method provides us the method how to load containers and two different sub-methods are given to return the stack where the loading container belongs. The specific procedure of two sub-methods is described in the above content.
-
-%\floatname{algorithm}{Loading\_for\_container() method}
-%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%
-%\begin{algorithm}
-%\caption{The procedure of Loading\_for\_container() method}
-%\begin{algorithmic}[1]
-%\Require $Container con$,$Container[\ ][\ ] Layout$,$int[\ ] nearport$
-%\Ensure $con$,$nearport$
-%\If{$Count_rehandle==K$}
-%\State $return Loading_rehandle_equalK(con,nearport)$
-%\Else
-%\State $return Loading_rehandle_lessK(con,nearport)$
-%\EndIf
-%\end{algorithmic}
-%\end{algorithm}
-%\clearpage
-
-The below pseudo code of $unloading\_for\_container()$ method shows us how to unload containers one by one whether there is overstowage or not. Before the unloading operation,we need input the current port, the stack and the tier where the unloading container is. If there is overstowage, we invoke "$Relocate(s,t)$" method. After processing blocking container(s), we set out to unload the right container. We firstly record the unloading operation and add it into the arraylist Solution. They remove the container from its previous location and reduce the height of stack where it is located.
-
-%\floatname{algorithm}{Unloading\_for\_container() method}
-%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-%\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%
-%\begin{algorithm}
-%\caption{The procedure of the Unloading\_for\_container() method}
-%\begin{algorithmic}[1]
-%\Require $stack$,$tier$,$port$
-%\Ensure $unloading operation$
-%\For {$t=height[stack] \to tier$}
-%\State $Relocate(stack,port)$
-%\State $Solution ope \gets new Operation(Layout[stack][tier].Seqnum,stack,0)$
-%\State $Solution.add(ope)$
-%\State $Layout[stack][tier] \gets null$
-%\State $height[stack]\gets height[stack]-1$
-%\EndFor
-%\end{algorithmic}
-%\end{algorithm}
-
-
+Considering the length of pseudo code, some details are omitted.
 In a word, a lot of variables and methods of the concrete Unloading and Loading strategies have been involved, we don't give the correspondent pseudo here for the sake of context length.
 What is identical for the two procedures is that they choose the optimal operation for each container during the unloading and loading process according to the greedy rule made by our algorithm.
 As is explained in the heading of this section, we divide the loading method into two parts on the basis of the number of allowed rehandles.
@@ -669,7 +542,7 @@ For ease of exposition, we first give some related notations.
 \item $\mathcal{U}^*_k$ \& $\mathcal{C}^*_k$: the optimal solution to the USSMP-KR and the SSMP-KR instances, respectively.
 
 \item $\mathcal{U}_k$ \& $\mathcal{C}_k$: the solution to the USSMP-KR and the SSMP-KR instances by the algorithm, respectively.
-\item $\mathcal{U}_p$ \& $\mathcal{C}_p$: the number of stacks used at port $p$ by the algorithm.
+\item $\mathcal{U}_p$ : the number of stacks used at port $p$ by the algorithm for the USSMP-KR.
 
 \item $N_p$: the number of containers on the ship before its departure from port $p$.
 \item $V_p$: the number of loading ports that the ship has visited before it departs from port $p$.
@@ -680,22 +553,32 @@ A port is called a loading port if there exists at least one container to be loa
 
 
 \begin{proposition}
-For the USSMP-KR instance, the heuristic approach generates a solution in which at most $V_p$ stacks are used before the ship departs from port $p$, i.e. $\mathcal{U}_p\le V_p, \forall p=1,\ldots,P$.
+
+For the USSMP-KR instance, the heuristic approach generates a solution in which at most $V_p$ stacks are used before the ship departs from port $p$, i.e.
+
+ $\mathcal{U}_p\le V_p, \forall p=1 , \ldots, P$.
 \label{pro:a2}
 \end{proposition}
 
 \begin{proof}
+
 We use an inductive proof.
 
-\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port. The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers. We have $\mathcal{U}_1=V_1=1$, and therefore $\mathcal{U}_1\le V_1$ holds.
+\textit{Basis}: 
 
-\textit{Inductive step}: Suppose that before the ship departs from port $p$, there are at most $V_p$ stacks used, i.e., $\mathcal{U}_p \le V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, otherwise $V_{p+1}=V_p$.
+For $p=1$, without loss of generality, we assume that port 1 is a loading port. 
+The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers. 
+We have $\mathcal{U}_1=V_1=1$, and therefore $\mathcal{U}_1\le V_1$ holds.
+
+\textit{Inductive step}: 
+
+Suppose that before the ship departs from port $p$, there are at most $V_p$ stacks used, i.e., $\mathcal{U}_p \le V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, otherwise $V_{p+1}=V_p$.
 
 (1) If there exist some containers to be loaded, according to our heuristic, they are placed on either the extant stacks or a new blank stack (with the containers of later destinations placed lower). Hence, $\mathcal{U}_{p+1} \le \mathcal{U}_p+1 \le V_p+1=V_{p+1}$.
 
 (2) If no container is loaded, $\mathcal{U}_{p+1} \le \mathcal{U}_p \le V_p=V_{p+1}$.
 
-Based on the above two steps, we have $\mathcal{U}_p\le V_p, \forall p=1,\ldots,P$. Furthermore, we have
+Based on the above two steps, we have $\mathcal{U}_p\le V_p, \forall p=1, \ldots, P$. Furthermore, we have
 \begin{equation*}
 \mathcal{U}_k=\max_{p=1,\ldots,P}\mathcal{U}_p\le \max_{p=1,\ldots,P} V_p=V_P\le P
 \end{equation*}
@@ -710,10 +593,12 @@ The SSMP-KR instance has a lower bound:
 \end{proposition}
 
 \begin{proof}
+
 $\lceil\frac{N_p}{H}\rceil$ is the least number of stacks to accommodate all the containers at port $p$, and thus, $\max\limits_p(\lceil\frac{N_p}{H}\rceil)$ is the least number of stacks needed throughout the journey.
 \end{proof}
 
-The lower bound can help to check the optimality of solutions obtained by our heuristic. If the solution is equal to the lower bound, we can conclude that the solution is optimal.
+The lower bound can help to check the optimality of solutions obtained by our heuristic. 
+If the solution is equal to the lower bound, we can conclude that the solution is optimal.
 
 
 \begin{proposition}
@@ -725,6 +610,7 @@ For the heuristic solution to the SSMP-KR instance, it holds
 \end{proposition}
 
 \begin{proof}
+
 The first inequality obviously holds.
 
 For the second inequality, $\mathcal{C}_k=\max\limits_p \mathcal{C}_p$.
@@ -740,8 +626,12 @@ The partial stacks in port $p$ is no greater than $V_p$:
 \end{proposition}
 
 \begin{proof}
+
 We use an inductive proof.
-\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
+
+\textit{Basis}: 
+
+For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
 In addition, P(1)=0 or 1. Hence, $P(p) \le V_p $ holds.
 \textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than $V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized.
 
@@ -752,13 +642,15 @@ Based on the above two steps, we have $P(p) \le V_p,   \forall p=1,\ldots,P$.
 \end{proof}
 Therefore, the second inequality holds.
 
-For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$. It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) = \mathcal{C}^*+V_P$.
+For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$. 
+It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) = \mathcal{C}^*+V_P$.
 
 \end{proof}
 
 
-The above proposition indicates that our approximation algorithm has a constant performance guarantee if we regard the number of ports as fixed under the condition that the number of allowed rehandle is zero.
-In practice, the number of ports is generally much smaller than the number of stacks used along the journey. Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
+The above proposition indicates that our approximation algorithm has a constant performance guarantee.
+In practice, the number of ports is generally much smaller than the number of stacks used along the journey. 
+Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
 
 Due to page limit, we omit the deatils here. Interested readers are welcome to contact the authors for details.
 % In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test the effectiveness of SSMP-KR.
@@ -771,14 +663,14 @@ Due to page limit, we omit the deatils here. Interested readers are welcome to c
 
 This paper uses the test data from the existing literature and we add an extra parameters $K$ into the primary instance in order to meet the demands of research.
 $K$ means the number of allowed rehandles and it is selected from \{0, 10, 20, 50, 100\}.
-Particular£¬$K=0$ represents the benchmark and comparable condition. In fact, the problem becomes SSMP-ZR if $K=0$.
+Particular£¬$K=0$ represents the benchmark and comparable condition. In fact, the problem becomes SSMP-ZR when $K=0$.
 There are 2400 sets of instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20, 30\};
 the number of containers $N$, which is selected from \{50, 100, 200, 500, 1000, 5000\}, and the result isn't shown in the table when $N=5000$;
 the height limit $H$ selected from \{4, 7, 8, 12\}.
 Each set consists of 5 instances generated by different random seeds.
 In each instance, the origin $O(i)$ and the destination $D(i)$ of a container $i$ are generated from a uniform distribution on the integers $1, 2, \ldots, P$ satisfying that $O(i)<D(i)$.
 For the convenience of comparison, we only show the average "Numofstack"  when  $K=0$, $K=10$, $K=20$, $K=50$, $K=100$, respectively.
-What's more, this is applicable to the heuristic algorithm as well as the deuterogenic $P\&H$ algorithm, the simple introduced will be introduced in the next content.
+What's more, this is applicable to the heuristic algorithm as well as the deuterogenic $P\&H$ algorithm, which will be introduced in the next content.
 
 In this section, we will showcase the performance of our heuristic algorithms on a number of test instances.
 The heuristic was implemented in Java and the experiments were conducted on a computer with Intel Core processor clocked at 2.30 GHz and 8 GB RAM.
@@ -787,9 +679,10 @@ The operating system of the computer is Windows 10.
 The experimental results are shown in Table \ref{tab:1} and Table \ref{tab:2}.
 
 \begin{table}[htbp]
-\tiny
+\scriptsize
   \centering
   \caption{Results of the instances with $P\in\{5, 10\}$}
+  
     \begin{tabular}{r|r|r|r|r|r|r|r|r|r}
     \hline
     $P$     & $N$     & $H$    &LB   & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
@@ -841,9 +734,10 @@ The experimental results are shown in Table \ref{tab:1} and Table \ref{tab:2}.
 
 
 \begin{table}[htbp]
-\tiny
+\scriptsize
   \centering
   \caption{Results of the instances with $P\in\{20, 30\}$}
+  
     \begin{tabular}{r|r|r|r|r|r|r|r|r|r}
     \hline
     $P$     & $N$     & $H$  &LB   & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\

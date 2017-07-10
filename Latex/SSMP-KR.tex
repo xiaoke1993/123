@@ -73,9 +73,9 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 \section{Introduction}
 \label{sec:i}
 % TODO: add importance of global trade
-International trade plays a important role in promoting the development of world economy, promoting national income increase and expanding employment around the world.
+International trade plays an important role in promoting the development of world economy.
 Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
-In 2015 ¨C for the first time in UNCTAD (United Nations Conference on Trade and Development) records ¨C world seaborne trade volumes1 were estimated to have exceeded 10 billion tons. Shipments expanded by 2.1 per cent, a pace notably slower than the historical.
+In 2015, world seaborne trade volumes surpassed 10 billion tons~\cite{unctad2016}. 
 Containerization is an important driver of the global economy, and the container has become a mainstay of worldwide trade. Other than a short period of decline in 2009, the number of containers shipped by the world's shipping lines on container vessels has been steadily increasing for the past several decades.
 As we all know, logistics is the main link in international trade. In view of the complexity of logistics in international trade, multimodal transport can bring a great convenience. Furthermore, the perfect fit between container transport and multimodal transport makes the international trade easier and more convenient.
 Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship.
@@ -449,7 +449,7 @@ The following pseudo gives a simplistic explanation of heuristic method, which i
     \li \For each port $p=1, 2 , \ldots,P $.
      \li \Do
                 Unload containers destined at port $p$.
-                
+
                 Load containers originated from port $p$.
     \li   \For each stack $i=1, 2, \ldots, UB$.
     \li \Do
@@ -515,7 +515,7 @@ The complex condition when there is allowed rehandles.
                     \End
                 \End
             \End
-        
+
 \end{codebox}
 \end{algorithm}
 
@@ -564,13 +564,13 @@ For the USSMP-KR instance, the heuristic approach generates a solution in which 
 
 We use an inductive proof.
 
-\textit{Basis}: 
+\textit{Basis}:
 
-For $p=1$, without loss of generality, we assume that port 1 is a loading port. 
-The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers. 
+For $p=1$, without loss of generality, we assume that port 1 is a loading port.
+The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers.
 We have $\mathcal{U}_1=V_1=1$, and therefore $\mathcal{U}_1\le V_1$ holds.
 
-\textit{Inductive step}: 
+\textit{Inductive step}:
 
 Suppose that before the ship departs from port $p$, there are at most $V_p$ stacks used, i.e., $\mathcal{U}_p \le V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, otherwise $V_{p+1}=V_p$.
 
@@ -597,7 +597,7 @@ The SSMP-KR instance has a lower bound:
 $\lceil\frac{N_p}{H}\rceil$ is the least number of stacks to accommodate all the containers at port $p$, and thus, $\max\limits_p(\lceil\frac{N_p}{H}\rceil)$ is the least number of stacks needed throughout the journey.
 \end{proof}
 
-The lower bound can help to check the optimality of solutions obtained by our heuristic. 
+The lower bound can help to check the optimality of solutions obtained by our heuristic.
 If the solution is equal to the lower bound, we can conclude that the solution is optimal.
 
 
@@ -629,7 +629,7 @@ The partial stacks in port $p$ is no greater than $V_p$:
 
 We use an inductive proof.
 
-\textit{Basis}: 
+\textit{Basis}:
 
 For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
 In addition, P(1)=0 or 1. Hence, $P(p) \le V_p $ holds.
@@ -642,14 +642,14 @@ Based on the above two steps, we have $P(p) \le V_p,   \forall p=1,\ldots,P$.
 \end{proof}
 Therefore, the second inequality holds.
 
-For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$. 
+For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$.
 It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) = \mathcal{C}^*+V_P$.
 
 \end{proof}
 
 
 The above proposition indicates that our approximation algorithm has a constant performance guarantee.
-In practice, the number of ports is generally much smaller than the number of stacks used along the journey. 
+In practice, the number of ports is generally much smaller than the number of stacks used along the journey.
 Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
 
 Due to page limit, we omit the deatils here. Interested readers are welcome to contact the authors for details.
@@ -682,7 +682,7 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
 \scriptsize
   \centering
   \caption{Results of the instances with $P\in\{5, 10\}$}
-  
+
     \begin{tabular}{r|r|r|r|r|r|r|r|r|r}
     \hline
     $P$     & $N$     & $H$    &LB   & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
@@ -737,7 +737,7 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
 \scriptsize
   \centering
   \caption{Results of the instances with $P\in\{20, 30\}$}
-  
+
     \begin{tabular}{r|r|r|r|r|r|r|r|r|r}
     \hline
     $P$     & $N$     & $H$  &LB   & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
@@ -815,11 +815,11 @@ Because we reset the origin port of blocking containers, the loading containers 
 In the end, the new stack is needed under the coincidence.
 In order to prove it, we output the layout of the exceptional instances and the corresponding benchmark instances.
 By comparing the exceptional instances with the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm are the reason for this kind of abnormal condition.
-In our heuristic algorithm, we reset the blocking containers' origin port as the current port, and it enlarges the number of containers to be loaded. 
+In our heuristic algorithm, we reset the blocking containers' origin port as the current port, and it enlarges the number of containers to be loaded.
 Meanwhile, the allowed rehandles run out and thus a new stack is needed to stow those containers.
 
-However, it doesn't mean that our algorithm isn't universal because the probability of exceptional instance is very low and it hardly happens in our practical operations. 
-Therefore, our algorithm is feasible for most of the instances and has a good performance as well. 
+However, it doesn't mean that our algorithm isn't universal because the probability of exceptional instance is very low and it hardly happens in our practical operations.
+Therefore, our algorithm is feasible for most of the instances and has a good performance as well.
 Table \ref{tab:4} gives the average results when the $K$ has different values.
 
 \begin{table}[htbp]
@@ -913,9 +913,9 @@ We also use some pictures to make our result more visual and the pictures are ma
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-Stacks.png}}
 \label{fig three:graph}
 \end{figure}
-As what is shown in Table \ref{tab:4}, Figure \ref{fig three:graph} indicates visually the relationship between used stacks and allowed rehandle. 
-It's not hard to draw the conclusion that the more allowed rehandle, the less used stacks. 
-So it intuitively reflect the meaning of this research topic and it show the feasibility of our algorithm. 
+As what is shown in Table \ref{tab:4}, Figure \ref{fig three:graph} indicates visually the relationship between used stacks and allowed rehandle.
+It's not hard to draw the conclusion that the more allowed rehandle, the less used stacks.
+So it intuitively reflect the meaning of this research topic and it show the feasibility of our algorithm.
 Comparing with zero rehandle, some rehandle are allowed to reduce the partial stacks and improve the utilization of space.
 
 \begin{figure}[htbp]
@@ -924,7 +924,7 @@ Comparing with zero rehandle, some rehandle are allowed to reduce the partial st
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-containers.png}}
 \label{fig four:graph}
 \end{figure}
-Figure \ref{fig four:graph} shows us the relationship between containers and used stacks. 
+Figure \ref{fig four:graph} shows us the relationship between containers and used stacks.
 We can conclude that the more containers are, the more stacks will be used, which is undoubted in practice.
 
 
@@ -934,7 +934,7 @@ We can conclude that the more containers are, the more stacks will be used, whic
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-ports.png}}
 \label{fig five:graph}
 \end{figure}
-Figure \ref{fig five:graph} provides us the relationship between ports and used stack. In general, the more ports are among the shipping, the more stacks will be used. 
+Figure \ref{fig five:graph} provides us the relationship between ports and used stack. In general, the more ports are among the shipping, the more stacks will be used.
 Another related factor to be  taken into consideration is the sparse distribution situation of containers in each port.
 
 \begin{figure}[htbp]
@@ -952,8 +952,8 @@ Figure \ref{fig six:graph} shows us that the greater the number of limit height 
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-comprehensive.png}}
 \label{fig seven:graph}
 \end{figure}
-Figure \ref{fig seven:graph} shows us that the comprehensive impact on the result we work out for all the basic factors considered in this paper. 
-And we can choose the factor we want to analyze and it is convenient for us to work out how different factor influences our final result. 
+Figure \ref{fig seven:graph} shows us that the comprehensive impact on the result we work out for all the basic factors considered in this paper.
+And we can choose the factor we want to analyze and it is convenient for us to work out how different factor influences our final result.
 For the convenience of observation, we only give the result with filtered numbers of each factor.
 
 

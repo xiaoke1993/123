@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  11 JUL 2017 13:00
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  11 JUL 2017 20:24
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -699,14 +699,14 @@ File: figure/Arrangement_of_cargo_space.png Graphic file (type png)
 
 <use figure/Arrangement_of_cargo_space.png>
 Package pdftex.def Info: figure/Arrangement_of_cargo_space.png used on input li
-ne 96.
+ne 101.
 (pdftex.def)             Requested size: 1080.03238pt x 304.1355pt.
 
 <figure/A_vessel_bay.png, id=16, 565.11125pt x 478.78876pt>
 File: figure/A_vessel_bay.png Graphic file (type png)
 
 <use figure/A_vessel_bay.png>
-Package pdftex.def Info: figure/A_vessel_bay.png used on input line 103.
+Package pdftex.def Info: figure/A_vessel_bay.png used on input line 108.
 (pdftex.def)             Requested size: 565.10986pt x 478.78758pt.
  [3 <E:/Github/123/Latex/figure/Arrangement_of_cargo_space.png> <E:/Github/123/
 Latex/figure/A_vessel_bay.png>] [4] [5] [6]
@@ -717,24 +717,24 @@ Missing character: There is no ¬ in font txr!
 [7] [8] [9] [10] [11] [12]
 Warning: Indentation ends at level 1 in codebox on page 13.
 
-Overfull \hbox (35.91791pt too wide) in paragraph at lines 471--471
+Overfull \hbox (35.91791pt too wide) in paragraph at lines 476--476
 | [] 
  []
 
 Warning: Indentation ends at level 1 in codebox on page 13.
 
-Overfull \hbox (627.43393pt too wide) in paragraph at lines 504--504
+Overfull \hbox (627.43393pt too wide) in paragraph at lines 509--509
 | [] 
  []
 
 [13] [14]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 527.
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 532.
 
  (D:\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 527.
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 532.
  [15] [16]
 Missing character: There is no ¬ in font txr!
  [17] [18]
@@ -742,34 +742,34 @@ Missing character: There is no ¬ in font txr!
 File: figure/without_rehandle.jpg Graphic file (type jpg)
 
 <use figure/without_rehandle.jpg>
-Package pdftex.def Info: figure/without_rehandle.jpg used on input line 878.
+Package pdftex.def Info: figure/without_rehandle.jpg used on input line 883.
 (pdftex.def)             Requested size: 712.15889pt x 100.87662pt.
 
 <figure/with_rehandle.jpg, id=84, 654.94687pt x 103.13531pt>
 File: figure/with_rehandle.jpg Graphic file (type jpg)
 
 <use figure/with_rehandle.jpg>
-Package pdftex.def Info: figure/with_rehandle.jpg used on input line 886.
+Package pdftex.def Info: figure/with_rehandle.jpg used on input line 891.
 (pdftex.def)             Requested size: 654.94528pt x 103.13504pt.
 
 <figure/K-Stacks.png, id=85, 362.3136pt x 217.7736pt>
 File: figure/K-Stacks.png Graphic file (type png)
 
 <use figure/K-Stacks.png>
-Package pdftex.def Info: figure/K-Stacks.png used on input line 898.
+Package pdftex.def Info: figure/K-Stacks.png used on input line 903.
 (pdftex.def)             Requested size: 362.31271pt x 217.77306pt.
 
 <figure/K-containers.png, id=86, 404.712pt x 217.7736pt>
 File: figure/K-containers.png Graphic file (type png)
 
 <use figure/K-containers.png>
-Package pdftex.def Info: figure/K-containers.png used on input line 909.
+Package pdftex.def Info: figure/K-containers.png used on input line 914.
 (pdftex.def)             Requested size: 404.71101pt x 217.77306pt.
 
 <figure/K-ports.png, id=87, 404.2302pt x 217.7736pt>
 File: figure/K-ports.png Graphic file (type png)
  <use figure/K-ports.png>
-Package pdftex.def Info: figure/K-ports.png used on input line 919.
+Package pdftex.def Info: figure/K-ports.png used on input line 924.
 (pdftex.def)             Requested size: 404.2292pt x 217.77306pt.
 
 [22 <E:/Github/123/Latex/figure/without_rehandle.jpg> <E:/Github/123/Latex/figu
@@ -778,14 +778,14 @@ re/with_rehandle.jpg>]
 File: figure/K-limit_height.png Graphic file (type png)
 
 <use figure/K-limit_height.png>
-Package pdftex.def Info: figure/K-limit_height.png used on input line 928.
+Package pdftex.def Info: figure/K-limit_height.png used on input line 933.
 (pdftex.def)             Requested size: 429.76454pt x 217.77306pt.
 
 <figure/K-comprehensive.png, id=92, 491.9178pt x 261.6174pt>
 File: figure/K-comprehensive.png Graphic file (type png)
 
 <use figure/K-comprehensive.png>
-Package pdftex.def Info: figure/K-comprehensive.png used on input line 937.
+Package pdftex.def Info: figure/K-comprehensive.png used on input line 942.
 (pdftex.def)             Requested size: 491.9166pt x 261.61674pt.
  [23 <E:/Github/123/Latex/figure/K-Stacks.png> <E:/Github/123/Latex/figure/K-co
 ntainers.png> <E:/Github/123/Latex/figure/K-ports.png>] [24 <E:/Github/123/Late
@@ -812,7 +812,7 @@ b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txex.pfb><D:/CTEX/MiKTeX/fonts/typ
 e1/public/txfonts/txsy.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb
 ><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (26 pages, 320061 bytes).
+Output written on SSMP-KR.pdf (26 pages, 320046 bytes).
 PDF statistics:
  148 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

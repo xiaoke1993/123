@@ -1,0 +1,157 @@
+[33mcommit b2a35b1256419d7f67af06364c88f438b87c7727[m
+Author: trudywang <ningwang@shu.edu.cn>
+Date:   Mon Jul 10 22:30:12 2017 +0800
+
+    revise introduction
+
+[1mdiff --git a/Latex/SSMP-KR.aux b/Latex/SSMP-KR.aux[m
+[1mindex f2d4e09..fa847b9 100644[m
+[1m--- a/Latex/SSMP-KR.aux[m
+[1m+++ b/Latex/SSMP-KR.aux[m
+[36m@@ -6,6 +6,7 @@[m
+ \citation{wang2014stowage}[m
+ \Newlabel{shu}{a}[m
+ \Newlabel{syu}{b}[m
+[32m+[m[32m\citation{unctad2016}[m
+ \citation{zhang2016multiobjective}[m
+ \Newlabel{corl}{1}[m
+ \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}}[m
+[36m@@ -48,8 +49,8 @@[m
+ \citation{Araujo201650}[m
+ \citation{avriel2000container}[m
+ \citation{jensen2010complexity}[m
+[31m-\@writefile{toc}{\contentsline {section}{\numberline {3}Problem Description and properties}{10}}[m
+[31m-\newlabel{sec:pd}{{3}{10}}[m
+[32m+[m[32m\@writefile{toc}{\contentsline {section}{\numberline {3}Problem Description and properties}{9}}[m
+[32m+[m[32m\newlabel{sec:pd}{{3}{9}}[m
+ \newlabel{eqn:obj}{{1}{11}}[m
+ \newlabel{eqn:1}{{2}{11}}[m
+ \newlabel{eqn:2}{{3}{11}}[m
+[36m@@ -62,22 +63,22 @@[m
+ \newlabel{eqn:8}{{11}{12}}[m
+ \@writefile{toc}{\contentsline {section}{\numberline {4}Methodology}{12}}[m
+ \newlabel{sec:algo}{{4}{12}}[m
+[31m-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Heuristic Algorithms for the SSMP-KR}{13}}[m
+[31m-\newlabel{sec:h1}{{4.1}{13}}[m
+[32m+[m[32m\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Heuristic Algorithms for the SSMP-KR}{12}}[m
+[32m+[m[32m\newlabel{sec:h1}{{4.1}{12}}[m
+ \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces constants, sets, variables and methods in the algorithm}}{13}}[m
+ \newlabel{tab:1}{{1}{13}}[m
+ \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces The procedure of the heuristic() method}}{14}}[m
+ \newlabel{alg:1}{{1}{14}}[m
+[31m-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces A heuristic procedure for the SSMP-KR in the simple condition}}{15}}[m
+[31m-\newlabel{alg:2}{{2}{15}}[m
+[31m-\newlabel{heu:2}{{3}{15}}[m
+[31m-\newlabel{heu:2a}{{12}{15}}[m
+[32m+[m[32m\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces A heuristic procedure for the SSMP-KR in the simple condition}}{14}}[m
+[32m+[m[32m\newlabel{alg:2}{{2}{14}}[m
+[32m+[m[32m\newlabel{heu:2}{{3}{14}}[m
+[32m+[m[32m\newlabel{heu:2a}{{12}{14}}[m
+ \@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces A heuristic procedure for the SSMP-KR in the complex condition}}{15}}[m
+ \newlabel{alg:3}{{3}{15}}[m
+ \newlabel{heu:2}{{3}{15}}[m
+ \newlabel{heu:2a}{{12}{15}}[m
+[31m-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Performance Guarantee of the Algorithms}{16}}[m
+[31m-\newlabel{sec:p2}{{4.2}{16}}[m
+[32m+[m[32m\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Performance Guarantee of the Algorithms}{15}}[m
+[32m+[m[32m\newlabel{sec:p2}{{4.2}{15}}[m
+ \newlabel{pro:a2}{{1}{16}}[m
+ \newlabel{pro:a3}{{2}{17}}[m
+ \newlabel{pro:a4}{{3}{17}}[m
+[36m@@ -134,9 +135,10 @@[m
+ \bibcite{scott1978loading}{{21}{1978}{{Scott \& Chen}}{{}}}[m
+ \bibcite{shields1984containership}{{22}{1984}{{Shields}}{{}}}[m
+ \bibcite{tierney2014complexity}{{23}{2014}{{Tierney et~al.}}{{}}}[m
+[31m-\bibcite{wang2014stowage}{{24}{2014}{{Wang et~al.}}{{}}}[m
+[31m-\bibcite{webster1970container}{{25}{1970}{{Webster \& Van~Dyke}}{{}}}[m
+[31m-\bibcite{wei2005model}{{26}{2005}{{Wei-Ying et~al.}}{{}}}[m
+[31m-\bibcite{wilson2001container}{{27}{2001}{{Wilson et~al.}}{{}}}[m
+[31m-\bibcite{zhang2008review}{{28}{2008}{{Zhang et~al.}}{{}}}[m
+[31m-\bibcite{zhang2016multiobjective}{{29}{2016}{{Zhang \& Lee}}{{}}}[m
+[32m+[m[32m\bibcite{unctad2016}{{24}{2016}{{UNCTAD}}{{}}}[m
+[32m+[m[32m\bibcite{wang2014stowage}{{25}{2014}{{Wang et~al.}}{{}}}[m
+[32m+[m[32m\bibcite{webster1970container}{{26}{1970}{{Webster \& Van~Dyke}}{{}}}[m
+[32m+[m[32m\bibcite{wei2005model}{{27}{2005}{{Wei-Ying et~al.}}{{}}}[m
+[32m+[m[32m\bibcite{wilson2001container}{{28}{2001}{{Wilson et~al.}}{{}}}[m
+[32m+[m[32m\bibcite{zhang2008review}{{29}{2008}{{Zhang et~al.}}{{}}}[m
+[32m+[m[32m\bibcite{zhang2016multiobjective}{{30}{2016}{{Zhang \& Lee}}{{}}}[m
+[1mdiff --git a/Latex/SSMP-KR.log b/Latex/SSMP-KR.log[m
+[1mindex 0fe5fc6..d2cf6fd 100644[m
+[1m--- a/Latex/SSMP-KR.log[m
+[1m+++ b/Latex/SSMP-KR.log[m
+[36m@@ -1,15 +1,15 @@[m
+[31m-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  1 JUL 2017 16:34[m
+[32m+[m[32mThis is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.22)  10 JUL 2017 22:29[m
+ entering extended mode[m
+[31m-**E:/Github/123/Latex/SSMP-KR.tex[m
+[31m-(E:/Github/123/Latex/SSMP-KR.tex[m
+[32m+[m[32m**SSMP-KR.tex[m
+[32m+[m[32m(C:\Users\宁\Documents\GitHub\123\Latex\SSMP-KR.tex[m
+ LaTeX2e <2011/06/27>[m
+ Babel <v3.8m> and hyphenation patterns for loaded.[m
+[31m-(E:\Github\123\Latex\elsarticle.cls[m
+[32m+[m[32m(C:\Users\宁\Documents\GitHub\123\Latex\elsarticle.cls[m
+ Document Class: elsarticle 2008/05/22, 1.0.1: Elsevier Science[m
+ \@bls=\dimen102[m
+[31m-(D:\CTEX\MiKTeX\tex\latex\base\article.cls[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\base\article.cls[m
+ Document Class: article 2007/10/19 v1.4h Standard LaTeX document class[m
+[31m-(D:\CTEX\MiKTeX\tex\latex\base\size12.clo[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\base\size12.clo[m
+ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)[m
+ )[m
+ \c@part=\count79[m
+[36m@@ -24,31 +24,31 @@[m [mFile: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)[m
+ \belowcaptionskip=\skip42[m
+ \bibindent=\dimen103[m
+ )[m
+[31m-(D:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty[m
+ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)[m
+ [m
+[31m-(D:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty[m
+ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)[m
+ \KV@toks@=\toks14[m
+ )[m
+[31m-(D:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty[m
+ Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)[m
+ [m
+[31m-(D:\CTEX\MiKTeX\tex\latex\graphics\trig.sty[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\graphics\trig.sty[m
+ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)[m
+ )[m
+[31m-(D:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg[m
+ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive[m
+ )[m
+ Package graphics Info: Driver file: pdftex.def on input line 91.[m
+ [m
+[31m-(D:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def[m
+ File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX[m
+ [m
+[31m-(D:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty[m
+ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)[m
+ )[m
+[31m-(D:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty[m
+ Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)[m
+ )[m
+ \Gread@gobject=\count87[m
+[36m@@ -56,16 +56,16 @@[m [mPackage: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)[m
+ \Gin@req@height=\dimen104[m
+ \Gin@req@width=\dimen105[m
+ )[m
+[31m-(D:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty[m
+ Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) [m
+ LaTeX Font Info:    Try loading font information for U+pzd on input line 63.[m
+ [m
+[31m-(D:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd[m
+[32m+[m[32m(C:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd[m
+ File: upzd.fd 2001/06/04 font definitions for U/pzd.[m
+ )[m
+ LaTeX Font Info:    Try loading font information for U+psy o

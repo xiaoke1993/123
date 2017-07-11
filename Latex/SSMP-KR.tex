@@ -29,39 +29,24 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 \cortext[corl]{Corresponding author. Fax: +852 ********, Phone: +852 ********}
 
 \begin{abstract}
-The container ship stowage planning problem (CSSP) has been studied all the time and many approaches have been applied to find out optimal or near-optimal solutions to this problem.
-In addition, many variant problems have been proposed and researched from different optimization aspects since there are many constraints in the course of actual shipping.
-The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the
-objective to utilize the fewest number of stacks on the ship.
-The related research about SSMP can been seen in \cite{avriel2000container}, \cite{jensen2010complexity}, and \cite{wang2014stowage}, and they focused on the condition that there is
-no rehandle or shift, i.e., the problem they studied is the stowage stack minimization problem with zero rehandle (SSMP-ZR).
+	
 
-In this paper, we first propose the stowage stack minimization problem with K rehanlds (SSMP-KR) based on the stowage stack minimization problem with zero rehandle and give the detail description about it.
-Like most of the literature, we highlight the constraints we study while put less emphasis on other constraints.
+The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship.
 
-Next, heuristic algorithms are put forward to construct solutions to the SSMP-KR.  It is worth mentioning that, our algorithms are suitable for the circular route.
-We use Java compilation software ¡°Ecplise¡± to execute the code for our algorithms. For the loading strategies, two different processing methods are used to cope with two different situations whether the
-predetermined K meets or not, respectively.
-When the allowed rehandles run out, the problem becomes simpler because there is no rehandling operations that we need to take into consideration.
-In other words, we are just dealing with the SSMP-ZR problem under this circumstance.
-When there are rehandling operations allowed, we have to make decisions about how to place each single container loaded in each port to make the full use of each stack and minimize the total stacks used during the shipping.
-On this occasion, we need to consider the following factors: what the current port is, which port is the loading container transported to, what are the current heights of all stacks, etc.
-Since there are many factors to be taken into consideration, we have to go on the processing of parameters tuning and we eventually get the optimal parameters combination for this difficult situation through multiple parameter adjustment procedures.
-As for the unloading strategies, there are still two conditions and it depends on whether the unloading container is a blocking one or not.
-If it is not a blocking container, we just discharge it; If it is a blocking one, we have to unload it, reset the origin port of the unloading container and load it again.
-Our output for each instance using this algorithm in Ecplise includes the number of used stacks, the lower and upper bound number of used stacks, the number of used rehandles and the allowed rehandles, and the layout of ship after one loading or unloading operation.
-
-Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction.
+In this paper, we first propose the stowage stack minimization problem with K rehanlds (SSMP-KR) based on the stowage stack minimization problem with zero rehandle. 
+Next, heuristic algorithms are put forward to construct solutions to the SSMP-KR. Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction. 
 We find out the lower bound and upper bound to make sure the solutions we get are reasonable and effective, which proves the feasibility of the algorithm theoretically.
-In actual, we use a tip in the process of proof, we divide the stacks used into two parts: the full stacks and the partial stacks. By doing so, we can deduce the lower and upper bound faster and simpler.
-To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results with different values of K, and of course zero is included. We have selected a set of values of K to find out the relationship between K and the stacks we used.
-Through this process, we may get the approximate value of K for one particular shipping to balance the flexibility and space utilization of the ship. What¡¯s more, instances with different number of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
 
-The results demonstrate that our heuristic approaches can generate promising solutions if we allow some rehandling operations compared with the zero rehandle solutions and random loading solutions.
-That is to say, the results we get use less stacks in average and it shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
-It is worth mentioning that our problem with K rehandles constraint acts as a buffer and offers great flexibility for the actual problem as a result of the existence of rehandling operations.
-Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints.
-What's more, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results with different values of K, and of course zero is included. 
+We have selected a set of values of K to find out the relationship between K and the stacks we used. 
+Through this process, we may get the approximate value of K for one particular shipping to balance the flexibility and space utilization of the ship. 
+What¡¯s more, instances with different number of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
+
+The results demonstrate that our heuristic approaches can generate promising solutions if we allow some rehandling operations compared with the zero rehandle solutions and random loading solutions. 
+The results also show that the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility. 
+Applying our algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. 
+Furthermore, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
+
 \end{abstract}
 
 \begin{keyword}
@@ -75,7 +60,7 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 % TODO: add importance of global trade
 International trade plays an important role in promoting the development of world economy.
 Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
-In 2015, world seaborne trade volumes surpassed 10 billion tons~\cite{unctad2016}. 
+In 2015, world seaborne trade volumes surpassed 10 billion tons~\cite{unctad2016}.
 Containerization is an important driver of the global economy, and the container has become a mainstay of worldwide trade. Other than a short period of decline in 2009, the number of containers shipped by the world's shipping lines on container vessels has been steadily increasing for the past several decades.
 As we all know, logistics is the main link in international trade. In view of the complexity of logistics in international trade, multimodal transport can bring a great convenience. Furthermore, the perfect fit between container transport and multimodal transport makes the international trade easier and more convenient.
 Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship.
@@ -96,11 +81,11 @@ A container ship transports cargo in containers, and the ship layout varies from
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas. These areas are termed 20-ft bays.
 In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
-Each bay consists of container stacks placed along the length of ship (see Figure \ref{fig one:graph}).
+Each bay consists of container stacks placed along the length of ship (see Figure \ref{fig 1:graph}).
 All bays are divided into an over deck and an deck area, separated by structures called hatches.
 The container position in the ship is uniquely indexed by (bay, row, tier). Such three-tuple is called a slot.
 On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit (TEU)
-stacks and a single Forty-foot Equivalent Unit (FEU) stack (see Figure \ref{fig two:graph}).
+stacks and a single Forty-foot Equivalent Unit (FEU) stack (see Figure \ref{fig 2:graph}).
 In our paper, we assume that all the containers are of the same size, (e.g. 20 TEUs) and each slot can be fully occupied by one container.
 
 
@@ -109,14 +94,14 @@ In our paper, we assume that all the containers are of the same size, (e.g. 20 T
 \center
 \caption{The arrangement of cargo space in a container vessel.}
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/Arrangement_of_cargo_space.png}}
-\label{fig one:graph}
+\label{fig 1:graph}
 \end{figure}
 
 \begin{figure}[htbp]
 \center
 \caption{a front view of a vessel bay.}
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/A_vessel_bay.png}}
-\label{fig two:graph}
+\label{fig 2:graph}
 \end{figure}
 
 Each container has a weight, height, length and port where it has to be unloaded (discharge port).
@@ -324,7 +309,7 @@ The capacitated SSMP-ZR can be mathematically formulated by the following intege
 & \mathrm{s.t.}\hspace{11pt}\sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:1}\\
 %\mbox{s.t.~}& \sum_{c=1}^{C} x_{ic}=1, ~\forall 1\le i \le m \label{eqn:1}\\
 &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le M y_s, ~\forall 1\le s \le S	\label{eqn:2}\\
-& \sum_{i:O(i)\le p\le D(i)-1} x_{is}\le H, ~\forall 1\le s\le S, 1\le p\le P		\label{eqn:3}\\
+&\hspace{2pt}\sum_{i:O(i)\le p\le D(i)-1} x_{is}\le H, ~\forall 1\le s\le S, 1\le p\le P		\label{eqn:3}\\
 & x_{is}+x_{js}\le 1, ~\forall 1\le s\le S, 1\le i,j\le N, O(j)<O(i)<D(j)<D(i)	\label{eqn:4}\\
 & x_{is}, y_s \in \{0,1\}, ~\forall 1\le s\le S,1\le i,j\le N
 \end{align}
@@ -347,9 +332,9 @@ The SSMP-KR can be mathematically formulated by the following integer programmin
 \begin{small}
 \begin{align}
             &             (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s \label{eqn:obj2} \\
-\mbox{s.t.~}& \sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:5}\\
-            & \hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:6}\\
-            &\hspace{24pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:7}\\
+\mbox{s.t.~}&\sum_{s=1}^{S} x_{is}=1, ~\forall 1\le i \le N \label{eqn:5}\\
+            &\hspace{11pt}\sum_{i=1}^{P} R_i \le K \label{eqn:6}\\
+            &\hspace{11pt}\sum_{i=1}^{N} x_{is}\le H, ~\forall 1\le s \le S	\label{eqn:7}\\
             & ~~\max\hspace{6pt}\sum_{i=1}^{P} (L_i-U_i+R_i) \le S*H \label{eqn:8}
 \end{align}
 \end{small}
@@ -506,9 +491,9 @@ The complex condition when there is allowed rehandles.
         \li         \Then
                         $s_{min}=\arg\min \limits_{s\in S_1} D(c(s))$.
         \li             Load container $c$ to stack $s_{min}$.
-        \li         \Else If $S_2\neq \emptyset$
+        \li         \Else If  $S_2\neq \emptyset$
                         \Then
-                        $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
+        \li               $s_{min}=\arg\min \limits_{s\in S_2} D(c(s))$.
         \li             Load container $c$ to stack $s_{min}$.
         \li         \Else
         \li             Load $c$ to an empty stack in $S_3$. \label{heu:2a}
@@ -886,12 +871,12 @@ There is a simple example to elaborate why our algorithm can improve the utiliza
 Assuming that there are thirteen containers to be transported along the voyage with six ports.
 We let C(i,j) denote index container whose origin port is i and destination port j.
 The following is the way to express those containers: four C(1,3), one C(2,4), one C(2,6), four C(3,5), one C(4,6), two C(5,6).
-If they are loaded without any rehandle, the loading sequence and layout will be the following Figure \ref{fig eight:graph} and Figure \ref{fig nine:graph}:
+If they are loaded without any rehandle, the loading sequence and layout will be the following Figure \ref{fig 3:graph} and Figure \ref{fig 4:graph}:
 \begin{figure}[htbp]
 \centering
 \caption{stowage plan without rehandle.}
 \resizebox{1.0\textwidth}{!}{\includegraphics{figure/without_rehandle.jpg}}
-\label{fig eight:graph}
+\label{fig 3:graph}
 \end{figure}
 
 If they are loaded with rehandles, the loading sequence and layout will be the following figure:
@@ -899,7 +884,7 @@ If they are loaded with rehandles, the loading sequence and layout will be the f
 \centering
 \caption{stowage plan with rehandle.}
 \resizebox{0.9\textwidth}{!}{\includegraphics{figure/with_rehandle.jpg}}
-\label{fig nine:graph}
+\label{fig 4:graph}
 \end{figure}
 
 From the above figures, we can draw the conclusion that allowing a certain number of rehandles will reduce the number
@@ -911,9 +896,9 @@ We also use some pictures to make our result more visual and the pictures are ma
 \center
 \caption{Relationship between allowed rehandle and used stacks}
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-Stacks.png}}
-\label{fig three:graph}
+\label{fig 5:graph}
 \end{figure}
-As what is shown in Table \ref{tab:4}, Figure \ref{fig three:graph} indicates visually the relationship between used stacks and allowed rehandle.
+As what is shown in Table \ref{tab:4}, Figure \ref{fig 5:graph} indicates visually the relationship between used stacks and allowed rehandle.
 It's not hard to draw the conclusion that the more allowed rehandle, the less used stacks.
 So it intuitively reflect the meaning of this research topic and it show the feasibility of our algorithm.
 Comparing with zero rehandle, some rehandle are allowed to reduce the partial stacks and improve the utilization of space.
@@ -922,9 +907,9 @@ Comparing with zero rehandle, some rehandle are allowed to reduce the partial st
 \centering
 \caption{Relationship between containers and used stacks}
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-containers.png}}
-\label{fig four:graph}
+\label{fig 6:graph}
 \end{figure}
-Figure \ref{fig four:graph} shows us the relationship between containers and used stacks.
+Figure \ref{fig 6:graph} shows us the relationship between containers and used stacks.
 We can conclude that the more containers are, the more stacks will be used, which is undoubted in practice.
 
 
@@ -932,27 +917,27 @@ We can conclude that the more containers are, the more stacks will be used, whic
 \centering
 \caption{Relationship between ports and used stacks}
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-ports.png}}
-\label{fig five:graph}
+\label{fig 7:graph}
 \end{figure}
-Figure \ref{fig five:graph} provides us the relationship between ports and used stack. In general, the more ports are among the shipping, the more stacks will be used.
+Figure \ref{fig 7:graph} provides us the relationship between ports and used stack. In general, the more ports are among the shipping, the more stacks will be used.
 Another related factor to be  taken into consideration is the sparse distribution situation of containers in each port.
 
 \begin{figure}[htbp]
 \centering
 \caption{Relationship between limit height and used stacks}
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-limit_height.png}}
-\label{fig six:graph}
+\label{fig 8:graph}
 \end{figure}
-Figure \ref{fig six:graph} shows us that the greater the number of limit height is, the less stacks will be used, which is definitely right.
+Figure \ref{fig 8:graph} shows us that the greater the number of limit height is, the less stacks will be used, which is definitely right.
 
 
 \begin{figure}
 \centering
 \caption{Relationship between comprehensive factors and used stacks}
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-comprehensive.png}}
-\label{fig seven:graph}
+\label{fig 9:graph}
 \end{figure}
-Figure \ref{fig seven:graph} shows us that the comprehensive impact on the result we work out for all the basic factors considered in this paper.
+Figure \ref{fig 9:graph} shows us that the comprehensive impact on the result we work out for all the basic factors considered in this paper.
 And we can choose the factor we want to analyze and it is convenient for us to work out how different factor influences our final result.
 For the convenience of observation, we only give the result with filtered numbers of each factor.
 

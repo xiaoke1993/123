@@ -29,39 +29,24 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 \cortext[corl]{Corresponding author. Fax: +852 ********, Phone: +852 ********}
 
 \begin{abstract}
-The container ship stowage planning problem (CSSP) has been studied all the time and many approaches have been applied to find out optimal or near-optimal solutions to this problem.
-In addition, many variant problems have been proposed and researched from different optimization aspects since there are many constraints in the course of actual shipping.
-The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the
-objective to utilize the fewest number of stacks on the ship.
-The related research about SSMP can been seen in \cite{avriel2000container}, \cite{jensen2010complexity}, and \cite{wang2014stowage}, and they focused on the condition that there is
-no rehandle or shift, i.e., the problem they studied is the stowage stack minimization problem with zero rehandle (SSMP-ZR).
+	
 
-In this paper, we first propose the stowage stack minimization problem with K rehanlds (SSMP-KR) based on the stowage stack minimization problem with zero rehandle and give the detail description about it.
-Like most of the literature, we highlight the constraints we study while put less emphasis on other constraints.
+The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship.
 
-Next, heuristic algorithms are put forward to construct solutions to the SSMP-KR.  It is worth mentioning that, our algorithms are suitable for the circular route.
-We use Java compilation software ¡°Ecplise¡± to execute the code for our algorithms. For the loading strategies, two different processing methods are used to cope with two different situations whether the
-predetermined K meets or not, respectively.
-When the allowed rehandles run out, the problem becomes simpler because there is no rehandling operations that we need to take into consideration.
-In other words, we are just dealing with the SSMP-ZR problem under this circumstance.
-When there are rehandling operations allowed, we have to make decisions about how to place each single container loaded in each port to make the full use of each stack and minimize the total stacks used during the shipping.
-On this occasion, we need to consider the following factors: what the current port is, which port is the loading container transported to, what are the current heights of all stacks, etc.
-Since there are many factors to be taken into consideration, we have to go on the processing of parameters tuning and we eventually get the optimal parameters combination for this difficult situation through multiple parameter adjustment procedures.
-As for the unloading strategies, there are still two conditions and it depends on whether the unloading container is a blocking one or not.
-If it is not a blocking container, we just discharge it; If it is a blocking one, we have to unload it, reset the origin port of the unloading container and load it again.
-Our output for each instance using this algorithm in Ecplise includes the number of used stacks, the lower and upper bound number of used stacks, the number of used rehandles and the allowed rehandles, and the layout of ship after one loading or unloading operation.
-
-Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction.
+In this paper, we first propose the stowage stack minimization problem with K rehanlds (SSMP-KR) based on the stowage stack minimization problem with zero rehandle. 
+Next, heuristic algorithms are put forward to construct solutions to the SSMP-KR. Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction. 
 We find out the lower bound and upper bound to make sure the solutions we get are reasonable and effective, which proves the feasibility of the algorithm theoretically.
-In actual, we use a tip in the process of proof, we divide the stacks used into two parts: the full stacks and the partial stacks. By doing so, we can deduce the lower and upper bound faster and simpler.
-To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results with different values of K, and of course zero is included. We have selected a set of values of K to find out the relationship between K and the stacks we used.
-Through this process, we may get the approximate value of K for one particular shipping to balance the flexibility and space utilization of the ship. What¡¯s more, instances with different number of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
 
-The results demonstrate that our heuristic approaches can generate promising solutions if we allow some rehandling operations compared with the zero rehandle solutions and random loading solutions.
-That is to say, the results we get use less stacks in average and it shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
-It is worth mentioning that our problem with K rehandles constraint acts as a buffer and offers great flexibility for the actual problem as a result of the existence of rehandling operations.
-Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints.
-What's more, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results with different values of K, and of course zero is included. 
+We have selected a set of values of K to find out the relationship between K and the stacks we used. 
+Through this process, we may get the approximate value of K for one particular shipping to balance the flexibility and space utilization of the ship. 
+What¡¯s more, instances with different number of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
+
+The results demonstrate that our heuristic approaches can generate promising solutions if we allow some rehandling operations compared with the zero rehandle solutions and random loading solutions. 
+The results also show that the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility. 
+Applying our algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints. 
+Furthermore, the novelty and practicality show the importance of this paper and it can give a reference to the future study.
+
 \end{abstract}
 
 \begin{keyword}
@@ -75,7 +60,7 @@ Containership stowage planning\sep stack minimization \sep K-rehandle \sep const
 % TODO: add importance of global trade
 International trade plays an important role in promoting the development of world economy.
 Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
-In 2015, world seaborne trade volumes surpassed 10 billion tons. Shipments expanded by 2.1 percent, a pace notably slower than the historical.
+In 2015, world seaborne trade volumes surpassed 10 billion tons~\cite{unctad2016}.
 Containerization is an important driver of the global economy, and the container has become a mainstay of worldwide trade. Other than a short period of decline in 2009, the number of containers shipped by the world's shipping lines on container vessels has been steadily increasing for the past several decades.
 As we all know, logistics is the main link in international trade. In view of the complexity of logistics in international trade, multimodal transport can bring a great convenience. Furthermore, the perfect fit between container transport and multimodal transport makes the international trade easier and more convenient.
 Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship.

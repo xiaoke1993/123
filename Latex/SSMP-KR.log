@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  11 JUL 2017 20:24
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  12 JUL 2017 21:29
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -699,14 +699,14 @@ File: figure/Arrangement_of_cargo_space.png Graphic file (type png)
 
 <use figure/Arrangement_of_cargo_space.png>
 Package pdftex.def Info: figure/Arrangement_of_cargo_space.png used on input li
-ne 101.
+ne 102.
 (pdftex.def)             Requested size: 1080.03238pt x 304.1355pt.
 
 <figure/A_vessel_bay.png, id=16, 565.11125pt x 478.78876pt>
 File: figure/A_vessel_bay.png Graphic file (type png)
 
 <use figure/A_vessel_bay.png>
-Package pdftex.def Info: figure/A_vessel_bay.png used on input line 108.
+Package pdftex.def Info: figure/A_vessel_bay.png used on input line 109.
 (pdftex.def)             Requested size: 565.10986pt x 478.78758pt.
  [3 <E:/Github/123/Latex/figure/Arrangement_of_cargo_space.png> <E:/Github/123/
 Latex/figure/A_vessel_bay.png>] [4] [5] [6]
@@ -758,40 +758,38 @@ File: figure/K-Stacks.png Graphic file (type png)
 <use figure/K-Stacks.png>
 Package pdftex.def Info: figure/K-Stacks.png used on input line 903.
 (pdftex.def)             Requested size: 362.31271pt x 217.77306pt.
-
-<figure/K-containers.png, id=86, 404.712pt x 217.7736pt>
+ [22 <E:/Github/123/Latex/figure/without_rehandle.jpg> <E:/Github/123/Latex/fig
+ure/with_rehandle.jpg> <E:/Github/123/Latex/figure/K-Stacks.png>] <figure/K-con
+tainers.png, id=90, 404.712pt x 217.7736pt>
 File: figure/K-containers.png Graphic file (type png)
 
 <use figure/K-containers.png>
 Package pdftex.def Info: figure/K-containers.png used on input line 914.
 (pdftex.def)             Requested size: 404.71101pt x 217.77306pt.
 
-<figure/K-ports.png, id=87, 404.2302pt x 217.7736pt>
+<figure/K-ports.png, id=91, 404.2302pt x 217.7736pt>
 File: figure/K-ports.png Graphic file (type png)
  <use figure/K-ports.png>
 Package pdftex.def Info: figure/K-ports.png used on input line 924.
 (pdftex.def)             Requested size: 404.2292pt x 217.77306pt.
 
-[22 <E:/Github/123/Latex/figure/without_rehandle.jpg> <E:/Github/123/Latex/figu
-re/with_rehandle.jpg>]
-<figure/K-limit_height.png, id=91, 429.7656pt x 217.7736pt>
+<figure/K-limit_height.png, id=92, 429.7656pt x 217.7736pt>
 File: figure/K-limit_height.png Graphic file (type png)
 
 <use figure/K-limit_height.png>
 Package pdftex.def Info: figure/K-limit_height.png used on input line 933.
 (pdftex.def)             Requested size: 429.76454pt x 217.77306pt.
 
-<figure/K-comprehensive.png, id=92, 491.9178pt x 261.6174pt>
+<figure/K-comprehensive.png, id=93, 491.9178pt x 261.6174pt>
 File: figure/K-comprehensive.png Graphic file (type png)
 
 <use figure/K-comprehensive.png>
 Package pdftex.def Info: figure/K-comprehensive.png used on input line 942.
 (pdftex.def)             Requested size: 491.9166pt x 261.61674pt.
- [23 <E:/Github/123/Latex/figure/K-Stacks.png> <E:/Github/123/Latex/figure/K-co
-ntainers.png> <E:/Github/123/Latex/figure/K-ports.png>] [24 <E:/Github/123/Late
-x/figure/K-limit_height.png> <E:/Github/123/Latex/figure/K-comprehensive.png>] 
-(E:\Github\123\Latex\SSMP-KR.bbl [25]) [26]
-(E:\Github\123\Latex\SSMP-KR.aux)
+ [23 <E:/Github/123/Latex/figure/K-containers.png> <E:/Github/123/Latex/figure/
+K-ports.png> <E:/Github/123/Latex/figure/K-limit_height.png>] [24 <E:/Github/12
+3/Latex/figure/K-comprehensive.png>]
+(E:\Github\123\Latex\SSMP-KR.bbl [25]) [26] (E:\Github\123\Latex\SSMP-KR.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -799,11 +797,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  4287 strings out of 495354
  53624 string characters out of 3183859
- 164027 words of memory out of 3000000
+ 165027 words of memory out of 3000000
  7325 multiletter control sequences out of 15000+200000
  47950 words of font info for 120 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,9n,34p,485b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,9n,34p,487b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<D:/CTEX/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmtt10.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxi.pf
 b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/rtxmi.pfb><D:/CTEX/MiKTeX/fonts/ty
@@ -812,7 +810,7 @@ b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txex.pfb><D:/CTEX/MiKTeX/fonts/typ
 e1/public/txfonts/txsy.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb
 ><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (26 pages, 320046 bytes).
+Output written on SSMP-KR.pdf (26 pages, 319500 bytes).
 PDF statistics:
  148 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

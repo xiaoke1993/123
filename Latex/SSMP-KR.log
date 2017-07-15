@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  13 JUL 2017 21:54
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2016.12.9)  15 JUL 2017 21:11
 entering extended mode
 **E:/Github/123/Latex/SSMP-KR.tex
 (E:/Github/123/Latex/SSMP-KR.tex
@@ -714,22 +714,20 @@ Missing character: There is no ¡ in font txr!
 Missing character: There is no ¯ in font txr!
 Missing character: There is no ¬ in font txr!
 
-[7] [8] [9] [10] [11] [12] [13]
-Warning: Indentation ends at level 1 in codebox on page 14.
+[7] [8] [9] [10] [11] [12]
+Warning: Indentation ends at level 1 in codebox on page 13.
 
 Overfull \hbox (35.91791pt too wide) in paragraph at lines 477--477
 | [] 
  []
 
-Warning: Indentation ends at level 1 in codebox on page 14.
+Warning: Indentation ends at level 1 in codebox on page 13.
 
 Overfull \hbox (627.43393pt too wide) in paragraph at lines 511--511
 | [] 
  []
 
-[14
-
-]
+[13] [14]
 LaTeX Font Info:    Try loading font information for OMS+txr on input line 534.
 
  (D:\CTEX\MiKTeX\tex\latex\txfonts\omstxr.fd
@@ -737,60 +735,60 @@ File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
 (Font)              Font shape `OMS/txsy/m/n' tried instead on input line 534.
- [15] [16]
-Missing character: There is no ¬ in font txr!
- [17] [18] [19]
-[20] [21] <figure/without_rehandle.jpg, id=83, 712.16063pt x 100.87688pt>
+ [15] [16] [17] [18]
+[19] [20] [21] <figure/without_rehandle.jpg, id=83, 712.16063pt x 100.87688pt>
 File: figure/without_rehandle.jpg Graphic file (type jpg)
 
 <use figure/without_rehandle.jpg>
-Package pdftex.def Info: figure/without_rehandle.jpg used on input line 880.
+Package pdftex.def Info: figure/without_rehandle.jpg used on input line 884.
 (pdftex.def)             Requested size: 712.15889pt x 100.87662pt.
 
 <figure/with_rehandle.jpg, id=84, 654.94687pt x 103.13531pt>
 File: figure/with_rehandle.jpg Graphic file (type jpg)
 
 <use figure/with_rehandle.jpg>
-Package pdftex.def Info: figure/with_rehandle.jpg used on input line 888.
+Package pdftex.def Info: figure/with_rehandle.jpg used on input line 892.
 (pdftex.def)             Requested size: 654.94528pt x 103.13504pt.
 
 <figure/K-Stacks.png, id=85, 362.3136pt x 217.7736pt>
 File: figure/K-Stacks.png Graphic file (type png)
 
 <use figure/K-Stacks.png>
-Package pdftex.def Info: figure/K-Stacks.png used on input line 900.
+Package pdftex.def Info: figure/K-Stacks.png used on input line 905.
 (pdftex.def)             Requested size: 362.31271pt x 217.77306pt.
- [22 <E:/Github/123/Latex/figure/without_rehandle.jpg>] <figure/K-containers.pn
-g, id=89, 404.712pt x 217.7736pt>
+ [22 <E:/Github/123/Latex/figure/without_rehandle.jpg> <E:/Github/123/Latex/fig
+ure/with_rehandle.jpg>]
+<figure/K-containers.png, id=89, 404.712pt x 217.7736pt>
 File: figure/K-containers.png Graphic file (type png)
 
 <use figure/K-containers.png>
-Package pdftex.def Info: figure/K-containers.png used on input line 911.
+Package pdftex.def Info: figure/K-containers.png used on input line 916.
 (pdftex.def)             Requested size: 404.71101pt x 217.77306pt.
 
 <figure/K-ports.png, id=90, 404.2302pt x 217.7736pt>
 File: figure/K-ports.png Graphic file (type png)
  <use figure/K-ports.png>
-Package pdftex.def Info: figure/K-ports.png used on input line 921.
+Package pdftex.def Info: figure/K-ports.png used on input line 927.
 (pdftex.def)             Requested size: 404.2292pt x 217.77306pt.
 
-<figure/K-limit_height.png, id=91, 429.7656pt x 217.7736pt>
+[23 <E:/Github/123/Latex/figure/K-Stacks.png> <E:/Github/123/Latex/figure/K-con
+tainers.png> <E:/Github/123/Latex/figure/K-ports.png>]
+<figure/K-limit_height.png, id=97, 429.7656pt x 217.7736pt>
 File: figure/K-limit_height.png Graphic file (type png)
 
 <use figure/K-limit_height.png>
-Package pdftex.def Info: figure/K-limit_height.png used on input line 930.
+Package pdftex.def Info: figure/K-limit_height.png used on input line 936.
 (pdftex.def)             Requested size: 429.76454pt x 217.77306pt.
- [23 <E:/Github/123/Latex/figure/with_rehandle.jpg> <E:/Github/123/Latex/figure
-/K-Stacks.png> <E:/Github/123/Latex/figure/K-containers.png>] <figure/K-compreh
-ensive.png, id=97, 491.9178pt x 261.6174pt>
+
+<figure/K-comprehensive.png, id=98, 491.9178pt x 261.6174pt>
 File: figure/K-comprehensive.png Graphic file (type png)
 
 <use figure/K-comprehensive.png>
-Package pdftex.def Info: figure/K-comprehensive.png used on input line 939.
+Package pdftex.def Info: figure/K-comprehensive.png used on input line 945.
 (pdftex.def)             Requested size: 491.9166pt x 261.61674pt.
- [24 <E:/Github/123/Latex/figure/K-ports.png> <E:/Github/123/Latex/figure/K-lim
-it_height.png> <E:/Github/123/Latex/figure/K-comprehensive.png>] (E:\Github\123
-\Latex\SSMP-KR.bbl [25] [26]) [27]
+ [24 <E:/Github/123/Latex/figure/K-limit_height.png> <E:/Github/123/Latex/figur
+e/K-comprehensive.png>]
+(E:\Github\123\Latex\SSMP-KR.bbl [25] [26]) [27]
 (E:\Github\123\Latex\SSMP-KR.aux)
 
 LaTeX Warning: There were multiply-defined labels.
@@ -799,7 +797,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  4287 strings out of 495354
  53624 string characters out of 3183859
- 164027 words of memory out of 3000000
+ 166027 words of memory out of 3000000
  7325 multiletter control sequences out of 15000+200000
  47950 words of font info for 120 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -812,7 +810,7 @@ b><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txex.pfb><D:/CTEX/MiKTeX/fonts/typ
 e1/public/txfonts/txsy.pfb><D:/CTEX/MiKTeX/fonts/type1/public/txfonts/txsyc.pfb
 ><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><D:/CTEX/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><D:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on SSMP-KR.pdf (27 pages, 320887 bytes).
+Output written on SSMP-KR.pdf (27 pages, 320949 bytes).
 PDF statistics:
  151 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -407,6 +407,7 @@ For ease of illustration, we need to explain the definition of nearport.
 For example, three containers are stored in the same stack, and their destination ports are 4,5,6, respectively, then the value of nearport of this stack is 4.
 If a stack is empty, its nearport will be set to $P+1$, here $P$ is the total number of the ports along the voyage.
 
+For the sake of description, we will use some notations presented in Table \ref{tab:1}.
 We firstly talk about the simple condition that the allowed rehandles run out.
 When traversing all the stacks to choose the optimal one for each container according to our rules, we add non-full stacks whose nearest port is no smaller than the current loading container into arraylist $S_0$.
 For the stacks in $S_0$, we choose the one with the nearest port.
@@ -415,26 +416,25 @@ Undoubtedly, it is a little different from the simple condition.
 Under this condition, $S_1$ have the highest priority.
 If $S_1$ is null, we choose the stack from arraylist $S_2$ which is used to store partial stacks whose nearest port is smaller than the current loading container.
 Both in $S_1$ and $S_2$, we choose the stack whose nearest port is smallest.
-If $S_2$ is null, we choose the first stack we traverse in the $S_3$ which is used to store empty stacks.
+If $S_2$ is null, we choose the first stack when we traverse the $S_3$ which is used to store empty stacks.
 So it is the loading rules in the above and the following is the discharging rules.
 
-When discharging containers, we just need to unload containers from top to bottom one by one when the container's destination port is the current port if there isn't an overstowage in the stack.
-when an overstowage happens, we have to unload the blocking containers, then we can unload those right ones.
-As for blocking containers, we reset their origin ports as current port and their destination ports remain unchanged.
-That's to say, the outbound containers at the current port increases.
+When discharging containers, we just need to unload containers from top to bottom one by one when the container's destination port is the current port if there isn't an overstowage in the stacks.
+when overstowage happen, we have to unload the blocking containers before discharging those right containers.
+As for blocking containers, we will reset their origin ports as current port after unloading them and their destination ports remain unchanged.
+That's to say, the outbound containers at the current port increase.
 
-We give out some parts of algorithms as followings:
-For all the ports along the voyage, we adopt the heuristic method to dispose containers for the given input.
-And we can transfer the input into the output by applying the heuristic method.
-So the below is the main process of our algorithm.
+We give out some key procedures of our algorithms in the following context:
+For all the ports along the voyage, we adopt the heuristic method to dispose for the given input.
+Through the heuristic method, we can transfer the input into the output.
 
 The following pseudo gives a simplistic explanation of heuristic method, which is our main method.
 
 \begin{algorithm}
-  \caption{The  procedure of the heuristic() method}
+  \caption{The procedure of the heuristic() method}
   \label{alg:1}
   \begin{codebox}
-  \Procname{\proc{Heuristic() method for the SSMP-KR (\id{I})}}
+  \Procname{\proc{Heuristic() method for the SSMP-KR}}
 
     \li \For each port $p=1, 2 , \ldots,P $.
      \li \Do
@@ -448,14 +448,15 @@ The following pseudo gives a simplistic explanation of heuristic method, which i
        \End
 \end{codebox}
 \end{algorithm}
+\clearpage
 
-The simple condition there isn't rehandle allowed.
+The following pseudo introduce the procedure to deal with the simple condition that there isn't rehandle allowed.
 
 \begin{algorithm}[htbp]
     \caption{A heuristic procedure for the SSMP-KR in the simple condition}
     \label{alg:2}
     \begin{codebox}
-    \Procname{\proc{Heuristic for the simple condition (\id{I})}}
+    \Procname{\proc{Heuristic for the simple condition}}
         \li \For each port $p=1,2,\ldots,P$
         \li \Do
                 Unload containers destined at port $p$.
@@ -476,13 +477,14 @@ The simple condition there isn't rehandle allowed.
        \end{codebox}
 \end{algorithm}
 
-The complex condition when there is allowed rehandles.
+
+The following pseudo introduce the procedure to deal with the complex condition that there is allowed rehandles.
 
 \begin{algorithm}[htbp]
     \caption{A heuristic procedure for the SSMP-KR in the complex condition}
     \label{alg:3}
     \begin{codebox}
-    \Procname{\proc{Heuristic for the complex condition (\id{I})}}
+    \Procname{\proc{Heuristic for the complex condition}}
         \li \For each port $p=1,2,\ldots,P$
         \li \Do
                 Unload containers destined at port $p$.
@@ -512,20 +514,20 @@ The complex condition when there is allowed rehandles.
 
 Considering the length of pseudo code, some details are omitted.
 In a word, a lot of variables and methods of the concrete Unloading and Loading strategies have been involved, we don't give the correspondent pseudo here for the sake of context length.
-What is identical for the two procedures is that they choose the optimal operation for each container during the unloading and loading process according to the greedy rule made by our algorithm.
+What is identical for the two procedures is that they choose the optimal operation for each container during the unloading and loading process according to the greedy rules made by our algorithm.
 As is explained in the heading of this section, we divide the loading method into two parts on the basis of the number of allowed rehandles.
-And similarly, the unloading method are divided into two conditions whether there are rehandles.
-Hence, specific steps are a little different from each other between the two circumstances.
+And similarly, the unloading method are divided into two conditions depending on whether there are rehandles.
+However, specific steps are a little different from each other between the two circumstances.
 
-Our algorithm can give the detailed location changes of each container and output the container status at arbitrary time.
-That's to say, we can grasp the container stowage process before the voyage as long as we know some information in advance.
-Therefore, our algorithm makes a little difference and make some sense in the reality application.
+Our algorithm can give the detailed location changes of each container and output the layout status in the vessel at arbitrary time.
+In other words, we can predict the real-time container stowage process before the voyage as long as we know some information in advance.
+Therefore, our algorithm makes a little difference and makes some sense in the reality application.
 
 
 \subsection{Performance Guarantee of the Algorithms}
 \label{sec:p2}
 
-In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number.
+In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number in each loop.
 For ease of exposition, we first give some related notations.
 
 \begin{itemize}
@@ -536,9 +538,10 @@ For ease of exposition, we first give some related notations.
 
 \item $N_p$: the number of containers on the ship before its departure from port $p$.
 \item $V_p$: the number of loading ports that the ship has visited before it departs from port $p$.
-A port is called a loading port if there exists at least one container to be loaded. Clearly, $V_p \le p$, $\forall p=1,\ldots,P$.
 
 \end{itemize}
+
+A port is called a loading port if there exists at least one container to be loaded. Clearly, $V_p \le p$, $\forall p=1,\ldots,P$.
 
 
 
@@ -554,15 +557,11 @@ For the USSMP-KR instance, the heuristic approach generates a solution in which 
 
 We use an inductive proof.
 
-\textit{Basis}:
-
-For $p=1$, without loss of generality, we assume that port 1 is a loading port.
+\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port.
 The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers.
 We have $\mathcal{U}_1=V_1=1$, and therefore $\mathcal{U}_1\le V_1$ holds.
 
-\textit{Inductive step}:
-
-Suppose that before the ship departs from port $p$, there are at most $V_p$ stacks used, i.e., $\mathcal{U}_p \le V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, otherwise $V_{p+1}=V_p$.
+\textit{Inductive step}: Suppose that before the ship departs from port $p$, there are at most $V_p$ stacks used, i.e., $\mathcal{U}_p \le V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, otherwise $V_{p+1}=V_p$.
 
 (1) If there exist some containers to be loaded, according to our heuristic, they are placed on either the extant stacks or a new blank stack (with the containers of later destinations placed lower). Hence, $\mathcal{U}_{p+1} \le \mathcal{U}_p+1 \le V_p+1=V_{p+1}$.
 
@@ -619,9 +618,7 @@ The partial stacks in port $p$ is no greater than $V_p$:
 
 We use an inductive proof.
 
-\textit{Basis}:
-
-For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
+\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
 In addition, P(1)=0 or 1. Hence, $P(p) \le V_p $ holds.
 \textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than $V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized.
 
@@ -638,9 +635,9 @@ It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(
 \end{proof}
 
 
-The above proposition indicates that our approximation algorithm has a constant performance guarantee.
+The above proposition indicates that our approximation algorithms have a constant performance guarantee.
 In practice, the number of ports is generally much smaller than the number of stacks used along the journey.
-Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic can generate promising solutions.
+Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic algorithms can generate promising solutions.
 
 Due to page limit, we omit the deatils here. Interested readers are welcome to contact the authors for details.
 % In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test the effectiveness of SSMP-KR.
@@ -651,12 +648,12 @@ Due to page limit, we omit the deatils here. Interested readers are welcome to c
 \section{Experiments and Analysis}
 \label{sec:ea}
 
-This paper uses the test data from the existing literature and we add an extra parameters $K$ into the primary instance in order to meet the demands of research.
+This paper uses the test data from the existing literature and we add an extra parameters $K$ into the primary instances in order to meet the demands of research.
 $K$ means the number of allowed rehandles and it is selected from \{0, 10, 20, 50, 100\}.
-Particular£¬$K=0$ represents the benchmark and comparable condition. In fact, the problem becomes SSMP-ZR when $K=0$.
-There are 2400 sets of instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20, 30\};
-the number of containers $N$, which is selected from \{50, 100, 200, 500, 1000, 5000\}, and the result isn't shown in the table when $N=5000$;
-the height limit $H$ selected from \{4, 7, 8, 12\}.
+Particular, instances with $K=0$ represent the benchmark and comparable instances. In fact, the problem becomes SSMP-ZR when $K=0$.
+There are 480 sets of instances, or 2400 instances in total, which are categorized by three parameters: the number of ports $P$, which is selected from \{5, 10, 20, 30\};
+the number of containers $N$, which is selected from \{50, 100, 200, 500, 1000, 5000\};
+and the height limit $H$ is selected from \{4, 7, 8, 12\}.
 Each set consists of 5 instances generated by different random seeds.
 In each instance, the origin $O(i)$ and the destination $D(i)$ of a container $i$ are generated from a uniform distribution on the integers $1, 2, \ldots, P$ satisfying that $O(i)<D(i)$.
 For the convenience of comparison, we only show the average "Numofstack"  when  $K=0$, $K=10$, $K=20$, $K=50$, $K=100$, respectively.
@@ -779,7 +776,7 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
 
 Table \ref{tab:2} summarizes the results of those easy instances with small number of ports, i.e. $P \in \{5, 10\}$.
 For each given $P$, $N$ and $H$, we work out the value of $UB$, the average numbers of $Numofstack$ in different instances when $K$ selects different values.
-The $LB$ and $UB$ is used to test the rationality and  the $Numofstack$ is used to compare with the result when $K=0$, respectively.
+The $LB$ and $UB$ are used to test the rationality and  the $Numofstack$ of instances with different values of $K$ are used to compare with the results when $K=0$, respectively.
 
 Table \ref{tab:3} summarizes that the results of those difficult instances with large number of ports, i.e. $P \in \{20, 30\}$.
 The columns in this table are similarly defined as those of Table 1 and so is the conclusion we can get from Table 1.
@@ -789,32 +786,34 @@ However, the results between the easy instances and difficult instances have som
 Comparing with the significant influence of different $K$ in the difficult instances, the influence of different $K$ in the easy instances isn't obvious.
 The same conclusion can be drawn if we focus on one specific variable or factor while keeping other variables unchanged.
 
-As far as we are concerned, we think it is the density and sparseness that causes this consequence.
+As far as we are concerned, we think it is the density and sparseness that cause this consequence.
 In other words, the smaller value of each variable is, the same kind of containers that have the identical origin port and destination port have more chance to be placed in the same stack and less rehandles will arise.
-We call this stack with high density, and the high sparseness in contrast.
+We call this kind of stack with high density, and the high sparseness in contrast.
 
 For the instance with the same $P$, $N$ and $H$, we call it benchmark instance when $K$ is equal to zero.
 If the number of used stack is larger than the benchmark instance when $K$ isn't equal to zero, we call it exceptional instance.
 There are few exceptions when we analyze the result through a large amount of experiments.
 Comparing with the certain number of allowed rehandles, the number of needed stack is even larger when the allowed rehandle $K$ isn't equal to zero, though the deviation is not great.
 
-We then find out those instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we think it's the distribution status of previous containers to be blamed.
-The allowed rehandles delay the production of new stack but not to reduce it, that's why this problem happens.
+We then find out those exceptional instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we think it's the distribution status of previous containers to be blamed.
+The allowed rehandles delay the production of new stacks but not to reduce them, that's why the problem happens.
 Actually, it's the unloading strategy for blocking containers that causes this exceptional condition.
 Because we reset the origin port of blocking containers, the loading containers in current port increases and meanwhile the allowed rehandles run out.
-In the end, the new stack is needed under the coincidence.
+In the end, the new stacks are needed under the coincidence.
 In order to prove it, we output the layout of the exceptional instances and the corresponding benchmark instances.
-By comparing the exceptional instances with the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm are the reason for this kind of abnormal condition.
-In our heuristic algorithm, we reset the blocking containers' origin port as the current port, and it enlarges the number of containers to be loaded.
-Meanwhile, the allowed rehandles run out and thus a new stack is needed to stow those containers.
+By comparing the exceptional instances with the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm are blamed for this kind of abnormal condition.
+In our heuristic algorithm, we reset the blocking containers' origin ports as the current port, and it enlarges the number of containers to be loaded.
+Meanwhile, the allowed rehandles run out and thus new stacks are needed to stow those new outbound containers.
 
-However, it doesn't mean that our algorithm isn't universal because the probability of exceptional instance is very low and it hardly happens in our practical operations.
-Therefore, our algorithm is feasible for most of the instances and has a good performance as well.
+However, it doesn't mean that our algorithm isn't universal because the probability of causing exceptional instances is very low and it hardly happens in our practical operations.
+Therefore, our heuristics algorithm is feasible for most of the instances and has a good performance as well.
+The following tables and figures can be used to illustrate the good performance of our algorithm.
+
 Table \ref{tab:4} gives the average results when the $K$ has different values.
 
 \begin{table}[htbp]
   \centering
-  \caption{average results of the instances with heuristic algorithm}
+  \caption{average results of the instances with different K}
     \begin{tabular}{r|r|r|r|r|r}
     \hline
      $K$       &0   &10  &20  &50  &100\\

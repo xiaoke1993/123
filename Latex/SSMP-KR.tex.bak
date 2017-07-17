@@ -33,7 +33,7 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 
 The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship.
 
-In this paper, we first propose the stowage stack minimization problem with K rehanlds (SSMP-KR) based on the stowage stack minimization problem with zero rehandle.
+In this paper, we first propose the stowage stack minimization problem with K rehandles (SSMP-KR) based on the stowage stack minimization problem with zero rehandle.
 Next, heuristic algorithms are put forward to construct solutions to the SSMP-KR. Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction.
 We find out the lower bound and upper bound to make sure the solutions we get are reasonable and effective, which proves the feasibility of the algorithm theoretically.
 
@@ -448,7 +448,7 @@ The following pseudo gives a simplistic explanation of heuristic method, which i
        \End
 \end{codebox}
 \end{algorithm}
-\clearpage
+
 
 The following pseudo introduce the procedure to deal with the simple condition that there isn't rehandle allowed.
 
@@ -810,6 +810,7 @@ Therefore, our heuristics algorithm is feasible for most of the instances and ha
 The following tables and figures can be used to illustrate the good performance of our algorithm.
 
 Table \ref{tab:4} gives the average results when the $K$ has different values.
+It's noteworthy that the average results in Table \ref{tab:4} include the instances with $N=5000$.
 
 \begin{table}[htbp]
   \centering
@@ -829,9 +830,9 @@ It isn't difficult to conclude that the value of $Numofstack$ becomes smaller if
 That's to say, our problem based on zero rehandle is meaningful and our algorithm is practical.
 
 
-In fact, we give another related algorithm named $P\&H$ algorithm based on our basic algorithm to get the stowage planning.
-This method is actually a process of parameter tuning, our original intention is attempting to find out better solution to stow containers.
-Nevertheless, the result through this method isn't as good as the heuristic algorithm and it doesn't work well as we expected.
+In fact, we have tried another related algorithm named $P\&H$ algorithm before adopting our current algorithm to get the stowage planning.
+This algorithm is actually a process of parameter tuning, our original intention is attempting to find out better solution to stow containers.
+Nevertheless, the result through this algorithm isn't as good as the heuristic algorithm and it doesn't work well as we expected.
 From another point of view, it just shows the good performance of our heuristic algorithm.
 
 In our $P\&H$ algorithm, we give some restrictions on the height and nearport of alternative stacks when choosing one stack for each container.
@@ -839,7 +840,7 @@ All the parameters in $P\&H$ value between 0 and 1.
 The former parameter represents the dispersion degree between the loading container's destination port and  alternative stack's nearport.
 If their values are equal, the value of parameter is 1.
 The latter parameter means the  ratio of stack's height and the limited height $H$.
-The concrete content of "P\&H" method isn't described in this paper but the computational results will be listed in the Table \ref{tab:5}.
+The concrete content of "P\&H" algorithm isn't described in this paper but the computational result will be listed in the Table \ref{tab:5}.
 
 \begin{table}[htbp]
   \centering
@@ -862,20 +863,21 @@ The concrete content of "P\&H" method isn't described in this paper but the comp
   \label{tab:5}
 \end{table}
 
-Table \ref{tab:5} shows the result with "P\&H" method, which is firstly designed to improve the original algorithm and eventually it is used to prove the good performance our original algorithm.
-It's noteworthy that the result in Table \ref{tab:5} includes the instances with $N=5000$.
-Both the two parameters of the method are selected form \{0.75, 0.8\}.
-It's clear that the result shows the allowed rehandles will decrease the number of used stacks as the above results.
+Table \ref{tab:5} shows the result with "P\&H" algorithm, which is firstly designed to improve the original algorithm and eventually it is used to prove the good performance of our original algorithm.
+It's noteworthy that the average results in Table \ref{tab:5} include the instances with $N=5000$.
+Both the values of two parameters of the algorithm are selected form \{0.75, 0.8\}.
+It's clear that the result shows the allowed rehandles will decrease the number of used stacks as the above results in Table \ref{tab:4}.
 We can draw a conclusion that the first parameter has a significant influence on the result while the second parameter makes no difference.
-I suppose that the it happens as a result of the value set of $H$.
-Comparing with the results shown in Table \ref{tab:4}, we could find that original algorithm we propose works better when the value of $K$ is small while the "$P\&H$" method works better when the value of $K$ is large.
+I suppose that it happens as a result of the value set of $H$.
+Comparing with the results shown in Table \ref{tab:4}, we could find that original algorithm we propose works better when the value of $K$ is small while the "$P\&H$" algorithm works better when the value of $K$ is large.
 So maybe we can use the better one after working out the result when $K$ is certain.
 
-There is a simple example to elaborate why our algorithm can improve the utilization of containership.
+There is a simple example to elaborate why our problem can improve the utilization of containership comparing with the SSMP-ZR.
 Assuming that there are thirteen containers to be transported along the voyage with six ports.
 We let C(i,j) denote index container whose origin port is i and destination port j.
-The following is the way to express those containers: four C(1,3), one C(2,4), one C(2,6), four C(3,5), one C(4,6), two C(5,6).
-If they are loaded without any rehandle, the loading sequence and layout will be the following Figure \ref{fig 3:graph} and Figure \ref{fig 4:graph}:
+The following is the way to denote those containers: four containers are C(1,3), one is C(2,4), one is C(2,6), four are C(3,5), one is C(4,6) and two are C(5,6).
+
+If they are loaded without any rehandles, the loading sequence and layout will be the following Figure \ref{fig 3:graph}.
 \begin{figure}[htbp]
 \centering
 \caption{stowage plan without rehandle.}
@@ -883,7 +885,7 @@ If they are loaded without any rehandle, the loading sequence and layout will be
 \label{fig 3:graph}
 \end{figure}
 
-If they are loaded with rehandles, the loading sequence and layout will be the following figure:
+If they are loaded with rehandles, the loading sequence and layout will be the following Figure \ref{fig 4:graph}.
 \begin{figure}[htbp]
 \centering
 \caption{stowage plan with rehandle.}
@@ -893,8 +895,9 @@ If they are loaded with rehandles, the loading sequence and layout will be the f
 
 From the above figures, we can draw the conclusion that allowing a certain number of rehandles will reduce the number
 of stacks used to store containers in a vessel compared with zero rehandle.
+That's to say, the utilization of containership can be improved if some rehandles are allowed.
 
-We also use some pictures to make our result more visual and the pictures are made by Excel.
+We also use some pictures to make our results more visual and the pictures are made by Excel.
 
 \begin{figure}[htbp]
 \center
@@ -904,8 +907,8 @@ We also use some pictures to make our result more visual and the pictures are ma
 \end{figure}
 As what is shown in Table \ref{tab:4}, Figure \ref{fig 5:graph} indicates visually the relationship between used stacks and allowed rehandle.
 It's not hard to draw the conclusion that the more allowed rehandle, the less used stacks.
-So it intuitively reflect the meaning of this research topic and it show the feasibility of our algorithm.
-Comparing with zero rehandle, some rehandle are allowed to reduce the partial stacks and improve the utilization of space.
+So it intuitively reflects the meaning of this research and it shows the feasibility of our algorithm.
+Comparing with zero rehandle, some rehandles are allowed to reduce the partial stacks and improve the utilization of containership.
 
 \begin{figure}[htbp]
 \centering
@@ -915,6 +918,7 @@ Comparing with zero rehandle, some rehandle are allowed to reduce the partial st
 \end{figure}
 Figure \ref{fig 6:graph} shows us the relationship between containers and used stacks.
 We can conclude that the more containers are, the more stacks will be used, which is undoubted in practice.
+Another conclusion can be drawn is that the more containers, the difference caused by rehandles is less.
 
 
 \begin{figure}[htbp]
@@ -932,7 +936,7 @@ Another related factor to be  taken into consideration is the sparse distributio
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-limit_height.png}}
 \label{fig 8:graph}
 \end{figure}
-Figure \ref{fig 8:graph} shows us that the greater the number of limit height is, the less stacks will be used, which is definitely right.
+Figure \ref{fig 8:graph} shows us that the larger the number of limit height is, the less stacks will be used, which is definitely right.
 
 
 \begin{figure}
@@ -941,8 +945,8 @@ Figure \ref{fig 8:graph} shows us that the greater the number of limit height is
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/K-comprehensive.png}}
 \label{fig 9:graph}
 \end{figure}
-Figure \ref{fig 9:graph} shows us that the comprehensive impact on the result we work out for all the basic factors considered in this paper.
-And we can choose the factor we want to analyze and it is convenient for us to work out how different factor influences our final result.
+Figure \ref{fig 9:graph} shows us that the comprehensive impact on the result we work out with all the basic factors considered in this paper.
+Further, we can choose the factors we want to analyze one by one and it is convenient for us to work out how different factors influence our final result.
 For the convenience of observation, we only give the result with filtered numbers of each factor.
 
 
@@ -953,7 +957,7 @@ The stowage stack minimization problem with K-rehandle constraint (SSMP-KR) is a
 In this paper, we analyze the structure of this two-dimensional bin-packing optimization problem and its relationship with the SSMP-ZR problem proposed in \cite{wang2014stowage}.
 
 We can regard the stowage stack minimization problem with zero rehandle as an particular case when we choose the value of K as zero.
-Hence, the problem proposed in this paper is a generalized and extended problem considering the existence of K-rehandle.
+Hence, the problem proposed in this paper is a generalized and extended problem of SSMP-ZR considering the existence of K-rehandle.
 
 On the one hand, the stowage planning problems in cyclic navigation path is converted into linear navigation path using the specific method.
 On the other hand, the result is equivalent to each other whether we convert or not.
@@ -963,15 +967,16 @@ In this paper, we presented the integer programming model for the SSMP-ZR and pr
 A heuristic approach is proposed to construct near-optimal solutions to the SSMP-KR problem in a very short computational time.
 Since there are different status in the process of handling containers, different methods in our algorithm are thought to cope with the corresponding conditions.
 
-The experimental results show that our heuristic approaches generate very promising solutions on a variety of instances. Comparing with the stowage stack minimum problem with zero constraint, our problem with K rehandle constraint acts as a buffer and offers great flexibility for the actual problem.
-The results shows the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
+The experimental results show that our heuristic approaches generate very promising solutions on a variety of instances.
+Comparing with the stowage stack minimum problem with zero constraint, our problem with K rehandle constraint can offer a certain flexibility for the actual problem.
+The results show the problem we put forward is of practical significance and it can improve the utilization of containership.
 Our algorithm uses greedy rules to find the best slot for each container, hence the results may be the near-optimal rather than global optimal.
 As we all know, it is difficult to get the global optimal for this kind of problem.
-Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce the unnecessary spending in the case of meeting other constraints.
+Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce some spending in the case of improving the utilization of containership.
 The novelty and practicality show the importance of this paper and it can give a reference to the future study.
 
 
-Furthermore, the rehandles are unavoidable in the actual port operation, which means the problem we propose in this paper does make some
+Furthermore, the rehandles are unavoidable in the actual port operation, which indicates the problem we propose in this paper does make some
 sense and the solution we work out using our heuristic algorithm can provide a preliminary assessment for forwarders to arrange
 linear shipping company for transportation.
 

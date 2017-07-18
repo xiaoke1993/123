@@ -29,8 +29,6 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 \cortext[corl]{Corresponding author. Fax: +852 ********, Phone: +852 ********}
 
 \begin{abstract}
-	
-
 The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic usefulness since it can help shipping forwarders estimate shipping space of each shippers.
 To our best knowledge, we propose SSMP for the first time in the academic community.
 
@@ -158,8 +156,7 @@ Further, they showed that finding the minimum number of columns for which there 
 However, literatures have shown that binary linear programming formulation for such problems is impracticable for real life problems due to the large number of binary variables and constraints.
 
 \cite{avriel1998stowage} and \cite{avriel2000container} focused on stowage planning in order to minimize the number of unproductive shifts (temporary unloading and reloading of containers at a port before their destination ports in order to access containers below them for unloading).
-Aspects of ship's stability and other real-life constraints were not considered.
-A binary linear programming (LP) model is formulated.
+A binary linear programming (LP) model was formulated without considering ship's stability and other real-life constraints.
 Due to the proven NP-hardness of the problem, a so-called "Suspensory Heuristic" --- based on earlier work by \cite{avriel1993exact} --- was developed in order to solve even large problem instances.
 The heuristic assigned slots in a bay to containers dynamically with respect to the sequence of ports in a vessel's route.
 \cite{haghani2001model} proposed a MIP model for developing loading plans in order to minimize the time that a vessel spent at port, and the container handling cost which shifts caused by was highly influenced by the number of unproductive but necessary an unsatisfactory arrangement of containers.

@@ -31,22 +31,12 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 \begin{abstract}
 	
 
-The stowage stack minimization problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship.
+The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic usefulness since it can help shipping forwarders estimate shipping space of each shippers.
+To our best knowledge, we propose SSMP for the first time in the academic community.
 
-In this paper, we first propose the stowage stack minimization problem with K rehandles (SSMP-KR) based on the stowage stack minimization problem with zero rehandle.
-Next, a heuristic algorithm is put forward to construct solutions to the SSMP-KR. Then, we have discussed and proved the theoretical performance guarantee of the algorithm using the math knowledge of inequation and mathematical induction.
-We find out the lower bound and upper bound to make sure the solutions we get are reasonable and effective, which in turn proves the feasibility of the algorithm theoretically.
-
-To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results when different values of K are selected, and of course zero is included.
-We have selected a set of values of K to find out the relationship between K and the stacks we used in each instance.
-Through this process, we can get the optimal value of K for one particular shipping to balance the flexibility and space utilization of the ship.
-What¡¯s more, instances with different values of ports, containers and heights all have been experimented to make sure our algorithms have a universality.
-
-Comparing with the zero rehandle condition and random loading condition, the results demonstrate that our heuristic approaches can generate more promising solutions if we allow some rehandling operations. 
-The results also show that the problem we put forward is of practical significance and it can improve the utilization ratio of vessels with certain flexibility.
-Applying our algorithm into the real shipping management can enhance the hull space utilization and thus to save certain speeding, which can give forwarders a theoretical reference when making decisions.
-Furthermore, the novelty and practicality show the importance of this paper and it can provide a reference to the future study.
-
+In this paper, we talk about SSMP with K rehandles (SSMP-KR). A heuristic algorithm is put forward to construct solutions to the SSMP-KR. We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results when different values of K are selected.
+What's more, instances with different values of ports, containers and heights have been tested to make sure the universality of our algorithm.
 \end{abstract}
 
 \begin{keyword}
@@ -57,7 +47,6 @@ Containership stowage planning\sep stack minimization \sep K-rehandles \sep cons
 
 \section{Introduction}
 \label{sec:i}
-% TODO: add importance of global trade
 International trade plays an important role in promoting the development of world economy.
 As we all know, logistics is the main link in international trade.
 In view of the complexity of logistics in international trade, it can bring a great convenience if multimodal transport is used.
@@ -76,9 +65,9 @@ It has resulted in a tremendous growth of the maritime freight industry and it s
 
 The container stowage plan is a pivotal link to containers transportation, and the objective of which is to draw a plan of loading and discharging sequence of contains for containership in \cite{zhang2008review}.
 Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights.
-These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s. 
+These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s.
 With the development of container-shipping, more and more containers are transported by sail.
-Over the past two decades there has been a continuous increase in demand for cost efficient containerized transportation. 
+Over the past two decades there has been a continuous increase in demand for cost efficient containerized transportation.
 Up to now, no satisfying solution has been put forward to promote the development of container transportation trade.
 Thus, it makes higher research demand of the problem.
 
@@ -90,7 +79,7 @@ In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to acc
 Each bay consists of container stacks placed along the length of ship (see Figure \ref{fig 1:graph}).
 All bays are divided into an over deck and an deck area, separated by structures called hatches.
 The container position in the ship is uniquely indexed by (bay, row, tier).
-Such three-tuple is called a slot. 
+Such three-tuple is called a slot.
 However, slot in this paper is indexed by (stack, tier) for the sake of research convenience.
 On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit (TEU)
 stacks and a single Forty-foot Equivalent Unit (FEU) stack (see Figure \ref{fig 2:graph}).

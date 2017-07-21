@@ -47,7 +47,7 @@ Containership stowage planning\sep stack minimization \sep K-rehandles \sep cons
 \label{sec:i}
 International trade plays an important role in promoting the development of world economy.
 Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
-Nowadays, over 80\% of world trade is carried by the maritime freight industry, which operates the container transportation business \cite{zhang2016multiobjective}.
+Nowadays, over 80\% of world trade is carried by the maritime freight industry, which operates the container transportation business \citep{zhang2016multiobjective}.
 In 2015, world seaborne trade volumes surpassed 10 billion tons shown in ~\cite{unctad2016}.
 
 Container-shipping is a kind of modern transportation tool which has a lot of advantages in speed, security, and quality comparing with the break-bulk cargo ship.
@@ -56,20 +56,23 @@ According to World Shipping Council, around 52\% of the value of world internati
 This mode is deeply accepted by shippers and carriers, and is becoming the main trend of freightage in the world.
 It has resulted in a tremendous growth of the maritime freight industry and it shows powerful vitality and promising prospects.
 
-The container stowage plan is a pivotal link to containers transportation, and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
-Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights.
-These problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s.
 With the development of container-shipping, more and more containers are transported by sail.
-Over the past two decades there has been a continuous increase in demand for cost efficient containerized transportation.
-Up to now, no satisfying solution has been put forward to promote the development of container transportation trade.
-Thus, it makes higher research demand of the problem.
-
-%TODO: introduce the ship's structure, and why rehandles exist.
-A container ship transports cargo in containers, and the ship layout varies from vessel to vessel.
+Over the past decades there has been a continuous increase in demand for cost efficient containerized transportation.
+Thus, it makes higher research demand.
+The container stowage plan is a pivotal link to containers transportation, and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
-The cargo space of a container ship is split into several 20-ft-long areas. These areas are termed 20-ft bays.
+The cargo space of a container ship is split into several 20-ft-long areas. 
+These areas are termed as 20-ft bays (see Figure \ref{fig 1:graph}).
+\begin{figure}[htbp]
+\center
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/Arrangement_of_cargo_space.png}}
+\caption{The arrangement of cargo space in a container vessel.}
+\label{fig 1:graph}
+\end{figure}
+
 In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
-Each bay consists of container stacks placed along the length of ship (see Figure \ref{fig 1:graph}).
+Each bay consists of container stacks placed along the width of ship.
+Container stacks in a bay are indexed by a row number.
 All bays are divided into an over deck and an deck area, separated by structures called hatches.
 The container position in the ship is uniquely indexed by (bay, row, tier).
 Such three-tuple is called a slot.
@@ -80,12 +83,7 @@ In our paper, we assume that all the containers are of the same size, (e.g. 20 T
 
 
 
-\begin{figure}[htbp]
-\center
-\caption{The arrangement of cargo space in a container vessel.}
-\resizebox{0.5\textwidth}{!}{\includegraphics{figure/Arrangement_of_cargo_space.png}}
-\label{fig 1:graph}
-\end{figure}
+
 
 \begin{figure}[htbp]
 \center
@@ -99,6 +97,10 @@ Unloading and loading movements of same containers in the same port are called r
 Rehandles arise either when we want to unload containers destined for current port which however are beneath those destined for subsequent ports, or when we want to reorder the sequence of containers to prevent more rehandles in the future.
 Usually it is called necessary rehandles in the former case and voluntary rehandles in the latter.
 
+
+TODO: why rehandles exists.
+Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights.
+The problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s~\citep{webster1970container}.
 The previous research ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on.
 Nevertheless, we ought to think about the importance of capacity as well.
 For example, if we use each stack sufficiently, the required number of ships will be reduced and thus the cost decreases.

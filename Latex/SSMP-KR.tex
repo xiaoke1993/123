@@ -61,8 +61,8 @@ Over the past decades there has been a continuous increase in demand for cost ef
 Thus, it makes higher research demand.
 The container stowage plan is a pivotal link to containers transportation, and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
-The cargo space of a container ship is split into several 20-ft-long areas. 
-These areas are termed as 20-ft bays (see Figure \ref{fig 1:graph}).
+The cargo space of a container ship is split into several 20-ft-long areas.
+These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} (reproduce from \cite{Delgado2012251}) shows a diagram of containership.
 \begin{figure}[htbp]
 \center
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/Arrangement_of_cargo_space.png}}
@@ -70,38 +70,24 @@ These areas are termed as 20-ft bays (see Figure \ref{fig 1:graph}).
 \label{fig 1:graph}
 \end{figure}
 
-In addition, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
 Each bay consists of container stacks placed along the width of ship.
-Container stacks in a bay are indexed by a row number.
-All bays are divided into an over deck and an deck area, separated by structures called hatches.
-The container position in the ship is uniquely indexed by (bay, row, tier).
-Such three-tuple is called a slot.
-However, slot in this paper is indexed by (stack, tier) for the sake of research convenience.
-On the under deck, the parts of a bay are divided into stacks/slots that are one container wide, and are composed of two Twenty-foot Equivalent Unit (TEU)
-stacks and a single Forty-foot Equivalent Unit (FEU) stack (see Figure \ref{fig 2:graph}).
-In our paper, we assume that all the containers are of the same size, (e.g. 20 TEUs) and each slot can be fully occupied by one container.
+Stacks in a bay are indexed by a row number.
+%All bays are divided into an over deck and an deck area, separated by structures called hatches.
+The position for one 20-ft container in the ship is uniquely indexed by (bay, row, tier), called a slot.
+%However, slot in this paper is indexed by (stack, tier) for the sake of research convenience.
+In addition, for some ships, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
 
-
-
-
-
-\begin{figure}[htbp]
-\center
-\caption{a front view of a vessel bay.}
-\resizebox{0.5\textwidth}{!}{\includegraphics{figure/A_vessel_bay.png}}
-\label{fig 2:graph}
-\end{figure}
-
-Each container has a weight, height, length and port where it has to be loaded (origin port) and unloaded (destination port).
-Unloading and loading movements of same containers in the same port are called rehandles.
+A ship usually calls a sequence of ports and containers are loaded and unloaded at each port by cranes in a last-in-last-out (LIFO) manner.
 Rehandles arise either when we want to unload containers destined for current port which however are beneath those destined for subsequent ports, or when we want to reorder the sequence of containers to prevent more rehandles in the future.
-Usually it is called necessary rehandles in the former case and voluntary rehandles in the latter.
+Rehandles are expensive, since on one hand terminals directly charge the carriers for such operations, on the other hand, rehandles make ships dwell at terminals longer, inducing more berthing cost.
+In addition, each container has a weight which affect the balance and stability of ships.
 
-
-TODO: why rehandles exists.
 Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights.
 The problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s~\citep{webster1970container}.
-The previous research ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on.
+Most of previous research on stowage planning focus on how to minimize the number of rehandles (todo). 
+In this paper, we investigate the problem from another perspective, try to 
+
+ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on.
 Nevertheless, we ought to think about the importance of capacity as well.
 For example, if we use each stack sufficiently, the required number of ships will be reduced and thus the cost decreases.
 The problem mentioned in this paper gives a priority on how to reduce the number of used stacks with $K$ rehandles.
@@ -241,6 +227,8 @@ There are standard containers to be shipped along the journey.
 Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
 Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist.
 Moreover, the ship is never empty once sets out due to the circular feature.
+
+Assumption:
 
 Supposing that the voyage terminates in the second circle, we can break the loop into a straight line.
 A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$.

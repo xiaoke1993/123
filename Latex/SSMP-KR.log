@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.22)  21 JUL 2017 15:32
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.10.22)  21 JUL 2017 22:01
 entering extended mode
 **SSMP-KR.tex
 (C:\Users\宁\Documents\GitHub\123\Latex\SSMP-KR.tex
@@ -701,106 +701,99 @@ File: figure/Arrangement_of_cargo_space.png Graphic file (type png)
 Package pdftex.def Info: figure/Arrangement_of_cargo_space.png used on input li
 ne 68.
 (pdftex.def)             Requested size: 1080.03238pt x 304.1355pt.
-
-<figure/A_vessel_bay.png, id=13, 565.11125pt x 478.78876pt>
-File: figure/A_vessel_bay.png Graphic file (type png)
-
-<use figure/A_vessel_bay.png>
-Package pdftex.def Info: figure/A_vessel_bay.png used on input line 91.
-(pdftex.def)             Requested size: 565.10986pt x 478.78758pt.
  [2 <C:/Users/宁/Documents/GitHub/123/Latex/figure/Arrangement_of_cargo_space.
-png>] [3 <C:/Users/宁/Documents/GitHub/123/Latex/figure/A_vessel_bay.png>] [4]
- [5]
+png>] [3] [4] [5]
 Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
 Missing character: There is no � in font txr!
- [6] [7] [8] [9] [10] [11]
+ [6] [7] [8]
+[9] [10] [11]
 Warning: Indentation ends at level 1 in codebox on page 12.
 
-Overfull \hbox (35.91791pt too wide) in paragraph at lines 459--459
+Overfull \hbox (35.91791pt too wide) in paragraph at lines 447--447
 | [] 
  []
 
 Warning: Indentation ends at level 1 in codebox on page 12.
 
-Overfull \hbox (627.43393pt too wide) in paragraph at lines 493--493
+Overfull \hbox (627.43393pt too wide) in paragraph at lines 481--481
 | [] 
  []
 
-[12] [13] [14]
-LaTeX Font Info:    Try loading font information for OMS+txr on input line 516.
+[12] [13]
+LaTeX Font Info:    Try loading font information for OMS+txr on input line 504.
 
  (C:\CTEX\UserData\tex\latex\txfonts\omstxr.fd
 File: omstxr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `OMS/txr/m/n' in size <12> not available
-(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 516.
- [15] [16]
-[17] [18] [19] [20] [21]
-<figure/without_rehandle.jpg, id=83, 712.16063pt x 100.87688pt>
+(Font)              Font shape `OMS/txsy/m/n' tried instead on input line 504.
+ [14] [15] [16]
+[17] [18] [19] [20]
+<figure/without_rehandle.jpg, id=78, 712.16063pt x 100.87688pt>
 File: figure/without_rehandle.jpg Graphic file (type jpg)
 
 <use figure/without_rehandle.jpg>
-Package pdftex.def Info: figure/without_rehandle.jpg used on input line 866.
+Package pdftex.def Info: figure/without_rehandle.jpg used on input line 854.
 (pdftex.def)             Requested size: 712.15889pt x 100.87662pt.
 
-<figure/with_rehandle.jpg, id=84, 654.94687pt x 103.13531pt>
+<figure/with_rehandle.jpg, id=79, 654.94687pt x 103.13531pt>
 File: figure/with_rehandle.jpg Graphic file (type jpg)
 
 <use figure/with_rehandle.jpg>
-Package pdftex.def Info: figure/with_rehandle.jpg used on input line 874.
+Package pdftex.def Info: figure/with_rehandle.jpg used on input line 862.
 (pdftex.def)             Requested size: 654.94528pt x 103.13504pt.
 
-<figure/K-Stacks.png, id=85, 362.3136pt x 217.7736pt>
+<figure/K-Stacks.png, id=80, 362.3136pt x 217.7736pt>
 File: figure/K-Stacks.png Graphic file (type png)
 
 <use figure/K-Stacks.png>
-Package pdftex.def Info: figure/K-Stacks.png used on input line 887.
+Package pdftex.def Info: figure/K-Stacks.png used on input line 875.
 (pdftex.def)             Requested size: 362.31271pt x 217.77306pt.
- [22 <C:/Users/宁/Documents/GitHub/123/Latex/figure/without_rehandle.jpg> <C:/
-Users/宁/Documents/GitHub/123/Latex/figure/with_rehandle.jpg> <C:/Users/宁/Do
-cuments/GitHub/123/Latex/figure/K-Stacks.png>]
-<figure/K-containers.png, id=90, 404.712pt x 217.7736pt>
+ [21 <C:/Users/宁/Documents/GitHub/123/Latex/figure/without_rehandle.jpg> <C:/
+Users/宁/Documents/GitHub/123/Latex/figure/with_rehandle.jpg>] <figure/K-conta
+iners.png, id=84, 404.712pt x 217.7736pt>
 File: figure/K-containers.png Graphic file (type png)
 
 <use figure/K-containers.png>
-Package pdftex.def Info: figure/K-containers.png used on input line 898.
+Package pdftex.def Info: figure/K-containers.png used on input line 886.
 (pdftex.def)             Requested size: 404.71101pt x 217.77306pt.
 
-<figure/K-ports.png, id=91, 404.2302pt x 217.7736pt>
+<figure/K-ports.png, id=85, 404.2302pt x 217.7736pt>
 File: figure/K-ports.png Graphic file (type png)
  <use figure/K-ports.png>
-Package pdftex.def Info: figure/K-ports.png used on input line 909.
+Package pdftex.def Info: figure/K-ports.png used on input line 897.
 (pdftex.def)             Requested size: 404.2292pt x 217.77306pt.
 
+[22 <C:/Users/宁/Documents/GitHub/123/Latex/figure/K-Stacks.png> <C:/Users/宁
+/Documents/GitHub/123/Latex/figure/K-containers.png> <C:/Users/宁/Documents/Gi
+tHub/123/Latex/figure/K-ports.png>]
 <figure/K-limit_height.png, id=92, 429.7656pt x 217.7736pt>
 File: figure/K-limit_height.png Graphic file (type png)
 
 <use figure/K-limit_height.png>
-Package pdftex.def Info: figure/K-limit_height.png used on input line 918.
+Package pdftex.def Info: figure/K-limit_height.png used on input line 906.
 (pdftex.def)             Requested size: 429.76454pt x 217.77306pt.
 
 <figure/K-comprehensive.png, id=93, 491.9178pt x 261.6174pt>
 File: figure/K-comprehensive.png Graphic file (type png)
 
 <use figure/K-comprehensive.png>
-Package pdftex.def Info: figure/K-comprehensive.png used on input line 927.
+Package pdftex.def Info: figure/K-comprehensive.png used on input line 915.
 (pdftex.def)             Requested size: 491.9166pt x 261.61674pt.
- [23 <C:/Users/宁/Documents/GitHub/123/Latex/figure/K-containers.png> <C:/User
-s/宁/Documents/GitHub/123/Latex/figure/K-ports.png>] [24 <C:/Users/宁/Documen
-ts/GitHub/123/Latex/figure/K-limit_height.png> <C:/Users/宁/Documents/GitHub/1
-23/Latex/figure/K-comprehensive.png>]
-(C:\Users\宁\Documents\GitHub\123\Latex\SSMP-KR.bbl [25]) [26]
-(C:\Users\宁\Documents\GitHub\123\Latex\SSMP-KR.aux)
+ [23 <C:/Users/宁/Documents/GitHub/123/Latex/figure/K-limit_height.png> <C:/Us
+ers/宁/Documents/GitHub/123/Latex/figure/K-comprehensive.png>] (C:\Users\宁\D
+ocuments\GitHub\123\Latex\SSMP-KR.bbl [24]
+[25]) [26] (C:\Users\宁\Documents\GitHub\123\Latex\SSMP-KR.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4287 strings out of 495354
- 53984 string characters out of 3183858
- 164027 words of memory out of 3000000
- 7325 multiletter control sequences out of 15000+200000
+ 4281 strings out of 495354
+ 53844 string characters out of 3183858
+ 166014 words of memory out of 3000000
+ 7320 multiletter control sequences out of 15000+200000
  47950 words of font info for 120 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  34i,9n,34p,467b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -813,9 +806,9 @@ ta/fonts/type1/public/txfonts/txsy.pfb><C:/CTEX/UserData/fonts/type1/public/txf
 onts/txsyc.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/CTEX/MiKTeX
 /fonts/type1/urw/times/utmr8a.pfb><C:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on SSMP-KR.pdf (26 pages, 318942 bytes).
+Output written on SSMP-KR.pdf (26 pages, 284659 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
+ 146 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -53,3 +53,5 @@ Temporary Items
 *.blg
 *.log
 *.bak
+Latex/SSMP-KR.pdf
+*.log

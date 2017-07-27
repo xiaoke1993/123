@@ -64,7 +64,7 @@ Thus, it makes higher research demand.
 The container stowage plan is a pivotal link to containers transportation, and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas.
-These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} (reproduce from \cite{Delgado2012251}) shows a diagram of containership.
+These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} (reproduced from \cite{Delgado2012251}) shows a diagram of containership.
 \begin{figure}[htbp]
 \center
 \setlength{\abovecaptionskip}{10pt}
@@ -83,45 +83,28 @@ In addition, for some ships, two contiguous 20-ft bays form a 40-ft bay which ca
 A ship usually calls a sequence of ports and containers are loaded and unloaded at each port by cranes in a last-in-last-out (LIFO) manner.
 Rehandles arise either when we want to unload containers destined for current port which however are beneath those destined for subsequent ports, or when we want to reorder the sequence of containers to prevent more rehandles in the future.
 Rehandles are expensive, since on one hand terminals directly charge the carriers for such operations, on the other hand, rehandles make ships dwell at terminals longer, inducing more berthing cost.
-In addition, each container has a weight which affect the balance and stability of ships.
-
+%In addition, each container has a weight which affect the balance and stability of ships.
 Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have direct relation to the safety of ships and freights.
 The problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s~\citep{webster1970container}.
-Most of previous research on stowage planning focus on how to minimize the number of rehandles (todo).
-In this paper, we investigate the problem from another perspective; we pay our attention on the number of stacks used. In the real world, a carrier/forwarder may collect partial containers and want to evaluate the space (stacks) they occupy. If occupied stacks can be evaluated, how much space can be reserved for future containers. Hence, they need an indicator to evaluate. todo
+Most of previous research on stowage planning focus on how to minimize the number of rehandles \citep{ding2015stowage,zhang2016multiobjective,zehendner2017algorithm}.
 
-ignores the importance of the capacity of ship and give much emphasis on the balance of ship, the number of rehandle and so on.
-Nevertheless, we ought to think about the importance of capacity as well.
-For example, if we use each stack sufficiently, the required number of ships will be reduced and thus the cost decreases.
-The problem mentioned in this paper gives a priority on how to reduce the number of used stacks with $K$ rehandles.
-On one hand another aspect of container stowage planning is exhibited through the research on this problem and the shipping cost can be reduced by using the heuristic algorithm that we propose in this paper.
-On the other hand, it represents a novel thinking perspective to make research about the problem and it will promote the development of shipping optimal problem.
+In this paper, we investigate the problem from a new perspective. We deal with Stowage Stack Minimization Problem (SSMP) which minimizes the number of used stacks. The problem has realistic meaning. In the real world, a carrier/forwarder may collect a few containers in a time interval and want to evaluate needed space (stacks), in order to estimate available space left. Or on the contrary, a carrier/forwarder wants to receive provisional shipment orders as many as possible while reserve enough space for regular shipment orders. Our algorithm provides them an indicator to achieve such goals.
 
-We put forward the stowage stack minimization problem with $K$ rehandles constraint problem (SSMP-KR) in this paper.
-Literally speaking, it is a container stowage planning problem whose objection is to figure out the minimization of used stacks with $K$ rehandles constraint on a given container shipping.
-The heuristic algorithm in this paper uses the greedy rule to decide the loading and unloading operations for each container to be loaded and unloaded in each port along the voyage.
-Therefore, the solution we get is the approximately optimal rather than the global optimal.
-
-%TODO: The contribution of our paper lies in three aspects. First, Second, Third.
 The contribution of our paper lies in three aspects.
-First, the previous research usually focused on how to reduce the rehandles or shifts, our paper initially considers how to get the optimal container stowage plan when giving the number of allowed rehandles.
-Second, the problem can also be regarded as a extended problem of the stowage stack minimization problem with zero rehandle, which is a combinatorial optimization problem.
-Furthermore, we can get the different results when the values of $K$ are different. In addition, each instance with zero rehandle can be a benchmark instance.
-Instances only have the different values of $K$ can compare with their benchmark instances to get some conclusions we need.
-By comparing different results, we eventually choose a appropriate value of K to balance the complexity of quay operations and the space utilization of the cabin.
-Third, we put forward a heuristic algorithm to solve the problem proposed in this paper and the results show the good performance of our algorithm.
-The results can help us know the stowage plan visibly and make analysis about what the appropriate $K$ is.
-Therefore, the problem and the algorithm presented in our paper are both novel and worthy of further study.
+First, to the best of our knowledge, our paper considers number of stacks used for the first time, and this is a very practical consideration. 
+As talked before, previous research usually focus on how to reduce the rehandles or shifts.
+Second, we analyze SSMP and give upper and lower bounds of SSMP. The bounds pave a way for future study.
+Third, we propose a heuristic algorithm to solve SSMP and the algorithm has a performance guarantee.
 
-
-The remainder of this paper is organized as follows: we review extant research works in Section~\ref{sec:lr} and the formal definition of our problem and its some properties are provided in Section~\ref{sec:pd}.
-In Section~\ref{sec:algo} we present our heuristic algorithm for the problem, as well as explain the ideas  and specific details about the algorithm.
-Experiments and associated analysis are illustrated in Section~\ref{sec:ea}. Concluding remarks close the paper in Section~\ref{sec:con}.
+The remainder of this paper is organized as follows: we review extant research works in Section~\ref{sec:lr}. The formal definition of SSMP and its properties are provided in Section~\ref{sec:pd}.
+In Section~\ref{sec:algo}, we present our heuristic algorithm and the performance analysis.
+Experiments are illustrated in Section~\ref{sec:ea}. Concluding remarks close the paper in Section~\ref{sec:con}.
 
 \section{Literature Review}
 \label{sec:lr}
-The container stowage problem can be divided into two classes: one is management and programming at the container terminal, the other is stowage plan for containership.
+The container stowage problem can be divided into two classes based on the place todo: one is management and programming at the container terminal, the other is stowage plan for containership.
 This paper mainly focuses on the latter.
+
 Sorted by research method, this problem will be divided into six categories: simulation based on  probability, heuristic procedures, mathematical programming approach, decision support system, expert system and evolutionary computation.
 The following are some reviews about these categories of containership stowage plan.
 
@@ -224,6 +207,10 @@ It can improve the ability of decision-making management system of container shi
 
 \section{Problem Description and properties}
 \label{sec:pd}
+We put forward the stowage stack minimization problem with $K$ rehandles constraint problem (SSMP-KR) in this paper.
+Literally speaking, it is a container stowage planning problem whose objection is to figure out the minimization of used stacks with $K$ rehandles constraint on a given container shipping.
+The heuristic algorithm in this paper uses the greedy rule to decide the loading and unloading operations for each container to be loaded and unloaded in each port along the voyage.
+Therefore, the solution we get is the approximately optimal rather than the global optimal.
 
 A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route.
 There are standard containers to be shipped along the journey.
@@ -682,7 +669,7 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
 \small
   \centering
   \setlength{\belowcaptionskip}{10pt}
-  \caption{Results of the instances with $P\in\{5, 10\}$}  
+  \caption{Results of the instances with $P\in\{5, 10\}$}
   \begin{tabular}{ccccccccccccccc}
   \hline
   \multicolumn{1}{c}{\multirow{2}{*}{P}}
@@ -706,39 +693,39 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
   &\multicolumn{1}{c}{Heu}&{Ran}
   &\multicolumn{1}{c}{Heu}&{Ran}
   &\multicolumn{1}{c}{Heu}&{Ran}\\
-  \hline        
-    5     & 50    & 4     & 8     & 9.6   & 8     & 12.2  & 8     & 9.6   & 8     & 10.4  & 8     & 9.6   & 8     & 9.6 \\   
+  \hline
+    5     & 50    & 4     & 8     & 9.6   & 8     & 12.2  & 8     & 9.6   & 8     & 10.4  & 8     & 9.6   & 8     & 9.6 \\
     5     & 50    & 8     & 4     & 6     & 4.6   & 10    & 4     & 8.4   & 4     & 8     & 4     & 9.6   & 4     & 7.8 \\
     5     & 50    & 12    & 3     & 5     & 3.2   & 9.2   & 3.2   & 9.2   & 3     & 7     & 3     & 8.6   & 3     & 7.6 \\
-    5     & 100   & 4     & 15    & 16.8  & 15    & 18.4  & 15    & 16.2  & 15    & 16.2  & 15    & 16.6  & 15    & 16.6 \\    
+    5     & 100   & 4     & 15    & 16.8  & 15    & 18.4  & 15    & 16.2  & 15    & 16.2  & 15    & 16.6  & 15    & 16.6 \\
     5     & 100   & 8     & 7.6   & 9.6   & 7.6   & 14.2  & 7.6   & 14.8  & 7.6   & 12.8  & 7.6   & 12    & 7.6   & 13.2 \\
     5     & 100   & 12    & 5.4   & 7.6   & 5.4   & 14.2  & 5.6   & 14.4  & 5.4   & 12.6  & 5.4   & 13.2  & 5.4   & 12 \\
-    5     & 200   & 4     & 30.6  & 32.2  & 30.6  & 32.8  & 30.6  & 32.4  & 30.6  & 32.4  & 30.6  & 32    & 30.6  & 33 \\    
+    5     & 200   & 4     & 30.6  & 32.2  & 30.6  & 32.8  & 30.6  & 32.4  & 30.6  & 32.4  & 30.6  & 32    & 30.6  & 33 \\
     5     & 200   & 8     & 15.6  & 17.4  & 15.6  & 23.6  & 15.6  & 24.6  & 15.6  & 22.4  & 15.6  & 19.4  & 15.6  & 20.4 \\
     5     & 200   & 12    & 10.4  & 12.4  & 10.4  & 21.8  & 10.4  & 22.8  & 10.4  & 20.4  & 10.4  & 19.2  & 10.4  & 16.2 \\
-    5     & 500   & 4     & 76.6  & 78    & 76.6  & 78.6  & 76.6  & 78.6  & 76.6  & 78    & 76.6  & 77.8  & 76.6  & 79 \\    
+    5     & 500   & 4     & 76.6  & 78    & 76.6  & 78.6  & 76.6  & 78.6  & 76.6  & 78    & 76.6  & 77.8  & 76.6  & 79 \\
     5     & 500   & 8     & 38.6  & 40    & 38.6  & 46    & 38.6  & 44.4  & 38.6  & 45    & 38.6  & 42.8  & 38.6  & 42 \\
     5     & 500   & 12    & 26    & 27.4  & 26    & 38    & 26    & 36.2  & 26    & 39.8  & 26    & 37.6  & 26    & 33.8 \\
-    5     & 1000  & 4     & 152.2 & 153.8 & 152.2 & 153.6 & 152.2 & 153.6 & 152.2 & 154.2 & 152.2 & 154.2 & 152.2 & 153.4 \\    
+    5     & 1000  & 4     & 152.2 & 153.8 & 152.2 & 153.6 & 152.2 & 153.6 & 152.2 & 154.2 & 152.2 & 154.2 & 152.2 & 153.4 \\
     5     & 1000  & 8     & 76.6  & 78.2  & 76.6  & 82.2  & 76.6  & 81.8  & 76.6  & 81.4  & 76.6  & 80.2  & 76.6  & 79.6 \\
     5     & 1000  & 12    & 51    & 52.8  & 51    & 61.4  & 51    & 60.8  & 51    & 60.4  & 51    & 63    & 51    & 60.4 \\
-    10    & 50    & 4     & 7.8   & 12.6  & 9     & 12.4  & 8     & 11    & 7.8   & 10.2  & 7.8   & 9.8   & 7.8   & 9.6 \\    
+    10    & 50    & 4     & 7.8   & 12.6  & 9     & 12.4  & 8     & 11    & 7.8   & 10.2  & 7.8   & 9.8   & 7.8   & 9.6 \\
     10    & 50    & 8     & 4     & 10    & 6     & 10.8  & 6     & 10.8  & 5     & 10.4  & 4     & 8.8   & 4     & 8.8 \\
     10    & 50    & 12    & 3     & 9.4   & 5.6   & 12    & 4.6   & 11.4  & 4.4   & 9     & 3.2   & 8.8   & 3     & 8.6 \\
-    10    & 100   & 4     & 14.8  & 19.6  & 15.8  & 20.4  & 15.6  & 20.2  & 15    & 20.2  & 14.8  & 16.8  & 14.8  & 17.4 \\    
+    10    & 100   & 4     & 14.8  & 19.6  & 15.8  & 20.4  & 15.6  & 20.2  & 15    & 20.2  & 14.8  & 16.8  & 14.8  & 17.4 \\
     10    & 100   & 8     & 7.6   & 12.6  & 9.2   & 20    & 9.8   & 18.4  & 9.6   & 17    & 7.8   & 13.6  & 7.6   & 13.6 \\
     10    & 100   & 12    & 5.2   & 10.4  & 7     & 18.4  & 7     & 17.8  & 7.2   & 17.6  & 6.4   & 13.8  & 5.2   & 14.2 \\
-    10    & 200   & 4     & 28.6  & 33.2  & 29.6  & 35.4  & 29.6  & 36    & 28.6  & 34.4  & 28.6  & 31.4  & 28.6  & 30.6 \\    
+    10    & 200   & 4     & 28.6  & 33.2  & 29.6  & 35.4  & 29.6  & 36    & 28.6  & 34.4  & 28.6  & 31.4  & 28.6  & 30.6 \\
     10    & 200   & 8     & 14.4  & 19.2  & 16.4  & 28.6  & 16.6  & 29.2  & 16.2  & 25.6  & 14.8  & 27.4  & 14.4  & 23 \\
     10    & 200   & 12    & 9.8   & 15    & 12    & 26.4  & 12    & 27.2  & 11.8  & 26.8  & 11.4  & 24.2  & 9.8   & 24 \\
-    10    & 500   & 4     & 69.8  & 74.2  & 69.8  & 78    & 69.8  & 75.4  & 69.8  & 74.6  & 69.8  & 74.2  & 69.8  & 71.2 \\    
+    10    & 500   & 4     & 69.8  & 74.2  & 69.8  & 78    & 69.8  & 75.4  & 69.8  & 74.6  & 69.8  & 74.2  & 69.8  & 71.2 \\
     10    & 500   & 8     & 35    & 39.4  & 35.6  & 52.8  & 35    & 49.4  & 35.2  & 52.6  & 35    & 51.4  & 35    & 52.6 \\
     10    & 500   & 12    & 23.6  & 28    & 25.2  & 50.2  & 24.8  & 48.4  & 24.8  & 50    & 24    & 47.4  & 23.6  & 47.6 \\
-    10    & 1000  & 4     & 137.6 & 141.8 & 137.6 & 143.2 & 137.6 & 143.8 & 137.6 & 143.4 & 137.6 & 141.8 & 137.6 & 140.2 \\      
+    10    & 1000  & 4     & 137.6 & 141.8 & 137.6 & 143.2 & 137.6 & 143.8 & 137.6 & 143.4 & 137.6 & 141.8 & 137.6 & 140.2 \\
     10    & 1000  & 8     & 69    & 73.2  & 69.2  & 87.8  & 69    & 84.8  & 69.2  & 85.8  & 69    & 86    & 69    & 85.2 \\
     10    & 1000  & 12    & 46.2  & 50.4  & 46.6  & 77.2  & 46.8  & 78    & 46.8  & 74.4  & 46.6  & 76.4  & 46.2  & 74.8 \\
     \hline
-    \end{tabular}%    
+    \end{tabular}%
   \label{tab:2}%
 \end{table}%
 
@@ -747,7 +734,7 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
 \small
   \centering
   \setlength{\belowcaptionskip}{10pt}
-  \caption{Results of the instances with $P\in\{20, 30\}$}  
+  \caption{Results of the instances with $P\in\{20, 30\}$}
   \begin{tabular}{ccccccccccccccc}
   \hline
   \multicolumn{1}{c}{\multirow{2}{*}{P}}
@@ -771,7 +758,7 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
   &\multicolumn{1}{c}{Heu}&{Ran}
   &\multicolumn{1}{c}{Heu}&{Ran}
   &\multicolumn{1}{c}{Heu}&{Ran}\\
-  \hline       
+  \hline
     20    & 50    & 4     & 7.2   & 19.6  & 9     & 13    & 9     & 12.2  & 8     & 10.8  & 7.2   & 10.2  & 7.2   & 9.6 \\
     20    & 50    & 8     & 3.8   & 19    & 7.8   & 12.8  & 7     & 13    & 6.6   & 10.8  & 5.4   & 8.8   & 3.8   & 8.8 \\
     20    & 50    & 12    & 2.8   & 19    & 7.8   & 13.6  & 6.6   & 12.4  & 5.6   & 11    & 4     & 8     & 2.8   & 8 \\
@@ -803,7 +790,7 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
     30    & 1000  & 8     & 64.8  & 80.4  & 71.4  & 111.2 & 70.6  & 112.8 & 71    & 111.8 & 70.6  & 110.6 & 70.6  & 110 \\
     30    & 1000  & 12    & 43.2  & 59.4  & 50.8  & 107.6 & 50.6  & 108.8 & 50.8  & 108.6 & 50.8  & 107   & 50.8  & 101.2 \\
     \hline
-    \end{tabular}%    
+    \end{tabular}%
   \label{tab:3}%
 \end{table}%
 
@@ -934,7 +921,7 @@ The concrete content of "P\&H" algorithm isn't described in this paper but the c
 \begin{table}[htbp]
   \centering
   \setlength{\belowcaptionskip}{10pt}
-  \caption{average results of the instances with $P\&H$ algorithm}  
+  \caption{average results of the instances with $P\&H$ algorithm}
     \begin{tabular}{r|r|r|r|r|r}
     \hline
      $P\&H$       &0   &10  &20  &50  &100\\

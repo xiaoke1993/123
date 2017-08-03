@@ -64,7 +64,7 @@ Thus, it makes higher research demand.
 The container stowage plan is a pivotal link to containers transportation, and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas.
-These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} (reproduced from \cite{Delgado2012251}) shows a diagram of containership.
+These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} reproduced from \cite{delgado2012constraint} shows a diagram of containership.
 \begin{figure}[htbp]
 \center
 \setlength{\abovecaptionskip}{10pt}
@@ -88,10 +88,13 @@ Actual examples show that containership stowage plans not only influence the inc
 The problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s~\citep{webster1970container}.
 Most of previous research on stowage planning focus on how to minimize the number of rehandles \citep{ding2015stowage,zhang2016multiobjective,zehendner2017algorithm}.
 
-In this paper, we investigate the problem from a new perspective. We deal with Stowage Stack Minimization Problem (SSMP) which minimizes the number of used stacks. The problem has realistic meaning. In the real world, a carrier/forwarder may collect a few containers in a time interval and want to evaluate needed space (stacks), in order to estimate available space left. Or on the contrary, a carrier/forwarder wants to receive provisional shipment orders as many as possible while reserve enough space for regular shipment orders. Our algorithm provides them an indicator to achieve such goals.
+In this paper, we investigate the problem from a new perspective. We deal with Stowage Stack Minimization Problem (SSMP) which minimizes the number of used stacks.
+The problem has realistic meaning. In the real world, a carrier/forwarder may collect a few containers in a time interval and want to evaluate needed space (stacks), in order to estimate available space left.
+Or on the contrary, a carrier/forwarder wants to receive provisional shipment orders as many as possible while reserve enough space for regular shipment orders.
+Our algorithm provides them an indicator to achieve such goals.
 
 The contribution of our paper lies in three aspects.
-First, to the best of our knowledge, our paper considers number of stacks used for the first time, and this is a very practical consideration. 
+First, to the best of our knowledge, our paper considers number of stacks used for the first time, and this is a very practical consideration.
 As talked before, previous research usually focus on how to reduce the rehandles or shifts.
 Second, we analyze SSMP and give upper and lower bounds of SSMP. The bounds pave a way for future study.
 Third, we propose a heuristic algorithm to solve SSMP and the algorithm has a performance guarantee.
@@ -133,7 +136,7 @@ In \cite{ambrosino2004stowing} the problem of stowing containers into a containe
 This had been modified by an approach proposed by the authors, consisting of heuristic preprocessing and prestowing procedures that also allow the relaxation of some constraints of the exact model.
 The proposed approach exhibited very good performance in terms of both solution precision and computational time.
 Moreover, in the performance evaluation with real size cases, it also guaranteed another very important maritime performance index, in term of handling operations/hour.
-In \cite{Delgado2012251}, they focused on the slot planning phase and presented a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section.
+In \cite{parreno2016grasp}, they focused on the slot planning phase and presented a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section.
 This so-called slot planning problem was NP-hard and often involved stowing several hundred containers.
 Using state-of-the-art constraint solvers and modeling techniques, however, they were able to solve 90\% of 236 real instances from our industrial collaborator to optimality within 1 second.
 \cite{ambrosino2015mip} proposed a Mixed  Integer  Programming (MIP) heuristic aimed at determining stowage plans in circular routes for container ships so as to give support for the ship coordinator and the terminal planner.
@@ -148,7 +151,7 @@ Tabu search was employed to obtain an optimal solution in \cite{wilson2001contai
 Then, \cite{bortfeldt2003parallel} presented a parallel tabu search algorithm for the container loading problem with a single container to be loaded.
 According to an extensive comparative test also including heuristics from other authors, high utilizations of the container volume are already obtained with the sequential TSA (tabu search algorithm).
 A slight improvement of these results could be achieved by the parallelization.
-The Ship Stowage Planning Problem had been addressed in \cite{Monaco2014256}.
+The Ship Stowage Planning Problem had been addressed in \cite{monaco2014terminal}.
 They first provided a detailed description of the two phases in which the decision problem is usually decomposed, along with a classification scheme and a review of the most relevant related papers.
 They proposed a Binary Integer Model for the minimization of the transportation times of the containers and the yard-shifts and they developed a Tabu Search Algorithm for finding sub-optimal solutions to the problem and have solved the model by CPLEX.
 
@@ -162,7 +165,7 @@ The use of a time limit kept the required computing times within acceptable limi
 Search space was significantly reduced by a compact and efficient encoding scheme.
 Ship stability criteria were reflected by appropriate constraints.
 Simulation runs demonstrated the efficiency and flexibility of the GA-based approach.
-\cite{kammarti2013evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes (parent) from an initially constructed population using a roulette wheel technique.
+\cite{kammarti2009evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes (parent) from an initially constructed population using a roulette wheel technique.
 Then, the two parents were combined using a one point crossover operator.
 Finally, a mutation operator was performed.
 The variant tackled in \cite{cohen2017container} involved several constraints, inspired by real-life problems and application found in the literature.
@@ -187,7 +190,7 @@ The computational results demonstrated the effectiveness of the proposed algorit
 \cite{tierney2014complexity} investigated the complexity of stowage planning problem and showed that the capacitated k-shift problem is solvable in polynomial time for any choice of stacks and stack capacities.
 Some scholars paid special attention to the process of loading and unloading, \cite{malucelli2008stack} investigated stack reordering strategies aiming at minimizing the number of pop and push operations and  focused on three versions of the problem in which reordering can take place in different phases: when unloading the stack, when loading it or in both phases.
 There are some extended problems in this field.
-Different problems arising in practice in the context of storage areas organized in stacks have been surveyed by \cite{Lehnfeld2014297}.
+Different problems arising in practice in the context of storage areas organized in stacks have been surveyed by \cite{lehnfeld2014loading}.
 Different problem classes have been identified, namely loading, unloading, premarshalling and combined problems.
 To be able to categorize all these problems in a more abstract way, they developed a classification scheme which had been used to summarize complexity results and solution methods for all problem classes.
 In conclusion, many problems have already been solved by exact or heuristic methods in all four considered problem classes.
@@ -195,7 +198,7 @@ Nevertheless, due to the diversity of the problems, various other versions exist
 For further research, a major challenge is the development of more efficient solution algorithms integrating additional constraints coming from practical applications.
 As we all known, the 3D Container ship Loading Plan Problem (CLPP) is an important problem that appears in seaport container terminal operations and is well known to be NP-hard.
 This problem consists of determining how to organize the containers in a ship in order to minimize the number of movements necessary to load and unload the container ship and the instability of the ship in each port.
-In \cite{Araujo201650},  the hybrid method Pareto Clustering Search (PCS) was proposed to solve the CLPP and obtain a good approximation to the Pareto Front.
+In \cite{araujo2016pareto},  the hybrid method Pareto Clustering Search (PCS) was proposed to solve the CLPP and obtain a good approximation to the Pareto Front.
 The PCS aimed to combine metaheuristics and local search heuristics, and the intensification was performed only in promising regions.
 Computational results considering instances available in the literature were presented to show that PCS provides better solutions for the CLPP than a mono-objective Simulated Annealing.
 
@@ -625,45 +628,6 @@ The heuristic was implemented in Java and the experiments were conducted on a co
 The operating system of the computer is Windows 10.
 
 The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
-%
-%\begin{table}[htbp]
-%\scriptsize
-%  \centering
-%  \caption{Results of the instances with $P\in\{5, 10\}$}
-%  \begin{tabular}{ccccccccccccccc}
-%  \hline
-%  \multicolumn{1}{c}{\multirow{2}{*}{P}}
-%  & \multicolumn{1}{c}{\multirow{2}{*}{N}}
-%  & \multicolumn{1}{c}{\multirow{2}{*}{H}}
-%  & \multicolumn{1}{c}{\multirow{2}{*}{LB}}
-%  & \multicolumn{1}{c}{\multirow{2}{*}{UB}}
-%  & \multicolumn{2}{c}{K=0}
-%  & \multicolumn{2}{c}{K=10}
-%  & \multicolumn{2}{c}{K=20}
-%  & \multicolumn{2}{c}{K=50}
-%  & \multicolumn{2}{c}{K=100}\\
-%  \cline{6-15}
-%  \multicolumn{1}{c}{}
-%  &\multicolumn{1}{c}{}
-%  &\multicolumn{1}{c}{}
-%  &\multicolumn{1}{c}{}
-%  &\multicolumn{1}{c}{}
-%  &\multicolumn{1}{c}{Heu}&{Ran}
-%  &\multicolumn{1}{c}{Heu}&{Ran}
-%  &\multicolumn{1}{c}{Heu}&{Ran}
-%  &\multicolumn{1}{c}{Heu}&{Ran}
-%  &\multicolumn{1}{c}{Heu}&{Ran}\\
-%  \hline
-%  5	&50&	4&	8&	9.6&	8&	12.2&	8&	9.6&	8&	10.4&	8&	9.6&	8&	9.6\\
-%  5	&50&	7&	5&	6.8&	5&	9.8&	5&	9.6&	5&	8.2&	5&	9.4&	5&	9&\\
-%  5	&50&	8&	4	6	4.6	10	4	8.4	4	8	4	9.6	4	7.8
-%
-%
-%
-%  \end{tabular}
-%  \label{tab:2}
-%\end{table}
-
 
 \begin{table}[htbp]
 \small
@@ -793,61 +757,6 @@ The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
     \end{tabular}%
   \label{tab:3}%
 \end{table}%
-
-
-%\begin{table}[htbp]
-%\scriptsize
-%  \centering
-%  \caption{Results of the instances with $P\in\{20, 30\}$}
-%
-%    \begin{tabular}{r|r|r|r|r|r|r|r|r|r}
-%    \hline
-%    $P$     & $N$     & $H$  &LB   & UB    & K=0    & K=10     & K=20    & K=50  & K=100  \\
-%    \hline
-%    20   & 50    & 4  &7.2  & 19.6    & 9   & 9     & 8     & 7,2   & 7.2     \\
-%    20   & 50    & 7  &4.4  & 19.2    & 7.8   & 7     & 6.6     & 5.2   &4.4     \\
-%    20   & 50    & 8  &3.8  & 19      & 7.8 & 7     & 6.6     & 5.4   & 3.8     \\
-%    20   & 50    & 12 &2.8  & 19      & 7.8 & 6.6     &5.6     & 4   & 2.8     \\
-%    20   & 100   & 4  &14.2  & 25   & 16  & 16    & 16    & 14.2  & 14.2    \\
-%    20   & 100   & 7  &8.4  & 20.4   & 11.6   & 11.4   & 11.2   & 10.6 & 8.4   \\
-%    20   & 100   & 8  &7.4  & 19.6    & 10.8 & 11   & 10.8   & 10.2 & 7.6   \\
-%    20  & 100   & 12  &5 & 19.2    & 10.2 & 9.8   & 9   & 9 & 7.6   \\
-%    20   & 200   & 4  &27.6  & 37.6   & 29.8& 30.2  & 29.8  & 28.8& 27.6  \\
-%    20   & 200   & 7  &16.2  & 26.8   & 19.2& 20  & 19.4  & 18.8& 18.2  \\
-%    20   & 200   & 8  &14.2  & 25.2   & 17.6& 18  & 18  & 17.4& 17.4  \\
-%    20  & 200   & 12  &9.4 & 21.6   & 13.8& 13  & 13.8  & 13.2& 13.4  \\
-%    20   & 500   & 4  &67.6  & 77.2     &70.2 & 70.4  & 70  & 70.4& 67.6  \\
-%    20   & 500   & 7  &39  & 48.6   &41.8 & 42.4  & 42.2  & 42.2& 41.8  \\
-%    20  & 500   & 8   &34 & 43.6     &38 & 37.6  & 37.8  & 38 & 38  \\
-%    20  & 500   & 12  &22.8  & 33.2     &27  & 27.2    & 27.2    & 27.2  & 27.2    \\
-%    20   & 1000  & 4  &134.4  & 143.6  &135.8 & 135.8 & 136.2 & 136& 134.4\\
-%    20  & 1000  & 7   &77.2 & 86.4     &80.4 & 80.6  & 80.6  & 80.6 & 80.4  \\
-%    20  & 1000  & 8   &67.6 & 76.8   &70.6 & 71  & 70.4  & 70.4& 70.6 \\
-%    20  & 1000  & 12  &45.2 & 54.4   &48.8   & 49.8    & 49.2    & 49.2  & 48.8    \\
-%    30   & 50    & 4  &8  & 29.8   & 10   & 9.8   & 9.4    & 8  &8\\
-%    30   & 50    & 7  &4.8  & 29     & 8.4 & 7.4 & 7.8    & 5.8  &4.8\\
-%    30    & 50    & 8 &4.2   & 29     & 8.2   & 7.8   & 7.6      & 5.2   &4.2\\
-%    30    & 50    & 12 &3  & 29    & 8 & 7.4 & 6.8    & 5.2  &3.4\\
-%    30    & 100   & 4  &13.8  & 33.4   & 16.8& 16.6& 16.2    & 15.6 &13.8\\
-%    30    & 100   & 7  &8.2  & 29.8   & 12.2& 12& 11.6   & 11.6  &9.4\\
-%    30   & 100   & 8   &7.2 & 29.6   & 12 & 11.4 & 11.8    & 10.8  &9.8\\
-%    30   & 100   & 12  &5 & 29   & 10.8   & 10.4   & 10.2    & 9.8  &8.2\\
-%    30    & 200   & 4  &27.6  & 43.8   & 30.4& 31& 31.6   & 31.2 &28\\
-%    30    & 200   & 7  &16  & 33.8   &20& 19.8& 19.4     & 20.2 &20\\
-%    30    & 200   & 8  &14  & 32.2   & 18.6& 18.8& 19   & 19.4 &19.8\\
-%    30   & 200   & 12  &9.6 & 29.8     & 17  & 16.6  & 16.2  & 16.2 &16.2\\
-%    30    & 500   & 4  &64.8  & 80.4   & 69.6& 69.6& 69.6   & 69.4 &69.2\\
-%    30    & 500   & 7  &37.6  & 53.4   & 42.4& 42& 42.8   & 42.6   &42.8\\
-%    30    & 500   & 8  &32.6  & 49   & 38.4& 38.6  & 38.6   & 38.2   &37.8\\
-%    30    & 500   & 12 &22.2  & 39.2     & 29 & 28.6 & 28.6   & 28.6   &28.8\\
-%    30    & 1000  & 4  &128.8  & 144  & 133.6& 133.6& 133.6 & 133.8 &133.6\\
-%    30    & 1000  & 7  &74  & 89.6   & 79.8   & 79.8  & 79.8     & 80   &79.4\\
-%    30    & 1000  & 8  &64.8  & 80.4   & 71.4   & 70.6  & 71     & 70.6   &70.6\\
-%    30   & 1000  & 12  &43.2 & 59.4   & 50.8 & 50.6& 50.8   &50.8  &50.8\\
-%    \hline
-%    \end{tabular}
-%  \label{tab:3}
-%\end{table}
 
 Table \ref{tab:2} summarizes the results of those easy instances with small number of ports, i.e. $P \in \{5, 10\}$.
 For each given $P$, $N$ and $H$, we work out the value of $UB$, the average numbers of $Numofstack$ in different instances when $K$ selects different values.
@@ -1075,7 +984,7 @@ linear shipping company for transportation.
 
 
 \bibliographystyle{apalike2}
-\bibliography{references}
+\bibliography{/Github/123/Latex/references}
 \end{document}
 
 

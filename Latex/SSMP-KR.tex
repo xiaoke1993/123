@@ -34,8 +34,8 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic usefulness since it can help shipping forwarders estimate shipping space of each shippers.
 To our best knowledge, we propose SSMP for the first time in the academic community.
 
-In this paper, we talk about SSMP with K rehandles (SSMP-KR). A heuristic algorithm is put forward to construct solutions to the SSMP-KR. We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
-To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results when different values of K are selected.
+In this paper, we talk about SSMP with $K$ rehandles. A heuristic algorithm is put forward to construct solutions. We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results when different values of $K$ are selected.
 What's more, instances with different values of ports, containers and heights have been tested to make sure the universality of our algorithm.
 \end{abstract}
 
@@ -93,29 +93,27 @@ The problem has realistic meaning. In the real world, a carrier/forwarder may co
 Or on the contrary, a carrier/forwarder wants to receive provisional shipment orders as many as possible while reserve enough space for regular shipment orders.
 Our algorithm provides them an indicator to achieve such goals.
 
-The contribution of our paper lies in three aspects.
+The contribution of our paper lies in four aspects.
 First, to the best of our knowledge, our paper considers number of stacks used for the first time, and this is a very practical consideration.
 As talked before, previous research usually focus on how to reduce the rehandles or shifts.
-Second, we analyze SSMP and give upper and lower bounds of SSMP. The bounds pave a way for future study.
-Third, we propose a heuristic algorithm to solve SSMP and the algorithm has a performance guarantee.
+Second, we assume a circular route. In the real world, ship lines are all circular; no working ship stops in a port. We start from a circular route and then convert it to a equivalent liner one. 
+Third, we analyze SSMP and give upper and lower bounds of SSMP. The bounds pave a way for future study.
+Fourth, we propose a heuristic algorithm to solve SSMP and the algorithm has a performance guarantee.
 
 The remainder of this paper is organized as follows: we review extant research works in Section~\ref{sec:lr}. The formal definition of SSMP and its properties are provided in Section~\ref{sec:pd}.
 In Section~\ref{sec:algo}, we present our heuristic algorithm and the performance analysis.
 Experiments are illustrated in Section~\ref{sec:ea}. Concluding remarks close the paper in Section~\ref{sec:con}.
 
-\section{Literature Review}
+\section{Literature review}
 \label{sec:lr}
-The container stowage problem can be divided into two classes based on the place todo: one is management and programming at the container terminal, the other is stowage plan for containership.
-This paper mainly focuses on the latter.
-
-Sorted by research method, this problem will be divided into six categories: simulation based on  probability, heuristic procedures, mathematical programming approach, decision support system, expert system and evolutionary computation.
-The following are some reviews about these categories of containership stowage plan.
-
-Since 1970s, the stowage plan problem has been studied by shipping organization for commercial demand.
-They tried to find a good solution which would satisfy fewer shifting and higher efficiency when loading and discharging containers.
+The container handling problems can be divided into two streams based on the container handling locations occurred; one is container management at terminals, and the other is container stowage planning problems (CSP) on containerships.
+The problem discussed in this paper belongs to the latter.
+Since 1970s, CSP has been studied by shipping organizations for commercial demand.
+Research methods of CSP can be divided into six categories: simulation methods based on probability, heuristic procedures, mathematical programming approach, decision support systems, expert systems and evolutionary computation.
+The following section will review relevant works.
 
 \cite{shields1984containership} introduced a computer preplanning system (CAPS) which had been used by American President Lines.
-The CAPS produced stowage plan by using Monte Carlo theory.
+The CAPS produced stowage plans by using Monte Carlo theory.
 \cite{dillingham1986application} introduced their researches on expert system of stowage based on rules.
 Each of the suggested container movements was displayed graphically as the decisions were made.
 \cite{wilson2001container} outlined a computer system that generated good sub-optimal solutions to the stowage pre-planning problem.
@@ -208,20 +206,23 @@ Intelligent containership stowage plan system is a technological innovation in c
 It can improve the ability of decision-making management system of container shipping by means of artificial intelligence, information technology, communications and computer technology.
 
 
-\section{Problem Description and properties}
+\section{Problem description and properties}
 \label{sec:pd}
-We put forward the stowage stack minimization problem with $K$ rehandles constraint problem (SSMP-KR) in this paper.
-Literally speaking, it is a container stowage planning problem whose objection is to figure out the minimization of used stacks with $K$ rehandles constraint on a given container shipping.
-The heuristic algorithm in this paper uses the greedy rule to decide the loading and unloading operations for each container to be loaded and unloaded in each port along the voyage.
-Therefore, the solution we get is the approximately optimal rather than the global optimal.
+\subsection{Problem description}
+We put forward SSMP in this subsection.
+Literally speaking, SSMP is a variant of CSP. 
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route. 
+Standard containers are shipped along the journey.
+Since the route is circular, some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
 
-A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route.
-There are standard containers to be shipped along the journey.
-Some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
-Hence, it is easy to understand that containers with $O(i)<D(i)$ and with $O(i)>D(i)$ both exist.
-Moreover, the ship is never empty once sets out due to the circular feature.
+Given certain containers to be shipped, the objective of SSMP is to figure out a stowage planning so as to minimize needed stacks. The needed number of stacks is a finite number instead of an infinite number although the ship sails all the time in a circular route. This will be explained in the next subsection.
+In this paper, we extend SSMP with zero rehandle \citep{wang2014stowage}, assuming that $K$ rehandles are allowed.
 
-Assumption:
+TODO: other assumption
+
+
+
+\subsection{Equivalent liner route}
 
 Supposing that the voyage terminates in the second circle, we can break the loop into a straight line.
 A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$.
@@ -324,6 +325,8 @@ Comparing with the IP model for the capacitated SSMP-ZR, we can find that the re
 \section{Methodology}
 \label{sec:algo}
 In this section, we will talk about the heuristic algorithms to the SSMP-KR as well as the basic performance guarantee of the algorithms.
+The heuristic algorithm in this paper uses the greedy rule to decide the loading and unloading operations for each container to be loaded and unloaded in each port along the voyage.
+Therefore, the solution we get is the approximately optimal rather than the global optimal.
 
 \subsection{Heuristic Algorithms for the SSMP-KR}
 \label{sec:h1}
@@ -984,7 +987,7 @@ linear shipping company for transportation.
 
 
 \bibliographystyle{apalike2}
-\bibliography{/Github/123/Latex/references}
+\bibliography{references}
 \end{document}
 
 

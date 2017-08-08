@@ -96,7 +96,7 @@ Our algorithm provides them an indicator to achieve such goals.
 The contribution of our paper lies in four aspects.
 First, to the best of our knowledge, our paper considers number of stacks used for the first time, and this is a very practical consideration.
 As talked before, previous research usually focus on how to reduce the rehandles or shifts.
-Second, we assume a circular route. In the real world, ship lines are all circular; no working ship stops in a port. We start from a circular route and then convert it to a equivalent liner one. 
+Second, we assume a circular route. In the real world, ship lines are all circular; no working ship stops in a port. We start from a circular route and then convert it to a equivalent liner one.
 Third, we analyze SSMP and give upper and lower bounds of SSMP. The bounds pave a way for future study.
 Fourth, we propose a heuristic algorithm to solve SSMP and the algorithm has a performance guarantee.
 
@@ -208,25 +208,40 @@ It can improve the ability of decision-making management system of container shi
 
 \section{Problem description and properties}
 \label{sec:pd}
-\subsection{Problem description}
+\subsection{Problem description and notation}
 We put forward SSMP in this subsection.
-Literally speaking, SSMP is a variant of CSP. 
-A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route. 
-Standard containers are shipped along the journey.
-Since the route is circular, some containers are shipped from $i$ to $j$ ($i<j$) and some containers are shipped from $i$ to $j$ ($i>j$) going across port 1.
+Literally speaking, SSMP is a variant of CSP.
+A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route.
+Containers are shipped along the journey.
+Since the route is circular, some containers are shipped from port $i$ to port $j$ ($i<j$) and some containers are shipped from port $i$, across port 1 and to port $j$ ($i>j$) .
 
 Given certain containers to be shipped, the objective of SSMP is to figure out a stowage planning so as to minimize needed stacks. The needed number of stacks is a finite number instead of an infinite number although the ship sails all the time in a circular route. This will be explained in the next subsection.
-In this paper, we extend SSMP with zero rehandle \citep{wang2014stowage}, assuming that $K$ rehandles are allowed.
+In this paper, we extend SSMP with zero rehandle constraint \citep{wang2014stowage}, assuming that $K$ rehandles are allowed.
 
-TODO: other assumption
+Other assumptions in this paper:
+\begin{itemize}
+\item Containers loaded are uniform standard 20-ft containers;
+\item The containership is large enough to accommodate all the given containers;
+\item Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$;
+\item The balance of the containership can be resolved by assigning container stacks and water-ballast; hence, the balance is not considered when minimizing container stacks.
+\end{itemize}
 
-
+If the number of containers in a non-empty stack is less than $H$, the stack is termed as a \textit{partial} stack; otherwise it is a \textit{full} stack.
+If a container with far destination is placed above one with near destination, we call this \textit{overstow}. 
+If overstows occur, containers above (\textit{forced containers}) will be placed on the yard temporally when retrieving the underneath container (\textit{target container}).
+When moving forced containers back to the ship, there is no guarantee that they will be returned to their original slots.
+A feasible solution to the SSMP is represented by a sequence of operations. Each operation indicates the number of container and the accommodating stack. Especially, the yard is term as stack 0.
 
 \subsection{Equivalent liner route}
+\begin{proposition}
+An instance of circular route can be converted into an instance of liner route.
+\end{proposition}
 
-Supposing that the voyage terminates in the second circle, we can break the loop into a straight line.
-A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$.
-There will be $P$ kinds of different containers according to their origin ports.
+\textbf{Explanation}
+Supposing that a ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$....
+According to the itinerary, containers can be classified into $P*(P-1)$ types:
+
+TODO:
 Containers at port 1 can be transported into port 2, 3, ..., $P-1$, $P$.
 Containers at port 2 can be transported into port 3, 4, ..., $P$, 1.
 The last kind of containers originates from port $P$ and can be transported into port 1, 2, ..., $P-1$.
@@ -253,22 +268,13 @@ A container is called a j-container if it is destined for port j.
 A j-container is called a i, j-container if it is originated from port i.
 A j-container in slot (s, t) is said to be blocked if there exists a j'-container in slot (s', t) with j' $>$ j and s'$<$s, and the j'-container is called a blocking container with respect to the j-container.
 Occurrence of container blocking at any time means that shifts are no longer avoidable.
+\begin{proposition}
+The needed number of stacks for an instance of circular route is a finite number.
+\end{proposition}
 
-We assume that the ship has enough capacity to accommodate all the containers along the journey.
-The ship spaces are divided into several stacks.
-Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$.
-When $H$ is bounded, we call the SSMP-KR as the Capacitated SSMP-KR (CSSMP-KR);
-when $H$ is sufficiently large (e.g., $H\geq N$) or unbounded, we refer to it as the Uncapacitated SSMP-KR (USSMP-KR).
-For the CSSMP-KR, if the number of containers in a non-empty stack is less than $H$, the stack is termed as a \textit{partial} stack;
-otherwise it is a \textit{full} stack.
-The objective of the SSMP-KR is to transport all the containers using the fewest number of stacks with K rehandles allowed.
-The USSMP-KR is far from the real situation in the stowage planning, since stack heights of ships are restricted by operation cranes.
-Hence, this paper give emphasis on the CSSMP-KR and for the convenience of description, we use SSMP-KR for short in this paper.
 
-A feasible solution to the SSMP-KR with the container stowage plan is represented by a operation set, from which we can clearly know the slot changing of each container, even when there is an overstowage.
-We have also given the layout of containers in vessel after loading and unloading each container to help us observe the result.
-The detailed introduction will be given in the following section.
 
+\subsection{Integer model}
 Considering that the complexity of working out the integer model for the SSMP-KR problem, we give the IP model for the capacitated SSMP-ZR problem for reference.
 The capacitated SSMP-ZR can be mathematically formulated by the following integer programming (IP) model.
 

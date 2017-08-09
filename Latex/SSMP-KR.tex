@@ -96,7 +96,7 @@ Our algorithm provides them an indicator to achieve such goals.
 The contribution of our paper lies in four aspects.
 First, to the best of our knowledge, our paper considers number of stacks used for the first time, and this is a very practical consideration.
 As talked before, previous research usually focus on how to reduce the rehandles or shifts.
-Second, we assume a circular route. In the real world, ship lines are all circular; no working ship stops in a port. We start from a circular route and then convert it to a equivalent liner one.
+Second, we assume a circular route. In the real world, ship lines are all circular; no working ship stops in a port. We start from a circular route and then convert it to a equivalent linear one.
 Third, we analyze SSMP and give upper and lower bounds of SSMP. The bounds pave a way for future study.
 Fourth, we propose a heuristic algorithm to solve SSMP and the algorithm has a performance guarantee.
 
@@ -212,66 +212,66 @@ It can improve the ability of decision-making management system of container shi
 We put forward SSMP in this subsection.
 Literally speaking, SSMP is a variant of CSP.
 A ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$, 1, ..., which forms a circular route.
-Containers are shipped along the journey.
-Since the route is circular, some containers are shipped from port $i$ to port $j$ ($i<j$) and some containers are shipped from port $i$, across port 1 and to port $j$ ($i>j$) .
+$N$ containers are shipped along the journey.
+At each port, the containers destined to the current port are discharged, and the containers await on yard are loaded to the ship.
+We use $O(c)$ and $D(c)$ to denote the original and destination ports of container $c$, respectively. Accordingly, the itinerary is represented by a tuple $\{O(c), D(c)\}$.
+Since the route is circular, some containers are shipped from port $p$ to port $q$ ($p<q$) and some containers are shipped from port $p$, across port 1 and to port $q$ ($p>q$).
 
-Given certain containers to be shipped, the objective of SSMP is to figure out a stowage planning so as to minimize needed stacks. The needed number of stacks is a finite number instead of an infinite number although the ship sails all the time in a circular route. This will be explained in the next subsection.
+Given $N$ containers to be shipped, the objective of SSMP is to figure out a stowage planning so as to minimize needed stacks. The needed number of stacks is a finite number instead of an infinite number although the ship sails all the time in a circular route. This will be explained in the next subsection.
 In this paper, we extend SSMP with zero rehandle constraint \citep{wang2014stowage}, assuming that $K$ rehandles are allowed.
 
 Other assumptions in this paper:
 \begin{itemize}
 \item Containers loaded are uniform standard 20-ft containers;
+\item The information of $N$ containers are known in advance;
 \item The containership is large enough to accommodate all the given containers;
 \item Each stack can hold at most $H$ vertically piled containers, i.e., the height limit of every stack is $H$;
 \item The balance of the containership can be resolved by assigning container stacks and water-ballast; hence, the balance is not considered when minimizing container stacks.
 \end{itemize}
 
 If the number of containers in a non-empty stack is less than $H$, the stack is termed as a \textit{partial} stack; otherwise it is a \textit{full} stack.
-If a container with far destination is placed above one with near destination, we call this \textit{overstow}. 
-If overstows occur, containers above (\textit{forced containers}) will be placed on the yard temporally when retrieving the underneath container (\textit{target container}).
-When moving forced containers back to the ship, there is no guarantee that they will be returned to their original slots.
-A feasible solution to the SSMP is represented by a sequence of operations. Each operation indicates the number of container and the accommodating stack. Especially, the yard is term as stack 0.
+If a container with far destination is placed above one with near destination, we call this \textit{overstow}.
+If overstows occur, containers above (\textit{blocking containers}) will be placed on the yard temporally when retrieving the underneath container (\textit{target container}).
+When moving blocking containers back to the ship, there is no guarantee that they will be returned to their original slots.
+A feasible solution to the SSMP is represented by a sequence of operations. Each operation indicates the number of container and the accommodating stack. Especially, the yard is term as stack 0. Moving a container $c$ to stack 0 means that $c$ is a blocking container and moved temporally on the yard.
 
-\subsection{Equivalent liner route}
+\subsection{Equivalent linear route}
 \begin{proposition}
-An instance of circular route can be converted into an instance of liner route.
+An instance of circular route can be converted into an instance of linear route.
 \end{proposition}
 
-\textbf{Explanation}
-Supposing that a ship starts its journey at port 1 and sequentially visits port 2, 3, ..., $P$, 1, 2, 3, ... $P$....
-According to the itinerary, containers can be classified into $P*(P-1)$ types:
+\begin{proof}
+Supposing that a ship starts its journey at port 1 and sequentially visits port 2, ..., $P$, 1, 2, ..., $P$, 1, .... 
+There are $P*(P-1)$ types of possible itineraries, which are:
+\begin{itemize}
+\item $\{1,2\},\{1,3\}...,\{1, P-1\},\{1,P\}$;
+\item $\{2,3\},\{2,4\}...,\{2, P\},\{2,1\}$;
+\item $...$;
+\item $\{P-1,P\},\{P-1,1\}...,\{P-1, P-3\},\{P-1,P-2\}$;
+\item $\{P,1\},\{P,2\}...,\{P, P-2\},\{P,P-1\}$;
+\end{itemize}
+Since the port number is only a reference to the port, for itineraries with $O(c)>D(c)$, we rename the destination port $D(c)$ with $D(c)+P$. Hence, the possible itineraries become
+\begin{itemize}
+\item $\{1,2\},\{1,3\}...,\{1, P-1\},\{1,P\}$;
+\item $\{2,3\},\{2,4\}...,\{2, P\},\{2,P+1\}$;
+\item $...$;
+\item $\{P-1,P\},\{P-1,P+1\}...,\{P-1, 2P-3\},\{P-1,2P-2\}$;
+\item $\{P,P+1\},\{P,P+2\}...,\{P, 2P-2\},\{P,2P-1\}$;
+\end{itemize}
 
-TODO:
-Containers at port 1 can be transported into port 2, 3, ..., $P-1$, $P$.
-Containers at port 2 can be transported into port 3, 4, ..., $P$, 1.
-The last kind of containers originates from port $P$ and can be transported into port 1, 2, ..., $P-1$.
-However, we only work out the result under the condition that $O(i)<D(i)$ happens for the convenience of experiment design.
-Consequently, we need break the loop voyage into the line voyage.
-Actually it is not difficult, we can regard the port 1 in the second circle as port $P+1$, the next port in the second circle will be port $P+2$ and so on.
-%It can be applied into the other circumstance when $O(i)>D(i)$ happens if we regard port $O(i)$ as the port 1 in the special circular route.
-Eventually we only need work out the container stowage planning for the line voyage from port 1 to port $2P$ and it is equivalent to cope with the problem with a two-loop voyage.
-Similarly, we can use this method to deal with the circular route container stowage problem no matter how many loops there are.
-There is another approach we can figure out to solve the circular route problem.
-After going across port 1 in each circle, we reset the origin port of containers remained in vessel as port 1.
-For example, containers from port 3 to the port 2 in the next circle will be containers from 1 to port 2 after going across port 1 in the next circle.
-Thus, it only exists the port from port 1 to port $P$.
-In addition, all the loading and discharging ports of $N$ containers are known in advance.
-That's to say, we adopt the so-called "look ahead"  mechanism, which can make use of all loading information available.
-It is helpful for us to make detailed container stowage plan.
+Now we consider a linear instance. Assume a ship visits port 1, 2, ..., $P$, $P+1$, $P+2$, ..., $2P-1$, then possible itineraries include $\{1,2\},\{1,3\},...,\{1,2P-1\},\{2,3\},...,\{2,2P-1\},...,\{2P-2,2P-1\}$. The set of itineraries of a $P$-port circular instance are only a subset of that of a ($2P-1$)-port linear instance.
 
-At each port, the containers destined to the current port are discharged, and the containers stowed at the port are loaded to the ship.
-Each container $i$ is characterized by its shipping leg $O(i)\rightarrow D(i)$, indicating that the container is loaded at port $O(i)$ and discharged at port $D(i)$.
-The containers remain unmoved when the ship voyages among the ports.
-Rehandles may occur in these ports, either necessary or voluntary or both.
-A container is called a j-container if it is destined for port j.
-0bviously all j-containers are loaded before the ship visits port j and should be unloaded at port j.
-A j-container is called a i, j-container if it is originated from port i.
-A j-container in slot (s, t) is said to be blocked if there exists a j'-container in slot (s', t) with j' $>$ j and s'$<$s, and the j'-container is called a blocking container with respect to the j-container.
-Occurrence of container blocking at any time means that shifts are no longer avoidable.
+Based on the above analysis, we can conclude that an instance of circular route can be converted to an instance of linear route by renaming $D(c)$ with $D(c)+P$ for itineraries with $O(c)>D(c)$.
+
+%There is another approach we can figure out to solve the circular route problem.
+%After going across port 1 in each circle, we reset the origin port of containers remained in vessel as port 1.
+%For example, containers from port 3 to the port 2 in the next circle will be containers from 1 to port 2 after going across port 1 in the next circle.
+%Thus, it only exists the port from port 1 to port $P$.
+\end{proof}
+
 \begin{proposition}
 The needed number of stacks for an instance of circular route is a finite number.
 \end{proposition}
-
 
 
 \subsection{Integer model}
@@ -336,7 +336,10 @@ Therefore, the solution we get is the approximately optimal rather than the glob
 
 \subsection{Heuristic Algorithms for the SSMP-KR}
 \label{sec:h1}
-
+A container is called a $p$-container if it is destined for port $p$.
+Obviously all $p$-containers are loaded before the ship visits port $p$ and should be unloaded at port $p$.
+A j-container is called a i,j-container if it is originated from port i.
+A j-container in slot (s, t) is said to be blocked if there exists a j'-container in slot (s', t) with $j'>j$ and $s'<s$, and the j'-container is called a blocking container with respect to the j-container.
 Before the introduction of our algorithm, we give the related notations as followings in Table \ref{tab:1}:
 
 \begin{table}[htbp]

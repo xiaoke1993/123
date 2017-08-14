@@ -292,7 +292,7 @@ For the special case with zero rehandle, we only need to consider the loading pr
 In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship.
 $x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise.
 $y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
-$O(i)$ and $D(i)$ indicate the shipping leg of container $i$. 
+$O(i)$ and $D(i)$ indicate the shipping leg of container $i$.
 The objective minimizes the number of stacks used.
 Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
 Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks.
@@ -301,28 +301,41 @@ Constraints (\ref{eqn:4}) avoid rehandle requiring that container $i$ is prohibi
 
 The IP solution can be converted into a complete loading plan: start from port $p=1$ to port $p=P$. At port $p$, containers are sorted in a descending order of destination ports. Each container $i$ is loaded to the top of its corresponding stack $s^*$ which satisfies $x_{is^*}=1$.
 
-For the IP model of general SSMP, it is hard to build a model. 
-Since there are rehandles, we have to move blocking containers on the yard and back to the ship. 
-The stacks of blocking containers are not necessarily the original slots. 
-If we want to model the slots of blocking containers, we have to set variable $x_{ctl}$ that indicates the slot $t$ of a container $c$ at a layout $l$. 
+For the IP model of general SSMP, it is hard to build a model.
+Since there are rehandles, we have to move blocking containers on the yard and back to the ship.
+The stacks of blocking containers are not necessarily the original slots.
+If we want to model the slots of blocking containers, we have to set variable $x_{ctl}$ that indicates the slot $t$ of a container $c$ at a layout $l$.
 We do not know which containers are blocking containers in advance, therefore the domain of $c$ is the whole set of $N$ containers.
-Especially, whenever we load or discharge a container, it forms a layout. 
+Especially, whenever we load or discharge a container, it forms a layout.
 In addition, we do not know the number of layouts in advance.
 All in all, the number of slots, containers, and layouts are numerous. Apart from other variables and constraints, the number of variable $x_{ctl}$ alone is too large to make the model meaningful and solvable.
 
 \section{Methodology}
 \label{sec:algo}
-In this section, we will talk about the heuristic algorithms to the SSMP-KR as well as the basic performance guarantee of the algorithms.
-The heuristic algorithm in this paper uses the greedy rule to decide the loading and unloading operations for each container to be loaded and unloaded in each port along the voyage.
-Therefore, the solution we get is the approximately optimal rather than the global optimal.
+In this section, we will talk about the heuristic algorithm to solve the SSMP as well as the performance guarantee of the algorithm.
+The heuristic algorithm uses a greedy rule to decide the loading and unloading operations for each container in each port along the voyage.
 
-\subsection{Heuristic Algorithms for the SSMP-KR}
+\subsection{Heuristic algorithm for the SSMP}
 \label{sec:h1}
-A container is called a $p$-container if it is destined for port $p$.
-Obviously all $p$-containers are loaded before the ship visits port $p$ and should be unloaded at port $p$.
-A j-container is called a i,j-container if it is originated from port i.
-A j-container in slot (s, t) is said to be blocked if there exists a j'-container in slot (s', t) with $j'>j$ and $s'<s$, and the j'-container is called a blocking container with respect to the j-container.
-Before the introduction of our algorithm, we give the related notations as followings in Table \ref{tab:1}:
+Algorithm~\ref{alg:1} solves instances of SSMP.
+For each port $p$ along the voyage, containers with $D(c)==p$ are discharged one by one. Especially, if there exist blocking containers, they are moved on the yard temporally. After containers with $D(c)==p$ are discharged, containers on yard (including containers with $O(c)==p$ and blocking containers) are loaded.
+
+\begin{algorithm}
+  \caption{A heuristic procedure for the SSMP}
+  \label{alg:1}
+  \begin{codebox}
+  \Procname{\proc{Heuristic(I)}}
+
+    \li \For each port $p=1, 2 , \ldots,P $
+     \li \Do
+                Unload containers with $O(c)==p$.
+    \li   \For each stack $i=1, 2, \ldots, UB$.
+    \li \Do
+              work out the value of Numofstack through counting the number of non-empty stacks.
+          \End
+       \End
+\end{codebox}
+\end{algorithm}
 
 \begin{table}[htbp]
 \scriptsize
@@ -382,30 +395,7 @@ when overstowage happen, we have to unload the blocking containers before discha
 As for blocking containers, we will reset their origin ports as current port after unloading them and their destination ports remain unchanged.
 That's to say, the outbound containers at the current port increase.
 
-We give out some key procedures of our algorithms in the following context:
-For all the ports along the voyage, we adopt the heuristic method to dispose for the given input.
-Through the heuristic method, we can transfer the input into the output.
 
-The following pseudo gives a simplistic explanation of heuristic method, which is our main method.
-
-\begin{algorithm}
-  \caption{The procedure of the heuristic() method}
-  \label{alg:1}
-  \begin{codebox}
-  \Procname{\proc{Heuristic() method for the SSMP-KR}}
-
-    \li \For each port $p=1, 2 , \ldots,P $.
-     \li \Do
-                Unload containers destined at port $p$.
-
-                Load containers originated from port $p$.
-    \li   \For each stack $i=1, 2, \ldots, UB$.
-    \li \Do
-              work out the value of Numofstack through counting the number of non-empty stacks.
-          \End
-       \End
-\end{codebox}
-\end{algorithm}
 
 
 The following pseudo introduce the procedure to deal with the simple condition that there isn't rehandle allowed.

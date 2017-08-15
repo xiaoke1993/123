@@ -315,54 +315,36 @@ All in all, the number of slots, containers, and layouts are numerous. Apart fro
 In this section, we will talk about the heuristic algorithm to solve the SSMP as well as the performance guarantee of the algorithm.
 The heuristic algorithm uses a greedy rule to decide the loading and unloading operations for each container in each port along the voyage.
 
-\subsection{Heuristic algorithm for the SSMP}
-\label{sec:h1}
-Algorithm~\ref{alg:1} solves instances of SSMP.
-For each port $p$ along the voyage, containers with $D(c)==p$ are discharged one by one. Especially, if there exist blocking containers, they are moved on the yard temporally. 
-After containers with $D(c)==p$ are discharged, containers on yard (including containers with $O(c)==p$ and blocking containers) are loaded.
+For the sake of description, we will use some notations presented in the following Table \ref{tab:1} before we begin to introduce our algorithm.
+If the allowed K doesn't reach when loading containers, we use arraylist $S_1$ to store partial stacks without rehandles occuring, arraylist $S_2$ to store partial stacks with rehandles occuring, arraylist $S_3$ to store empty stacks.
+The priority order of them is $S_1$, $S_2$, $S_3$.
+If there isn't an overstowage allowed when loading containers, we use $S_0$ to store the feasible stacks, including the partial stacks without rehandles occuring and the empty stacks.
+For ease of illustration, we need to explain the definition of nearport.
+For example, three containers are stored in the same stack, and their destination ports are 4,5,6, respectively, then the value of nearport of this stack is 4.
+If a stack is empty, its nearport will be set to $P+1$, here $P$ is the total number of the ports along the voyage.
+As for other notations, we can find their meanings in this table when we need to know them.
 
-\begin{algorithm}
-  \caption{A heuristic procedure for the SSMP}
-  \label{alg:1}
-  \begin{codebox}
-  \Procname{\proc{Heuristic(I)}}
-
-    \li \For each port $p=1, 2 , \ldots,P $
-    \li \Do
-                Unload containers with $D(c)==p$.
-    \li         Sort containers with $O(c)==p$ by the decreasing order of their destinations.
-    \li         \For each container $c$ with $O(c)==p$ at port $p$
-    \li         \Do
-                   \If $k==K$
-    \li            \Then 
-                        execute method $loading\_rehandle\_equalK(c,nearport)$.
-    \li            \Else If $k < K$
-    \li                 execute method $loading\_rehandle\_lessK(c,nearport)$.
-                   \End
-                \End
-    \li          Update the value of $NumofStack$. 
-        \End
-    \li Output the value of $NumofStack$.
-                 
- \end{codebox}
- \end{algorithm}
-
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \scriptsize
   \centering
   \setlength{\belowcaptionskip}{10pt}
   \caption{constants, sets, variables and methods in the algorithm}
     \begin{tabular}{r|l}
     \hline
-     $K$, $P$ ,$N$ , $H$ & the meanings of these constants are the same as what described in the above\\
+     %$K$, $P$ ,$N$ , $H$ & the meanings of these constants are the same as what described in the above\\
     % $LB$ & the lower bound for each given instance\\
     % $UB$ & the upper bound for each given instance\\
+     $P$ & the number of total ports\\
+     $N$ & the number of total containers to be transported\\
+     $H$ & the limited height of stacks in the vessel\\
+     $K$ & the number of allowed rehandles\\
+     $k$  & a variable to record how many rehandles have been used\\
      $S_0$ & stack index set to store feasible stacks when there isn't an rehandle allowed\\
      $S_1$ & stack index set to store partial stacks without rehandles when $K$ doesn't reach\\
      $S_2$ & stack index set to store partial stacks with rehandles when $K$ doesn't reach\\
      $S_3$ & stack index set to store empty stacks when $K$ doesn't reach\\
      $height$ & a one-dimension array, represents the current height of each stack\\
-     $Layout$ & a two-dimension array, represents the layout of containers in vessel after each operation\\
+%     $Layout$ & a two-dimension array, represents the layout of containers in vessel after each operation\\
      $Numofstack$ & the cumulative number of used stacks\\
      $nearport$ & a one-dimension array to store the nearest port in all containers for each stack\\
      %$lb$  & a one-dimension array, represents the lower bound of used stacks in each port\\
@@ -379,84 +361,122 @@ After containers with $D(c)==p$ are discharged, containers on yard (including co
 \end{table}
 
 
+\subsection{Heuristic algorithm for the SSMP}
+\label{sec:h1}
+Algorithm \ref{alg:1} solves instances of SSMP.
+Given an instance I, for each port $p$ along the voyage, containers with $D(c)==p$ are discharged one by one. Especially, if there exist blocking containers, they are moved on the yard temporally.
+After containers with $D(c)==p$ are discharged, containers on yard (including containers with $O(c)==p$ and blocking containers) are sorted in order and loaded.
+The value of $NumofStack$ will be updated when all the containers related with port $p$ are either discharged or loaded.
+The algorithm finally outputs the value of $NumofStack$ when all containers in an instance are processed.
 
-If the allowed K doesn't reach When loading containers, we use arraylist $S_1$ to store partial stacks without rehandles occuring, arraylist $S_2$ to store partial stacks with rehandles occuring, arraylist $S_3$ to store empty stacks.
-The priority order of them is $S_1$, $S_2$, $S_3$.
-If there isn't an overstowage allowed when loading containers, we use $S_0$ to store the feasible stacks.
-For ease of illustration, we need to explain the definition of nearport.
-For example, three containers are stored in the same stack, and their destination ports are 4,5,6, respectively, then the value of nearport of this stack is 4.
-If a stack is empty, its nearport will be set to $P+1$, here $P$ is the total number of the ports along the voyage.
+\begin{algorithm}[!htbp]
+  \caption{A heuristic procedure for the SSMP}
+  \label{alg:1}
+  \begin{codebox}
+  \Procname{\proc{Heuristic(I)}}
 
-For the sake of description, we will use some notations presented in Table \ref{tab:1}.
-We firstly talk about the simple condition that the allowed rehandles run out.
-When traversing all the stacks to choose the optimal one for each container according to our rules, we add non-full stacks whose nearest port is no smaller than the current loading container into arraylist $S_0$.
-For the stacks in $S_0$, we choose the one with the nearest port.
-Afterwards, we talk about the complex condition that the rehandles are allowed.
-Undoubtedly, it is a little different from the simple condition.
-Under this condition, $S_1$ have the highest priority.
-If $S_1$ is null, we choose the stack from arraylist $S_2$ which is used to store partial stacks whose nearest port is smaller than the current loading container.
-Both in $S_1$ and $S_2$, we choose the stack whose nearest port is smallest.
-If $S_2$ is null, we choose the first stack when we traverse the $S_3$ which is used to store empty stacks.
-So it is the loading rules in the above and the following is the discharging rules.
+    \li \For each port $p=1, 2 , \ldots,P $
+    \li \Do
+                Unload containers with $D(c)==p$.
+    \li         Sort containers with $O(c)==p$ by the decreasing order of their destinations.
+    \li         \For each container $c$ with $O(c)==p$ at port $p$
+    \li         \Do
+                   \If $k==K$
+    \li            \Then
+                        execute method $loading\_equalK(c,nearport)$.
+    \li            \Else If $k < K$
+    \li                 execute method $loading\_lessK(c,nearport)$.
+                   \End
+                \End
+    \li          Update the value of $NumofStack$ at port $p$.
+        \End
+    \li Output the value of $NumofStack$ in instance I.
 
-When discharging containers, we just need to unload containers from top to bottom one by one when the container's destination port is the current port if there isn't an overstowage in the stacks.
-when overstowage happen, we have to unload the blocking containers before discharging those right containers.
+ \end{codebox}
+ \end{algorithm}
+ 
+The main two steps in this procedure are unloading and loading, the following context will give a detail description of the unloading and loading strategies. 
+
+When discharging containers at each port, we just need to unload containers from top to bottom one by one when $D(c)==p$ if there isn't a rehandle in the stacks.
+when rehandles happen, we have to unload the blocking containers before discharging those target containers.
 As for blocking containers, we will reset their origin ports as current port after unloading them and their destination ports remain unchanged.
 That's to say, the outbound containers at the current port increase.
 
+The key point in our algorithm is how to load container into the optimal stack to make sure we can minimize the needed stacks.
+When loading containers at each port, we adopt two different methods to choose stack for the target containers according to whether a rehandle can be produced. 
+They are $loading\_equalK(c,nearport)$ and $loading\_lessK(c,nearport)$, respectively.
 
+We firstly talk about the simple condition that the allowed rehandles run out and the procedure of method $loading\_equalK(c,nearport)$ is given in Algorithm \ref{alg:2}.
+When traversing all the stacks to choose the optimal one for each container, we add non-full stacks whose nearest port is no smaller than the current loading container into arraylist $S_0$.
+For all the feasible stacks in $S_0$, we choose the one with the smallest value of nearport.
+If there isn't only one stack with the smallest value of nearport, we choose the first one we traverse.
+It's worth mentioning that $s_{min}$ in the pseudo code represents the first stack with the smallest value of nearport according to the traversing sequence.
 
-
-The following pseudo introduce the procedure to deal with the simple condition that there isn't rehandle allowed.
-
-\begin{algorithm}[htbp]
-    \caption{The procedure for the method $loading\_rehandle\_equalK(c,nearport)$}
+\begin{algorithm}[!htbp]
+    \caption{The procedure for the method $loading\_equalK(c,nearport)$}
     \label{alg:2}
     \begin{codebox}
-    \Procname{\proc{Method $loading\_rehandle\_equalK(c,nearport)$ }}
-        \li $S_0$=currently non-full stacks whose nearport is greater than or equal to the $D(c)$.        
+    \Procname{\proc{Loading method(k==K)}}
+        \li $S_0$=currently non-full stacks whose nearport is greater than or equal to $D(c)$.
         \li \If $S_0 \neq \emptyset$
         \li \Then
                  $s_{min}=\arg\min \limits_{s\in S_0} nearport[s]$.
-        \li      Load container $c$ to stack $s_{min}$.        
+        \li      Clear the arraylist $S_0$.
+        \li      Load container $c$ to stack $s_{min}$.
             \End
-               
+        \li Update the value of nearport of stack $s_{min}$.
+        \li Update the height of stack $s_{min}$.
+
        \end{codebox}
 \end{algorithm}
 
+Afterwards, we talk about the complex condition that the rehandles are allowed and the procedure of method $loading\_lessK(c,nearport)$ is given in Algorithm \ref{alg:3}.
+Undoubtedly, its procedure to load containers is not as easy as the simple condition.
+Under this condition, $S_1$ have the highest priority.
+If $S_1$ is null, we choose the stack from arraylist $S_2$ which is used to store partial stacks whose value of nearport is smaller than the current loading container.
+Both in $S_1$ and $S_2$, we choose the stack whose value of nearport is smallest.
+If there isn't only one stack with the smallest value of nearport, we choose the first one we traverse, which is indexed by $s_{min}$.
+If $S_2$ is null, we choose the first stack when we traverse the $S_3$, which is used to store empty stacks.
 
-The following pseudo introduce the procedure to deal with the complex condition that there is allowed rehandles.
-
-\begin{algorithm}[htbp]
-    \caption{The procedure for the method $loading\_rehandle\_lessK(c,nearport)$}
+\begin{algorithm}[!htbp]
+    \caption{The procedure for the method $loading\_lessK(c,nearport)$}
     \label{alg:3}
     \begin{codebox}
-    \Procname{\proc{Method $loading\_rehandle\_lessK(c,nearport)$}}
-        \li $S_1$=currently partial stacks whose nearport is greater than or equal to the $D(c)$.
-        \li $S_2$=currently partial stacks whose nearport is smaller than the $D(c)$.
+    \Procname{\proc{Loading method(k<K)}}
+        \li $S_1$=currently partial stacks whose nearport is greater than or equal to $D(c)$.
+        \li $S_2$=currently partial stacks whose nearport is smaller than $D(c)$.
         \li $S_3$=currently empty stacks.
         \li \If $S_1\neq \emptyset$
         \li \Then
                         $s_{min}=\arg\min \limits_{s\in S_1} nearport[s]$.
+        \li             Clear the arraylist $S_1$.
         \li             Load container $c$ to stack $s_{min}$.
-        \li         \Else If $S_2\neq \emptyset$
+        \li    \Else If $S_2\neq \emptyset$
                         \Then
         \li               $s_{min}=\arg\min \limits_{s\in S_2} nearport[s]$.
-        \li             Load container $c$ to stack $s_{min}$.
+        \li               Clear the arraylist $S_2$.
+        \li               Update the value of $k$.
+        \li               Load container $c$ to stack $s_{min}$.
         \li         \Else
-        \li             Load container $c$ to the first empty stack in $S_3$. \label{heu:2a}
-                    \End             
+        \li               Clear the arraylist $S_3$.
+        \li               Load container $c$ to the first empty stack in $S_3$, which is also indexed by $s_{min}$. 
+                    \End
+             \End
+        \li Update the value of nearport of stack $s_{min}$.
+        \li Update the height of stack $s_{min}$.
+        
 
 \end{codebox}
 \end{algorithm}
 
+From the Algorithm \ref{alg:2} and \ref{alg:3}, we can see that we will clear the arraylist once we have chosen the stack for the target container and we will undate the value of $k$ if there is a rehandle.
+After loading the target container into the chosen stack, the value of nearport and height of the stack need to be updated.
 
-Considering the length of pseudo code, some details are omitted.
-In a word, a lot of variables and methods of the concrete Unloading and Loading strategies have been involved, we don't give the correspondent pseudo here for the sake of context length.
-What is identical for the two procedures is that they choose the optimal operation for each container during the unloading and loading process according to the greedy rules made by our algorithm.
-As is explained in the heading of this section, we divide the loading method into two parts on the basis of the number of allowed rehandles.
-And similarly, the unloading method are divided into two conditions depending on whether there are rehandles.
-However, specific steps are a little different from each other between the two circumstances.
+Considering the length of pseudo code, some details are omitted. For example, the method to record the loading and unloading information.
+In a word, a lot of variables and methods of the concrete unloading and loading strategies have been involved, we don't give the complete pseudo here for the sake of context length. 
+What is identical for the two steps is that they choose the optimal operation for each container during the unloading and loading process according to the greedy rules made by our algorithm.
+As is explained in the heading of this section, we divide the loading strategy into two methods on the basis of the number of allowed rehandles.
+Similarly, the unloading strategy are divided into two conditions depending on whether there are rehandles and specific steps are a little different from each other between the two circumstances.
 
 Our algorithm can give the detailed location changes of each container and output the layout status in the vessel at arbitrary time.
 In other words, we can predict the real-time container stowage process before the voyage as long as we know some information in advance.

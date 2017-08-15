@@ -394,8 +394,8 @@ The algorithm finally outputs the value of $NumofStack$ when all containers in a
 
  \end{codebox}
  \end{algorithm}
- 
-The main two steps in this procedure are unloading and loading, the following context will give a detail description of the unloading and loading strategies. 
+
+The main two steps in this procedure are unloading and loading, the following context will give a detail description of the unloading and loading strategies.
 
 When discharging containers at each port, we just need to unload containers from top to bottom one by one when $D(c)==p$ if there isn't a rehandle in the stacks.
 when rehandles happen, we have to unload the blocking containers before discharging those target containers.
@@ -403,7 +403,7 @@ As for blocking containers, we will reset their origin ports as current port aft
 That's to say, the outbound containers at the current port increase.
 
 The key point in our algorithm is how to load container into the optimal stack to make sure we can minimize the needed stacks.
-When loading containers at each port, we adopt two different methods to choose stack for the target containers according to whether a rehandle can be produced. 
+When loading containers at each port, we adopt two different methods to choose stack for the target containers according to whether a rehandle can be produced.
 They are $loading\_equalK(c,nearport)$ and $loading\_lessK(c,nearport)$, respectively.
 
 We firstly talk about the simple condition that the allowed rehandles run out and the procedure of method $loading\_equalK(c,nearport)$ is given in Algorithm \ref{alg:2}.
@@ -459,12 +459,12 @@ If $S_2$ is null, we choose the first stack when we traverse the $S_3$, which is
         \li               Load container $c$ to stack $s_{min}$.
         \li         \Else
         \li               Clear the arraylist $S_3$.
-        \li               Load container $c$ to the first empty stack in $S_3$, which is also indexed by $s_{min}$. 
+        \li               Load container $c$ to the first empty stack in $S_3$, which is also indexed by $s_{min}$.
                     \End
              \End
         \li Update the value of nearport of stack $s_{min}$.
         \li Update the height of stack $s_{min}$.
-        
+
 
 \end{codebox}
 \end{algorithm}
@@ -473,7 +473,7 @@ From the Algorithm \ref{alg:2} and \ref{alg:3}, we can see that we will clear th
 After loading the target container into the chosen stack, the value of nearport and height of the stack need to be updated.
 
 Considering the length of pseudo code, some details are omitted. For example, the method to record the loading and unloading information.
-In a word, a lot of variables and methods of the concrete unloading and loading strategies have been involved, we don't give the complete pseudo here for the sake of context length. 
+In a word, a lot of variables and methods of the concrete unloading and loading strategies have been involved, we don't give the complete pseudo here for the sake of context length.
 What is identical for the two steps is that they choose the optimal operation for each container during the unloading and loading process according to the greedy rules made by our algorithm.
 As is explained in the heading of this section, we divide the loading strategy into two methods on the basis of the number of allowed rehandles.
 Similarly, the unloading strategy are divided into two conditions depending on whether there are rehandles and specific steps are a little different from each other between the two circumstances.
@@ -486,58 +486,24 @@ Therefore, our algorithm makes a little difference and makes some sense in the r
 \subsection{Performance Guarantee of the Algorithms}
 \label{sec:p2}
 
-In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number in each loop.
+In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee whether the value of K is zero or not and we regard the port number $P$ as a fixed number in our voyage.
 For ease of exposition, we first give some related notations.
 
 \begin{itemize}
-\item $\mathcal{U}^*_k$ \& $\mathcal{C}^*_k$: the optimal solution to the USSMP-KR and the SSMP-KR instances, respectively.
-
-\item $\mathcal{U}_k$ \& $\mathcal{C}_k$: the solution to the USSMP-KR and the SSMP-KR instances by the algorithm, respectively.
-\item $\mathcal{U}_p$ : the number of stacks used at port $p$ by the algorithm for the USSMP-KR.
-
+\item $\mathcal{C}^*$: the optimal solution to the SSMP instances.
+\item $\mathcal{C}$: the solution to the SSMP instances by the algorithm.
 \item $N_p$: the number of containers on the ship before its departure from port $p$.
 \item $V_p$: the number of loading ports that the ship has visited before it departs from port $p$.
-
 \end{itemize}
 
 A port is called a loading port if there exists at least one container to be loaded. Clearly, $V_p \le p$, $\forall p=1,\ldots,P$.
 
-
-
 \begin{proposition}
-
-For the USSMP-KR instance, the heuristic approach generates a solution in which at most $V_p$ stacks are used before the ship departs from port $p$, i.e.
-
- $\mathcal{U}_p\le V_p, \forall p=1 , \ldots, P$.
-\label{pro:a2}
-\end{proposition}
-
-\begin{proof}
-
-We use an inductive proof.
-
-\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port.
-The heuristic piles up containers in one stack in a way that the containers with later destinations are placed in lower tiers.
-We have $\mathcal{U}_1=V_1=1$, and therefore $\mathcal{U}_1\le V_1$ holds.
-
-\textit{Inductive step}: Suppose that before the ship departs from port $p$, there are at most $V_p$ stacks used, i.e., $\mathcal{U}_p \le V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized. If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$, otherwise $V_{p+1}=V_p$.
-
-(1) If there exist some containers to be loaded, according to our heuristic, they are placed on either the extant stacks or a new blank stack (with the containers of later destinations placed lower). Hence, $\mathcal{U}_{p+1} \le \mathcal{U}_p+1 \le V_p+1=V_{p+1}$.
-
-(2) If no container is loaded, $\mathcal{U}_{p+1} \le \mathcal{U}_p \le V_p=V_{p+1}$.
-
-Based on the above two steps, we have $\mathcal{U}_p\le V_p, \forall p=1, \ldots, P$. Furthermore, we have
+The SSMP instance has a lower bound:
 \begin{equation*}
-\mathcal{U}_k=\max_{p=1,\ldots,P}\mathcal{U}_p\le \max_{p=1,\ldots,P} V_p=V_P\le P
+\max\limits_{p=1,\ldots,P}(\lceil\frac{N_p}{H}\rceil) \le \mathcal C^*
 \end{equation*}
-\end{proof}
-
-\begin{proposition}
-The SSMP-KR instance has a lower bound:
-\begin{equation*}
-\max\limits_{p=1,\ldots,P}(\lceil\frac{N_p}{H}\rceil) \le \mathcal C^*_k
-\end{equation*}
-\label{pro:a3}
+\label{pro:a1}
 \end{proposition}
 
 \begin{proof}
@@ -545,24 +511,25 @@ The SSMP-KR instance has a lower bound:
 $\lceil\frac{N_p}{H}\rceil$ is the least number of stacks to accommodate all the containers at port $p$, and thus, $\max\limits_p(\lceil\frac{N_p}{H}\rceil)$ is the least number of stacks needed throughout the journey.
 \end{proof}
 
-The lower bound can help to check the optimality of solutions obtained by our heuristic.
-If the solution is equal to the lower bound, we can conclude that the solution is optimal.
+The lower bound can be a reference to check the optimality of solutions obtained by our heuristic.
+If the solution is close to the lower bound, we can conclude that the solution is close to optimal.
 
 
 \begin{proposition}
-For the heuristic solution to the SSMP-KR instance, it holds
+For the heuristic solution to the SSMP instance, it holds
 \begin{equation*}
-\mathcal{C}^*_k \le \mathcal{C}_k \le \max_{p=1,\ldots,P}(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \mathcal{C}^*_k+V_P
+\mathcal{C}^* \le \mathcal{C} \le \max_{p=1,\ldots,P}(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \mathcal{C}^*+V_P
 \end{equation*}
-\label{pro:a4}
+\label{pro:a2}
 \end{proposition}
 
 \begin{proof}
 
 The first inequality obviously holds.
 
-For the second inequality, $\mathcal{C}_k=\max\limits_p \mathcal{C}_p$.
-Remind that $\mathcal{C}_p$ is the number of stacks in port $p$ result from our algorithm. We divide the stack used in the port into two parts: full stacks and partial stacks.
+For the second inequality, $\mathcal{C}=\max\limits_p \mathcal{C}_p$.
+Noted that $\mathcal{C}_p$ is the number of stacks in port $p$ obtained from our algorithm. 
+We divide the stack used in the port into two parts: full stacks and partial stacks.
 For the full stacks, the number of full stacks in port $p$ is no greater than $\lfloor\frac{N_p}{H}\rfloor$.
 For the partial stacks, we define the number of partial stacks in port $p$ as $P(p)$.
 \begin{proposition}
@@ -570,35 +537,44 @@ The partial stacks in port $p$ is no greater than $V_p$:
 \begin{equation*}
  P(p) \le  V_p
 \end{equation*}
-\label{pro:a4}
+\label{pro:a3}
 \end{proposition}
 
 \begin{proof}
 
 We use an inductive proof.
 
-\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_(p=1)$ =1.
-In addition, P(1)=0 or 1. Hence, $P(p) \le V_p $ holds.
-\textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than $V_p$. Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. This process does not increase the number of stacks utilized.
+\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V(p=1)$ =1.
+In addition, P(1)=0 or 1, i.e. $P(1) \le 1$. Hence, $P(p) \le V_p $ holds. 
+For $p=2$, there isn't any blocking containers when discharging the containers from the ship, $P(2) \le 1$ still holds.
+If there are containers to be loaded at port 2, then $V(p=2)$ =2, $P(2)$ will add one at most whether there will be rehandles or not.
+That's to say, $P(2) \le V(p=2)$.
+If no containers is loaded at port 2, then $V(p=2)$ =1, $P(2) \le 1=V(p=2)$ still holds.   
+
+\textit{Inductive step}: Suppose that the partial stacks in port $p$ is no greater than $V_p$. 
+Upon the ship arrives at port $p+1$, it first unloads the containers from the ship. 
+This process does not increase the number of partial stacks comparing with the former port whether there are blocking containers or not. 
 
 (1)If there are containers to be loaded at port $p+1$, then $V_{p+1}=V_p+1$,  $P($p+1$) \le P(p)+1$ whether we allow the rehandle or not in port $p+1$. %Hence, $P($p+1$) \le P(p)+1 \LE V_{p+1}= V_p+1$.
 
-(2)If there is no containers to be loaded at port $p+1$,  $V_{p+1}=V_p$, $P($p+1$) =P(p)$. Hence, $P($p+1$) \le V_{p+1}$.
-Based on the above two steps, we have $P(p) \le V_p,   \forall p=1,\ldots,P$.
+(2)If there is no containers to be loaded at port $p+1$,  $V_{p+1}=V_p$, $P($p+1$) \le P(p)$. Hence, $P($p+1$) \le P(p) \le V_{p}=V_{p+1}$.
+
+Based on the above two steps, we have $P(p) \le V_p,  \forall p=1,\ldots,P$.
 \end{proof}
 Therefore, the second inequality holds.
 
-For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a3}. Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$.
-It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) \le \max\limits_p(\mathcal{C}_k^*+V_p) = \mathcal{C}^*+V_P$.
+For the third inequality, $\lfloor\frac{N_p}{H}\rfloor\leq \lceil\frac{N_p}{H}\rceil$, and $\lceil\frac{N_p}{H}\rceil$ is the lower bound of the number of stacks used at port $p$ by Proposition \ref{pro:a1}. 
+Thus, $\lfloor\frac{N_p}{H}\rfloor \le \mathcal{C}_p^*$.
+It then holds $\max\limits_p(\lfloor\frac{N_p}{H}\rfloor+V_p) \le \max\limits_p(\mathcal{C}^*+V_p) = \mathcal{C}^*+V_P$.
 
 \end{proof}
 
 
-The above proposition indicates that our approximation algorithms have a constant performance guarantee.
-In practice, the number of ports is generally much smaller than the number of stacks used along the journey.
-Hence, the gap between the optimal solution and our heuristic solution is relatively small, which demonstrates that our heuristic algorithms can generate promising solutions.
+The above propositions show that our heuristic algorithm has a constant performance guarantee.
+In the real shipping transportation, the number of ports is generally much smaller than the number of used stacks.
+Therefore, the difference between the optimal solution and our heuristic solution is relatively small, which indicates that our heuristic algorithms can generate promising solutions.
 
-Due to page limit, we omit the deatils here. Interested readers are welcome to contact the authors for details.
+Due to page limit, we omit the details here. Interested readers are welcome to contact the authors for details.
 % In view of the number of allowed rehandle we give isn't big and it's influence on the result isn't salient. So we use the $UB$ to test the effectiveness of SSMP-KR.
 
 

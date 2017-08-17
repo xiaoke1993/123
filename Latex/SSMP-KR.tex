@@ -600,7 +600,7 @@ The heuristic was implemented in Java and the experiments were conducted on a co
 The operating system of the computer is Windows 10.
 
 The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
-Considering the size of table, the results of instances with 5000 containers are not listed. 
+Considering the size of table, the results of instances with 5000 containers are not listed.
 
 \begin{table}[!htbp]
 \small
@@ -612,55 +612,47 @@ Considering the size of table, the results of instances with 5000 containers are
   \multicolumn{1}{c}{\multirow{2}{*}{P}}
   & \multicolumn{1}{c}{\multirow{2}{*}{N}}
   & \multicolumn{1}{c}{\multirow{2}{*}{H}}
-  & \multicolumn{1}{c}{\multirow{2}{*}{LB}}
-  & \multicolumn{1}{c}{\multirow{2}{*}{UB}}
-  & \multicolumn{2}{c}{K=0}
-  & \multicolumn{2}{c}{K=10}
-  & \multicolumn{2}{c}{K=20}
-  & \multicolumn{2}{c}{K=50}
-  & \multicolumn{2}{c}{K=100}\\
-  \cline{6-15}
+  & \multicolumn{7}{c}{Heu}
+  & \multicolumn{5}{c}{Ran}\\
+  \cline{4-15}
   \multicolumn{1}{c}{}
   &\multicolumn{1}{c}{}
   &\multicolumn{1}{c}{}
-  &\multicolumn{1}{c}{}
-  &\multicolumn{1}{c}{}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}\\
+  &\multicolumn{1}{c}{LB}&{UB}&{K=0}&{K=10}&{K=20}&{K=50}&{K=100}
+  &\multicolumn{1}{c}{K=0}&{K=10}&{K=20}&{K=50}&{K=100}\\
   \hline
-    5     & 50    & 4     & 8     & 9.6   & 8     & 12.2  & 8     & 9.6   & 8     & 10.4  & 8     & 9.6   & 8     & 9.6 \\
-    5     & 50    & 8     & 4     & 6     & 4.6   & 10    & 4     & 8.4   & 4     & 8     & 4     & 9.6   & 4     & 7.8 \\
-    5     & 50    & 12    & 3     & 5     & 3.2   & 9.2   & 3.2   & 9.2   & 3     & 7     & 3     & 8.6   & 3     & 7.6 \\
-    5     & 100   & 4     & 15    & 16.8  & 15    & 18.4  & 15    & 16.2  & 15    & 16.2  & 15    & 16.6  & 15    & 16.6 \\
-    5     & 100   & 8     & 7.6   & 9.6   & 7.6   & 14.2  & 7.6   & 14.8  & 7.6   & 12.8  & 7.6   & 12    & 7.6   & 13.2 \\
-    5     & 100   & 12    & 5.4   & 7.6   & 5.4   & 14.2  & 5.6   & 14.4  & 5.4   & 12.6  & 5.4   & 13.2  & 5.4   & 12 \\
-    5     & 200   & 4     & 30.6  & 32.2  & 30.6  & 32.8  & 30.6  & 32.4  & 30.6  & 32.4  & 30.6  & 32    & 30.6  & 33 \\
-    5     & 200   & 8     & 15.6  & 17.4  & 15.6  & 23.6  & 15.6  & 24.6  & 15.6  & 22.4  & 15.6  & 19.4  & 15.6  & 20.4 \\
-    5     & 200   & 12    & 10.4  & 12.4  & 10.4  & 21.8  & 10.4  & 22.8  & 10.4  & 20.4  & 10.4  & 19.2  & 10.4  & 16.2 \\
-    5     & 500   & 4     & 76.6  & 78    & 76.6  & 78.6  & 76.6  & 78.6  & 76.6  & 78    & 76.6  & 77.8  & 76.6  & 79 \\
-    5     & 500   & 8     & 38.6  & 40    & 38.6  & 46    & 38.6  & 44.4  & 38.6  & 45    & 38.6  & 42.8  & 38.6  & 42 \\
-    5     & 500   & 12    & 26    & 27.4  & 26    & 38    & 26    & 36.2  & 26    & 39.8  & 26    & 37.6  & 26    & 33.8 \\
-    5     & 1000  & 4     & 152.2 & 153.8 & 152.2 & 153.6 & 152.2 & 153.6 & 152.2 & 154.2 & 152.2 & 154.2 & 152.2 & 153.4 \\
-    5     & 1000  & 8     & 76.6  & 78.2  & 76.6  & 82.2  & 76.6  & 81.8  & 76.6  & 81.4  & 76.6  & 80.2  & 76.6  & 79.6 \\
-    5     & 1000  & 12    & 51    & 52.8  & 51    & 61.4  & 51    & 60.8  & 51    & 60.4  & 51    & 63    & 51    & 60.4 \\
-    10    & 50    & 4     & 7.8   & 12.6  & 9     & 12.4  & 8     & 11    & 7.8   & 10.2  & 7.8   & 9.8   & 7.8   & 9.6 \\
-    10    & 50    & 8     & 4     & 10    & 6     & 10.8  & 6     & 10.8  & 5     & 10.4  & 4     & 8.8   & 4     & 8.8 \\
-    10    & 50    & 12    & 3     & 9.4   & 5.6   & 12    & 4.6   & 11.4  & 4.4   & 9     & 3.2   & 8.8   & 3     & 8.6 \\
-    10    & 100   & 4     & 14.8  & 19.6  & 15.8  & 20.4  & 15.6  & 20.2  & 15    & 20.2  & 14.8  & 16.8  & 14.8  & 17.4 \\
-    10    & 100   & 8     & 7.6   & 12.6  & 9.2   & 20    & 9.8   & 18.4  & 9.6   & 17    & 7.8   & 13.6  & 7.6   & 13.6 \\
-    10    & 100   & 12    & 5.2   & 10.4  & 7     & 18.4  & 7     & 17.8  & 7.2   & 17.6  & 6.4   & 13.8  & 5.2   & 14.2 \\
-    10    & 200   & 4     & 28.6  & 33.2  & 29.6  & 35.4  & 29.6  & 36    & 28.6  & 34.4  & 28.6  & 31.4  & 28.6  & 30.6 \\
-    10    & 200   & 8     & 14.4  & 19.2  & 16.4  & 28.6  & 16.6  & 29.2  & 16.2  & 25.6  & 14.8  & 27.4  & 14.4  & 23 \\
-    10    & 200   & 12    & 9.8   & 15    & 12    & 26.4  & 12    & 27.2  & 11.8  & 26.8  & 11.4  & 24.2  & 9.8   & 24 \\
-    10    & 500   & 4     & 69.8  & 74.2  & 69.8  & 78    & 69.8  & 75.4  & 69.8  & 74.6  & 69.8  & 74.2  & 69.8  & 71.2 \\
-    10    & 500   & 8     & 35    & 39.4  & 35.6  & 52.8  & 35    & 49.4  & 35.2  & 52.6  & 35    & 51.4  & 35    & 52.6 \\
-    10    & 500   & 12    & 23.6  & 28    & 25.2  & 50.2  & 24.8  & 48.4  & 24.8  & 50    & 24    & 47.4  & 23.6  & 47.6 \\
-    10    & 1000  & 4     & 137.6 & 141.8 & 137.6 & 143.2 & 137.6 & 143.8 & 137.6 & 143.4 & 137.6 & 141.8 & 137.6 & 140.2 \\
-    10    & 1000  & 8     & 69    & 73.2  & 69.2  & 87.8  & 69    & 84.8  & 69.2  & 85.8  & 69    & 86    & 69    & 85.2 \\
-    10    & 1000  & 12    & 46.2  & 50.4  & 46.6  & 77.2  & 46.8  & 78    & 46.8  & 74.4  & 46.6  & 76.4  & 46.2  & 74.8 \\
+
+    5     & 50    & 4     & 8     & 9.6   & 8     & 8     & 8     & 8     & 8     & 12.2  & 9.6   & 10.4  & 9.6   & 9.6 \\
+    5     & 50    & 8     & 4     & 6     & 4.6   & 4     & 4     & 4     & 4     & 10    & 8.4   & 8     & 9.6   & 7.8 \\
+    5     & 50    & 12    & 3     & 5     & 3.2   & 3.2   & 3     & 3     & 3     & 9.2   & 9.2   & 7     & 8.6   & 7.6 \\
+    5     & 100   & 4     & 15    & 16.8  & 15    & 15    & 15    & 15    & 15    & 18.4  & 16.2  & 16.2  & 16.6  & 16.6 \\
+    5     & 100   & 8     & 7.6   & 9.6   & 7.6   & 7.6   & 7.6   & 7.6   & 7.6   & 14.2  & 14.8  & 12.8  & 12    & 13.2 \\
+    5     & 100   & 12    & 5.4   & 7.6   & 5.4   & 5.6   & 5.4   & 5.4   & 5.4   & 14.2  & 14.4  & 12.6  & 13.2  & 12 \\
+    5     & 200   & 4     & 30.6  & 32.2  & 30.6  & 30.6  & 30.6  & 30.6  & 30.6  & 32.8  & 32.4  & 32.4  & 32    & 33 \\
+    5     & 200   & 8     & 15.6  & 17.4  & 15.6  & 15.6  & 15.6  & 15.6  & 15.6  & 23.6  & 24.6  & 22.4  & 19.4  & 20.4 \\
+    5     & 200   & 12    & 10.4  & 12.4  & 10.4  & 10.4  & 10.4  & 10.4  & 10.4  & 21.8  & 22.8  & 20.4  & 19.2  & 16.2 \\
+    5     & 500   & 4     & 76.6  & 78    & 76.6  & 76.6  & 76.6  & 76.6  & 76.6  & 78.6  & 78.6  & 78    & 77.8  & 79 \\
+    5     & 500   & 8     & 38.6  & 40    & 38.6  & 38.6  & 38.6  & 38.6  & 38.6  & 46    & 44.4  & 45    & 42.8  & 42 \\
+    5     & 500   & 12    & 26    & 27.4  & 26    & 26    & 26    & 26    & 26    & 38    & 36.2  & 39.8  & 37.6  & 33.8 \\
+    5     & 1000  & 4     & 152.2 & 153.8 & 152.2 & 152.2 & 152.2 & 152.2 & 152.2 & 153.6 & 153.6 & 154.2 & 154.2 & 153.4 \\
+    5     & 1000  & 8     & 76.6  & 78.2  & 76.6  & 76.6  & 76.6  & 76.6  & 76.6  & 82.2  & 81.8  & 81.4  & 80.2  & 79.6 \\
+    5     & 1000  & 12    & 51    & 52.8  & 51    & 51    & 51    & 51    & 51    & 61.4  & 60.8  & 60.4  & 63    & 60.4 \\
+    10    & 50    & 4     & 7.8   & 12.6  & 9     & 8     & 7.8   & 7.8   & 7.8   & 12.4  & 11    & 10.2  & 9.8   & 9.6 \\
+    10    & 50    & 8     & 4     & 10    & 6     & 6     & 5     & 4     & 4     & 10.8  & 10.8  & 10.4  & 8.8   & 8.8 \\
+    10    & 50    & 12    & 3     & 9.4   & 5.6   & 4.6   & 4.4   & 3.2   & 3     & 12    & 11.4  & 9     & 8.8   & 8.6 \\
+    10    & 100   & 4     & 14.8  & 19.6  & 15.8  & 15.6  & 15    & 14.8  & 14.8  & 20.4  & 20.2  & 20.2  & 16.8  & 17.4 \\
+    10    & 100   & 8     & 7.6   & 12.6  & 9.2   & 9.8   & 9.6   & 7.8   & 7.6   & 20    & 18.4  & 17    & 13.6  & 13.6 \\
+    10    & 100   & 12    & 5.2   & 10.4  & 7     & 7     & 7.2   & 6.4   & 5.2   & 18.4  & 17.8  & 17.6  & 13.8  & 14.2 \\
+    10    & 200   & 4     & 28.6  & 33.2  & 29.6  & 29.6  & 28.6  & 28.6  & 28.6  & 35.4  & 36    & 34.4  & 31.4  & 30.6 \\
+    10    & 200   & 8     & 14.4  & 19.2  & 16.4  & 16.6  & 16.2  & 14.8  & 14.4  & 28.6  & 29.2  & 25.6  & 27.4  & 23 \\
+    10    & 200   & 12    & 9.8   & 15    & 12    & 12    & 11.8  & 11.4  & 9.8   & 26.4  & 27.2  & 26.8  & 24.2  & 24 \\
+    10    & 500   & 4     & 69.8  & 74.2  & 69.8  & 69.8  & 69.8  & 69.8  & 69.8  & 78    & 75.4  & 74.6  & 74.2  & 71.2 \\
+    10    & 500   & 8     & 35    & 39.4  & 35.6  & 35    & 35.2  & 35    & 35    & 52.8  & 49.4  & 52.6  & 51.4  & 52.6 \\
+    10    & 500   & 12    & 23.6  & 28    & 25.2  & 24.8  & 24.8  & 24    & 23.6  & 50.2  & 48.4  & 50    & 47.4  & 47.6 \\
+    10    & 1000  & 4     & 137.6 & 141.8 & 137.6 & 137.6 & 137.6 & 137.6 & 137.6 & 143.2 & 143.8 & 143.4 & 141.8 & 140.2 \\
+    10    & 1000  & 8     & 69    & 73.2  & 69.2  & 69    & 69.2  & 69    & 69    & 87.8  & 84.8  & 85.8  & 86    & 85.2 \\
+    10    & 1000  & 12    & 46.2  & 50.4  & 46.6  & 46.8  & 46.8  & 46.6  & 46.2  & 77.2  & 78    & 74.4  & 76.4  & 74.8 \\
+
     \hline
     \end{tabular}
   \label{tab:2}
@@ -677,55 +669,47 @@ Considering the size of table, the results of instances with 5000 containers are
   \multicolumn{1}{c}{\multirow{2}{*}{P}}
   & \multicolumn{1}{c}{\multirow{2}{*}{N}}
   & \multicolumn{1}{c}{\multirow{2}{*}{H}}
-  & \multicolumn{1}{c}{\multirow{2}{*}{LB}}
-  & \multicolumn{1}{c}{\multirow{2}{*}{UB}}
-  & \multicolumn{2}{c}{K=0}
-  & \multicolumn{2}{c}{K=10}
-  & \multicolumn{2}{c}{K=20}
-  & \multicolumn{2}{c}{K=50}
-  & \multicolumn{2}{c}{K=100}\\
-  \cline{6-15}
+  & \multicolumn{7}{c}{Heu}
+  & \multicolumn{5}{c}{Ran}\\
+  \cline{4-15}
   \multicolumn{1}{c}{}
   &\multicolumn{1}{c}{}
   &\multicolumn{1}{c}{}
-  &\multicolumn{1}{c}{}
-  &\multicolumn{1}{c}{}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}
-  &\multicolumn{1}{c}{Heu}&{Ran}\\
+  &\multicolumn{1}{c}{LB}&{UB}&{K=0}&{K=10}&{K=20}&{K=50}&{K=100}
+  &\multicolumn{1}{c}{K=0}&{K=10}&{K=20}&{K=50}&{K=100}\\
   \hline
-    20    & 50    & 4     & 7.2   & 19.6  & 9     & 13    & 9     & 12.2  & 8     & 10.8  & 7.2   & 10.2  & 7.2   & 9.6 \\
-    20    & 50    & 8     & 3.8   & 19    & 7.8   & 12.8  & 7     & 13    & 6.6   & 10.8  & 5.4   & 8.8   & 3.8   & 8.8 \\
-    20    & 50    & 12    & 2.8   & 19    & 7.8   & 13.6  & 6.6   & 12.4  & 5.6   & 11    & 4     & 8     & 2.8   & 8 \\
-    20    & 100   & 4     & 14.2  & 25    & 16    & 21    & 16    & 21.8  & 16    & 22.2  & 14.2  & 17.8  & 14.2  & 16 \\
-    20    & 100   & 8     & 7.4   & 19.6  & 10.8  & 20.6  & 11    & 19.4  & 10.8  & 19.4  & 10.2  & 17.4  & 7.6   & 13.4 \\
-    20    & 100   & 12    & 5     & 19.2  & 10.2  & 21.2  & 9.8   & 21.4  & 9     & 20    & 9     & 18.4  & 7.6   & 13 \\
-    20    & 200   & 4     & 27.6  & 37.6  & 29.8  & 39.6  & 30.2  & 37    & 29.8  & 37.2  & 28.8  & 36.4  & 27.6  & 31.8 \\
-    20    & 200   & 8     & 14.2  & 25.2  & 17.6  & 33.4  & 18    & 35.4  & 18    & 32    & 17.4  & 31.8  & 17.4  & 28.6 \\
-    20    & 200   & 12    & 9.4   & 21.6  & 13.8  & 33.8  & 13    & 31.6  & 13.8  & 31.8  & 13.2  & 30.2  & 13.4  & 30.8 \\
-    20    & 500   & 4     & 67.6  & 77.2  & 70.2  & 80    & 70.4  & 81    & 70    & 80.8  & 70.4  & 80.4  & 67.6  & 77.8 \\
-    20    & 500   & 8     & 34    & 43.6  & 38    & 64.2  & 37.6  & 64.6  & 37.8  & 62.6  & 38    & 61.4  & 38    & 61 \\
-    20    & 500   & 12    & 22.8  & 33.2  & 27    & 60.8  & 27.2  & 61.6  & 27.2  & 62.4  & 27.2  & 59.8  & 27.2  & 58 \\
-    20    & 1000  & 4     & 134.4 & 143.6 & 135.8 & 148   & 135.8 & 146   & 136.2 & 148.6 & 136   & 148.4 & 134.4 & 147.4 \\
-    20    & 1000  & 8     & 67.6  & 76.8  & 70.6  & 102.2 & 71    & 101.6 & 70.4  & 101   & 70.4  & 100.2 & 70.6  & 100.8 \\
-    20    & 1000  & 12    & 45.2  & 54.4  & 48.8  & 93.8  & 49.8  & 97.4  & 49.2  & 97.4  & 49.2  & 94.8  & 48.8  & 91.6 \\
-    30    & 50    & 4     & 8     & 29.8  & 10    & 15.8  & 9.8   & 13.4  & 9.4   & 11    & 8     & 10.6  & 8     & 10.6 \\
-    30    & 50    & 8     & 4.2   & 29    & 8.2   & 15.8  & 7.8   & 13.2  & 7.6   & 11.6  & 5.2   & 10    & 4.2   & 9.6 \\
-    30    & 50    & 12    & 3     & 29    & 8     & 14.6  & 7.4   & 14.4  & 6.8   & 12.8  & 5.2   & 9     & 3.4   & 8.8 \\
-    30    & 100   & 4     & 13.8  & 33.4  & 16.8  & 22.4  & 16.6  & 22.8  & 16.2  & 22.8  & 15.6  & 19.6  & 13.8  & 16.6 \\
-    30    & 100   & 8     & 7.2   & 29.6  & 12    & 22    & 11.4  & 21.8  & 11.8  & 20.8  & 10.8  & 19    & 9.8   & 15 \\
-    30    & 100   & 12    & 5     & 29    & 10.8  & 21.8  & 10.4  & 21.8  & 10.2  & 20.4  & 9.8   & 19.8  & 8.2   & 15.2 \\
-    30    & 200   & 4     & 27.6  & 43.8  & 30.4  & 40.6  & 31    & 39.8  & 31.6  & 41.2  & 31.2  & 38.6  & 28    & 34 \\
-    30    & 200   & 8     & 14    & 32.2  & 18.6  & 36.4  & 18.8  & 36.2  & 19    & 36.2  & 19.4  & 36.8  & 19.8  & 32.8 \\
-    30    & 200   & 12    & 9.6   & 29.8  & 17    & 35.6  & 16.6  & 36    & 16.2  & 37    & 16.2  & 34.8  & 16.2  & 33.4 \\
-    30    & 500   & 4     & 64.8  & 80.4  & 69.6  & 83.2  & 69.6  & 82.2  & 69.6  & 82.8  & 69.4  & 82    & 69.2  & 81.8 \\
-    30    & 500   & 8     & 32.6  & 49    & 38.4  & 68.8  & 38.6  & 66    & 38.6  & 68.6  & 38.2  & 70.6  & 37.8  & 66.4 \\
-    30    & 500   & 12    & 22.2  & 39.2  & 29    & 69.2  & 29    & 67.4  & 28.6  & 66.2  & 28.6  & 66.6  & 28.8  & 66 \\
-    30    & 1000  & 4     & 128.8 & 144   & 133.6 & 149   & 133.6 & 150.8 & 133.6 & 150   & 133.8 & 147.8 & 133.6 & 150.6 \\
-    30    & 1000  & 8     & 64.8  & 80.4  & 71.4  & 111.2 & 70.6  & 112.8 & 71    & 111.8 & 70.6  & 110.6 & 70.6  & 110 \\
-    30    & 1000  & 12    & 43.2  & 59.4  & 50.8  & 107.6 & 50.6  & 108.8 & 50.8  & 108.6 & 50.8  & 107   & 50.8  & 101.2 \\
+
+    20    & 50    & 4     & 7.2   & 19.6  & 9     & 9     & 8     & 7.2   & 7.2   & 13    & 12.2  & 10.8  & 10.2  & 9.6 \\
+    20    & 50    & 8     & 3.8   & 19    & 7.8   & 7     & 6.6   & 5.4   & 3.8   & 12.8  & 13    & 10.8  & 8.8   & 8.8 \\
+    20    & 50    & 12    & 2.8   & 19    & 7.8   & 6.6   & 5.6   & 4     & 2.8   & 13.6  & 12.4  & 11    & 8     & 8 \\
+    20    & 100   & 4     & 14.2  & 25    & 16    & 16    & 16    & 14.2  & 14.2  & 21    & 21.8  & 22.2  & 17.8  & 16 \\
+    20    & 100   & 8     & 7.4   & 19.6  & 10.8  & 11    & 10.8  & 10.2  & 7.6   & 20.6  & 19.4  & 19.4  & 17.4  & 13.4 \\
+    20    & 100   & 12    & 5     & 19.2  & 10.2  & 9.8   & 9     & 9     & 7.6   & 21.2  & 21.4  & 20    & 18.4  & 13 \\
+    20    & 200   & 4     & 27.6  & 37.6  & 29.8  & 30.2  & 29.8  & 28.8  & 27.6  & 39.6  & 37    & 37.2  & 36.4  & 31.8 \\
+    20    & 200   & 8     & 14.2  & 25.2  & 17.6  & 18    & 18    & 17.4  & 17.4  & 33.4  & 35.4  & 32    & 31.8  & 28.6 \\
+    20    & 200   & 12    & 9.4   & 21.6  & 13.8  & 13    & 13.8  & 13.2  & 13.4  & 33.8  & 31.6  & 31.8  & 30.2  & 30.8 \\
+    20    & 500   & 4     & 67.6  & 77.2  & 70.2  & 70.4  & 70    & 70.4  & 67.6  & 80    & 81    & 80.8  & 80.4  & 77.8 \\
+    20    & 500   & 8     & 34    & 43.6  & 38    & 37.6  & 37.8  & 38    & 38    & 64.2  & 64.6  & 62.6  & 61.4  & 61 \\
+    20    & 500   & 12    & 22.8  & 33.2  & 27    & 27.2  & 27.2  & 27.2  & 27.2  & 60.8  & 61.6  & 62.4  & 59.8  & 58 \\
+    20    & 1000  & 4     & 134.4 & 143.6 & 135.8 & 135.8 & 136.2 & 136   & 134.4 & 148   & 146   & 148.6 & 148.4 & 147.4 \\
+    20    & 1000  & 8     & 67.6  & 76.8  & 70.6  & 71    & 70.4  & 70.4  & 70.6  & 102.2 & 101.6 & 101   & 100.2 & 100.8 \\
+    20    & 1000  & 12    & 45.2  & 54.4  & 48.8  & 49.8  & 49.2  & 49.2  & 48.8  & 93.8  & 97.4  & 97.4  & 94.8  & 91.6 \\
+    30    & 50    & 4     & 8     & 29.8  & 10    & 9.8   & 9.4   & 8     & 8     & 15.8  & 13.4  & 11    & 10.6  & 10.6 \\
+    30    & 50    & 8     & 4.2   & 29    & 8.2   & 7.8   & 7.6   & 5.2   & 4.2   & 15.8  & 13.2  & 11.6  & 10    & 9.6 \\
+    30    & 50    & 12    & 3     & 29    & 8     & 7.4   & 6.8   & 5.2   & 3.4   & 14.6  & 14.4  & 12.8  & 9     & 8.8 \\
+    30    & 100   & 4     & 13.8  & 33.4  & 16.8  & 16.6  & 16.2  & 15.6  & 13.8  & 22.4  & 22.8  & 22.8  & 19.6  & 16.6 \\
+    30    & 100   & 8     & 7.2   & 29.6  & 12    & 11.4  & 11.8  & 10.8  & 9.8   & 22    & 21.8  & 20.8  & 19    & 15 \\
+    30    & 100   & 12    & 5     & 29    & 10.8  & 10.4  & 10.2  & 9.8   & 8.2   & 21.8  & 21.8  & 20.4  & 19.8  & 15.2 \\
+    30    & 200   & 4     & 27.6  & 43.8  & 30.4  & 31    & 31.6  & 31.2  & 28    & 40.6  & 39.8  & 41.2  & 38.6  & 34 \\
+    30    & 200   & 8     & 14    & 32.2  & 18.6  & 18.8  & 19    & 19.4  & 19.8  & 36.4  & 36.2  & 36.2  & 36.8  & 32.8 \\
+    30    & 200   & 12    & 9.6   & 29.8  & 17    & 16.6  & 16.2  & 16.2  & 16.2  & 35.6  & 36    & 37    & 34.8  & 33.4 \\
+    30    & 500   & 4     & 64.8  & 80.4  & 69.6  & 69.6  & 69.6  & 69.4  & 69.2  & 83.2  & 82.2  & 82.8  & 82    & 81.8 \\
+    30    & 500   & 8     & 32.6  & 49    & 38.4  & 38.6  & 38.6  & 38.2  & 37.8  & 68.8  & 66    & 68.6  & 70.6  & 66.4 \\
+    30    & 500   & 12    & 22.2  & 39.2  & 29    & 29    & 28.6  & 28.6  & 28.8  & 69.2  & 67.4  & 66.2  & 66.6  & 66 \\
+    30    & 1000  & 4     & 128.8 & 144   & 133.6 & 133.6 & 133.6 & 133.8 & 133.6 & 149   & 150.8 & 150   & 147.8 & 150.6 \\
+    30    & 1000  & 8     & 64.8  & 80.4  & 71.4  & 70.6  & 71    & 70.6  & 70.6  & 111.2 & 112.8 & 111.8 & 110.6 & 110 \\
+    30    & 1000  & 12    & 43.2  & 59.4  & 50.8  & 50.6  & 50.8  & 50.8  & 50.8  & 107.6 & 108.8 & 108.6 & 107   & 101.2 \\
+
     \hline
     \end{tabular}
   \label{tab:3}
@@ -766,9 +750,10 @@ However, it doesn't mean that our algorithm isn't universal because the probabil
 Therefore, our heuristics algorithm is feasible for most of the instances and has a good performance as well.
 The following tables and figures can be used to illustrate the good performance of our algorithm.
 
-Table \ref{tab:4} gives the average results of heuristic and random algorithm when the allowed rehandle $K$ has different values.
+We then analyze the average result of all instances to get some conclusions.
+Table \ref{tab:4} and Figure \ref{fig 2:graph} give the average results of heuristic and random algorithm when the allowed rehandle $K$ has different values.
 It's not difficult to draw the conclusion that the number of used stacks gets smaller as the allowed rehandle becomes larger for both heuristic algorithm and random algorithm.
-Another conclusion is, comparing with random algorithm, our heuristic algorithm has a fairly good performance to work out the solution to the SSMP.  
+Another conclusion is, comparing with random algorithm, our heuristic algorithm has a fairly good performance to work out the solution to the SSMP.
 It's noteworthy that the average results in Table \ref{tab:4} include the instances with $N=5000$.
 
 \begin{table}[!htbp]
@@ -779,41 +764,48 @@ It's noteworthy that the average results in Table \ref{tab:4} include the instan
     \hline
      $K$       &0   &10  &20  &50  &100\\
     \hline
-    $Numofstack$ of Heu   &97.68542  &97.61042  &97.4875   &97.15  &96.77708\\
+    $Numofstack$ of Heu   &99.3  &99.21944  &99.08333   &98.73889  &98.35\\
  \hline
-    $Numofstack$ of Ran  &112.6375  &112.29583  &111.94583  &110.87917 &110.05417\\
+    $Numofstack$ of Ran  &114.62778  &114.31667  &114.21448  &112.86111 &111.9\\
  \hline
     \end{tabular}
   \label{tab:4}
 \end{table}
+
+\begin{figure}[htbp]
+\centering
+\setlength{\abovecaptionskip}{10pt}
+\resizebox{1.0\textwidth}{!}{\includegraphics{figure/result_Heu&Ran.png}}
+\caption{Numofstack of Heu and Ran with different K.}
+\label{fig 2:graph}
+\end{figure}
 
 There is a simple example to elaborate why a certain number of allowed rehandles can improve the utilization of containership comparing with the zero rehandle.
 Assuming that there are thirteen containers to be transported along the voyage with six ports.
 We let C(i,j) denote index container whose origin port is i and destination port j.
 The following is the way to denote those containers: four containers are C(1,3), one is C(2,4), one is C(2,6), four are C(3,5), one is C(4,6) and two are C(5,6).
 
-If they are loaded without any rehandles, the loading sequence and layout will be the following Figure \ref{fig 2:graph}.
+If they are loaded without any rehandles, the loading sequence and layout will be the following Figure \ref{fig 3:graph}.
 \begin{figure}[htbp]
 \centering
 \setlength{\abovecaptionskip}{10pt}
 \resizebox{1.0\textwidth}{!}{\includegraphics{figure/without_rehandle.jpg}}
 \caption{stowage plan without rehandle.}
-\label{fig 2:graph}
+\label{fig 3:graph}
 \end{figure}
 
 
-If they are loaded with rehandles, the loading sequence and layout will be the following Figure \ref{fig 3:graph}.
+If they are loaded with rehandles, the loading sequence and layout will be the following Figure \ref{fig 4:graph}.
 \begin{figure}[htbp]
 \centering
 \setlength{\abovecaptionskip}{10pt}
 \resizebox{0.9\textwidth}{!}{\includegraphics{figure/with_rehandle.jpg}}
 \caption{stowage plan with rehandle.}
-\label{fig 3:graph}
+\label{fig 4:graph}
 \end{figure}
 
 
-From the above figures, we can draw the conclusion that allowing a certain number of rehandles will reduce the number
-of stacks used to store containers in a vessel compared with zero rehandle.
+From the above figures, we can draw the conclusion that allowing a certain number of rehandles will reduce the number of stacks used to store containers in a vessel compared with zero rehandle.
 That's to say, the utilization of containership can be improved if some rehandles are allowed.
 
 In fact, we have tried a related algorithm named $P\&H$ algorithm before adopting our current heuristic algorithm to get the stowage planning.
@@ -837,13 +829,13 @@ The purpose of this algorithm is to load those containers with farther destinati
     \hline
      $P\&H$       &0   &10  &20  &50  &100\\
     \hline
-    $0.75\&0.75$   &97.725  &97.6375  &97.49583   &97.12708  &96.72083\\
+    $0.75\&0.75$   &99.32222  &99.24167  &99.08056   &98.725  &98.29167\\
     \hline
-    $0.75\&0.80$   &97.725  &97.6375  &97.49583   &97.12708  &96.72083\\
+    $0.75\&0.80$   &99.32222  &99.24167  &99.08056   &98.725  &98.29167\\
     \hline
-    $0.80\&0.75$   &97.69583  &97.61667  &97.47083   &97.11667  &96.74583\\
+    $0.80\&0.75$   &99.30833  &99.225  &99.05556   &98.71111  &98.31389\\
     \hline
-    $0.80\&0.80$    &97.69583  &97.61667  &97.47083   &97.11667  &96.74583\\
+    $0.80\&0.80$    &99.30833  &99.225  &99.05556   &98.71111  &98.31389\\
     %\hline
 %    $1.0\&1.0$      &97.68542  &97.61042  &97.4875    &97.15  &96.77708\\
     \hline
@@ -858,6 +850,42 @@ It's clear that the result shows the allowed rehandles will decrease the number 
 We can draw a conclusion that the first parameter has a significant influence on the result while the second parameter makes no difference if we compare the result in each line.
 I suppose that it happens as a result of the value set of $H$.
 Comparing with the results shown in Table \ref{tab:4}, we could find that original algorithm we propose works better when the value of $K$ is small while the "$P\&H$" algorithm gets the similar results when the value of $K$ is large.
+
+To find the relationship between the related parameters and the result of our heuristic.
+We use some data from our results obtained from heuristic algorithm to produce the Figure \ref{fig 5:graph} to make it visual.
+
+\begin{figure}[htbp]
+\centering
+\setlength{\abovecaptionskip}{10pt}
+\resizebox{0.9\textwidth}{!}{\includegraphics{figure/comprehensive_analysis.png}}
+\caption{comprehensive analysis.}
+\label{fig 5:graph}
+\end{figure}
+
+%\begin{figure}[htbp]
+%\centering
+%\setlength{\abovecaptionskip}{10pt}
+%\resizebox{0.9\textwidth}{!}{\includegraphics}{figure/comprehensive_analysis.png}
+%\caption{comprehensive analysis of result.}
+%\label{fig 5:graph}
+%\end{figure}
+
+%\begin{figure}[htbp]
+%\centering
+%\setlength{\abovecaptionskip}{10pt}
+%\resizebox{0.9\textwidth}{!}{\includegraphics{figure/comprehensive_analysis.png}}
+%\captiond{comprehensive analysis of result.}
+%\label{fig 5:graph}
+%\end{figure}
+
+Seeing from Figure \ref{fig 5:graph}, we can get the following relationships.
+On one hand, the more ports, the more containers and the higher the limit height will result in the more needed stacks if we only change the factor we want to analyze.
+On the other hand , the difference in the results between zero rehandle and some allowed rehandles become obvious as the number of port gets larger, the limit height  gets higher and the number of container gets smaller.
+
+In short, the rationality and good performance of our heuristic have been confirmed through the above tables and figures.
+
+
+
 
 
 %We also use some pictures to make our results more visual and the pictures are made by Excel.
@@ -922,7 +950,7 @@ Comparing with the results shown in Table \ref{tab:4}, we could find that origin
 %
 %Figure \ref{fig 8:graph} shows us that the comprehensive impact on the result we work out with all the basic factors considered in this paper.
 %Further, we can choose the factors we want to analyze one by one and it is convenient for us to work out how different factors influence our final result.
-%For the convenience of observation, we only give the result with filtered numbers of each factor.
+%For the convenience of observation, we only give the result with filtered choices of each factor.
 
 
 \section{Conclusion}

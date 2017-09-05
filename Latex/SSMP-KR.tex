@@ -107,103 +107,53 @@ Experiments are illustrated in Section~\ref{sec:ea}. Concluding remarks close th
 \label{sec:lr}
 The container handling problems can be divided into two streams based on the container handling locations occurred; one is container management at terminals, and the other is containership stowage planning problems (CSP).
 The problem discussed in this paper belongs to the latter.
-Since 1970s, CSP has been studied by shipping organizations for commercial demand.
-Research methods of CSP can be divided into six categories: simulation methods based on probability, heuristic procedures, mathematical programming approach, decision support systems, expert systems and evolutionary computation.
-The following section will review relevant works.
+Research methods of CSP can be divided into six categories: simulation methods based on probability, expert systems, decision support systems, heuristic procedures, mathematical programming approach and evolutionary computation. Research about the last three methods are more widely used now and we focus on them in the following review of relevant works.
 
+\cite{webster1970container} first tried to solve the problem by using simulation methods with the help of computer. 
+They put forward a heuristic algorithm that could create a random stowage plan.
 \cite{shields1984containership} introduced a computer preplanning system (CAPS) which had been used by American President Lines.
 The CAPS produced stowage plans by using Monte Carlo theory.
+
 \cite{dillingham1986application} introduced their researches on expert system of stowage based on rules.
 Each of the suggested container movements was displayed graphically as the decisions were made.
+
 \cite{wilson2001container} outlined a computer system that generated good sub-optimal solutions to the stowage pre-planning problem.
 The methodology progressively refined the arrangement of containers within the cargo-space of a container ship until each container is specifically allocated to a stowage location.
 
-\cite{scott1978loading} constructed a model, in which containers were sorted into ten classes based on some characteristics and then three heuristic rules were used to assign gradually each type of containers to slots of the ship by four steps, while the shifting problem had not been considered in their model.
-\cite{avriel1998stowage} presented a 0-1 binary linear programming formulation based on minimizing the number shifting in a single bay of a ship calling at a given number of ports.
-Further, they showed that finding the minimum number of columns for which there was a zero shifts stowage plan is equivalent to finding the coloring number of circle graphs.
-\cite{botter1991stowage} created a model called complete mathematical model for the stowage plan problem, which used binary decision variables to determine the containers unloading and loading sequence for each port.
-However, literatures have shown that binary linear programming formulation for such problems is impracticable for real life problems due to the large number of binary variables and constraints.
-
-\cite{avriel1998stowage} and \cite{avriel2000container} focused on stowage planning in order to minimize the number of unproductive shifts (temporary unloading and reloading of containers at a port before their destination ports in order to access containers below them for unloading).
-A binary linear programming (LP) model was formulated without considering ship's stability and other real-life constraints.
-Due to the proven NP-hardness of the problem, a so-called "Suspensory Heuristic" --- based on earlier work by \cite{avriel1993exact} --- was developed in order to solve even large problem instances.
-The heuristic assigned slots in a bay to containers dynamically with respect to the sequence of ports in a vessel's route.
-\cite{haghani2001model} proposed a MIP model for developing loading plans in order to minimize the time that a vessel spent at port, and the container handling cost which shifts caused by was highly influenced by the number of unproductive but necessary an unsatisfactory arrangement of containers.
-In \cite{ambrosino2004stowing} the problem of stowing containers into a containership had been faced by evaluating an exact 0-1 Linear Programming model, which was not practically useful for large cases.
-This had been modified by an approach proposed by the authors, consisting of heuristic preprocessing and prestowing procedures that also allow the relaxation of some constraints of the exact model.
-The proposed approach exhibited very good performance in terms of both solution precision and computational time.
-Moreover, in the performance evaluation with real size cases, it also guaranteed another very important maritime performance index, in term of handling operations/hour.
-In \cite{parreno2016grasp}, they focused on the slot planning phase and presented a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section.
-This so-called slot planning problem was NP-hard and often involved stowing several hundred containers.
-Using state-of-the-art constraint solvers and modeling techniques, however, they were able to solve 90\% of 236 real instances from our industrial collaborator to optimality within 1 second.
-\cite{ambrosino2015mip} proposed a Mixed  Integer  Programming (MIP) heuristic aimed at determining stowage plans in circular routes for container ships so as to give support for the ship coordinator and the terminal planner.
-
-
-
-\cite{webster1970container} first tried to solve the problem by using computer. They put forward a heuristic algorithm that could create a random stowage plan.
-What's more, \cite{ding2015stowage} developed a heuristic algorithm which can generate stowage plans with a reasonable number of shifts for such problems.
-The algorithm, verified by extensive computational experimentations, performed better than the Suspensory Heuristic Procedure (SH algorithm) in \cite{avriel1998stowage}, which was a dynamic slot-assignment scheme that terminated with a stowage plan, and to the best of our knowledge, is one of the leading heuristic algorithms for such stowage planning problem when there are many binary variables and constraints in the formulation.
-
-Tabu search was employed to obtain an optimal solution in \cite{wilson2001container} and his model was feasible because it can change configuration step by step until each container was assigned to specific slot.
-Then, \cite{bortfeldt2003parallel} presented a parallel tabu search algorithm for the container loading problem with a single container to be loaded.
-According to an extensive comparative test also including heuristics from other authors, high utilizations of the container volume are already obtained with the sequential TSA (tabu search algorithm).
-A slight improvement of these results could be achieved by the parallelization.
+Three heuristic rules were used to assign gradually each type of containers to slots of the ship by four steps in \cite{scott1978loading}, while the shifting problem had not been considered in their model.
+Tabu search was employed to obtain an optimal solution in \cite{wilson2001container} and \cite{bortfeldt2003parallel}.
 The Ship Stowage Planning Problem had been addressed in \cite{monaco2014terminal}.
-They first provided a detailed description of the two phases in which the decision problem is usually decomposed, along with a classification scheme and a review of the most relevant related papers.
-They proposed a Binary Integer Model for the minimization of the transportation times of the containers and the yard-shifts and they developed a Tabu Search Algorithm for finding sub-optimal solutions to the problem and have solved the model by CPLEX.
+They proposed a Binary Integer Model for the minimization of the transportation times of the containers and the yard-shifts and they developed a Tabu Search Algorithm for finding sub-optimal solutions to the problem.
+\cite{ding2015stowage} developed a heuristic algorithm which can generate stowage plans with a reasonable number of shifts for such problems.
+The algorithm, verified by extensive computational experimentations, performed better than the Suspensory Heuristic Procedure (SH algorithm) in \cite{avriel1998stowage}, which was a dynamic slot-assignment scheme that terminated with a stowage plan, and was one of the leading heuristic algorithms for such stowage planning problem.
 
+\cite{botter1991stowage} created a model called complete mathematical model for the stowage plan problem, which used binary decision variables to determine the containers unloading and loading sequence for each port.
+\cite{avriel1998stowage} presented a 0-1 binary linear programming formulation based on minimizing the number shifting in a single bay of a ship calling at a given number of ports.
+However, the large number of binary variables and constraints made binary linear programming formulation for such problems impracticable for real life problems.
+\cite{avriel2000container} focused on stowage planning in order to minimize the number of unproductive shifts.
+A binary linear programming (LP) model was formulated without considering ship's stability and other real-life constraints.
+\cite{haghani2001model} proposed a MIP model for developing loading plans in order to minimize the time that a vessel spent at port, and the container handling cost which shifts caused by was highly influenced by the number of unproductive but necessary an unsatisfactory arrangement of containers.
+In \cite{ambrosino2004stowing}, the problem of stowing containers into a containership had been faced by evaluating an exact 0-1 Linear Programming model, which was not practically useful for large cases.
+\cite{ambrosino2015mip} proposed a Mixed  Integer  Programming (MIP) heuristic aimed at determining stowage plans in circular routes for container ships so as to give support for the ship coordinator and the terminal planner.
+In \cite{parreno2016grasp}, they focused on the slot planning phase and presented a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section.
 
-Algorithm of evolutionary computation came from Darwin¡¯s biologic theory of evolution. There are two or three branches at present, among which genetic algorithm is used widely.
+Algorithm of evolutionary computation came from Darwin¡¯s biologic theory of evolution. 
 The presented hybrid GA for loading a single container in \cite{bortfeldt2001hybrid} was particularly suitable for strongly heterogeneous containers stowage problems.
 The algorithm took account of some constraints which were relevant in practice.
-Its good performance and superiority to comparative methods had been verified in an extensive test.
-The use of a time limit kept the required computing times within acceptable limits.
 \cite{dubrovsky2002genetic}  used a GA for solving the stowage planning problem of minimizing the number of container movements.
 Search space was significantly reduced by a compact and efficient encoding scheme.
 Ship stability criteria were reflected by appropriate constraints.
 Simulation runs demonstrated the efficiency and flexibility of the GA-based approach.
 \cite{kammarti2009evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes (parent) from an initially constructed population using a roulette wheel technique.
-Then, the two parents were combined using a one point crossover operator.
-Finally, a mutation operator was performed.
 The variant tackled in \cite{cohen2017container} involved several constraints, inspired by real-life problems and application found in the literature.
-Given the complexity of the problem, which belongs to the class of NP-hard problems, a novel evolutionary metaheuristic algorithm is developed and designed.
-Considering the ability and flexibility of Genetic Algorithm (GA), the approach was based on a two-phase procedure, one for master planning and the other for allocation of the containers into slots.
-GA parameters were analyzed to achieve practical and best results.
-The system offered stowage allocation solutions for both phases, thus offering flexibility for a wide variety of vessels and route combinations.
 
-Container ship stowage problem(CSSP) is combinatorial optimization problem with multiobjects and multiconstraints.
-In order to reduce computational difficulty, CSSP was decomposed two subproblems in \cite{wei2005model}, and the first one was discussed detailed.
-CSSP was regarded as bin-packing problem.
-After being modeled£¬the algorithm of best fit for binpacking problem was used to solve the CSSP.
-A case showed that the algorithm was feasible for container ship stowage problem.
-A multiobjective ship stowage planning problem(SSPP) was investigated by \cite{zhang2016multiobjective}, which aimed to optimize the ship stability and the number of rehandles simultaneously.
-They used metacentric height, list value, and trim value to measure the ship stability.
-Meanwhile, the number of rehandles was the sum of rehandles by yard cranes and quay cranes and all necessary rehandles at future ports.
-The algorithm could produce a set of nondominated solutions.
-Decision makers could then choose the most promising solution for practical implementation based on their experience and preferences.
-Extensive experiments were carried out on two groups of instances.
-The computational results demonstrated the effectiveness of the proposed algorithm compared to the NSGA-II and random weighted genetic algorithms, especially when it was applied in solving the six-objective SSPP.
+Container stowage problem with rehandles constraint will be introduced in this paragraph.
+\cite{malucelli2008stack} investigated stack reordering strategies aiming at minimizing the number of loading and unloading operations.
+The complexity of stowage planning problem is investigated in \cite{tierney2014complexity} and it showed that the capacitated k-shift problem is solvable in polynomial time for any choice of stacks and stacks capacities.
+A multi-objective ship stowage planning problem was researched by \cite{zhang2016multiobjective} and it aimed to optimize the ship stability and the number of rehandles simultaneously.
 
-\cite{tierney2014complexity} investigated the complexity of stowage planning problem and showed that the capacitated k-shift problem is solvable in polynomial time for any choice of stacks and stack capacities.
-Some scholars paid special attention to the process of loading and unloading, \cite{malucelli2008stack} investigated stack reordering strategies aiming at minimizing the number of pop and push operations and  focused on three versions of the problem in which reordering can take place in different phases: when unloading the stack, when loading it or in both phases.
-There are some extended problems in this field.
-Different problems arising in practice in the context of storage areas organized in stacks have been surveyed by \cite{lehnfeld2014loading}.
-Different problem classes have been identified, namely loading, unloading, premarshalling and combined problems.
-To be able to categorize all these problems in a more abstract way, they developed a classification scheme which had been used to summarize complexity results and solution methods for all problem classes.
-In conclusion, many problems have already been solved by exact or heuristic methods in all four considered problem classes.
-Nevertheless, due to the diversity of the problems, various other versions exist.
-For further research, a major challenge is the development of more efficient solution algorithms integrating additional constraints coming from practical applications.
-As we all known, the 3D Container ship Loading Plan Problem (CLPP) is an important problem that appears in seaport container terminal operations and is well known to be NP-hard.
-This problem consists of determining how to organize the containers in a ship in order to minimize the number of movements necessary to load and unload the container ship and the instability of the ship in each port.
-In \cite{araujo2016pareto},  the hybrid method Pareto Clustering Search (PCS) was proposed to solve the CLPP and obtain a good approximation to the Pareto Front.
-The PCS aimed to combine metaheuristics and local search heuristics, and the intensification was performed only in promising regions.
-Computational results considering instances available in the literature were presented to show that PCS provides better solutions for the CLPP than a mono-objective Simulated Annealing.
-
-To the best of our knowledge, apart from the SSMP-ZR, only \cite{avriel2000container} and \cite{jensen2010complexity} discussed the stowage stack minimization and its connection with the chromatic number of circle graphs when the stack height is unlimited.
-At present, the research tendency of the stowage planning problem is intelligent management system, which is a new stowage research direction.
-Intelligent containership stowage plan system is a technological innovation in contrast with traditional stowage method.
-It can improve the ability of decision-making management system of container shipping by means of artificial intelligence, information technology, communications and computer technology.
-
+To the best of our knowledge, only \cite{avriel2000container} and \cite{jensen2010complexity} discussed the stowage stack minimization and its connection with the chromatic number of circle graphs when the stack height is unlimited apart from the SSMP-ZR researched by \cite{wang2014stowage}.
+ 
 
 \section{Problem description and properties}
 \label{sec:pd}

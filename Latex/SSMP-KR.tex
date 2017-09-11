@@ -107,10 +107,9 @@ Experiments are illustrated in Section~\ref{sec:ea}. Concluding remarks close th
 \label{sec:lr}
 The container handling problems can be divided into two streams based on the container handling locations occurred; one is container management at terminals, and the other is containership stowage planning problems (CSP).
 The problem discussed in this paper belongs to the latter.
-Research methods of CSP can be divided into five categories: simulation methods based on probability, expert systems, decision support systems, mathematical programming approach and heuristic algorithm. Research about the last two methods are more widely used now and we focus on them in the following review of relevant works.
+Research methods of CSP can be divided into five categories: simulation methods based on probability, expert systems, decision support systems, mathematical programming approach and heuristic algorithm.
 
 \cite{webster1970container} first tried to solve the problem by using simulation methods with the help of computer.
-They put forward a heuristic algorithm that could create a random stowage plan.
 \cite{shields1984containership} introduced a computer preplanning system (CAPS) which had been used by American President Lines.
 The CAPS produced stowage plans by using Monte Carlo theory.
 
@@ -119,6 +118,8 @@ Each of the suggested container movements was displayed graphically as the decis
 
 \cite{wilson2001container} outlined a computer system that generated good sub-optimal solutions to the stowage pre-planning problem.
 The methodology progressively refined the arrangement of containers within the cargo-space of a container ship until each container is specifically allocated to a stowage location.
+
+The first three methods in the above review were mainly used in the early stages of the research and the literature review about them were a bit less.
 
 \cite{botter1991stowage} created a mathematical model for the stowage plan problem, which used binary decision variables to determine the containers unloading and loading sequence for each port.
 A 0-1 binary linear programming formulation was presented in order to minimize the number of shifts in \cite{avriel1998stowage} and \cite{avriel2000container}.
@@ -136,6 +137,8 @@ The presented hybrid GA for loading a single container in \cite{bortfeldt2001hyb
 Search space was significantly reduced by a compact and efficient encoding scheme.
 \cite{kammarti2009evolutionary} proposed an efficient genetic algorithm which consists on selecting two chromosomes (parent) from an initially constructed population using a roulette wheel technique.
 The variant tackled in \cite{cohen2017container} involved several constraints, inspired by real-life problems and application found in the literature.
+
+Research about the last two methods are more widely used now and therefore we focus on them in the above review about relevant works.
 
 We have also read literatures about container stowage problem with rehandles constraint.
 \cite{malucelli2008stack} investigated stack reordering strategies aiming at minimizing the number of loading and unloading operations.
@@ -326,7 +329,7 @@ The value of $NumofStack$ will be updated when all the containers are processed 
 $NumofStack$ here are referred as the largest number of used stacks after the containership departs from port $p$.
 The algorithm finally outputs the value of $NumofStack$ at port $P$ when all containers in an instance are processed.
 
-\begin{algorithm}[!htbp]
+\begin{algorithm}[htbp]
   \caption{A heuristic procedure for the SSMP}
   \label{alg:1}
   \begin{codebox}
@@ -358,7 +361,7 @@ We add non-full stacks whose nearest port is no smaller than the current loading
 For all the stacks in $S_0$, we choose the one with the smallest value of $nearport$.
 If there isn't only one stack with the smallest value of $nearport$, we choose the first one we traverse.
 
-\begin{algorithm}[!htbp]
+\begin{algorithm}[htbp]
     \caption{The procedure for the method $loading\_equalK(c,nearport)$}
     \label{alg:2}
     \begin{codebox}
@@ -376,8 +379,8 @@ If there isn't only one stack with the smallest value of $nearport$, we choose t
        \end{codebox}
 \end{algorithm}
 
- the following is the type of itemize
- 
+the following is the type of itemize
+
 \begin{itemize}
 \item $S_0$=currently non-full stacks whose $nearport$ is greater than or equal to $D(c)$.
 \item \If $S_0 \neq \emptyset$, then $s_{min}=\arg\min \limits_{s\in S_0} nearport[s]$.
@@ -387,8 +390,8 @@ If there isn't only one stack with the smallest value of $nearport$, we choose t
 \item Update the height of stack $s_{min}$.
 \end{itemize}
 
- the following is the type of use enumerate
- 
+the following is the type of enumerate
+
 \begin{enumerate}[step 1]
 \item $S_0$=currently non-full stacks whose $nearport$ is greater than or equal to $D(c)$.
 \item If $S_0 \neq \emptyset$, then $s_{min}=\arg\min \limits_{s\in S_0} nearport[s]$.
@@ -412,7 +415,7 @@ The priority order of them is $S_1$, $S_2$, $S_3$, which represents the chosen s
 Like the above Algorithm \ref{alg:2}, we choose the first one with the smallest value of $nearport$ when we traverse each set of feasible stacks.
 It's worth mentioning that $s_{min}$ in Algorithm \ref{alg:2} and \ref{alg:3} represents the first stack with the smallest value of $nearport$ according to the traversing sequence.
 
-\begin{algorithm}[!htbp]
+\begin{algorithm}[htbp]
     \caption{The procedure for the method $loading\_lessK(c,nearport)$}
     \label{alg:3}
     \begin{codebox}
@@ -443,30 +446,30 @@ It's worth mentioning that $s_{min}$ in Algorithm \ref{alg:2} and \ref{alg:3} re
 
 
 
- the following is the type of itemize
- 
+the following is the type of itemize
+
 \begin{itemize}
 \label{item:1}
-\item[-] $S_1$=currently partial stacks whose $nearport$ is greater than or equal to $D(c)$.
-\item[-] $S_2$=currently partial stacks whose $nearport$ is smaller than $D(c)$.
-\item[-] $S_3$=currently empty stacks.
-\item[-] If $S_1\neq \emptyset$
-\item[-] Then $s_{min}=\arg\min \limits_{s\in S_1} nearport[s]$
-\item[-] Clear the $arraylist$ $S_1$
-\item[-] Load container $c$ to stack $s_{min}$.
-\item[-] Else If $S_2\neq \emptyset$
-\item[-] Then $s_{min}=\arg\min \limits_{s\in S_2} nearport[s]$
-\item[-] Clear the $arraylist$ $S_2$
-\item[-] Update the value of $k$
-\item[-] Load container $c$ to stack $s_{min}$.
-\item[-] Else Clear the $arraylist$ $S_3$
-\item[-] Load container $c$ to the first empty stack in $S_3$, which is also indexed by $s_{min}$.
-\item[-] Update the value of $nearport$ of stack $s_{min}$.
-\item[-] Update the height of stack $s_{min}$.
+\item $S_1$=currently partial stacks whose $nearport$ is greater than or equal to $D(c)$.
+\item $S_2$=currently partial stacks whose $nearport$ is smaller than $D(c)$.
+\item $S_3$=currently empty stacks.
+\item If $S_1\neq \emptyset$
+\item Then $s_{min}=\arg\min \limits_{s\in S_1} nearport[s]$
+\item Clear the $arraylist$ $S_1$
+\item Load container $c$ to stack $s_{min}$.
+\item Else If $S_2\neq \emptyset$
+\item Then $s_{min}=\arg\min \limits_{s\in S_2} nearport[s]$
+\item Clear the $arraylist$ $S_2$
+\item Update the value of $k$
+\item Load container $c$ to stack $s_{min}$.
+\item Else Clear the $arraylist$ $S_3$
+\item Load container $c$ to the first empty stack in $S_3$, which is also indexed by $s_{min}$.
+\item Update the value of $nearport$ of stack $s_{min}$.
+\item Update the height of stack $s_{min}$.
 \end{itemize}
 
 
- the following is the type of enumerate
+the following is the type of enumerate
 
 \begin{enumerate}[step 1]
 \item $S_1$=currently partial stacks whose nearport is greater than or equal to $D(c)$.
@@ -554,7 +557,7 @@ Upon the ship arrives at port $i+1$, it first unloads the containers from the co
 If there are blocking containers to be unloaded, they are moved on the yard temporally and regarded as containers to be loaded at current port.
 It's not difficult to know new partial stack transforming from empty stack won't be produced.
 Obviously, new partial stack transforming from empty stack won't be produced if there are no blocking containers.
-That's to say, the unloading process does not increase the number of partial stacks transforming from empty stack won't be produced.
+That's to say, the unloading process does not increase the number of partial stacks transforming from empty stack.
 We don't consider the partial stack transforming from full stack since it won't change the total used stacks.
 
 (1)If there are containers to be loaded at port $i+1$, they will be loaded into the previous partial stacks or a empty stack, then $V_{i+1}=V_i+1$,  $P($i+1$) \le P(i)+1$.
@@ -619,8 +622,8 @@ The operating system of the computer is Windows 10.
 The experimental results are shown in Table \ref{tab:2} and Table \ref{tab:3}.
 Considering the size of table, the results of instances with 5000 containers are not listed.
 
-\begin{table}[!htbp]
-\small
+\begin{table}[htbp]
+\footnotesize
   \centering
   \setlength{\belowcaptionskip}{10pt}
   \caption{Results of the instances with $P\in\{5, 10\}$}
@@ -676,8 +679,8 @@ Considering the size of table, the results of instances with 5000 containers are
 \end{table}
 
 
-\begin{table}[!htbp]
-\small
+\begin{table}[htbp]
+\footnotesize
   \centering
   \setlength{\belowcaptionskip}{10pt}
   \caption{Results of the instances with $P\in\{20, 30\}$}
@@ -774,7 +777,7 @@ It's not difficult to draw the conclusion that the number of used stacks gets sm
 Another conclusion is, comparing with random algorithm, our heuristic algorithm has a fairly good performance to work out the solution to the SSMP.
 It's noteworthy that the average results in Table \ref{tab:4} include the instances with $N=5000$.
 
-\begin{table}[!htbp]
+\begin{table}[htbp]
   \centering
   \setlength{\belowcaptionskip}{10pt}
   \caption{average results of the instances with different K for two algorithms}
@@ -839,7 +842,7 @@ The latter parameter represents the ratio of stack's height and the limited heig
 The main idea of $P\&H$ algorithm is to take the destination port of loading container and the limit height of stack into consideration when choosing stack for the target container.
 The purpose of this algorithm is to load those containers with farther destination port into the bottom of stack and the computational result will be listed in the Table \ref{tab:5}.
 
-\begin{table}[!htbp]
+\begin{table}[htbp]
   \centering
   \setlength{\belowcaptionskip}{10pt}
   \caption{average results of the instances with $P\&H$ algorithm}

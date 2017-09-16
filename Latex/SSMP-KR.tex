@@ -226,7 +226,7 @@ We first give some related notations for ease of exposition.
 \item $nearport$ is used to store the value of the nearest port of each stack.
 \end{itemize}
 
-There is a simple example to explain $nearport$. Three containers are stored in the same stack, and their destination ports are 4,5,6, respectively, then the value of $nearport$ of this stack is 4.
+There is a simple example to explain $nearport$. Three containers are stored in the same stack, and their destination ports are 4, 5, 6, respectively, then the value of $nearport$ of this stack is 4.
 In particular, the value of $nearport$ of empty stacks is set as $P+1$.
 
 Algorithm \ref{alg:1} solves instances of SSMP.
@@ -242,13 +242,13 @@ The main two steps in our heuristic algorithm are unloading and loading procedur
     \li \Do
                 Unload containers with $D(c)==p$.
     \li         Sort containers with $O(c)==p$ by the decreasing order of their destinations.
-    \li         \For each container $c$ with $O(c)==p$ at port $p$
+    \li         \For each container $c$ with $O(c)==p$
     \li         \Do
                    \If $k==K$
     \li            \Then
-                        execute method $loading\_equalK(c,nearport)$.
+                        execute method $loading\_equalK(c)$.
     \li            \Else If $k < K$
-    \li                 execute method $loading\_lessK(c,nearport)$.
+    \li                 execute method $loading\_lessK(c)$.
                    \End
                 \End
     \li          Update the value of $NumofStack$ at port $p$.
@@ -262,16 +262,21 @@ Given an instance I, for each port $p$ along the voyage, containers with $D(c)==
 Especially, if there exist blocking containers, they are moved on the yard temporally and regarded as containers to be loaded at current port.
 After containers with $D(c)==p$ are discharged, containers on yard (including containers with $O(c)==p$ and blocking containers) are sorted in order and loaded.
 
-When loading containers at each port, two different methods based on our greedy rules are adopted to choose stack for each target container according to whether $k$ is equal to $K$.
-The two methods are called as $loading\_lessK(c,nearport)$ and $loading\_equalK(c,nearport)$, respectively.
+Two different methods based on our greedy rules are adopted to choose stack for each target container according to whether $k$ is equal to $K$
+When loading containers at each port.
+The two methods are called as $loading\_lessK(c)$ and $loading\_equalK(c)$, respectively.
 
 After all the containers are processed at port $p$, the final value of $NumofStack$ will be fixed.
 $NumofStack$ here is referred as the largest number of used stacks after the containership departs from port $p$.
 The algorithm finally outputs the value of $NumofStack$ at port $P$ when all containers in an instance are processed.
 
-Since we have had a basic understanding of our algorithm, the tow loading methods will be introduced in the following. 
+
+\subsection{Detail description of loading procedure}
+\label{sec:d2}
+
+Since we have had a basic understanding of our algorithm, the detail description of the tow loading methods will be introduced in this section.
 We firstly talk about the simple condition that the allowed rehandles run out, i.e. $k$ is equal to $K$.
-In the $loading\_equalK(c,nearport)$ method, we consider choosing a stack from partial stacks whose $nearport$ is no less than the current loading container at first.
+In the $loading\_equalK(c)$ method, we consider choosing a stack from partial stacks whose $nearport$ is no less than the current loading container at first.
 If there are no such partial stacks exist, then one empty stack is necessary.
 Therefore, the stack selection priority for container c under this condition is:
 
@@ -280,13 +285,13 @@ Therefore, the stack selection priority for container c under this condition is:
 \item empty stacks.
 \end{enumerate}
 
-As mentioned above, the value of $nearport$ of every empty stack is set as $P+1$, the two kinds of stacks both meet the condition that their value of $nearport$ is no less than $D(c)$.
-Therefore, we add all the two kinds of stacks into the same $arraylist$ called $S_0$.
-For all the stacks in $S_0$, we choose the one with the smallest value of $nearport$.
-If there isn't one stack with the smallest value of $nearport$, we choose the first one when we traverse stacks in $S_0$.
+%As mentioned above, the value of $nearport$ of every empty stack is set as $P+1$, the two kinds of stacks both meet the condition that their value of $nearport$ is no less than $D(c)$.
+%Therefore, we add all the two kinds of stacks into the same $arraylist$ called $S_0$.
+%For all the stacks in $S_0$, we choose the one with the smallest value of $nearport$.
+%If there isn't one stack with the smallest value of $nearport$, we choose the first one when we traverse stacks in $S_0$.
 
 Afterwards, we talk about the complex condition that the rehandles are allowed, i.e. $k$ is less than $K$.
-In the $loading\_lessK(c,nearport)$ method, the kinds of feasible stacks increase as a result of the existence of rehandles.
+In the $loading\_lessK(c)$ method, the kinds of feasible stacks increase as a result of the existence of rehandles.
 Under this condition, the stack selection priority for container c becomes:
 
 \begin{enumerate}
@@ -295,9 +300,9 @@ Under this condition, the stack selection priority for container c becomes:
 \item empty stacks, the set of which is indexed as $S_3$.
 \end{enumerate}
 
-That's to say, we use $arraylist$ $S_1$ to store partial stacks without rehandles occurring, $arraylist$ $S_2$ to store partial stacks with rehandles occurring and $arraylist$ $S_3$ to store empty stacks.
-The priority order of them is $S_1$, $S_2$, $S_3$, which represents the chosen sequence of different types of stacks.
-Like the method $loading\_equalK(c,nearport)$, we choose the first one if there are more than one stacks with the smallest value of $nearport$ when we traverse each set of feasible stacks.
+%That's to say, we use $arraylist$ $S_1$ to store partial stacks without rehandles occurring, $arraylist$ $S_2$ to store partial stacks with rehandles occurring and $arraylist$ $S_3$ to store empty stacks.
+%The priority order of them is $S_1$, $S_2$, $S_3$, which represents the chosen sequence of different types of stacks.
+%Like the method $loading\_equalK(c,nearport)$, we choose the first one if there are more than one stacks with the smallest value of $nearport$ when we traverse each set of feasible stacks.
 
 Both in method $loading\_equalK(c,nearport)$ and $loading\_lessK(c,nearport)$, we need to clear all the $arraylist$ once we have chosen the stack for the target container.
 Of course, we will update the value of $k$ if there is a rehandle when loading containers.
@@ -315,7 +320,7 @@ Therefore, our algorithm makes a little difference and makes some sense in the r
 
 
 \subsection{Performance Guarantee of the Algorithms}
-\label{sec:p2}
+\label{sec:p3}
 
 In order to simplify the problem, we show that the heuristic algorithms have a performance guarantee.
 For ease of exposition, we first give some related notations.
@@ -360,7 +365,7 @@ The number of partial stacks in port $p$ is no greater than $V_p$:
 
 We use an inductive proof.
 
-\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V(p=1)$ =1.
+\textit{Basis}: For $p=1$, without loss of generality, we assume that port 1 is a loading port, and therefore $V_1$ =1.
 In addition, P(1)=0 or 1, i.e. $P(1) \le 1$. Hence, $P(p) \le V_p $ holds.
 
 \textit{Inductive step}: Suppose that the partial stacks in port $i$ is no greater than $V_i$, i.e. $P(i) \le V_i $.
@@ -371,9 +376,9 @@ Obviously, new partial stack transforming from empty stack won't be produced if 
 That's to say, the unloading process does not increase the number of partial stacks transforming from empty stack.
 In addition, we don't consider the partial stack transforming from full stack since it won't change the total used stacks.
 
-(1)If there are containers to be loaded at port $i+1$, they will be loaded into the previous partial stacks or a empty stack, then $V_{i+1}=V_i+1$,  $P($i+1$) \le P(i)+1$.
+(1) If there are containers to be loaded at port $i+1$, they will be loaded into the previous partial stacks or a empty stack, then $V_{i+1}=V_i+1$,  $P($i+1$) \le P(i)+1$.
 
-(2)If there is no containers to be loaded at port $i+1$,  $V_{i+1}=V_p$, $P($i+1$) \le P(i)$. Hence, $P($i+1$) \le P(i) \le V_{i}=V_{i+1}$.
+(2) If there is no containers to be loaded at port $i+1$,  $V_{i+1}=V_p$, $P($i+1$) \le P(i)$. Hence, $P($i+1$) \le P(i) \le V_{i}=V_{i+1}$.
 
 Based on the above two steps, we have $P(p) \le V_p,  \forall p=1,\ldots,P$.
 \end{proof}
@@ -409,7 +414,7 @@ Therefore, the difference between the optimal solution and our heuristic solutio
 \section{Experiments and Analysis}
 \label{sec:ea}
 
-This paper uses the test data from the existing literature (\cite{wang2014stowage}) and we add an extra parameters $K$ into the primary instances in order to meet the demands of research.
+This paper uses the test data from \cite{wang2014stowage} and we add an extra parameters $K$ into the primary instances in order to meet the demands of research.
 $K$ means the number of allowed rehandles and it is selected from \{0, 10, 20, 50, 100\}.
 Particular, instances with $K=0$ represent the benchmark instances comparing with the same instances with different values of $K$.
 In fact, the problem becomes SSMP-ZR when $K=0$.
@@ -543,7 +548,7 @@ Considering the size of table, the results of instances with 5000 containers are
 
 Table \ref{tab:2} summarizes the results of those easy instances with small number of ports, i.e. $P \in \{5, 10\}$.
 For each given $P$, $N$ and $H$, we work out the values of $LB$, $UB$ of our heuristic algorithm.
-For both our heuristic algorithm and random algorithm, we work out the average numbers of $Numofstack$ in different instances when $K$ selects different values.
+For both our heuristic algorithm and random algorithm, we work out the average numbers of $Numofstack$ in different instances when $K$ is set to different values.
 The $LB$ and $UB$ are used to test the rationality of heuristic algorithm and the average $Numofstack$ of instances with different values of $K$ by using heuristic and random algorithms are used to compare with each other.
 
 Table \ref{tab:3} summarizes that the results of those difficult instances with large number of ports, i.e. $P \in \{20, 30\}$.
@@ -609,7 +614,7 @@ It's noteworthy that the average results in Table \ref{tab:4} include the instan
 
 There is a simple example to elaborate why a certain number of allowed rehandles can improve the utilization of containership comparing with the zero rehandle.
 Assuming that there are thirteen containers to be transported along the voyage with six ports.
-We let C(i,j) denote index container whose origin port is i and destination port j.
+We let C($i$,$j$) denote index container whose origin port is $i$ and destination port $j$.
 The following is the way to denote those containers: four containers are C(1,3), one is C(2,4), one is C(2,6), four are C(3,5), one is C(4,6) and two are C(5,6).
 
 If they are loaded without any rehandles, the loading sequence and layout will be the following Figure \ref{fig 3:graph}.
@@ -675,11 +680,11 @@ It's noteworthy that the average results in Table \ref{tab:5} include the instan
 Both the values of two parameters of the algorithm are selected form \{0.75, 0.8\}.
 It's clear that the result shows the allowed rehandles will decrease the number of used stacks as the above results in Table \ref{tab:4}.
 We can draw a conclusion that the first parameter has a significant influence on the result while the second parameter makes no difference if we compare the result in each line.
-I suppose that it happens as a result of the value set of $H$, the value set of $H$ in this paper could be a little small.
-Comparing with the results shown in Table \ref{tab:4}, we could find that original algorithm we propose works better when the value of $K$ is small while the $P\&H$ algorithm 
+It's thought that it happens as a result of the value set of $H$, the value set of $H$ in this paper could be a little small.
+Comparing with the results shown in Table \ref{tab:4}, we could find that original algorithm we propose works better when the value of $K$ is small while the $P\&H$ algorithm
 gets the similar results when the value of $K$ is large.
 
-To find the relationship between the related parameters and the result got from our heuristic, we use some data from our results obtained from heuristic algorithm to 
+To find the relationship between the related parameters and the result got from our heuristic, we use some data from our results obtained from heuristic algorithm to
 produce the Figure \ref{fig 5:graph} to make it visual.
 $K$ is selected from \{0,100\}, $P$ is selected from \{5,30\}, $N$ is selected from \{50,200,1000\} and $H$ is selected from \{4,12\} in Figure \ref{fig 5:graph} so that we can find out the related relationships clearly.
 
@@ -693,14 +698,14 @@ $K$ is selected from \{0,100\}, $P$ is selected from \{5,30\}, $N$ is selected f
 
 
 Seeing from Figure \ref{fig 5:graph}, we can get the following relationships.
-On one hand, the more ports, the more containers and the higher the limit height will result in the more needed stacks if we only consider the factor we want to analyze.
+On one hand, the more ports, the more containers and the higher the limit height will result in the more needed stacks whether we consider the single factor or the multiple factors.
 On the other hand, the difference in the results between zero rehandle and certain allowed rehandles becomes obvious as the number of port gets larger, the limit height gets higher and the number of container gets smaller.
 
 In short, the rationality and good performance of our heuristic have been confirmed through all the above tables and figures.
 
 \section{Conclusion}
 \label{sec:con}
-The stowage stack minimization problem with K-rehandle constraint (SSMP-KR) is aimed to find out a stowage plan that fewest stacks on a containership are 
+The stowage stack minimization problem with K-rehandle constraint is aimed to find out a stowage plan that fewest stacks on a containership are
 required to accommodate given containers throughout a voyage by subject to K-rehandles.
 
 In this paper, we analyze the structure of this containership stowage planning problem and its relationship with the SSMP-ZR problem proposed in \cite{wang2014stowage}.
@@ -717,16 +722,14 @@ The results show the problem we put forward is of practical significance and it 
 Our algorithm uses greedy rules to find the best slot for each container, hence the results may be the near-optimal rather than global optimal.
 As we all know, it is difficult to get the global optimal for this kind of problem.
 
-Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce some spending in the case of 
+Applying this algorithm into the real shipping management can enhance the hull space utilization and reduce some spending in the case of
 improving the utilization of containership.
 The novelty and practicality show the importance of this paper and it can give a reference to the future study.
-Furthermore, the rehandles are unavoidable in the actual port operation, which indicates the problem we propose in this paper 
-does make some sense and the solution we work out using our heuristic algorithm can provide a preliminary assessment for forwarders to 
+Furthermore, the rehandles are unavoidable in the actual port operation, which indicates the problem we propose in this paper
+does make some sense and the solution we work out using our heuristic algorithm can provide a preliminary assessment for forwarders to
 arrange linear shipping company for transportation.
-
 
 \bibliographystyle{apalike2}
 \bibliography{references}
+
 \end{document}
-
-

@@ -15,12 +15,11 @@
 
 \title{The Stowage Stack Minimization Problem with K-Rehandle Constraint}
 \author[shu]{Ning Wang}
-\ead{ningwang@shu.edu.cn}
+%\ead{ningwang@shu.edu.cn}
 
 \author[shu]{Shanhui Ke}
 
 \author[syu]{Zizhen Zhang\corref{corl}}
-\ead{zhangzizhen@gmail.com}
 
 \author[set]{Bo Wang}
 
@@ -32,9 +31,9 @@ Department of Information Management, School of Management, Shanghai University,
 School of Data and Computer Science, Sun Yat-Sen University, China
 }
 \address[set]{
-Shanghai University of Engineering Science
+College of Urban Rail Transportation, Shanghai University of Engineering Science
 }
-\cortext[corl]{Corresponding author.}
+\cortext[corl]{Corresponding author. E-mail: zhangzizhen@gmail.com}
 
 \begin{abstract}
 The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic usefulness since it can help shipping forwarders estimate shipping space of each shippers.
@@ -305,8 +304,8 @@ Both in method $loading\_equalK(c)$ and $loading\_lessK(c)$, we need to clear al
 Of course, we will update the value of $k$ if there is a rehandle when loading containers.
 After loading the current container into the chosen stack $s*$, the height of $s*$ and $nearport_s*$ will both be updated.
 
-As is explained in the heading of this section, we divide the loading strategy into two methods on the basis of the relationship between $k$ and $K$.
-what is identical for the two methods is that they both use greedy rules to choose the optimal stack for each container and the main difference between them lies in the range of feasible stacks.
+%As is explained in the heading of this section, we divide the loading strategy into two methods on the basis of the relationship between $k$ and $K$.
+%What is identical for the two methods is that they both use greedy rules to choose the optimal stack for each container and the main difference between them lies in the range of feasible stacks.
 
 Actually, a lot of variables and methods of the specific unloading and loading strategies have been involved, we don't write all of them here for the sake of context length.
 For example, the method to record the information of loading and unloading operations isn't given in this paper.
@@ -712,6 +711,10 @@ The results show the problem we put forward is of practical significance and it 
 
 The novelty and practicality show the importance of this paper and it can give a reference to the future study.
 In the further research, more heuristic and precise algorithms will be used to find solutions to the stowage stack minimization problem.
+
+\section*{Acknowledgments}
+
+This research was partially supported by the National Natural Science Foundation of China (No.\ 71602109), Shanghai Pujiang Program (No.\ 16PJC038), and Funding Program for Teachers of Shanghai High Education (No.\ ZZSD15095).
 
 \bibliographystyle{apalike2}
 \bibliography{references}

@@ -4,7 +4,7 @@
 \usepackage{graphicx,subfigure}
 \usepackage{clrscode3e}
 \usepackage{enumerate}
-\usepackage{multirow}
+\usepackage{multirow,endfloat}
 \graphicspath{{figure/}}
 \newtheorem{proposition}{Proposition}
 
@@ -13,35 +13,44 @@
 \begin{frontmatter}
 \newpage
 
-\title{The Stowage Stack Minimization Problem with K-Rehandle Constraint}
-\author[shu]{Ning Wang}
-%\ead{ningwang@shu.edu.cn}
-
-\author[shu]{Shanhui Ke}
-
-\author[syu]{Zizhen Zhang\corref{corl}}
-
-\author[set]{Bo Wang}
-
-
-\address[shu]{
-Department of Information Management, School of Management, Shanghai University, Shanghai, China
-}
-\address[syu]{
-School of Data and Computer Science, Sun Yat-Sen University, China
-}
-\address[set]{
-College of Urban Rail Transportation, Shanghai University of Engineering Science
-}
-\cortext[corl]{Corresponding author. E-mail: zhangzizhen@gmail.com}
+\title{A Heuristic and Algorithm Bound for the Stowage Stack Minimization Problem with K-Rehandle Constraint}
+%\author[shu]{Ning Wang\corref{corl}}
+%%\ead{ningwang@shu.edu.cn}
+%
+%\author[shu]{Shanhui Ke}
+%
+%%\author[syu]{Zizhen Zhang}
+%
+%\author[set]{Bo Wang}
+%
+%
+%\address[shu]{
+%Department of Information Management, School of Management, Shanghai University, Shanghai, China
+%}
+%%\address[syu]{
+%%School of Data and Computer Science, Sun Yat-Sen University, China
+%%}
+%\address[set]{
+%College of Urban Rail Transportation, Shanghai University of Engineering Science, China
+%}
+%\cortext[corl]{Corresponding author. E-mail: ningwang@shu.edu.cn. Address: No. 333, Nanchen Road, Shanghai, China, 200444}%zhangzizhen@gmail.com
 
 \begin{abstract}
+<<<<<<< HEAD
+The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers from/to different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic usefulness since it can help shipping forwarders estimate the shipping space of each shipper.
+To the best of our knowledge, we are the first that propose SSMP in the academic community.
+
+In this paper, we talk about SSMP with the $K$-rehandle constraint. A heuristic algorithm is put forward to construct solutions. We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
+To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical sizes and compare the results when different values of $K$ are selected.
+What is more, instances with different numbers of ports, containers and stack heights are tested to make sure the universality of our algorithm.
+=======
 The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic significance since it can help shipping forwarders estimate shipping space of each shipper.
 To our best knowledge, we propose SSMP for the first time in the academic community.
 
 In this paper, we talk about SSMP with $K$-rehandle constraint. A heuristic algorithm is put forward to construct solutions. We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
 To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results when different values of $K$ are selected.
 What's more, instances with different values of the number of ports, containers and heights have been tested to make sure the universality of our algorithm.
+>>>>>>> origin/master
 \end{abstract}
 
 \begin{keyword}
@@ -713,9 +722,9 @@ The results show the problem we put forward is of practical significance and it 
 The novelty and practicality show the importance of this paper and it can give a reference to the future study.
 In the further research, more heuristic and precise algorithms will be used to find solutions to the stowage stack minimization problem.
 
-\section*{Acknowledgments}
-
-This research was partially supported by the National Natural Science Foundation of China (No.\ 71602109), Shanghai Pujiang Program (No.\ 16PJC038), and Funding Program for Teachers of Shanghai High Education (No.\ ZZSD15095).
+%\section*{Acknowledgments}
+%
+%This research was partially supported by the National Natural Science Foundation of China [grant number 71602109]; Shanghai Pujiang Program [grant number 16PJC038]; and Funding Program for Teachers of Shanghai High Education [grant number ZZSD15095].
 
 \bibliographystyle{apalike2}
 \bibliography{references}

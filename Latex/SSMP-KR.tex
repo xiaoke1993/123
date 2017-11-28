@@ -36,12 +36,12 @@ College of Urban Rail Transportation, Shanghai University of Engineering Science
 \cortext[corl]{Corresponding author. E-mail: zhangzizhen@gmail.com}
 
 \begin{abstract}
-The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic usefulness since it can help shipping forwarders estimate shipping space of each shippers.
+The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to utilize the fewest number of stacks on the ship. This problem has realistic significance since it can help shipping forwarders estimate shipping space of each shipper.
 To our best knowledge, we propose SSMP for the first time in the academic community.
 
 In this paper, we talk about SSMP with $K$-rehandle constraint. A heuristic algorithm is put forward to construct solutions. We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
 To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical size and compare the results when different values of $K$ are selected.
-What's more, instances with different values of ports, containers and heights have been tested to make sure the universality of our algorithm.
+What's more, instances with different values of the number of ports, containers and heights have been tested to make sure the universality of our algorithm.
 \end{abstract}
 
 \begin{keyword}
@@ -290,8 +290,8 @@ In the $loading\_lessK(c)$ method, the kinds of feasible stacks increase as a re
 Under this condition, the stack selection priority for container $c$ becomes:
 
 \begin{enumerate}
-\item the set of partial stacks, which is indexed as $S_1$, each container $s$ in $S_1$ meets the constraint that $nearport_s \ge D(c)$.
-\item the set of partial stacks, which is indexed as $S_2$, each container $s$ in $S_2$ meets the constraint that $nearport_s < D(c)$.
+\item the set of partial stacks, which is indexed as $S_1$, each stack $s$ in $S_1$ meets the constraint that $nearport_s \ge D(c)$.
+\item the set of partial stacks, which is indexed as $S_2$, each stack $s$ in $S_2$ meets the constraint that $nearport_s < D(c)$.
 \item the set of empty stacks, which is indexed as $S_3$.
 \end{enumerate}
 
@@ -698,7 +698,7 @@ In short, the rationality and good performance of our heuristic have been confir
 \section{Conclusion}
 \label{sec:con}
 The stowage stack minimization problem with K-rehandle constraint is aimed to find out a stowage plan that fewest stacks on a containership are required to accommodate given containers throughout a voyage by subject to K-rehandles.
-Actually, the stowage stack minimization problem with zero rehandle is regarded as an particular case of SSMP when $K$ is set to zero.
+Actually, the stowage stack minimization problem with zero rehandle is regarded as a particular case of SSMP when $K$ is set to zero.
 The other way round, the problem proposed in this paper is a generalized and extended problem of SSMP-ZR considering the existence of $K$ rehandles.
 
 In this paper, we first presented the integer programming model for the SSMP-ZR in \cite{wang2014stowage}.

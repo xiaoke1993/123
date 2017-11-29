@@ -1,0 +1,45 @@
+\begin{figure}[htbp]
+\center
+\setlength{\abovecaptionskip}{10pt}
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/Arrangement_of_cargo_space.png}}
+\caption{The arrangement of cargo space in a container vessel.}
+\label{fig 1:graph}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htbp]
+\centering
+\setlength{\abovecaptionskip}{10pt}
+\resizebox{1.0\textwidth}{!}{\includegraphics{figure/result_Heu&Ran.png}}
+\caption{Numofstack of Heu and Ran with different K.}
+\label{fig 2:graph}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htbp]
+\centering
+\setlength{\abovecaptionskip}{10pt}
+\resizebox{1.0\textwidth}{!}{\includegraphics{figure/without_rehandle.jpg}}
+\caption{stowage plan without rehandle.}
+\label{fig 3:graph}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htbp]
+\centering
+\setlength{\abovecaptionskip}{10pt}
+\resizebox{0.9\textwidth}{!}{\includegraphics{figure/with_rehandle.jpg}}
+\caption{stowage plan with rehandle.}
+\label{fig 4:graph}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htbp]
+\centering
+\setlength{\abovecaptionskip}{10pt}
+\resizebox{0.9\textwidth}{!}{\includegraphics{figure/comprehensive_analysis.png}}
+\caption{comprehensive analysis.}
+\label{fig 5:graph}
+\end{figure}
+\efloatseparator
+ 

@@ -73,9 +73,9 @@ This mode is deeply accepted by shippers and carriers, and is becoming the main 
 It has resulted in a tremendous growth of the maritime freight industry and it shows powerful vitality and promising prospects.
 
 With the development of container-shipping, more and more containers are transported by sail.
-Over the past decades there has been a continuous increase in demand for cost efficient containerized transportation.
+Over the past decades, there has been a continuous increase in demand for cost-efficient containerized transportation.
 Thus, it makes higher research demand.
-The container stowage plan is a pivotal link to containers transportation, and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
+The container stowage plan is a pivotal link to containers transportation and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas.
 These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} reproduced from \cite{delgado2012constraint} shows a diagram of containership.
@@ -93,7 +93,7 @@ The position for one 20-ft container on the ship is uniquely indexed by (bay, ro
 In addition, for some ships, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
 
 A ship usually calls a sequence of ports and containers are loaded and unloaded at each port by cranes in a last-in-last-out (LIFO) manner.
-Rehandles arise either when we want to unload containers destined for current port which however are beneath those destined for subsequent ports, or when we want to reorder the sequence of containers to prevent more rehandles in the future.
+Rehandles arise either when we want to unload containers destined for the current port which however are beneath those destined for subsequent ports, or when we want to reorder the sequence of containers to prevent more rehandles in the future.
 Rehandles are expensive, since on one hand terminals directly charge the carriers for such operations, on the other hand, rehandles make ships dwell at terminals longer, inducing more berthing cost.
 
 Actual examples show that containership stowage plans not only influence the income of shipping company from transportation but also have a direct relation to the safety of ships and freights.
@@ -133,7 +133,7 @@ Most existing methods for the CSP are mathematical programming approaches.
 \cite{botter1991stowage} created a mathematical model for the stowage plan problem, which used binary decision variables to determine the containers unloading and loading sequence for each port.
 A 0-1 binary linear programming formulation was presented in order to minimize the number of shifts in \cite{avriel1998stowage} and \cite{avriel2000container}.
 \cite{haghani2001model} proposed a MIP model for developing loading plans in order to minimize the time that a vessel spent at each port, and the container handling cost which shifts caused by was highly influenced by the number of unproductive but necessary an unsatisfactory arrangement of containers.
-In \cite{ambrosino2004stowing}, the problem of stowing containers into a containership had been faced by evaluating an exact 0-1 Linear Programming model, which was not practically useful for large cases.
+In \cite{ambrosino2004stowing}, the problem of stowing containers into a container ship had been faced by evaluating an exact 0-1 Linear Programming model, which was not practically useful for large cases.
 \cite{ambrosino2015mip} proposed a Mixed  Integer  Programming (MIP) heuristic aimed at determining stowage plans in circular routes for container ships so as to give support for the ship coordinator and the terminal planner.
 In \cite{parreno2016grasp}, they focused on the slot planning phase and presented a Constraint Programming and Integer Programming model for stowing a set of containers in a single bay section.
 
@@ -211,9 +211,9 @@ Constraints (\ref{eqn:4}) avoid rehandle requiring that container $i$ is prohibi
 The IP solution can be converted into a complete loading plan: start from port $p=1$ to port $p=P$. At port $p$, containers are sorted in a descending order of destination ports. Each container $i$ is loaded to the top of its corresponding stack $s^*$ which satisfies $x_{is^*}=1$.
 
 For the IP model of general SSMP, it is hard to build a model.
-Since there are rehandles, we have to move blocking containers on the yard and back to the ship.
+Since there are rehandles, we have to move blocking containers in the yard and back to the ship.
 The stacks of blocking containers are not necessarily the original slots.
-If we want to model the slots of blocking containers, we have to set variable $x_{ctl}$ that indicates the slot $t$ of a container $c$ at a layout $l$.
+If we want to model the slots of blocking containers, we have to set the variable $x_{ctl}$ that indicates the slot $t$ of a container $c$ at a layout $l$.
 We do not know which containers are blocking containers in advance, therefore the domain of $c$ is the whole set of $N$ containers.
 Especially, whenever we load or discharge a container, it forms a layout.
 In addition, we do not know the number of layouts in advance.
@@ -268,7 +268,7 @@ Algorithm \ref{alg:1} solves instances of SSMP.
 The main two stages in our heuristic algorithm are unloading and loading procedures.
 Given an instance I, for each port $p$ along the voyage, containers with $D(c)==p$ are discharged one by one firstly.
 Especially, if there exist blocking containers, they are moved on the yard temporally and regarded as containers to be loaded at the current port.
-After containers with $D(c)==p$ are discharged, containers on the yard (including containers with $O(c)==p$ and blocking containers) are sorted in order and loaded.
+After containers with $D(c)==p$ are discharged, containers in the yard (including containers with $O(c)==p$ and blocking containers) are sorted in order and loaded.
 
 At the end of our algorithm, the value of $NumofStack_P$ is given as an output after all the containers are processed at port $P$.
 
@@ -367,12 +367,12 @@ A new partition will be assigned when the ship arrives at a loading port.
 In every partition, there will be no rehandles since all containers at each port is sorted in order before being loaded.
 If it is not a loading port, there is no need to divide a new partition and the number of partial stacks will not change.
 If it is a loading port and the number of containers to be loaded happens to be an integer multiple of limited height $H$, then the number of partial stacks in the new partition is zero.
-Otherwise a new partial stack will be produced in the new partition.
+Otherwise, a new partial stack will be produced in the new partition.
 Therefore, the number of partial stacks in a new partition during the loading process is no greater than one at every port.
 
 Similarly, the number of partial stacks in each partition is still no greater than one after discharging containers.
 If there are not containers to be discharged at the current port, the number of partial stacks in each partition is the same as the former port.
-Otherwise the number of partial stacks in each partition will convert between zero and one or stay unchanged.
+Otherwise, the number of partial stacks in each partition will convert between zero and one or stay unchanged.
 In a word, the number of partial stacks in each partition is one at most and thus the total number of partial stacks after the unloading process is no greater than the number of partitions, i.e. the number of loading ports.
 
 We use an inductive proof.
@@ -651,7 +651,7 @@ This algorithm is actually a process of parameter tuning, our original intention
 Nevertheless, the result of this algorithm is not as good as the heuristic algorithm and it does not work well as we expected if the value of $K$ is small.
 From another point of view, it just shows the good performance of our heuristic algorithm.
 
-In our $P\&H$ algorithm, we give some restrictions on the height and the destination port of current loading container when choosing an  optimal stack for current loading container.
+In our $P\&H$ algorithm, we give some restrictions on the height and the destination port of current loading container when choosing an optimal stack for current loading container.
 Both the parameters in $P\&H$ value between 0 and 1, and zero is not included.
 The former parameter represents the ratio of the $D(c)$ and the farthest port $P$, $c$ is the sequence number of current loading container.
 The value of this parameter is 1 if $D(c)==P$.

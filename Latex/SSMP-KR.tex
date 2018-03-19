@@ -186,6 +186,17 @@ A feasible solution to the SSMP is represented by a sequence of operations. Each
 
 \subsection{Integer model}
 For the special case with zero rehandle, we only need to consider the loading process. For the unloading process, containers can be discharged in order without rehandles. The following IP model decides the accommodating stack of each container.
+
+In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship.
+$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise.
+$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
+$O(i)$ and $D(i)$ indicate the shipping leg of container $i$.
+The objective minimizes the number of stacks used.
+Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
+Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks.
+Constraints (\ref{eqn:3}) assure that at each port $p$, the number of containers in stack $s$ does not exceed $H$.
+Constraints (\ref{eqn:4}) avoid rehandle requiring that container $i$ is prohibited to block container $j$ in the same stack when $O(j)<O(i)<D(j)<D(i)$.
+
 \begin{small}
 \begin{align}
 & (IP)~~\min\hspace{6pt}\sum_{s=1}^{S} y_s\notag\\
@@ -197,16 +208,6 @@ For the special case with zero rehandle, we only need to consider the loading pr
 & x_{is}, y_s \in \{0,1\}, ~\forall 1\le s\le S,1\le i,j\le N
 \end{align}
 \end{small}
-
-In the above model, $M$ is a sufficiently large number and $S$ is the number of stacks on the ship.
-$x_{is}$ is a binary decision variable which is equal to 1 if container $i$ is loaded to stack $s$, and 0 otherwise.
-$y_s$ is a binary decision variable that is equal to 1 if stack $s$ is used for stowage, and 0 otherwise.
-$O(i)$ and $D(i)$ indicate the shipping leg of container $i$.
-The objective minimizes the number of stacks used.
-Constraints (\ref{eqn:1}) ensure that each container $i$ is loaded to only one stack.
-Constraints (\ref{eqn:2}) guarantee that containers can only be loaded to used stacks.
-Constraints (\ref{eqn:3}) assure that at each port $p$, the number of containers in stack $s$ does not exceed $H$.
-Constraints (\ref{eqn:4}) avoid rehandle requiring that container $i$ is prohibited to block container $j$ in the same stack when $O(j)<O(i)<D(j)<D(i)$.
 
 The IP solution can be converted into a complete loading plan: start from port $p=1$ to port $p=P$. At port $p$, containers are sorted in a descending order of destination ports. Each container $i$ is loaded to the top of its corresponding stack $s^*$ which satisfies $x_{is^*}=1$.
 
@@ -319,7 +320,7 @@ Therefore, our algorithm makes difference and makes some sense in the real appli
 \subsection{Performance Guarantee of the Algorithms}
 \label{sec:p3}
 
-In order to show that the heuristic algorithm have a performance guarantee, we prove the bounds of feasible solutions to the problem.
+In order to show that the heuristic algorithm has a performance guarantee, we prove the bounds of feasible solutions to the problem.
 For ease of exposition, we first give some related notations.
 
 \begin{itemize}
@@ -371,7 +372,7 @@ Otherwise, a new partial stack will be produced in the new partition.
 Therefore, the number of partial stacks in a new partition during the loading process is no greater than one at every port.
 
 Similarly, the number of partial stacks in each partition is still no greater than one after discharging containers.
-If there are not containers to be discharged at the current port, the number of partial stacks in each partition is the same as the former port.
+If there are no containers to be discharged at the current port, the number of partial stacks in each partition is the same as the former port.
 Otherwise, the number of partial stacks in each partition will convert between zero and one or stay unchanged.
 In a word, the number of partial stacks in each partition is one at most and thus the total number of partial stacks after the unloading process is no greater than the number of partitions, i.e. the number of loading ports.
 
@@ -563,26 +564,26 @@ Table \ref{tab:3} summarizes that the results of those difficult instances with 
 The columns in Table \ref{tab:3} are similarly defined as those of Table \ref{tab:2} and so is the conclusion we can get from Table \ref{tab:2}.
 
 Most of the instances provide the evidence that it works better when $K$ is not equal to zero comparing the condition where $K$ is equal to zero.
-However, results between easy instances and difficult instances have some differences.
+However, the result of easy instances is somewhat different from the result of difficult instances.
 Comparing with the significant influence of different $K$ in the difficult instances, the influence of different $K$ in easy instances is not so obvious.
 The same conclusion can be drawn if we focus on every single variable or factor while keeping other variables unchanged.
 
-After a deep thinking and analysis, we found that it is the density and sparseness of stacks that causes this consequence.
-In other words, the smaller value of each variable is, the same kind of containers with the identical origin port and destination port have more chance to be placed in the same stack and less rehandles will arise.
+After a deep thinking and analysis, we draw the conclusion that the distribution of containers in each stack accounts for this phenomenon.
+In other words, the value of variables get smaller, the same kind of containers with the identical origin port and destination port have more chance to be placed in the same stack and less rehandles will arise.
 We call this kind of stack with high density, and high sparseness in contrast.
 
 For each instance with the same $P$, $N$ and $H$, we call it benchmark instance when $K$ is equal to zero.
 When $K$ is not equal to zero in an instance, we call it an exceptional instance if the number of used stacks is larger than the result of its benchmark instance.
 There are few exceptions when we analyze the result through a large number of experiments.
-Comparing with zero rehandle, the number of needed stacks is even larger when the number of allowed rehandle $K$ is not equal to zero, though the deviation is not great.
+Comparing the condition with zero rehandle, the number of needed stacks is even larger when the number of allowed rehandle $K$ is not equal to zero, though the deviation is not large.
 
-We then find out those exceptional instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we find it is the distribution status of previous containers to be blamed.
+We then find out those exceptional instances and compare the stowage planning with the same instances under the zero rehandle constraint, and we find it is the distribution status of previous containers to make a difference.
 In fact, the allowed rehandles delay the production of new stacks but not to reduce them, that is why the problem happens.
 After all, it's the unloading strategy for blocking containers that causes this exceptional condition.
 Because we reset the origin port of blocking containers, the loading containers in current port increase and meanwhile the allowed rehandles run out.
-In the end, the extra and new stacks are needed under the coincidence.
+In the end, the extra and new stacks are needed under this circumstances.
 In order to prove it, we output the layout of the exceptional instances and the corresponding benchmark instances.
-By comparing the layout between exceptional instances and the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm are blamed for this kind of abnormal condition.
+By comparing the layout between exceptional instances and the corresponding benchmark instances, we get the conclusion that both the distribution of containers and the algorithm result in this kind of abnormal condition.
 
 However, it does not mean that our algorithm is inapplicable or our algorithm does not have a universality because the probability of causing exceptional instances is very low and it hardly happens in our practical operations.
 Actually, our heuristics algorithm is feasible for most of the instances and has a good performance as well.

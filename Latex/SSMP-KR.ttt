@@ -1,4 +1,4 @@
-\begin{table}[htbp]
+\begin{table}[htb]
 \footnotesize
   \centering
   \setlength{\belowcaptionskip}{10pt}
@@ -55,7 +55,7 @@
 \end{table}
 \efloatseparator
  
-\begin{table}[htbp]
+\begin{table}[htb]
 \footnotesize
   \centering
   \setlength{\belowcaptionskip}{10pt}
@@ -112,7 +112,7 @@
 \end{table}
 \efloatseparator
  
-\begin{table}[htbp]
+\begin{table}[htb]
   \centering
   \setlength{\belowcaptionskip}{10pt}
   \caption{average results of the instances with different K for two algorithms}
@@ -129,7 +129,7 @@
 \end{table}
 \efloatseparator
  
-\begin{table}[htbp]
+\begin{table}[htb]
   \centering
   \setlength{\belowcaptionskip}{10pt}
   \caption{average results of the instances with $P\&H$ algorithm}

@@ -38,10 +38,13 @@ School of Data and Computer Science, Sun Yat-Sen University, China
 
 \begin{abstract}
 %<<<<<<< HEAD
-The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers among the ports, with the objective to utilize the fewest number of stacks on the ship. This problem has a realistic usefulness since it can help shipping forwarders estimate the shipping space of each shipper.
+The Stowage Stack Minimization Problem (SSMP) investigates a stowage planning problem when carriers have the obligation to ship all the given containers in different ports, with the objective to use the fewest number of stacks on the ship. 
+This problem is important since it helps shipping forwarders estimate the shipping space of each shipper.
 To the best of our knowledge, we are the first that propose SSMP in the academic community.
 
-In this paper, we talk about SSMP with $K$-rehandles constraint. A heuristic algorithm is put forward to construct solutions. We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
+In this paper, we talk about SSMP with a $K$-rehandle constraint. 
+A heuristic algorithm is put forward to construct solutions. 
+We discuss the theoretical performance guarantee of the algorithm using mathematical inequations and induction.
 To evaluate the actual performance of our algorithm, we conduct experiments on a set of instances with practical sizes and compare the results when different values of $K$ are selected.
 What is more, instances with different numbers of ports, containers and limit heights are tested to ensure the universality of our algorithm.
 %=======
@@ -55,29 +58,29 @@ What is more, instances with different numbers of ports, containers and limit he
 \end{abstract}
 
 \begin{keyword}
-Containership stowage planning\sep stack minimization \sep K-rehandles \sep constructive heuristic
+Containership stowage planning\sep stack minimization \sep K-rehandle \sep constructive heuristic
 \end{keyword}
 \end{frontmatter}
 
 
 \section{Introduction}
 \label{sec:i}
-International trade plays an important role in promoting the development of world economy.
+International trade plays an important role in the development of world economy.
 Maritime transport is the backbone of globalization and lies at the heart of cross-border transport networks that support supply chains and enable international trade.
-Nowadays, over 80\% of world trade is carried by the maritime freight industry, which operates the container transportation business \citep{zhang2016multiobjective}.
+Nowadays, over 80\% of world trade is carried by the maritime freight industry~\citep{zhang2016multiobjective}.
 World seaborne trade volumes surpassed 10 billion tons in 2015, which is shown in ~\cite{unctad2016}.
 
 
-Containershipping is a kind of modern transportation mode which has a lot of advantages in speed, security, and quality compared with the break-bulk cargo ship.
-Containerization is an important driver of the global economy, and container has become a mainstay of worldwide trade.
-According to World Shipping Council, around 52\% of the value of world international seaborne trade today is being moved in containers.
+Container shipping is a kind of modern transportation mode which has a lot of advantages in speed, security, and quality compared with the break-bulk cargo ship.
+Containerization has become a mainstay of worldwide trade.
+%According to World Shipping Council, around 52\% of the value of world international seaborne trade today is being moved in containers.
 This mode is deeply accepted by shippers and carriers, and is becoming the main trend of freightage in the world.
 It has resulted in a tremendous growth of the maritime freight industry and it shows powerful vitality and promising prospects.
 
-With the development of containershipping, more and more containers are transported by sail.
+%With the development of container shipping, more and more containers are transported by sail.
 Over the past decades, there has been a continuous increase in the demand for cost-efficient containerized transportation.
 Thus, it makes higher research demand.
-The container stowage plan is a pivotal link to containers transportation and the objective of which is to draw a plan of loading and discharging sequence of containers for containership in \cite{zhang2008review}.
+The container stowage plan is a pivotal link to container transportation and the objective is to draw the loading and discharging sequence of containers for containership \citep{zhang2008review}.
 The most frequently used addressing notation for storage locations in a container ship is the bay-row-tier system.
 The cargo space of a container ship is split into several 20-ft-long areas.
 These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} reproduced from \cite{delgado2012constraint} shows a diagram of containership.
@@ -92,25 +95,25 @@ These areas are termed as 20-ft bays. Figure \ref{fig 1:graph} reproduced from \
 Each bay consists of container stacks placed along the width of the ship.
 Stacks in a bay are indexed by a row number.
 The position for one 20-ft container on the ship is uniquely indexed by (bay, row, tier), called a slot.
-In addition, for some ships, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate 40-ft containers.
+In addition, for some ships, two contiguous 20-ft bays form a 40-ft bay which can be used to accommodate a 40-ft container.
 
 A ship usually calls a sequence of ports and containers are loaded and unloaded at each port by cranes in a last-in-first-out (LIFO) manner.
 Rehandles arise either when we want to unload containers destined for the current port which however are beneath those destined for subsequent ports, or when we want to reorder the sequence of containers to prevent more rehandles in the future.
 Rehandles are expensive, since on one hand terminals directly charge the carriers for such operations, on the other hand, rehandles make ships dwell at terminals longer, inducing more berthing cost.
 
-Actual examples show that containership stowage plans not only influence the income of shipping companies from transportation but also have a direct relation to the safety of ships and freights.
-The problems have troubled and aroused the interests of both scholars and commercial shipping organization in many countries since 1970s~\citep{webster1970container}.
-Most of the previous research on stowage planning focus on how to minimize the number of rehandles \citep{ding2015stowage,zhang2016multiobjective,zehendner2017algorithm}.
+Containership stowage plans determine the number of rehandles.
+How to minimize the number of rehandles has troubled and aroused the interests of both scholars and commercial shipping organization in many countries~\citep{ding2015stowage,zhang2016multiobjective,zehendner2017algorithm}. 
+However, previous research do not consider saving stacks, i.e., stacks on a ship can be used arbitrarily.
 
-In this paper, we investigate the problem from a new perspective. We deal with Stowage Stack Minimization Problem (SSMP) which minimizes the number of used stacks.
-The problem is of practical significance. In the real world, a carrier/forwarder may collect a few containers in a time interval and evaluate needed space (stacks), in order to estimate available space left, or on the contrary, a carrier/forwarder would like to receive provisional shipment orders as many as possible while reserving enough space for regular shipment orders.
+In this paper, we investigate the problem from a new perspective. We deal with Stowage Stack Minimization Problem (SSMP) which minimizes the number of used stacks while regarding the number of rehandles as a constraint.
+The problem is of practical significance. In the real world, a carrier/forwarder may evaluate needed space (stacks) for the by-far collected containers, in order to estimate how many containers can be collected in the future; or on the contrary, a carrier/forwarder would like to receive provisional shipment orders as many as possible while reserving enough space for regular shipment orders.
 Our algorithm provides them an indicator to achieve such goals.
 
 The contribution of our paper lies in three aspects.
 First, to the best of our knowledge, our paper considers the number of stacks used for the first time, and this is a very practical consideration.
 As is shown above, previous research usually focuses on how to reduce the rehandles or shifts.
 Second, we analyze SSMP and give upper and lower bounds of SSMP. The bounds pave a way for future study.
-Third, we propose a heuristic algorithm to solve SSMP and the algorithm has a performance guarantee.
+Third, we propose a heuristic algorithm to solve SSMP and we prove that the algorithm has a performance guarantee.
 
 The remainder of this paper is organized as follows: we review related research works in Section~\ref{sec:lr}. The formal definition of SSMP and its properties are provided in Section~\ref{sec:pd}.
 In Section~\ref{sec:algo}, we present our heuristic algorithm and the performance analysis.

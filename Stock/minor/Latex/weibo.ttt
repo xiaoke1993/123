@@ -1,0 +1,210 @@
+\begin{table}[htbp]
+\caption{Distribution of word length in Chinese corpus}
+\label{weibo:tab:wl}
+\center
+\begin{tabular} {l l l}
+\hline
+length & words  & characters\\
+\hline
+1      & 55.6\% & 36.2\%\\
+2      & 38.2\% & 49.9\%\\
+3      & 4.2\%  & 8.2\%\\
+4      & 1.6\%  & 4.0\%\\
+5      & 0.2\%  & 0.8\%\\
+5+     & 0.2\%  & 0.9\%\\
+\hline
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[htbp]
+\caption{Results of the ADF test}
+\label{tab:adf-test}
+\center
+\begin{tabular} {l l}
+\hline
+\multirow{4}{*}{I(1)}
+&  $x_1$*** $x_6$*** $x_7$*** $x_8$*** $x_{14}$*** $x_{17}$*** $x_{24}$*** $x_{31}$*** $x_{32}$*** $x_{34}$*** $x_{42}$***\\
+& $x_{45}$*** $x_{47}$*** $x_{48}$*** $x_{49}$*** $x_{53}$*** $x_{55}$*** $x_{57}$*** $x_{61}$*** $x_{62}$*** $x_{77}$***\\
+& $x_{78}$*** $x_{80}$*** $x_{86}$*** $x_{87}$*** $x_{91}$*** $x_{97}$*** $x_{98}$*** $x_{99}$*** $x_{100}$*** $x_{104}$***\\
+& $x_{105}$*** $x_{106}$*** $x_{111}$*** $x_{115}$*** $x_{117}$*** $x_{125}$*** \\
+\hline
+\multicolumn{2}{l}{***p$<$0.0001}
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[htbp]
+\caption{Results of the stepwise variable selection of Model \ref{weibo:eqn:unitroot}}
+\label{tab:open-variable-selection}
+\center
+\footnotesize
+\begin{tabular} {l l l l p{2.6cm} l}
+\hline
+ & Chinese keyword & English meaning & mean & coefficient (Std. Error) & VIF\\
+\hline
+$x_2$            & 中阳            &moderate bullish       &105.51 &0.121**(0.000)     &2.781\\
+$x_{10}$         & 砸盘            &crush the market       &38.73 &-0.276***(0.000) &2.530\\
+$x_{25}$         & 实盘            &real market               &295.26 &-0.072**(0.000) &1.257\\
+$\Delta x_{32}$  & $\Delta$盘整    &$\Delta$consolidation     &0.33     &-0.086***(0.000) &1.088\\
+$x_{54}$         &短线调整        &short-term adjustment   &15.98 &-0.166***(0.000) &2.326\\
+$x_{56}$         &跌势            &bearish                   &102.63 &0.368***(0.000) &3.557\\
+$\Delta x_{61}$  &$\Delta$大盘调整 &$\Delta$market adjustment &0.05     &-0.099***(0.000) &1.075\\
+$x_{74}$         &超跌反弹        &over-sold bounce       &70.13 &0.166***(0.000) &4.016\\
+$x_{75}$         &逼空            &short squeeze           &29.75 &0.273***(0.000) &1.898\\
+$x_{83}$         &诱多            &induced buy               &43.24 &0.085***(0.000) &1.117\\
+$\Delta x_{86}$  &$\Delta$向上突破 &$\Delta$breakthrough      &0.15     &0.134***(0.000) &1.246\\
+$x_{94}$         &抢反弹        &catch rebound           &33.45 &-0.402***(0.000) &5.431\\
+$x_{103}$        &空仓            &empty position           &172.80 &-0.303***(0.000) &2.352\\
+$\Delta x_{115}$ &$\Delta$高抛     &$\Delta$sell high         &0.19     &-0.079**(0.000) &1.308\\
+$\Delta x_{117}$ &$\Delta$反弹行情 &$\Delta$rebound           &0.11     &0.169***(0.000) &1.274\\
+$x_{121}$        &大盘反弹        &market rally           &32.21 &0.199***(0.000) &6.048\\
+\hline
+\multicolumn{6}{l}{Summary N = 729, Std. Error = 0.011, $R^2$ = 0.346}\\
+\multicolumn{6}{l}{\quad\quad\quad\quad Adj. $R^2$ = 0.332, F = 23.571, DW = 2.328} \\
+\hline
+\multicolumn{6}{l}{***p$<$0.01 **p $<$ 0.05}
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[htbp]
+\caption{Results of the ADF test on residuals}
+\label{tab:t3}
+\center
+\begin{tabular} {l c c c}
+\hline
+& & $t$-statistic & Prob.\\
+\hline
+\multicolumn{2}{l}{ADF test statistic} &-31.83451 &0.0000\\
+test critical values &1\% level &-3.439105 &\\
+&5\% level &-2.865294 &\\
+&10\% level &-2.568825 &\\
+\hline
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[htbp]
+\caption{Fitness of ARIMA$(p,0,q)$}
+\center
+\label{tab:select-pq}
+\begin{tabular} {l c c c c}
+\hline
+(p,q)    & AIC & SC & N-BIC & Sig. of Ljung-Box Q (18)\\
+\hline
+(0,1)*** & -6,3103 & \bf{-6.3040} & \bf{-9.140} & 0.236 \\
+(0,2)  &-6.3085 &-6.2959 &-9.131 &0.235\\
+(0,3)  &-6.3111 &-6.2922 &-9.126 &0.459\\
+(1,0)*** &-6.3062 &-6.2999 &-9.137 &0.099\\
+(1,1)  &-6.3072 &-6.2946 &-9.131 &0.211\\
+(1,2)*** &-6.3103 &-6.2914 &-9.121 &0.128\\
+(1,3)  &-6.3090 &-6.2838 &-9.117 &0.462\\
+(2,0)**  &-6.3102 &-6.2976 &-9.134 &0.397\\
+(2,1)  &-6.3104 &-6.2914 &-9.126 &0.503\\
+(2,2)  &-6.3092 &-6.2839 &-9.118 &0.457\\
+(2,3)*** &-6.3180 &-6.2865 &-9.110 &0.475\\
+(3,0)  &-6.3101 &-6.2912 &-9.127 &0.525\\
+(3,1)  &-6.3075 &-6.2822 &-9.116 &0.449\\
+(3,2)**  &\bf{-6.3214} &-6.2898 &-9.110 &\bf{0.503}\\
+(3,3)  &-6.3186 &-6.2807 &-9.100 &0.284\\
+\hline
+\multicolumn{5}{l}{***p$<$0.01 **p $<$ 0.05}
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[htbp]
+\caption{Comparison of Models \ref{eqn:arima1} and \ref{eqn:arima32}}
+\label{tab:comp}
+\center
+\begin{tabular} {l c c c c c}
+\hline
+Model                   & stationary $R^2$ & SER   & DW    & AIC   & Sig. of L-B Q (18)\\
+\hline
+Model \ref{eqn:arima1}  & 0.367            & 0.804 & 1.989 & 2.422 & 0.244\\
+Model \ref{eqn:arima32} & 0.374            & 0.797 & 2.00  & 2.412 & 0.468\\
+\hline
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[htbp]
+\caption{Estimated parameters of Model \ref{eqn:arima32}}
+\scriptsize
+\center
+\label{tab:arima32-open}
+\begin{tabular} {l l p{2.3cm}|| l l p{2.3cm}}
+\hline
+variable         & English meaning      & coefficient (Std. Error)& variable      & English meaning      & coefficient (Std. Error)\\
+\hline
+$x_2$            & moderate bullish      &0.085***(0.033)          & $\Delta x_{86}$  & $\Delta$breakthrough & 0.160***(0.034) \\
+\hline
+$x_{10}$         & crush the market      &-0.172***(0.032)         & $x_{94}$         &catch rebound         & -0.307***(0.048) \\
+\hline
+$x_{25}$         &real market          &-0.054*(0.029)           & $x_{103}$        &empty position      & -0.246***(0.035) \\
+\hline
+$\Delta x_{32}$  & $\Delta$consolidation &-0.107***(0.033)         & $\Delta x_{117}$ & $\Delta$rebound      & 0.150***(0.032) \\
+\hline
+$x_{54}$         &short-term adjustment  &-0.105***(0.031)         & $x_{121}$        &market rally          & 0.112**(0.045) \\
+\hline
+$x_{56}$         &bearish              &0.289***(0.044)        &$\phi_1$       &---                  & -0.791***(0.178)\\
+\hline
+$\Delta x_{61}$  &$\Delta$market adjustment  &-0.104***(0.032)    &$\phi_2$       &---                  & -0.829***(0.136)\\
+\hline
+$x_{74}$         &over-sold bounce      &0.143***(0.045)        &$\phi_3$       &---                  & -0.134**(0.055)\\
+\hline
+$x_{75}$         &short squeeze          &0.225***(0.030)        &$\theta_1$       &---                  & 0.591***(0.175)\\
+\hline
+$x_{83}$         &induced buy          &0.086***(0.029)        &$\theta_2$       &---                  & 0.685***(0.128)\\
+\hline
+\multicolumn{6}{l}{***p$<$0.01  **p$<$0.05  *p$<$0.1}
+\end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[htbp]
+\caption{ Results of the Granger causality test}
+\footnotesize
+\center
+\label{tab:weibo:grangerCausality}
+\begin{tabular}{r p{3cm} r|| p{3cm} r}
+\hline
+        $x_i$ & F-statistic (price movement does not Granger-causes $x_i$) &      Prob. & F-Satistic ($x_i$ does not Granger-causes price movement) &      Prob. \\
+\hline
+moderate bullish      &      1.011 &     0.3656 &     42.415 &   2.00E-16 \\
+
+crush the market      &      1.845 &     0.1603 &     43.479 &   9.00E-17 \\
+
+real market           &      2.539 &     0.0811 &    0.00408 &     0.9959 \\
+
+consolidation         &      2.169 &     0.1165 &      2.531 &     0.0817 \\
+
+short-term adjustment &      15.83 &   4.00E-07 &      5.372 &     0.0052 \\
+
+   bearish            &      0.537 &     0.5853 &     23.191 &   6.00E-10 \\
+
+market adjustment     &      14.95 &   8.00E-07 &      15.95 &   3.00E-07 \\
+
+over-sold bounce      &     11.792 &   1.00E-05 &      9.439 &     0.0001 \\
+
+short squeeze         &      0.502 &     0.6061 &     35.763 &   3.00E-14 \\
+
+induced buy           &      0.097 &     0.9069 &      8.661 &     0.0002 \\
+
+breakthrough          &      0.314 &     0.7305 &     20.731 &   5.00E-09 \\
+
+catch rebound         &      0.076 &     0.9266 &      26.55 &   4.00E-11 \\
+
+empty position        &      0.131 &     0.8774 &      13.84 &   2.00E-06 \\
+
+ sell high            &      2.157 &     0.1179 &      6.771 &     0.0014 \\
+
+   rebound            &        4.7 &     0.0001 &     12.801 &   5.00E-06 \\
+
+market rally &     7.6577 &     0.0006 &     23.145 &   7.00E-10 \\
+\hline
+\end{tabular}
+\end{table}
+\efloatseparator
+ 

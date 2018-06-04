@@ -1,8 +1,8 @@
 \begin{figure}[htbp]
-\center
-\resizebox{0.5\textwidth}{!}{\includegraphics{figure/trading}}
-\caption{Number of daily posts from October 1, 2012 to December 31, 2012}
-\label{fig:weibo:trading}
+\centering
+    \label{weibo:fig:KMO}
+    \resizebox{0.7 \textwidth}{!}{\includegraphics{figure/KMO_Test.pdf}}
+\caption{Effects of stickiness and entropy on $p_n$}
 \end{figure}
 \efloatseparator
  
@@ -19,6 +19,14 @@
     \label{weibo:fig:sepn}
     \resizebox{0.7 \textwidth}{!}{\includegraphics{figure/word_extra_pn.pdf}}
 \caption{Effects of stickiness and entropy on $p_n$}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[htbp]
+\center
+\resizebox{0.5\textwidth}{!}{\includegraphics{figure/trading}}
+\caption{Number of daily posts from October 1, 2012 to December 31, 2012}
+\label{fig:weibo:trading}
 \end{figure}
 \efloatseparator
  

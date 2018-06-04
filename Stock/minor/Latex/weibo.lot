@@ -1,8 +1,0 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Distribution of word length in Chinese corpus}}{26}
-\contentsline {table}{\numberline {2}{\ignorespaces Results of the ADF test}}{27}
-\contentsline {table}{\numberline {3}{\ignorespaces Results of the stepwise variable selection of Model 4\hbox {}}}{28}
-\contentsline {table}{\numberline {4}{\ignorespaces Results of the ADF test on residuals}}{29}
-\contentsline {table}{\numberline {5}{\ignorespaces Fitness of ARIMA$(p,0,q)$}}{30}
-\contentsline {table}{\numberline {6}{\ignorespaces Comparison of Models 7\hbox {} and 8\hbox {}}}{31}
-\contentsline {table}{\numberline {7}{\ignorespaces Estimated parameters of Model 8\hbox {}}}{32}
-\contentsline {table}{\numberline {8}{\ignorespaces Results of the Granger causality test}}{33}

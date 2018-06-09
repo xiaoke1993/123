@@ -71,7 +71,7 @@ Dash and Maitra~\cite{Dash2017Does} investigated the relationship using a broad 
 In addition, the wavelet method was applied to study the relationship of investor sentiment on stock market volatility in Maitra and Dash~\cite{Maitra2017Sentiment}.
 
 \subsection{Stock comovement or movement}
-Sentiment analysis and machine learning principles are applied to study causation between public collective sentiment and market movements in Rao and Sirvastava~\cite{Rao2012TweetSmart}. 
+Sentiment analysis and machine learning principles are applied to study causation between public collective sentiment and market movements in Rao and Sirvastava~\cite{Rao2012TweetSmart}.
 Chen and Lazer~\cite{Chen2013Sentiment} constructed a model to investigate the relationship between Twitter feed content and stock market movement and put it to the test on real market data using a mock portfolio. The result indicated that the model was successful in generating additional profit.
 Smailovic et al.~\cite{Smailovi2013Predictive} showed that sentiment polarity (positive and negative sentiment) can indicate stock price movements a few days in advance by using the Granger causality test.
 Liu et al.~\cite{Liu2015A} studied the stock return comovement through a social-media-based approach and they proposed a novel clustering model to both identify homogeneous stock groups and predict stock comovement with respect to firm-specific social media metrics. The results showed that with simple metrics, social media data can produce better results compared to industry categories.
@@ -117,7 +117,7 @@ The overall ideology can be briefly summarized as follows. First, a set of $k$ k
 
 \section{Data Collection}
 \label{sec:weibo:dp}
-Three sources of data are used in this study. The first two sources are Sina financial blogs and Sina Weibo from December 30, 2009 to December 31, 2012. Sina financial blogs are crawled by computers and stored in a MySQL database. Considering the large volume of Sina Weibo and the limitation of Sina Weibo Company, no Sina Weibo post is downloaded to local computers; instead, the query function of Sina Weibo is used in retrieving the required posts and the demographic information. The third source of data is the SSECI. Daily open prices of the SSECI in the same observation period as Weibo posts are downloaded from a publicly available financial website.\footnote{http://www.gw.com.cn/}. Since posts on Sina Weibo are generally Chinese we have to segment Chinese texts first.
+Three sources of data are used in this study. The first two sources are Sina financial blogs and Sina Weibo. Sina financial blogs are crawled by computers and stored in a MySQL database. Considering the large volume of Sina Weibo and the limitation of Sina Weibo Company, no Sina Weibo post is downloaded to local computers; instead, the query function of Sina Weibo is used in retrieving the required posts and the demographic information. The third source of data is the SSECI. Daily open prices of the SSECI in the same observation period as Weibo posts are downloaded from a publicly available financial website.\footnote{http://www.gw.com.cn/}. Since posts on Sina Weibo are generally Chinese we have to segment Chinese texts first.
 
 \subsection{Chinese Text Segmentation}
 \label{sec:weibo:algo}
@@ -445,9 +445,9 @@ Moreover, a Granger causality test is performed to test the causality between ma
 \subsubsection{Demography of blogs}
 This subsection discusses the descriptive statistics of the financial blog titles. As the object of interest is Chinese, statistics exclude non-Chinese characters, such as English words and punctuation marks. In the Java program, only chars with Unicode points no smaller than 19,968 and no larger than 171,941 are counted. However, the aforementioned point range includes 154 Chinese punctuation marks, each of which is stored in computers by two Unicode points. To this end, one additional criterion is added to filter out non-Chinese characters; the criterion is that chars with Unicode points in the range [65,072, 65,131] and [65,281, 65,374] are excluded from the Chinese character set.\\
 \indent
-A list of 522 users who regularly post commentaries on the stock market is manually selected from Sina financial blogs. Up to 328,311 titles of blogs written by this group of users are automatically crawled by computers and stored in a MYSQL database. An observation of a sample of downloaded titles indicates that the writing style of these titles is similar to that of posts on Sina Weibo. A total of 4,904 Chinese characters exist in the collected set of financial blog titles. Approximately 5,000 Chinese characters are commonly used in Chinese \cite{mori1984research}. The number of characters in the collected titles is close to the size of commonly used characters. From the semantic perspective, most of the financial blog titles use oral language; thus, the statistical finding is consistent with the semantic finding.\\
+In the channel of Sina financial blogs, 522 celebrities regularly post commentaries. Up to 328,311 blogs are written by these celebrities. We automatically crawled the titles of posted blogs and stored them in a MYSQL database. An observation of a sample of downloaded titles indicates that the writing style of these titles is similar to that of posts on Sina Weibo. A total of 4,904 Chinese characters exist in the collected set of financial blog titles. Approximately 5,000 Chinese characters are commonly used in Chinese \cite{mori1984research}. The number of characters in the collected titles is close to the size of commonly used characters. From the semantic perspective, most of the financial blog titles use oral language; thus, the statistical finding is consistent with the semantic finding.\\
 \indent
-The statistics in this study indicate that the size of collected titles is 3,799,703 characters, which `` µÄ'' is the most frequently appeared character, with a frequency of 1.89\%. A total of 636 characters only appear once in titles. Thus, such least used characters have a frequency of only 0.0026\textpertenthousand. The average frequency for all characters is 2.04\textpertenthousand.
+The statistics in this study indicate that the size of collected titles is 3,799,703 characters. The most frequently appeared character is the one which means ``of", with a frequency of 1.89\%. A total of 636 characters only appear once in titles. Thus, such least used characters have a frequency of only 0.0026\textpertenthousand. The average frequency for all characters is 2.04\textpertenthousand.
 
 \subsubsection{Parameter Tuning of Text Segmentation}
 Four parameters $d$, $s$, $e$ and $F$ are involved in text segmentation. According to Table \ref{weibo:tab:wl}\footnote{The table is reproduced from Table 3 of \cite{teahan2000compression}.}, words with five or less characters account for 99.8\% of the overall words. Although this table may over-represent single-character words and underrepresent bigrams, setting $d=5$ is reasonable and appropriate for use.
@@ -501,17 +501,19 @@ $p_w$ and $p_n$ are two opposite objectives; thus, a tradeoff is required. Based
 Moreover, the segmentation algorithm is based on the statistical property; hence, the frequency of each token is required to be $F\ge30$, to ensure that the property is statistically creditable. Another consideration when determining F is that the major intention of the algorithm is to extract financial keywords that are significant  (i.e., people extensively and frequently discuss it). Less frequently appeared words may cause the inaccuracy of the statistical model that is subsequently used in analyzing data.
 
 \subsubsection{Keywords and Viewpoints}
-Through the proposed word extraction algorithm, these titles are separated into 1,680 tokens. These tokens undergo a manual scanning process, in which non-word tokens are deleted, obtaining a list of 1,541 words.
+Through the proposed word extraction algorithm, blog titles are separated into 1,680 tokens. These tokens undergo a manual scanning process, in which non-word tokens are deleted, obtaining a list of 1,541 words.
 Among the keywords, bullish/bearish words and words that are closely related to the financial market, such as IPO and interest rate, are selected as finance-related keywords. The keyword set contains 130 words, of which 58 words are emotional and the other 72 words are neutral.
 
-Given 130 keywords, we collect viewpoints based on the microblogs. In total, 1,097 days of data are collected. Figure~\ref{fig:weibo:trading} shows the total number of daily posts from October 1, 2012 to December 31, 2012. The vertical axis indicates the number of daily posts summed over all of the keywords. Every bar in the chart corresponds to one day, where ``0'' and ``1'' below the bars represent non-trading and trading days, respectively. The average number of daily posts on a trading day is 862,254, more than twice as many as that on a non-trading day. This result is consistent with the common-sense idea that investors tend to discuss the stock market more on trading days. In the final analysis of this study, the data for non-trading days are removed because no corresponding index data for non-trading days exist.
+Given 130 keywords, we collect viewpoints based on the microblogs. In total, 1,097 days of data are collected (October 1, 2012 to December 31, 2012). Figure~\ref{fig:weibo:trading} shows the total number of daily posts in 1097 days. The vertical axis indicates the number of daily posts summed over all of the keywords. Every bar in the chart corresponds to one day, where ``0'' and ``1'' below the bars represent non-trading and trading days, respectively. The average number of daily posts on a trading day is 862,254, more than twice as many as that on a non-trading day. This result is consistent with the common-sense idea that investors tend to discuss the stock market more on trading days. In the final analysis of this study, the data for non-trading days are removed because no corresponding index data for non-trading days exist.
 \begin{figure}[htbp]
 \center
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/trading}}
 \caption{Number of daily posts from October 1, 2012 to December 31, 2012}
 \label{fig:weibo:trading}
 \end{figure}
-\subsection{Unit Root Testing}
+
+\subsection{Statical Testing}
+\subsubsection{Unit Root Testing}
 The ADF test is applied to each time series $x_i$ to identify unit root processes. The result indicates that 41 of the 130 time series are identified as unit root processes with p-values less than 0.0001. The identified time series are denoted by set I(1) (refer to Table \ref{tab:adf-test}), and the remaining 79 time series are denoted by I(0).
 
 \begin{table}[htbp]
@@ -532,7 +534,7 @@ The ADF test is applied to each time series $x_i$ to identify unit root processe
 
 The ADF test is also applied to series $r_d$; the result suggests that series $r_d$ is not a unit root process.
 
-\subsection{Variable Selection}
+\subsubsection{Variable Selection}
 
 During variable reduction, $\varepsilon_d$ is treated as white noise and the ordinary least square estimation is applied. After a stepwise variable selection procedure is deployed to the linear Model \ref{weibo:eqn:unitroot}, the total number of variables is reduced from 130 to 16. As shown in Table \ref{tab:open-variable-selection}, five variables are from I(0) and the other 11 variables are from I(1).
 
@@ -571,7 +573,7 @@ $x_{121}$        &´óÅÌ·´µ¯	       &market rally	          &32.21	&0.199***(0.000
 
 The original 130 keywords contain 58 emotional words that clearly indicate bullish/bearish views and 72 neutral finance-related words. After variable selection, 12 emotional words and 8 neutral words remain, which indicates that emotional words reflect the index price movement more heavily.
 
-\subsection{Parameters of the ARIMA Model}
+\subsubsection{Parameters of the ARIMA Model}
 To decide parameter $d$ in the ARIMA Model \ref{eqn:error}, residuals $\hat{e}_d = r_d - \hat{r}_d$ are tested for unit root through the ADF test. The test results that are summarized in Table \ref{tab:t3} suggest that the residuals form a stationary process; therefore, setting $d = 0$ is appropriate.
 
 \begin{table}[htbp]
@@ -699,7 +701,7 @@ $x_{83}$         &induced buy	         &0.086***(0.029)	       &$\theta_2$	     
 \end{tabular}
 \end{table}
 
-\subsection{Model Validation}
+\subsubsection{Model Validation}
 
 The validity of the model is tested by standard procedures. First, the moduli of the inverse of the AR roots are 0.872, 0.872, and 0.176, and the moduli of the inverse of the MA roots are 0.827 and 0.827. The inverses of all of the roots lie inside the unit circle in Figure \ref{fig:inverroot}; therefore, 3 is not a unit root in the fitted ARIMA(3,0,2) model. A first-order autoregressive conditional heteroskedasticity test on the residuals suggests no obvious heteroscedasticity. $DW=2$ indicates the lack of strong autocorrelation. The autocorrelation coefficients of the residuals are very close to zero [refer to Figure \ref{fig:ACF}]. The Ljung-Box $Q$ value is equal to 0.495\footnote{This weak hypothesis test infers that the residuals are white noise. The null hypothesis is that the residuals are not white noise.}, which suggests that the residuals are likely to be white noise. In summary, the model is valid.
 

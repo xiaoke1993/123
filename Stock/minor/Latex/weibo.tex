@@ -421,7 +421,7 @@ where $\overline{x}_i$ and $\overline{\Delta x_i}$ are the averages of $x_i$ and
 
 Prior to estimating the parameters in the model, the number of variables is initially reduced. A stepwise variable selection procedure is subsequently deployed to the linear Model \ref{weibo:eqn:unitroot}. During this step, $\varepsilon_d$ is treated as white noise and the ordinary least square estimation is applied.
 
-\subsection{Autoregressive Integrated Moving Average (ARIMA) Model}
+\subsection{Multiplicative Autoregressive Integrated Moving Average (ARIMAX) Model}
 The ordinary least square estimation cannot be applied directly to Model \ref{weibo:eqn:unitroot}, because the error term in the model $\varepsilon_d$ includes not only the white noise but also the components that capture the complex dynamics of the index. Two well-known behaviors of the stock market must be considered, namely, the bull and bear cycle, and mean reversion. Both effects can be captured by the ARIMA$(p, d, q)$ model:
 \begin{eqnarray}
 	\nonumber \varepsilon_d &= \phi(L)^{-1}(1-L)^{-d}\theta(L)\eta_d  \\
@@ -430,9 +430,9 @@ The ordinary least square estimation cannot be applied directly to Model \ref{we
 \end{eqnarray}
 where $L$ denotes the lag operator that operates on an element to produce the previous element, $\phi(L)$ is a polynomial of the degree $p$, $\theta(L)$ is a polynomial of the degree $q$, and $\eta_d$ are independent and identically distributed standard normal random variables.\\
 \indent
-Deciding the appropriate values for $p$, $d$, and $q$ is crucial in making valid statistical conclusions. A single best means of deciding the appropriate values is lacking; hence, a set of combinations is tested to minimize the risk of selecting the incorrect parameters. The testing involves two stages: First, error terms $\varepsilon_d$ are assumed to be white noise and Model \ref{weibo:eqn:unitroot} is fitted, obtaining residuals $\hat e_d$. Second, given $\hat e_d$, Model \ref{eqn:error} is estimated using the Gauss–Newton (G–N) iteration method with each combination of $p$, $d$ and $q$.\\
+Deciding the appropriate values for $p$, $d$, and $q$ is crucial in making valid statistical conclusions. A single best means of deciding the appropriate values is lacking; hence, a set of combinations is tested to minimize the risk of selecting the incorrect parameters. The testing involves two stages: First, error terms $\varepsilon_d$ are assumed to be white noise and Model \ref{weibo:eqn:unitroot} is fitted, obtaining residuals $\hat e_d$. Second, given $\hat e_d$, Model \ref{eqn:error} is estimated using the Gauss-Newton (G-N) iteration method with each combination of $p$, $d$ and $q$.\\
 \indent
-The results of the two-stage fit only serve as estimates of the actual performance of the model. A small set of combinations is selected from the combination set based on three commonly used model selection criteria AIC, SC and BIC. Models \ref{weibo:eqn:unitroot} and \ref{eqn:error} subsequently are merged as a model, and the initial values of $p$, $d$ and $q$ are set as the obtained values of the two-stage fit. The parameters in the merged model are estimated using the G–N iteration method.\\
+The results of the two-stage fit only serve as estimates of the actual performance of the model. A small set of combinations is selected from the combination set based on three commonly used model selection criteria AIC, SC and BIC. Models \ref{weibo:eqn:unitroot} and \ref{eqn:error} subsequently are merged as a model, and the initial values of $p$, $d$ and $q$ are set as the obtained values of the two-stage fit. The parameters in the merged model are estimated using the G-N iteration method.\\
 \indent
 Moreover, a Granger causality test is performed to test the causality between market returns and the number of Weibo posts.
 %The forecasting models for daily high, low and closing prices are developed in the same process as the daily opening price.
@@ -504,7 +504,7 @@ Moreover, the segmentation algorithm is based on the statistical property; hence
 Through the proposed word extraction algorithm, blog titles are separated into 1,680 tokens. These tokens undergo a manual scanning process, in which non-word tokens are deleted, obtaining a list of 1,541 words.
 Among the keywords, bullish/bearish words and words that are closely related to the financial market, such as IPO and interest rate, are selected as finance-related keywords. The keyword set contains 130 words, of which 58 words are emotional and the other 72 words are neutral.
 
-Given 130 keywords, we collect viewpoints based on the microblogs. In total, 1,097 days of data are collected (October 1, 2012 to December 31, 2012). Figure~\ref{fig:weibo:trading} shows the total number of daily posts in 1097 days. The vertical axis indicates the number of daily posts summed over all of the keywords. Every bar in the chart corresponds to one day, where ``0'' and ``1'' below the bars represent non-trading and trading days, respectively. The average number of daily posts on a trading day is 862,254, more than twice as many as that on a non-trading day. This result is consistent with the common-sense idea that investors tend to discuss the stock market more on trading days. In the final analysis of this study, the data for non-trading days are removed because no corresponding index data for non-trading days exist.
+Given 130 keywords, we collect viewpoints based on the microblogs. In total, 1,098 days of data are collected (Decemeber 30, 2009 to December 31, 2012). Figure~\ref{fig:weibo:trading} shows a miniature of the viewpoints, i.e., the total number of daily posts from October 1, 2012 to December 31, 2012. The vertical axis indicates the number of daily posts summed over all of the keywords. Every bar in the chart corresponds to one day, where ``0'' and ``1'' below the bars represent non-trading and trading days, respectively. The average number of daily posts on a trading day is 862,254, more than twice as many as that on a non-trading day. This result is consistent with the common-sense idea that investors tend to discuss the stock market more on trading days. In the final analysis of this study, the data for non-trading days are removed because no corresponding index data for non-trading days exist.
 \begin{figure}[htbp]
 \center
 \resizebox{0.5\textwidth}{!}{\includegraphics{figure/trading}}
@@ -512,9 +512,10 @@ Given 130 keywords, we collect viewpoints based on the microblogs. In total, 1,0
 \label{fig:weibo:trading}
 \end{figure}
 
-\subsection{Statical Testing}
+\subsection{Statistical Testing}
 \subsubsection{Unit Root Testing}
-The ADF test is applied to each time series $x_i$ to identify unit root processes. The result indicates that 41 of the 130 time series are identified as unit root processes with p-values less than 0.0001. The identified time series are denoted by set I(1) (refer to Table \ref{tab:adf-test}), and the remaining 79 time series are denoted by I(0).
+The ADF test is applied to 130 time series $x_i$ and 1 time series $o$, so as to identify unit root processes. 
+The result indicates that 37 of the 130 time series of independent variables are identified as unit root processes with p-values less than 0.0001. They are denoted by I(0) and shown in Table \ref{tab:adf-test}. Dependent variable $o$ is also a unit root process. The remaining 93 time series are denoted by I(0).
 
 \begin{table}[htbp]
 \caption{Results of the ADF test}
@@ -557,7 +558,7 @@ $\Delta x_{61}$  &$\Delta$大盘调整 &$\Delta$market adjustment &0.05	    &-0.099*
 $x_{74}$         &超跌反弹	       &over-sold bounce	      &70.13	&0.166***(0.000)	&4.016\\
 $x_{75}$         &逼空	           &short squeeze	          &29.75	&0.273***(0.000)	&1.898\\
 $x_{83}$         &诱多	           &induced buy	              &43.24	&0.085***(0.000)	&1.117\\
-$\Delta x_{86}$  &$\Delta$向上突破 &$\Delta$breakthrough      &0.15	    &0.134***(0.000)	&1.246\\
+$\Delta x_{86}$  &$\Delta$向上突破 &$\Delta$break through      &0.15	    &0.134***(0.000)	&1.246\\
 $x_{94}$         &抢反弹	       &catch rebound	          &33.45	&-0.402***(0.000)	&5.431\\
 $x_{103}$        &空仓	           &empty position	          &172.80	&-0.303***(0.000)	&2.352\\
 $\Delta x_{115}$ &$\Delta$高抛     &$\Delta$sell high         &0.19	    &-0.079**(0.000)	&1.308\\
@@ -573,8 +574,8 @@ $x_{121}$        &大盘反弹	       &market rally	          &32.21	&0.199***(0.000
 
 The original 130 keywords contain 58 emotional words that clearly indicate bullish/bearish views and 72 neutral finance-related words. After variable selection, 12 emotional words and 8 neutral words remain, which indicates that emotional words reflect the index price movement more heavily.
 
-\subsubsection{Parameters of the ARIMA Model}
-To decide parameter $d$ in the ARIMA Model \ref{eqn:error}, residuals $\hat{e}_d = r_d - \hat{r}_d$ are tested for unit root through the ADF test. The test results that are summarized in Table \ref{tab:t3} suggest that the residuals form a stationary process; therefore, setting $d = 0$ is appropriate.
+\subsubsection{Parameters of the ARIMAX Model}
+To decide parameter $d$ in Model \ref{eqn:error}, residuals $\hat{e}_d = r_d - \hat{r}_d$ are tested for unit root through the ADF test. The test results that are summarized in Table \ref{tab:t3} suggest that the residuals form a stationary process; therefore, setting $d = 0$ is appropriate.
 
 \begin{table}[htbp]
 \caption{Results of the ADF test on residuals}
@@ -593,7 +594,7 @@ test critical values	&1\% level	&-3.439105 &\\
 \end{table}
 
 
-The appropriate values for $p$ and $q$ in the ARIMA model follow the framework of Box and Jenkins \cite{box2013time}. The autocorrelation plot in Figure \ref{fig:lag1} suggests that $\varepsilon_d$ is not white noise (i.e., at most one of $p$ and $q$ is zero). The partial autocorrelation at lag $p$ is the autocorrelation between $\hat e_d$ and $\hat e_{d-p}$. The partial autocorrelation of an AR($p$) process is zero at lag $p+1$ and greater. Similarly, the partial autocorrelation of an MA($q$) process is zero at lag $q+1$ and greater. From Figure \ref{fig:lag2}, the partial autocorrelation at lags 4, 5 and 6 is nearly zero, and setting $p$ and $q$ to be around 3 is a sensible choice.
+The appropriate values for $p$ and $q$ in the ARIMAX model follow the framework of Box and Jenkins \cite{box2013time}. The autocorrelation plot in Figure \ref{fig:lag1} suggests that $\varepsilon_d$ is not white noise (i.e., at most one of $p$ and $q$ is zero). The partial autocorrelation at lag $p$ is the autocorrelation between $\hat e_d$ and $\hat e_{d-p}$. The partial autocorrelation of an AR($p$) process is zero at lag $p+1$ and greater. Similarly, the partial autocorrelation of an MA($q$) process is zero at lag $q+1$ and greater. From Figure \ref{fig:lag2}, the partial autocorrelation at lags 4, 5 and 6 is nearly zero, and setting $p$ and $q$ to be around 3 is a sensible choice.
 
 \begin{figure}[htbp]
 \centering
@@ -609,7 +610,7 @@ The appropriate values for $p$ and $q$ in the ARIMA model follow the framework o
 Each combination of $p=0,1,2,3$ and $q=0,1,2,3$ is tested against the residuals in Model \ref{eqn:error} using the G–N iteration method. AIC, SC, and BIC are used to evaluate the fitness of models. The results are summarized in Table~\ref{tab:select-pq}.
 
 \begin{table}[htbp]
-\caption{Fitness of ARIMA$(p,0,q)$}
+\caption{Fitness of ARIMAX$(p,0,q)$}
 \center
 \label{tab:select-pq}
 \begin{tabular} {l c c c c}
@@ -636,15 +637,15 @@ Each combination of $p=0,1,2,3$ and $q=0,1,2,3$ is tested against the residuals 
 \end{tabular}
 \end{table}
 
-Parameter combinations that induce the best fitness in terms of one selection criterion are highlighted in bold. According to the AIC criterion, ARIMA(3,0,2) is the best model. According to SC and BIC criteria, ARIMA(0,0,1) is the best model.
+Parameter combinations that induce the best fitness in terms of one selection criterion are highlighted in bold. According to the AIC criterion, ARIMAX(3,0,2) is the best model. According to SC and BIC criteria, ARIMAX(0,0,1) is the best model.
 
-ARIMA(0,0,1) and ARIMA(3,0,2) are subsequently tested against the merged model. If the error term $\varepsilon_d$ can be adequately modeled by ARIMA(0,0,1), then the complete model is simplified as follows:
+ARIMAX(0,0,1) and ARIMAX(3,0,2) are subsequently tested against the merged model. If the error term $\varepsilon_d$ can be adequately modeled by ARIMAX(0,0,1), then the complete model is simplified as follows:
 \begin{equation}
     \ln \frac{o_d}{o_{d-1}} = \alpha_0 + \sum_{x_i \in J(0)} \alpha_i x_{i,d-1} + \sum_{x_i \in J(1)} \alpha_i \Delta x_{i,d-1} + (1 + \theta_1 L) \eta_d \label{eqn:arima1}
 \end{equation}
 where J(0)=\{ $x_2$, $x_{10}$, $x_{25}$, $x_{54}$, $x_{56}$, $x_{74}$, $x_{75}$, $x_{83}$, $x_{94}$, $x_{103}$, $x_{121}$\} and J(1) = \{$x_{32}$, $x_{61}$, $x_{86}$, $x_{115}$, $x_{117}$\}.
 
-If the error term $\varepsilon_d$ can be adequately modeled by ARIMA(3,0,2), the complete model is simplified as follows:
+If the error term $\varepsilon_d$ can be adequately modeled by ARIMAX(3,0,2), the complete model is simplified as follows:
 \begin{eqnarray}
     \ln \frac{o_d}{o_{d-1}} & = & \alpha_0 + \sum_{x_i \in J(0)} \alpha_i x_{i,d-1} + \sum_{x_i \in J(1)} \alpha_i \Delta x_{i,d-1} \nonumber \\
                            & + & (1-\phi_1L-\phi_2L^2-\phi_3L^3)^{-1}(1 + \theta_1 L + \theta_2 L^2) \eta_d \label{eqn:arima32}
@@ -703,7 +704,7 @@ $x_{83}$         &induced buy	         &0.086***(0.029)	       &$\theta_2$	     
 
 \subsubsection{Model Validation}
 
-The validity of the model is tested by standard procedures. First, the moduli of the inverse of the AR roots are 0.872, 0.872, and 0.176, and the moduli of the inverse of the MA roots are 0.827 and 0.827. The inverses of all of the roots lie inside the unit circle in Figure \ref{fig:inverroot}; therefore, 3 is not a unit root in the fitted ARIMA(3,0,2) model. A first-order autoregressive conditional heteroskedasticity test on the residuals suggests no obvious heteroscedasticity. $DW=2$ indicates the lack of strong autocorrelation. The autocorrelation coefficients of the residuals are very close to zero [refer to Figure \ref{fig:ACF}]. The Ljung-Box $Q$ value is equal to 0.495\footnote{This weak hypothesis test infers that the residuals are white noise. The null hypothesis is that the residuals are not white noise.}, which suggests that the residuals are likely to be white noise. In summary, the model is valid.
+The validity of the model is tested by standard procedures. First, the moduli of the inverse of the AR roots are 0.872, 0.872, and 0.176, and the moduli of the inverse of the MA roots are 0.827 and 0.827. The inverses of all of the roots lie inside the unit circle in Figure \ref{fig:inverroot}; therefore, 3 is not a unit root in the fitted ARIMAX(3,0,2) model. A first-order autoregressive conditional heteroskedasticity test on the residuals suggests no obvious heteroscedasticity. $DW=2$ indicates the lack of strong autocorrelation. The autocorrelation coefficients of the residuals are very close to zero [refer to Figure \ref{fig:ACF}]. The Ljung-Box $Q$ value is equal to 0.495\footnote{This weak hypothesis test infers that the residuals are white noise. The null hypothesis is that the residuals are not white noise.}, which suggests that the residuals are likely to be white noise. In summary, the model is valid.
 
 \begin{figure*}[htbp]
 \centering
@@ -786,7 +787,7 @@ The proliferation of the Internet has improved our ability to access information
 
 Social media is a valuable source for polling public views. The rapid development of social media and technology in text mining not only allows us to collect opinions from a large group of individuals, but also to perform this task in a timely manner.
 
-Automatic word segmentation algorithm is illustrated in this study. Conventionally, empirical researchers select keywords manually, and this approach is subjective to some extent. The proposed method can avoid the bias of personal experience and is more robust and objective. The collected posts are used to measure the collective viewpoints of individual investors, particularly their emotions. The ARIMA model is deployed to link the collective viewpoints and the movements of the Chinese stock market, and a Granger test is performed to verify the causality relationship between the two variables. The statistical results infer that viewpoints reveal market movements.
+Automatic word segmentation algorithm is illustrated in this study. Conventionally, empirical researchers select keywords manually, and this approach is subjective to some extent. The proposed method can avoid the bias of personal experience and is more robust and objective. The collected posts are used to measure the collective viewpoints of individual investors, particularly their emotions. The ARIMAX model is deployed to link the collective viewpoints and the movements of the Chinese stock market, and a Granger test is performed to verify the causality relationship between the two variables. The statistical results infer that viewpoints reveal market movements.
 
 Social media can be transformed into a powerful source of data using the appropriate text mining tools. Given that the short-term stock market is affected by financial news, information propagation and digestion require time. The findings in this paper provide evidence for predicting market movements based on the promptly collected online viewpoints (emotions) of investors.
 

@@ -46,7 +46,7 @@ microblog \sep Chinese stock market \sep textual sentiment \sep emotions of inve
 
 
 \section{Introduction}
-China has become one of the fastest-growing major economies in the world~\cite{Bruche2009A}. The daily average turnover of the Shanghai Stock Exchange (SSE) ranks seventh in the world. Examining its market movements is of considerable importance. As an emerging market, the SSE consists of individual investors as major players. Psychological research has indicated that emotions, in addition to information, have a significant role in human decision making \cite{Dolan2002}. The investment decisions of individual investors are more likely to be influenced by their emotions. A reasonable assumption is that when many individual investors hold bullish views, their joint investment decisions are more likely to generate an upward momentum on the stock market. Similarly, more bearish views may generate a downward momentum. Such momentum, together with other factors (i.e., economic conditions, performance of listed companies, and investment decisions of institutional investors), jointly determine stock prices. A positive correlation may exist between the number of bullish (bearish) views and the upward (downward) movement of stock markets.\\
+China has become one of the fastest-growing major economies in the world. The daily average turnover of the Shanghai Stock Exchange (SSE) ranks seventh in the world. Examining its market movements is of considerable importance. As an emerging market, the SSE consists of individual investors as major players. Psychological research has indicated that emotions, in addition to information, have a significant role in human decision making \cite{Dolan2002}. The investment decisions of individual investors are more likely to be influenced by their emotions. A reasonable assumption is that when many individual investors hold bullish views, their joint investment decisions are more likely to generate an upward momentum on the stock market. Similarly, more bearish views may generate a downward momentum. Such momentum, together with other factors (i.e., economic conditions, performance of listed companies, and investment decisions of institutional investors), jointly determine stock prices. A positive correlation may exist between the number of bullish (bearish) views and the upward (downward) movement of stock markets.\\
 \indent
 Social media provides a valuable source for mining public views due to their distinctive features. First, a huge number of active users post their views or share their activities. Second, users who are linked up with each other in online social media are usually friends in reality or people who share similar interests. Thus, such posts typically reflect the true viewpoints of users. Third, posts are timely (i.e., they reflect the recent activities or opinions of users). In terms of successful social media, Facebook and Twitter are the most typical examples. In the Chinese environment, the counterpart of Twitter is Sina Weibo, one of the largest forms of social media in China; it was launched in August 2009. As of September 2016, Sina Weibo has 297 million monthly active users and 100 million posts each day. This paper uses data from Sina Weibo to conduct analysis.\\
 \indent
@@ -56,7 +56,7 @@ This paper verifies the rationality of the market from the perspective of behavi
 
 \section{Recent work}
 \label{sec:weibo:lr}
-As a response to the complications faced by traditional finance theories, behavioral finance has emerged as a new approach in financial markets. In general, behavioral finance argues that some financial phenomena can be better apprehended under the assumption that some players are not fully rational. More definitely, it investigates what happens when tenets that underlied individual rationality are relaxed \cite{Barberis2002}. Behavioral finance has provided proofs that financial decisions are significantly driven by emotions and moods \cite{Nofsinger2005}. Recent study in behavioral economics \cite{lo2004adaptive} shows that stock markets are driven by ``fear and greed". %Broadly speaking, two types of sentiment have been studied \cite{Kearney2014}. The first type is investor sentiment -- beliefs about future cash flows and investment risks that are not justified by the facts at hand \cite{Baker2007}. The second type of sentiment is text-based or textual sentiment -- the degree of positivity or negativity in financial texts.\\
+As a response to the complications faced by traditional finance theories, behavioral finance has emerged as a new approach in financial markets. In general, behavioral finance argues that some financial phenomena can be better apprehended under the assumption that some players are not fully rational. More definitely, it investigates what happens when tenets that underlied individual rationality are relaxed \cite{Barberis2002}. Behavioral finance has provided proofs that financial decisions are significantly driven by emotions and moods \cite{Nofsinger2005}. Recent study in behavioral economics shows that stock markets are driven by ``fear and greed". %Broadly speaking, two types of sentiment have been studied \cite{Kearney2014}. The first type is investor sentiment -- beliefs about future cash flows and investment risks that are not justified by the facts at hand \cite{Baker2007}. The second type of sentiment is text-based or textual sentiment -- the degree of positivity or negativity in financial texts.\\
 \indent
 %A substantial body of investor sentiment literature focuses on measuring investor sentiment using various approaches, as well as determining its effect on individual stocks and the overall market.
 
@@ -72,8 +72,8 @@ Dash and Maitra~\cite{Dash2017Does} investigated the relationship using a broad 
 In addition, the wavelet method was applied to study the relationship of investor sentiment on stock market volatility in Maitra and Dash~\cite{Maitra2017Sentiment}.
 
 \subsection{Stock comovement or movement}
-Sentiment analysis and machine learning principles are applied to study causation between public collective sentiment and market movements in Rao and Sirvastava~\cite{Rao2012TweetSmart}.
-Chen and Lazer~\cite{Chen2013Sentiment} constructed a model to investigate the relationship between Twitter feed content and stock market movement and put it to the test on real market data using a mock portfolio. The result indicated that the model was successful in generating additional profit.
+%Sentiment analysis and machine learning principles are applied to study causation between public collective sentiment and market movements in Rao and Sirvastava~\cite{Rao2012TweetSmart}.
+%Chen and Lazer~\cite{Chen2013Sentiment} constructed a model to investigate the relationship between Twitter feed content and stock market movement and put it to the test on real market data using a mock portfolio. The result indicated that the model was successful in generating additional profit.
 Smailovic et al.~\cite{Smailovi2013Predictive} showed that sentiment polarity (positive and negative sentiment) can indicate stock price movements a few days in advance by using the Granger causality test.
 Liu et al.~\cite{Liu2015A} studied the stock return comovement through a social-media-based approach and they proposed a novel clustering model to both identify homogeneous stock groups and predict stock comovement with respect to firm-specific social media metrics. The results showed that with simple metrics, social media data can produce better results compared to industry categories.
 Li et al.~\cite{Li2017Discovering} studied how public sentiment, as reflected on social media, can be used to predict stock price movement of a particular publicly-listed company. They proposed the technique called Social Media Data Analyzer-Sentiment Analysis (SMeDA-SA) to mine Twitter data for sentiment analysis and then predict the stock movement of specific listed companies. The result indicated that the stock movement of many companies can be predicted rather accurately with an average accuracy over 70\% with SMeDA-SA.
@@ -420,21 +420,22 @@ To avoid the effect of various magnitudes across different time series $x_i$ and
 \end{equation}
 where $\overline{x}_i$ and $\overline{\Delta x_i}$ are the averages of $x_i$ and $\Delta x_i$ over $d$, respectively. $\sigma_i$ and $\sigma_i'$ are the variances of $x_i$ and $\Delta x_i$ over $d$, respectively.
 
-Prior to estimating the parameters in the model, the number of variables is initially reduced. A stepwise variable selection procedure is subsequently deployed to the linear Model \ref{weibo:eqn:unitroot}. During this step, $\varepsilon_d$ is treated as white noise and the ordinary least square estimation is applied.
+A stepwise variable selection procedure is subsequently deployed to the linear Model \ref{weibo:eqn:unitroot} to reduce the number of variables. During this step, $\varepsilon_d$ is treated as white noise and the ordinary least square estimation is applied.
 
-\subsection{Multiplicative Autoregressive Integrated Moving Average (ARIMAX) Model}
-The ordinary least square estimation cannot be applied directly to Model \ref{weibo:eqn:unitroot}, because the error term in the model $\varepsilon_d$ includes not only the white noise but also the components that capture the complex dynamics of the index. Two well-known behaviors of the stock market must be considered, namely, the bull and bear cycle, and mean reversion. Both effects can be captured by the ARIMA$(p, d, q)$ model:
+\subsection{ARIMA Model for the Error Term}
+In Model \ref{weibo:eqn:unitroot}, $\varepsilon_d$ is treated as white noise. Actually, the error term $\varepsilon_d$ includes not only the white noise but also the components that capture the complex dynamics of the index. We model the error term $\varepsilon_d$ by the ARIMA$(p, d, q)$ model:
 \begin{eqnarray}
+\label{eqn:error}
 	\nonumber \varepsilon_d &= \phi(L)^{-1}(1-L)^{-d}\theta(L)\eta_d  \\
-	\phi(L)       &= 1-\phi_1 L - \phi_2 L^2 - \cdots - \phi_p L^p \\\label{eqn:error}
+	\phi(L)       &= 1-\phi_1 L - \phi_2 L^2 - \cdots - \phi_p L^p \\
 	\nonumber \theta(L)     &= 1+\theta_1 L + \theta_2 L^2 + \cdots + \theta_q L^q
 \end{eqnarray}
 where $L$ denotes the lag operator that operates on an element to produce the previous element, $\phi(L)$ is a polynomial of the degree $p$, $\theta(L)$ is a polynomial of the degree $q$, and $\eta_d$ are independent and identically distributed standard normal random variables.\\
 \indent
-Deciding the appropriate values for $p$, $d$, and $q$ is crucial in making valid statistical conclusions. A single best means of deciding the appropriate values is lacking; hence, a set of combinations is tested to minimize the risk of selecting the incorrect parameters. The testing involves two stages: First, error terms $\varepsilon_d$ are assumed to be white noise and Model \ref{weibo:eqn:unitroot} is fitted, obtaining residuals $\hat e_d$. Second, given $\hat e_d$, Model \ref{eqn:error} is estimated using the Gauss-Newton (G-N) iteration method with each combination of $p$, $d$ and $q$.\\
+Deciding the appropriate values for $p$, $d$, and $q$ is crucial in making valid statistical conclusions. A single best means of deciding the appropriate values is lacking; hence, a set of combinations is tested to minimize the risk of selecting the incorrect parameters. Model \ref{eqn:error} is estimated using the Gauss-Newton (G-N) iteration method with each combination of $p$, $d$ and $q$.
+A small set of combinations is selected from the combination set based on three commonly used model selection criteria AIC, SC and BIC.\\
 \indent
-The results of the two-stage fit only serve as estimates of the actual performance of the model. A small set of combinations is selected from the combination set based on three commonly used model selection criteria AIC, SC and BIC. Models \ref{weibo:eqn:unitroot} and \ref{eqn:error} subsequently are merged as a model, and the initial values of $p$, $d$ and $q$ are set as the obtained values of the two-stage fit. The parameters in the merged model are estimated using the G-N iteration method.\\
-\indent
+After $p$, $d$, and $q$ are known, Models \ref{weibo:eqn:unitroot} and \ref{eqn:error} subsequently are merged as a model. The coefficients in the merged model are estimated once again using the G-N iteration method.
 Moreover, a Granger causality test is performed to test the causality between market returns and the number of Weibo posts.
 %The forecasting models for daily high, low and closing prices are developed in the same process as the daily opening price.
 
@@ -538,7 +539,7 @@ The ADF test is also applied to series $r_d$; the result suggests that series $r
 
 \subsubsection{Variable Selection}
 
-During variable reduction, $\varepsilon_d$ is treated as white noise and the ordinary least square estimation is applied. After a stepwise variable selection procedure is deployed to the linear Model \ref{weibo:eqn:unitroot}, the total number of variables is reduced from 130 to 16. As shown in Table \ref{tab:open-variable-selection}, five variables are from I(0) and the other 11 variables are from I(1).
+During variable reduction, $\varepsilon_d$ is treated as white noise and the ordinary least square estimation is applied. After a stepwise variable selection procedure is deployed to the linear Model \ref{weibo:eqn:unitroot}, the total number of variables is reduced from 130 to 16. As shown in Table \ref{tab:open-variable-selection}, 11 variables are from I(0) and the other 5 variables are from I(1).
 
 \begin{table}[htbp]
 \caption{Results of the stepwise variable selection of Model \ref{weibo:eqn:unitroot}}
@@ -575,7 +576,7 @@ $x_{121}$        &market rally	          &32.21	&0.199***(0.000)	&6.048\\
 
 The original 130 keywords contain 58 emotional words that clearly indicate bullish/bearish views and 72 neutral finance-related words. After variable selection, 14 emotional words and 2 neutral words remain, which indicates that emotional words reflect the index price movement more heavily.
 
-\subsubsection{Parameters of the ARIMAX Model}
+\subsubsection{Parameters of the ARIMA Model}
 To decide parameter $d$ in Model \ref{eqn:error}, residuals $\hat{e}_d = r_d - \hat{r}_d$ are tested for unit root through the ADF test. The test results that are summarized in Table \ref{tab:t3} suggest that the residuals form a stationary process; therefore, setting $d = 0$ is appropriate.
 
 \begin{table}[htbp]
@@ -595,7 +596,7 @@ test critical values	&1\% level	&-3.439105 &\\
 \end{table}
 
 
-The appropriate values for $p$ and $q$ in the ARIMAX model follow the framework of Box and Jenkins \cite{Box2015Time}. The autocorrelation plot in Figure \ref{fig:lag1} suggests that $\varepsilon_d$ is not white noise (i.e., at most one of $p$ and $q$ is zero). The partial autocorrelation at lag $p$ is the autocorrelation between $\hat e_d$ and $\hat e_{d-p}$. The partial autocorrelation of an AR($p$) process is zero at lag $p+1$ and greater. Similarly, the partial autocorrelation of an MA($q$) process is zero at lag $q+1$ and greater. From Figure \ref{fig:lag2}, the partial autocorrelation at lags 4, 5 and 6 is nearly zero, and setting $p$ and $q$ to be around 3 is a sensible choice.
+The appropriate values for $p$ and $q$ in the ARIMA model follow the framework of Box and Jenkins \cite{Box2015Time}. The autocorrelation plot in Figure \ref{fig:lag1} suggests that $\varepsilon_d$ is not white noise (i.e., at most one of $p$ and $q$ is zero). The partial autocorrelation at lag $p$ is the autocorrelation between $\hat e_d$ and $\hat e_{d-p}$. The partial autocorrelation of an AR($p$) process is zero at lag $p+1$ and greater. Similarly, the partial autocorrelation of an MA($q$) process is zero at lag $q+1$ and greater. From Figure \ref{fig:lag2}, the partial autocorrelation at lags 4, 5 and 6 is nearly zero, and setting $p$ and $q$ to be around 3 is a sensible choice.
 
 \begin{figure}[htbp]
 \centering
@@ -611,7 +612,7 @@ The appropriate values for $p$ and $q$ in the ARIMAX model follow the framework 
 Each combination of $p=0,1,2,3$ and $q=0,1,2,3$ is tested against the residuals in Model \ref{eqn:error} using the G-N iteration method. AIC, SC, and BIC are used to evaluate the fitness of models. The results are summarized in Table~\ref{tab:select-pq}.
 
 \begin{table}[htbp]
-\caption{Fitness of ARIMAX$(p,0,q)$}
+\caption{Fitness of ARIMA$(p,0,q)$}
 \center
 \label{tab:select-pq}
 \begin{tabular} {l c c c c}
@@ -638,15 +639,15 @@ Each combination of $p=0,1,2,3$ and $q=0,1,2,3$ is tested against the residuals 
 \end{tabular}
 \end{table}
 
-Parameter combinations that induce the best fitness in terms of one selection criterion are highlighted in bold. According to the AIC criterion, ARIMAX(3,0,2) is the best model. According to SC and BIC criteria, ARIMAX(0,0,1) is the best model.
+Parameter combinations that induce the best fitness in terms of one selection criterion are highlighted in bold. According to the AIC criterion, ARIMA(3,0,2) is the best model. According to SC and BIC criteria, ARIMA(0,0,1) is the best model.
 
-ARIMAX(0,0,1) and ARIMAX(3,0,2) are subsequently tested against the merged model. If the error term $\varepsilon_d$ can be adequately modeled by ARIMAX(0,0,1), then the complete model is simplified as follows:
+ARIMA(0,0,1) and ARIMA(3,0,2) are subsequently tested against the merged model. If the error term $\varepsilon_d$ can be adequately modeled by ARIMA(0,0,1), then the complete model is simplified as follows:
 \begin{equation}
     \ln \frac{o_d}{o_{d-1}} = \alpha_0 + \sum_{x_i \in J(0)} \alpha_i x_{i,d-1} + \sum_{x_i \in J(1)} \alpha_i \Delta x_{i,d-1} + (1 + \theta_1 L) \eta_d \label{eqn:arima1}
 \end{equation}
 where J(0)=\{ $x_2$, $x_{10}$, $x_{25}$, $x_{54}$, $x_{56}$, $x_{74}$, $x_{75}$, $x_{83}$, $x_{94}$, $x_{103}$, $x_{121}$\} and J(1) = \{$x_{32}$, $x_{61}$, $x_{86}$, $x_{115}$, $x_{117}$\}.
 
-If the error term $\varepsilon_d$ can be adequately modeled by ARIMAX(3,0,2), the complete model is simplified as follows:
+If the error term $\varepsilon_d$ can be adequately modeled by ARIMA(3,0,2), the complete model is simplified as follows:
 \begin{eqnarray}
     \ln \frac{o_d}{o_{d-1}} & = & \alpha_0 + \sum_{x_i \in J(0)} \alpha_i x_{i,d-1} + \sum_{x_i \in J(1)} \alpha_i \Delta x_{i,d-1} \nonumber \\
                            & + & (1-\phi_1L-\phi_2L^2-\phi_3L^3)^{-1}(1 + \theta_1 L + \theta_2 L^2) \eta_d \label{eqn:arima32}
@@ -708,7 +709,7 @@ $\Delta x_{86}$  & $\Delta$break through & 0.160***(0.034)\\
 
 \subsubsection{Model Validation}
 
-The validity of the model is tested by standard procedures. First, the moduli of the inverse of the AR roots are 0.872, 0.872, and 0.176, and the moduli of the inverse of the MA roots are 0.827 and 0.827. The inverses of all of the roots lie inside the unit circle in Figure \ref{fig:inverroot}; therefore, 3 is not a unit root in the fitted ARIMAX(3,0,2) model. A first-order autoregressive conditional heteroskedasticity test on the residuals suggests no obvious heteroscedasticity. $DW=2$ indicates the lack of strong autocorrelation. The autocorrelation coefficients of the residuals are very close to zero [refer to Figure \ref{fig:ACF}]. The Ljung-Box $Q$ value is equal to 0.495\footnote{This weak hypothesis test infers that the residuals are white noise. The null hypothesis is that the residuals are not white noise.}, which suggests that the residuals are likely to be white noise. In summary, the model is valid.
+The validity of the model is tested by standard procedures. First, the moduli of the inverse of the AR roots are 0.872, 0.872, and 0.176, and the moduli of the inverse of the MA roots are 0.827 and 0.827. The inverses of all of the roots lie inside the unit circle in Figure \ref{fig:inverroot}; therefore, 3 is not a unit root in the fitted ARIMA(3,0,2) model. A first-order autoregressive conditional heteroskedasticity test on the residuals suggests no obvious heteroscedasticity. $DW=2$ indicates the lack of strong autocorrelation. The autocorrelation coefficients of the residuals are very close to zero [refer to Figure \ref{fig:ACF}]. The Ljung-Box $Q$ value is equal to 0.495\footnote{This weak hypothesis test infers that the residuals are white noise. The null hypothesis is that the residuals are not white noise.}, which suggests that the residuals are likely to be white noise. In summary, the model is valid.
 
 \begin{figure*}[htbp]
 \centering
@@ -791,7 +792,7 @@ The proliferation of the Internet has improved our ability to access information
 
 Social media is a valuable source for polling public views. The rapid development of social media and technology in text mining not only allows us to collect opinions from a large group of individuals, but also to perform this task in a timely manner.
 
-Automatic word segmentation algorithm is illustrated in this study. Conventionally, empirical researchers select keywords manually, and this approach is subjective to some extent. The proposed method can avoid the bias of personal experience and is more robust and objective. The collected posts are used to measure the collective viewpoints of individual investors, particularly their emotions. The ARIMAX model is deployed to link the collective viewpoints and the movements of the Chinese stock market, and a Granger test is performed to verify the causality relationship between the two variables. The statistical results infer that viewpoints reveal market movements.
+Automatic word segmentation algorithm is illustrated in this study. Conventionally, empirical researchers select keywords manually, and this approach is subjective to some extent. The proposed method can avoid the bias of personal experience and is more robust and objective. The collected posts are used to measure the collective viewpoints of individual investors, particularly their emotions. The ARIMA model is deployed to link the collective viewpoints and the movements of the Chinese stock market, and a Granger test is performed to verify the causality relationship between the two variables. The statistical results infer that viewpoints reveal market movements.
 
 Social media can be transformed into a powerful source of data using the appropriate text mining tools. Given that the short-term stock market is affected by financial news, information propagation and digestion require time. The findings in this paper provide evidence for predicting market movements based on the promptly collected online viewpoints (emotions) of investors.
 
